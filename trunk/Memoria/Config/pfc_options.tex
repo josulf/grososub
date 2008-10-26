@@ -1,0 +1,77 @@
+%
+% Erabilgarriak suerta dakizkizuken paketeak (gom = gomendatua, opz = opzionala)
+%
+\usepackage{fancyhdr}          % (gom)  goiburu eta oinak moldatzea ahalbidetzen du.
+\usepackage{courier}           % (opz)  fuente hau erabili, defektuz.
+\usepackage{setspace}          % (opz)  lerroen arteko espazioa aldatzea ahalbidetzen du.
+\usepackage{longtable}         % (opz)  taulak orri bat baino gehiago luzatzea ahalbidetzen du.
+\usepackage{lscape}            % (opz)  \landscape komanduaz zerbait apaisatua jartzea ahalbidetzen du.
+\usepackage{color}             % (opz)  koloreri loturiko zenbait komandu (halaber \color).
+\usepackage{rotating}          % (opz)  PSak eta EPSak biratzeko.
+\usepackage{textcomp}          % (opz)  euro simboloa gehitzea ahalbidetzen du, \texteuro simboloaz.
+\usepackage{minitoc}           % (opz)  kapitulu bakoitzean ToCak (gaien indizeak) gehitzea ahalbidetzen du.
+\usepackage{epsf}              % (opz)  EPSen zenbait moldaketa ahalbidetzen du.
+\usepackage[utf8x]{inputenc}   % (opz)  zenbait textu editorek karaktere gehiago (adbz. tildeak) erakustea ahalbidetzen du.
+\usepackage[absolute]{textpos} % (gom)  textua nahi bezala orrian kokatzeko (portadarak beharrezkoa)
+\usepackage{srcltx}            % (opz)  .dvi-tik .tex-era pasatzea ahalbidetzen du.
+\usepackage[basque]{babel}     % (gom)  LaTeX euskarara moldatzeko.
+
+%
+% Marginak moldatzeko. Deskomentatu eta aldatu egiten ari zaren baldin badakizu.
+% Ohar ematen diren baloreei pulgada bat gehitzen zaiola. Emandako baloreak A4
+% papera eta itsas_pfc.cls estilorako aurredeterminatutakoak dira.
+%
+%\setlength{\oddsidemargin}{10pt}     % ezker margina orri ezpareetarako (ezkerra)
+%\setlength{\evensidemargin}{52pt}    % ezker margina orri pareetarako (eskubia)
+%\setlength{\textwidth}{390pt}        % textu gorputzaren zabalera
+
+%
+% Figuren kokapen automatikoa hobetzeko.
+% (http://dcwww.camp.dtu.dk/~schiotz/comp/LatexTips/LatexTips.html#captfont-tik hartua)
+%
+\renewcommand{\topfraction}{0.85}
+\renewcommand{\textfraction}{0.1}
+\renewcommand{\floatpagefraction}{0.75}
+
+%
+% Orriaren goikaldea eta textua hasten deneko puntuaren arteko distantzia (hor doaz
+% goiburuak). LaTeX kexatu egiten da 15pt baino txikiagoa denean.
+%
+\headheight 15pt
+
+%
+% Portadan erabiltzen den textpos paketearentzat.
+%
+\setlength{\TPHorizModule}{\paperwidth}
+\setlength{\TPVertModule}{\paperheight}
+\newcommand{\tb}[4]{\begin{textblock}{#1}[0.5,0.5](#2,#3)\begin{center}#4\end{center}\end{textblock}}
+
+%
+% Hemen zure komandoak defini ditzakezu.
+% 
+% \newcommand{cmd}[args]{def}
+%
+% cmd  = definitu nahi den komandoaren izena (adbz. \ura)
+% args = argumentu kopurua
+% def  = definizioa, non #1, #2... lehen, bigarren... argumentuekin trukatuko diren.
+%
+% Adibidez:
+%
+% \newcommand{\ura}[1]{H\ensuremath{_#1}O}
+%
+% "\ura{33}" idaztean, output-ean H33O aterako da (33 azpiindezea delarik).
+%
+
+%\newcommand{\zerbait}{zerbait}
+
+%
+% Hemen LaTeX-i esan diezaiokezu nondik moztu berak mozten ez dakizkien hitzak.
+% Adibidez, "gnomonly" nola gidoiak (-) dauden lekutik mozteko:
+%
+\hyphenation{gno-mon-ly} 
+ 
+%
+% Hasieran orriak zenbaki erromatarrez zenba daitezela.
+% Aurrerako zenbaki arabiarretara pasako gara.
+%
+\pagenumbering{Roman}

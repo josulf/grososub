@@ -1,0 +1,115 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                                           %
+%  Karrera Bukaerako Proiekturako Plantilla %
+%                                           %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%
+% CONFIG: dokumentu estiloa definitu
+%
+
+\documentclass[a4paper,12pt,basque]{itsas_pfc}
+
+%
+% CONFIG: konfigurazio opzionala
+%
+
+\input{Config/pfc_options.tex}
+
+%
+% Dokumentua berau hasten da
+%
+
+\begin{document}
+
+%
+% CONFIG: zenbait aldagairi balioa eman
+%
+
+\input{Config/rename.tex}
+
+%         
+% EDUKINA: Portadaren edukina.
+%         
+
+\input{Config/cover.tex}
+
+%
+% CONFIG: orriak 1 zenbakiaz kontatzen hasi.
+%
+
+\input{Config/begin.tex}
+
+%
+% EDUKINA: eskertzak/zitak/aitzinsolasa gehitu nahi izan ezkero.
+%
+
+\input{file-acknowledgements.tex} % eskertzak
+\input{file-preface.tex}          % aitzinsolasa
+
+%
+% CONFIG: Gaien Indizea (ToC).
+% 
+
+\input{Config/toc.tex}
+
+%
+% CONFIG: goiburu/oinaren estiloa definitzeko.
+%
+
+\input{Config/headers.tex}
+
+%
+% CONTENT: Laburpena, balego.
+%
+
+\input{file-abstract.tex}
+
+%
+% CONFIG: Kapituluen estiloa.
+%
+
+\input{Config/chapters.tex}
+
+%
+% EDUKINA: Honen ostean, gehitu nahi bezainbeste kapitulu/sekzio.
+%
+
+\input{file-chapter1.tex} % 1. Kapitulua
+\input{file-chapter2.tex} % 2. Kapitulua
+
+%
+% CONFIG: Apendizeen estiloa.
+%
+
+\input{Config/appendices.tex}
+
+%
+% EDUKINA: Apendizeak, baleude.
+%
+
+\input{file-appendix1.tex} % I apendizea
+
+%
+% CONFIG: Bibliografia estiloa.
+%
+
+\input{Config/bibliography.tex}
+
+%
+% EDUKINA: Bibliografia. Idatzi sartu nahi dituzun .bib fitxeroen izena, erakusten den moduan.
+%
+
+\bibliography{file-bibliography,file-bibliography2}
+
+%
+% EDUKINA: Publikazio zerrenda, balego.
+%
+
+\input{file-publications.tex}
+
+%
+% Agur, Ben-Hur.
+%
+
+\end{document}

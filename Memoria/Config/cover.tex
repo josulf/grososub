@@ -1,0 +1,34 @@
+%
+% Fitxero honek KBP/Tesiaren lehenengo orria sortzen du, zeinak
+% titulua, zure izena, gainbegiralearen izena etab. dituen.
+%
+% Horri honen gehiengoa, dena ezpada, komandoen bitartez gehitua dago, 
+% (adbz. \thesistitle). Hauek Config/pfc_options.tex-en definituak izan dira.
+%
+% Editatu nahi den moduan.
+%
+
+\thispagestyle{empty} % orri honetan imprimatu ez zenbaki, ez goiburu, ez oinik
+
+%
+% Erabili \tb gauzak orrian kokatzeko. Erabilera:
+%
+% \tb{w}{h}{v}{t}
+%
+% non:
+%
+% w = textu kaxaren zabalera (1.0 = orri zabalera osoa)
+% h = textu kaxaren posizio horizontala (0.0 = ezkerraldea, 1.0 = eskuinaldea)
+% v = textu kaxaren posizio bertikala (0.0 goian, 1.0 behera)
+% t = kaxan idatziko den textua
+%
+
+\tb{0.8}{0.50}{0.22}{\huge \thesistitle}                       % titulua
+\tb{0.8}{0.50}{0.37}{\Large \worktype}                         % KBP edo Tesia ote den
+\tb{0.5}{0.50}{0.40}{\today}                                   % sortze data (aldatu textu finkoaz)
+\tb{0.8}{0.50}{0.45}{\large \myname}                           % autorearen izena
+\tb{0.8}{0.50}{0.50}{\large \textit{Gainbegiralea:}\\ \myboss} % gainbegiralearen izena
+\tb{0.9}{0.50}{0.90}{\includegraphics[width=0.30\columnwidth]{\logo}} % logo UPV/EHU
+
+\ \clearpage                       % orria hemen bukatu
+\thispagestyle{empty} \ \clearpage % orri txuria

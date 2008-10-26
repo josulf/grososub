@@ -1,0 +1,46 @@
+\tocchapter{Lehenengo kapitulua}
+
+Hau lehenengo kapitulua da.
+
+\section{Lehenengo sekzioa}
+
+Hau lehenengo kapituluaren lehenengo sekzioa da.
+
+Parrafoak indentatuta hasten direla ikusiko duzu, adibidez parrafo hau hala agertzen da, ikus dezakezun bezela.
+
+\noindent Indentazioa ekidin daiteke, \verb#\noindent# jarrita. Adibidez, lerro hau.
+
+\noindent Item zerrenda adibidea:
+
+\begin{itemize}
+ \item Hau adibidezko zita bat da\cite{yo:07} (\textit{file-bibliography.bib} bibliografia fitxerotik).
+ \item Hau beste zita bat da\cite{yo:08} (\textit{file-bibliography2.bib} fitxerotik).
+ \item Ikus \ref{tab}~Taula.
+ \item Ikus \ref{fig}~Figura.
+ \item Ikus \ref{eq}~Ek.
+\end{itemize}
+
+\begin{table}[hbt]
+ \begin{center}
+ \begin{tabular}{cc}
+  a & b \\
+  c & d 
+ \end{tabular}
+ \end{center}
+ \caption{Hau taula bat da.}
+ \label{tab}
+\end{table}
+
+\begin{figure}[hbt]
+ \begin{center}
+  % Hurrengo lerroa deskomentatu, FILENAME nahi den (E)PS fitxeroaz aldatuz
+  %\includegraphics[width=1.0\cw]{FILENAME.eps}
+ \end{center}
+ \caption{Figura hau hutsik dago.}
+ \label{fig}
+\end{figure}
+
+\begin{equation}
+  7 = 1
+ \label{eq}
+\end{equation}

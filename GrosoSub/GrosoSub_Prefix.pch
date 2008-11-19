@@ -1,7 +1,0 @@
-//
-// Prefix header for all source files of the 'GrosoSub' target in the 'GrosoSub' project
-//
-
-#ifdef __OBJC__
-    #import <Cocoa/Cocoa.h>
-#endif

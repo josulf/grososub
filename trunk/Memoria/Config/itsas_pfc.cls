@@ -8,7 +8,7 @@
 %                                                                   %
 %-------------------------------------------------------------------%
 %                                                                   %
-% (c) 2007, Iñaki Silanes                                           %
+% (c) 2007, Iaki Silanes                                           %
 %                                                                   %
 %-------------------------------------------------------------------%
 %                                                                   %
@@ -137,7 +137,8 @@
 \setlength\lineskip{1\p@}
 \setlength\normallineskip{1\p@}
 \renewcommand\baselinestretch{}
-\setlength\parskip{0\p@ \@plus \p@}
+%\setlength\parskip{0\p@ \@plus \p@}
+\setlength{\parskip}{1ex}
 \@lowpenalty   51
 \@medpenalty  151
 \@highpenalty 301

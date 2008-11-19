@@ -43,7 +43,7 @@ $mode = '34' if ($mode == 4);
 # PostScript eta PDF bisoreak definitu
 #
 my $seeps  = 'gv';
-my $seepdf = 'acroread';
+my $seepdf = 'open';
 
 #
 # Otras variables
@@ -61,13 +61,13 @@ push(@list,"cp $f.tex $tmp.tex");                                               
 push(@list,"latex $tmp");                                                           # latex exekutatu
 push(@list,"bibtex $tmp");                                                          # bibtex exekutatu
 push(@list,"latex $tmp");                                                           # bigarren kompilazioa, erref. gurutzatuetarako
-push(@list,"latex $tmp");                                                           # latex berriz exekutatu
-push(@list,"dvips -t $psize $tmp.dvi -o $tmp.ps >& /dev/null") unless ($mode == 1); # DVIa PS bihurtu
-push(@list,"mv $tmp.dvi Main.dvi") if ($mode =~ /1/);                               # DVIa gorde
-push(@list,"ps2pdf $tmp.ps") if ($mode =~ /3/ );                                    # PSa PDFan bihurtu
-push(@list,"mv -f $tmp.ps  $outps")  if ($mode =~ /2/);                             # PSaren kopia $outps-en gorde
+push(@list,"pdflatex $tmp");                                                           # latex berriz exekutatu
+#push(@list,"dvips -t $psize $tmp.dvi -o $tmp.ps >& /dev/null") unless ($mode == 1); # DVIa PS bihurtu
+#push(@list,"mv $tmp.dvi Main.dvi") if ($mode =~ /1/);                               # DVIa gorde
+#push(@list,"ps2pdf $tmp.ps") if ($mode =~ /3/ );                                    # PSa PDFan bihurtu
+#push(@list,"mv -f $tmp.ps  $outps")  if ($mode =~ /2/);                             # PSaren kopia $outps-en gorde
 push(@list,"mv -f $tmp.pdf $outpdf") if ($mode =~ /3/);                             # PDFaren kopia $outpdf-en gorde
-push(@list,"$seeps $outps >& /dev/null &") if ($mode =~ /4/ and $mode !~ /3/);      # PSa ireki, eta jarraitu
+#push(@list,"$seeps $outps >& /dev/null &") if ($mode =~ /4/ and $mode !~ /3/);      # PSa ireki, eta jarraitu
 push(@list,"$seepdf $outpdf &")            if ($mode =~ /4/ and $mode =~ /3/);      # PDFa ireki, eta jarraitu
 push(@list,"cp $tmp.log $f.log");
 push(@list,"rm -f $tmp.*");                                                         # zaborra borratu

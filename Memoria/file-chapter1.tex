@@ -1,3 +1,47 @@
 \tocchapter{Sarrera}
+Telebistarako eta zinemarako sortzen den material gehiena bikoiztu egiten da gure hizkuntzara, hemen ez dagoelako ohitura atzerrian sortzen diren produktuak jatorrizko hizkuntzan ikusteko. Hizkuntza batetik bestera pasatzerakoan moldaketa prozesu bat dago, guk entzuten duguna aktorearen ahorakin sinkronizatuta egon behar delako. Honen ondorioz, zenbait gauza \textit{galdu} egiten dira bikoizketa prozesuan zehar.
+
+Azpitituluak erabiliz ordea, arazo hau ekidin daiteke, pantailan agertzen zaigun testua eta aktorearen ahoa ez direlako sinkronizatuta egon behar. Dena den, azpitituluek zenbait arau bete behar dituzte: oso luzeak ez izatea, ikusgarriak izatea, denbora ematea irakurtzeko, etab.
+
+Azken urteetan, Internet-en bultzadarekin gehienbat, talde altruista asko sortu dira azpitituluak egiten dituztenak, jatorrizko hizkuntzan materiala ikusi ahal izateko. Bestalde, honen bidez, hona iritsiko ez den materiala ikus dezakegu gure hizkuntzan azpititulatuta.
+
+\section{Azpititulu formatuak}
+Azpititulu formatu ugari daude gaur egun, baina erabilenak \textit{Subrip}(SRT) eta \textit{Advanced Substation Alpha}(ASS) formatuak dira. Bi formatu hauek testu fitxategiak dira, beraz, edozein testu editorerekin ireki eta eraldatu ditzakegu, baina lan handia suposatzen du. Horregatik hainbat tresna sortu dira hauek modu eroso batean manipulatzeko.
+
+SRT formatua oso simplea da:
+\begin{verbatim}
+1
+00:00:20,000 --> 00:00:24,400
+In connection with a dramatic increase
+in crime in certain neighbourhoods,
+
+2
+00:00:24,600 --> 00:00:27,800
+The government is implementing a new policy...
+\end{verbatim}
+Hasieran identifikadorea daukagu eta ondoren azpititulu hori pantailan noiz agertuko eta noiz desagertuko den. Azkenik, zein den erakutsi behar den testua eta amaitzeko lerro txuri bat.
+
+ASS formatua askoz konplexuagoa da, aukera asko eskeintzen dituelako:
+
+\begin{itemize}
+\item Pertsonaia desberdinentzako \textit{estiloak} erabil ditzakegu, letra mota, tamaina, koloreak, itzala, angelua, transparentzia, etab. definituz
+\item Azpititulu bakoitzaren posizioa eta itxura alda dezakegu komando batzuen bidez.
+\item Azpititulu desberdinen arteko \textit{talkak} modu desberdinetan trata ditzakegu.
+\item Azpitituluak denboran zehar alda ditzakegu, pantailan zehar mugituz, koloreak aldatuz, etab.
+\item Karaoke sinpleak sortu ditzakegu abestietarako.
+\item \textit{Typesetting}-erako tresna ugari ditugu, irudian agertzen diren kartelak ezabatzeko eta hauen gainean idazteko adibidez.
+\end{itemize}
+
+Formatu hau da gure aplikaziorako interesatzen zaiguna. Fitxategien formatuari buruzko informazio gehigarria \textit{Matroska}-ren web orrian\cite{ma:ass} aurkitu dezakegu, eta sintaxiari buruzko informazioa SourceForge-en dagoen \textit{guliverkli} proiektuan\cite{gu:ass}.
+
+\section{Azpitituluak nola ikusi}
+Bi aukera dauzkagu azpitituluak ikusteko bideo baten gainean:
+
+\textit{Hardsub}: bideoa kodetzerakoan bideoan bertan txertatu. Azpitituluak bideoaren parte dira, beraz, ez dugu software berezik behar hauek ikusteko. Desabantaila bezala, bideoan kodetuta daudenez ezin ditugu atera editatzeko edo erreproduzitzerakoan ezkutatu, eta zenbait sistema eragileetarako ez daude bideoan txertatzeko plugin-ak.
+
+\textit{Softsub}: bideoa erreproduzitzerako orduan txertatu. Horretarako bideo fitxategiaz gain azpitituluen fitxategia behar dugu (edo fitxategi berdinean sartu, \textit{Matroska}\footnote{\url{www.matroska.org}} formatuak aukera hau ematen du adibidez). Desabantaila batzuk dauzka honek: zenbait erreproduktorek ez dituzte onartzen (gehienbat ASS formatuan daudenak) eta CPU-denbora asko jan dezakete \textit{efektu} asko erabiltzen badira. Dena den, sistema eragile erabilienetan (Windows, Linux eta Mac OS X) badago erreproduktoreren bat bateragarria dena.
 
 \section{Arazoa}
+Mac OS X plataforman azpitituluak ikusteko ez dugu arazorik, VLC\footnote{\url{http://www.videolan.org/vlc/}}, mplayer\footnote{\url{http://www.mplayerhq.hu/}} edo Quicktime\footnote{\url{http://www.apple.com/quicktime/}} (Perian\footnote{\url{http://www.perian.org}} izeneko plugin batekin) erabili ahal ditugulako \textit{softsub} motako azpitituluak ikusteko (lehen esandakoarekin argi geratu da \textit{hardsub} motakoekin ez dugula arazorik izango, bideoaren parte direlako), baina sortzeko edo editatzeko arazoak dauzkagu, ez dagoelako horretarako tresna espezializaturik. Datu txikiren bat aldatzeko testu editoreren bat erabili dezakegu, baina gauza konplexuak egiteko ez, lan ikaragarria egin behar delako adibidez lerro berri bat sartzeko: bideoan edo audioan begiratu noiz hasten den eta noiz bukatzen den dialogo-lerroa, fitxategian jarri, testua itzuli, etab. Gainera fitxategien formatua dela eta oso erraza da komaren (``,'') bat ahaztea eta dena hankaz gora uztea.
+
+Beraz, \textit{Advanced Substation Alpha} motako azpitituluak sortzeko eta editatzeko software bat behar dugu, erabiltzaileak prozesu hau modu eroso eta grafikoan egin ahal izateko.

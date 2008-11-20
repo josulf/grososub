@@ -1,9 +1,177 @@
 \tocchapter{Aurrekarien analisia}
 
 \section{Sarrera}
-
+Gaur egun badaude ASS formatuko azpitituluak editatzeko aplikazioak, gehienak Microsoft-en Windows sistema eragilerako eta batzuk Linux-erako. Mac OS X sistemarako ordea, ez dago erabilgarria den aplikaziorik.
 \section{Azpititulu editoreak}
+Atal honetan denboran zehar erabiliak izan diren azpititulu editoreak aztertu eta konparatuko ditugu.
+\subsection{Sub Station Alpha}
+Programa honek hasi zuen gure proiektuaren inguruko dena, programarekin batera, SSA formatua sortu zelako (honetatik atera zen gaur erabiltzen den ASS formatua). Microsoft Windows-erako doainiko programa pribatiboa da, 1996. urtean sortua britaniar baten eskutik, \textit{Kotus} ezizenarekin ezagutua. Ateratako azken bertsioa 2000. urtekoa da, beraz honen garapena duela asko bertan behera utzi zen.
+
+Garatzailearen esanetan, programaren funtzioa azpitituluak modu erraz batean eta kalitate handiarekin sortzea zen, garaiko garestiak eta motelak ziren tresna komertzialen ordezko bat sortzea hain zuzen ere.
+
+Nahiz eta bere garapena gaur egun kantzelatua egon, oraindik jende askok erabiltzen du, programa sinplea delako eta beraz oso erreza erabiltzeko, baita bere garaian erabiltzen zutenen ohituragatik.
+
+Hiru fitxategirekin lan egiten du:
+\begin{itemize}
+\item SSA script-a.
+\item Bideo fitxategi bat.
+\item Audio fitxategi bat.
+\end{itemize}
+
+Azpitituluak editatzeko, SSA fitxategia da behar dugun bakarra, baina azpitituluak sinkronizatzeko audio fitxategia kargatu behar dugu. Fitxategi honen formatua \textit{PCM WAV} motakoa izan behar da, 8 bitekoa eta kanal bakarrekoa (\textit{mono}). Bideoaren erabilera erreferentzia bat edukitzeko mugatzen da, azpitituluak ez dituelako erakusten prozesatu ondoren ikusiko diren bezala.
+
+% TODO: Kapturak eta hauen inguruko azalpenak
+
+\subsection{Medusa}
+2002. urtean, \textit{Sub Station Alpha}-ren garapena 2 urtez geldirik egon ondoren, editore hau kaleratu zuen programatzaile italiar batek, \textit{Kaidousama} ezizenarekin ezagutua. Urte honetarako, SSA formatuaren eboluzioa atera zen, \textit{Advanced Substation Alpha} (ASS), gaur egun erabiltzen dena. Aurreko programa bezala, hau baita Microsoft-en Windows sistema eragilerako garatu zen Visual Basic 6 erabiliz.
+
+Aldaketa handiak suposatu zituen editore honek, gehienbat ASS formatuaren inplementazioagatik. Hauek dira aipagarrienak:
+\begin{itemize}
+\item ASS formatuaren erabilera natiboa.
+\item Audio formatu gehiago erabili ditzake, adibidez \textit{MP3} edo \textit{OGG Vorbis}.
+\item Bideo bidezko sinkronizazioa.
+\item Sintaxiaren ¿resaltado? denbora errealean hau hobeto ulertzeko.
+\item Karaokeak silaba bidez sinkonizatzeko aukera, azkarra eta erosoa.
+\end{itemize}
+
+Hala ere, lan egiteko modua bere aintzindariaren antzekoa da, horregatik lortu zuen \textit{Sub Station Alpha} erabiltzen zuten askok hau erabiltzea.
+
+% TODO: Kapturak eta hauen inguruko azalpenak
+
+2004. urtean bere garapena bertan behera utzi zen, egileak Delphi-n birprogramatzea erabaki zuelako (\textit{ChronoSub} izenarekin), baina ez da berririk egon honen inguruan.
+\subsection{Aegisub}
+Hau da gaur egungo ASS formatuko azpititulu editorerik hoberena. Azpititulatzaile komunitateak berak garatu du, \textit{Sub Station Alpha}-k eta \textit{Medusa}-k zituzten arazoak konpontzeko asmoarekin.
+
+Hasieran \textit{Visual SSA} izenarekin ezagutu zen, ondoren \textit{Visual ASS} bezala eta azkenik \textit{Aegisub} izenarekin geratu da. 2005. urtean agertu zen v1.00 \textit{beta} bertsioa, eta 1.07 bertsiotik aurrera bere kodea askatu zuten BSD\footnote{\url{http://en.wikipedia.org/wiki/BSD_license}} lizentzia batekin. Bere denbora librea azpititulatzen pasatzen zuten bi programatzailek hasi zuten proiektua, baina gaur egun jende asko dago garapen taldean, horregatik gaur egun dagoen aplikaziorik erabilena eta konpletuena da.
+
+C++ lengoiaz garatuta dago, eta nahiz eta hasieran Windows-erako bakarrik izan, gaur egun Linux-en funtzionatzen du, baita Mac OS X-en ere (garatzaileen esanetan, baina honen inguruan aurrerago hitz egingo dugu).
+
+Hauek dira programak dituen ezaugarri nagusiak:
+\begin{itemize}
+\item ASS formatuaren erabilera natiboa, honez gain SSA, SRT eta TXT formatuak inportatu ditzake.
+\item Unicode testu kodifikazioan dauden fitxategiak erabil ditzake (oso erabilgarria beste hizkuntzetako karaktereak sartzeko).
+\item Karaokeak modu automatizatuan egiteko aukera \textit{Lua} programazio lengoaia erabiliz.
+\item Sintaxiaren ¿resaltado?.
+\item Bideoak ireki ditzake \textit{AviSynth} erabiliz.
+\item Azpitituluak erakusten ditu \textit{VSFilter} erabiliz, beraz prozesatu ondoren ikusiko diren bezala.
+\item \textit{DirectShow}-k dekodifikatu dezakeen edozein audio fitxategirekin lan egiteko ahalmena.
+\item Karaokeen sinkronizazioarako sistema aurreratua.
+\item Itzulpen prozesurako laguntzaile bat.
+\item Estiloak gorde daitezke script desberdinetan erabili ahal izateko.
+\item Estiloak aplikatzeko laguntzailea bat.
+\item Azpitituluen arteko kolisioak antzematen ditu.
+\item Makroen erabilera zenbait ataza egiteko.
+\item Azpitituluak modu grafikoan editatzeko aukera.
+\end{itemize}
+
+Ikusten dugunez, funtzionalitate asko ditu programa honek, bere atzean dagoen garapen taldeari esker.
+
+% TODO: Kapturak eta hauen inguruko azalpenak
 
 \section{Konparaketa}
-
+\ref{konparaketa}~taulan daude hiru programa hauen ezaugarriak. Bertan ikus dezakegunez, Aegisub da hiruretatik hoberena.
+\begin{longtable}{|l|c|c|c|}
+\hline
+& \grey Sub Station Alpha & \grey Medusa & \grey Aegisub\\
+\hline
+\endhead
+\hline
+\caption{\label{konparaketa}Aztertutako programen ezaugarriak}
+\endfoot
+\grey Bertsioa & 4.08 & 0.1.2.0 & 2.00alpha\\
+\hline
+\grey Garapena & \red Bertan behera & \red Bertan behera & \green Aktiboa\\
+\hline
+\grey Lizentzia & \red Itxia & \red Itxia & \green BSD\\
+\hline
+\grey Lengoaia & Visual Basic & Visual Basic & C++\\
+\hline
+\multicolumn{4}{|l|}{\bgrey \textbf{Azpititulu formatuak}}\\
+\hline
+\grey SSA & \green Bai(natiboa) & \green Bai & \green Bai\\
+\hline
+\grey ASS & \red Ez & \green Bai(natiboa) & \green Bai(natiboa)\\
+\hline
+\grey SRT & \red Ez & \green Bai & \green Bai\\
+\hline
+\grey Testu planoa & \green Bai & \green Bai & \green Bai\\
+\hline
+\multicolumn{4}{|l|}{\bgrey \textbf{Karaktere kodifikazioa}}\\
+\hline
+\grey Lokala & \green Bai(natiboa) & \green Bai(natiboa) & \green Bai\\
+\hline
+\grey Unicode & \red Ez & \red Ez & \green Bai(natiboa)\\
+\hline
+\grey Autodetekzioa & \red Ez & \red Ez & \green Bai\\
+\hline
+\multicolumn{4}{|l|}{\bgrey \textbf{Sistema eragileak}}\\
+\hline
+\grey Microsoft Windows & \green Bai & \green Bai & \green Bai\\
+\hline
+\grey Linux & \red Ez & \red Ez & \yellow Osatugabea\\
+\hline
+\grey Mac OS X & \red Ez & \red Ez & \red Erabilezina\\
+\hline
+\multicolumn{4}{|l|}{\bgrey \textbf{Audioa}}\\
+\hline
+\grey PCM WAV & \yellow 8 bit mono & \green Bai & \green Bai\\
+\hline
+\grey MP3 & \red Ez & \green Bai & \green Bai\\
+\hline
+\grey Ogg Vorbis & \red Ez & \green Bai & \green Bai\\
+\hline
+\grey AAC & \red Ez & \red Ez & \green Bai\\
+\hline
+\grey AC3 & \red Ez & \red Ez & \green Bai\\
+\hline
+\grey Bideotik & \green Bai & \red Ez & \green Bai\\
+\hline
+\grey Uhin-forma & \green Bai & \green Bai & \green Bai\\
+\hline
+\grey Espektroa & \red Ez & \red Ez & \green Bai\\
+\hline
+\multicolumn{4}{|l|}{\bgrey \textbf{\textit{Typesetting}}}\\
+\hline
+\grey Bisualki & \red Ez & \red Ez & \green Bai\\
+\hline
+\grey Estilo editorea & \green Bai & \green Bai & \green Bai\\
+\hline
+\grey Estilo kudeatzailea & \green Bai & \green Bai & \green Bai\\
+\hline
+\grey Estilo aurrebista & \green Bai & \red Ez & \green Bai\\
+\hline
+\multicolumn{4}{|l|}{\bgrey \textbf{Audio sinkronizazioa}}\\
+\hline
+\grey Elkarrizketak & \green Bai & \green Bai & \green Bai\\
+\hline
+\grey Karaokeak & \yellow Sinplea & \green Bai & \green Bai\\
+\hline
+\multicolumn{4}{|l|}{\bgrey \textbf{Azpitituluen gaineko eragiketak}}\\
+\hline
+\grey Shift, Split eta Join & \green Bai & \green Bai & \green Bai\\
+\hline
+\grey Bikoiztu & \red Ez & \red Ez & \green Bai\\
+\hline
+\grey Undo/Redo & \red Ez & \red Ez & \green Bai\\
+\hline
+\grey Sintaxi nabarmendua & \red Ez & \green Bai & \green Bai\\
+\hline
+\grey Regex & \red Ez & \red Ez & \green Bai\\
+\hline
+\multicolumn{4}{|l|}{\bgrey \textbf{Tresnak}}\\
+\hline
+\grey Itzulpen laguntzailea & \red Ez & \red Ez & \green Bai\\
+\hline
+\grey Zuzentzailea & \green Bai & \red Ez & \green Bai\\
+\hline
+\grey Karaoke efektuak & \red Ez & \yellow Sinplea & \green Bai\\
+\hline
+\multicolumn{4}{|l|}{\bgrey \textbf{Bestelakoak}}\\
+\hline
+\grey Automatikoki gorde & \green Bai & \red Ez & \green Bai\\
+\hline
+\grey Segurtasun kopiak & \red Ez & \red Ez & \green Bai\\
+\hline
+\grey Dokumentu anitz & \red Ez & \red Ez & \red Ez\\
+\end{longtable}
 \section{Ondorioak}

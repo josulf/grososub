@@ -58,9 +58,9 @@ my $outpdf = $f.'.pdf';
 my @list;
 push(@list,"Utils/extract_lyx.pl");                                                 # LyX fitxerorik badago, LaTeX-era pasa
 push(@list,"cp $f.tex $tmp.tex");                                                   # kompilatzeko fitxeroaren kopia temporala
-push(@list,"latex $tmp");                                                           # latex exekutatu
+push(@list,"pdflatex $tmp");                                                           # latex exekutatu
 push(@list,"bibtex $tmp");                                                          # bibtex exekutatu
-push(@list,"latex $tmp");                                                           # bigarren kompilazioa, erref. gurutzatuetarako
+push(@list,"pdflatex $tmp");                                                           # bigarren kompilazioa, erref. gurutzatuetarako
 push(@list,"pdflatex $tmp");                                                           # latex berriz exekutatu
 #push(@list,"dvips -t $psize $tmp.dvi -o $tmp.ps >& /dev/null") unless ($mode == 1); # DVIa PS bihurtu
 #push(@list,"mv $tmp.dvi Main.dvi") if ($mode =~ /1/);                               # DVIa gorde

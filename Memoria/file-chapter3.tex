@@ -29,47 +29,70 @@ Hauek dira egin beharrekoak:
 \item Instalatzeko erraza den pakete bat sortzea, erabiltzaileak programa konpilatu behar ez izateko.
 \end{enumerate}
 
-\subsection{Lanaren dekonposaketa egitura diagrama}
-\begin{figure}[htb]
+\subsection{Lanaren deskonposaketa egitura diagrama}
+Proiektuaren atazak hiru multzo nagusitan daude banatuta, \ref{lde}~Irudian ikus daitekeen bezala. Hurrengo hiru irudietan (\ref{lde-pt}, \ref{lde-po} eta \ref{lde-formazioa}) multzoen barruan dauden ataza eta azpiatazak agertzen dira.
+\begin{figure}[htp]
 \begin{center}
-\includegraphics[width=\columnwidth, natwidth=817pt, natheight=349pt]{Pictures/Chapter3/LDE.png}
-\caption{Lanaren dekonposaketa egitura diagrama}
+%\includegraphics[width=\columnwidth, natwidth=817pt, natheight=349pt]{Pictures/Chapter3/LDE.png}
+\includegraphics[scale=0.6]{Pictures/Chapter3/LDE.png}
+\caption{Lanaren deskonposaketa egitura diagrama}
 \label{lde}
 \end{center}
 \end{figure}
+\begin{figure}[htp]
+\begin{center}
+%\includegraphics[width=\columnwidth, natwidth=817pt, natheight=349pt]{Pictures/Chapter3/LDE.png}
+\includegraphics[scale=0.5]{Pictures/Chapter3/LDE-PT.png}
+\caption{LDE - Prozesu taktikoak}
+\label{lde-pt}
+\end{center}
+\end{figure}
+\begin{figure}[htp]
+\begin{center}
+%\includegraphics[width=\columnwidth, natwidth=817pt, natheight=349pt]{Pictures/Chapter3/LDE.png}
+\includegraphics[scale=0.5]{Pictures/Chapter3/LDE-PO.png}
+\caption{LDE - Prozesu operatiboak}
+\label{lde-po}
+\end{center}
+\end{figure}
+\begin{figure}[htp]
+\begin{center}
+%\includegraphics[width=\columnwidth, natwidth=817pt, natheight=349pt]{Pictures/Chapter3/LDE.png}
+\includegraphics[scale=0.5]{Pictures/Chapter3/LDE-Formazioa.png}
+\caption{LDE - Formazioa}
+\label{lde-formazioa}
+\end{center}
+\end{figure}
 
-\subsection{Azpiatazen zerrenda}
+\subsubsection{Azpiatazen zerrenda}
 \begin{itemize}
 \item \textbf{Kudeaketa:}
 	\begin{itemize}
 	\item K1 - Bilerak:
 		\begin{itemize}
-		\item K11 - Ohiko bilerak.
-		\item K12 - Aurrerapen bilerak:
+		\item K11 - Ohiko bilerak: proiektuaren jarraipenerako zuzendari eta ikaslearen artean egingo diren bilerak.
+		\item K12 - Aurrerapen bilerak: iterazioa amaitzerakoan proiektuaren egoera aztertzeko bilerak.
 			\begin{itemize}
 			\item K121 - Bilera burutu.
 			\item K122 - Egoera txostena egin.
 			\end{itemize} 
 		\end{itemize}
-	\item K2 - Artxiboaren kudeaketa.
+	\item K2 - Artxiboaren kudeaketa: proiektuan zehar sortutako materialaren segurtasun kopiak egitea.
 	\end{itemize}
 \item \textbf{Planifikazioa:}
 	\begin{itemize}
 	\item P1 - Proiektuaren helburu dokumentua egin.
-	\item P2 - Iterazio berriaren planifikazioa.
+	\item P2 - Iterazio berriaren planifikazioa: iterazio berria hasterakoan hau planifikatu behar da.
 	\end{itemize}
 \item \textbf{Garapena:}
 	\begin{itemize}
-	\item G1 - Eskakizunen bilketa:
-		\begin{itemize}
-		\item G11 - Erabilpen kausen eredua egin.
-		\item G12 - Domeinuaren eredua egin.
-		\item G13 - Interfazearen prototipoa egin.
-		\end{itemize}
+	\item G1 - Eskakizunen bilketa: programaren eskakizun funtzionalak aztertzea.
 	\item G2 - Analisia:
 		\begin{itemize}
-		\item G21 - Sistemako sekuentzia diagramak egin.
-		\item G22 - Kontratuak egin.
+		\item G21 - Egoera diagrama egin.
+		\item G22 - Erabilpen kasuen eredua egin: 
+		\item G23 - Domeinuaren eredua egin.
+		\item G24 - Sistemako sekuentzia diagramak egin.
 		\end{itemize}
 	\item G3 - Diseinua:
 		\begin{itemize}
@@ -85,14 +108,11 @@ Hauek dira egin beharrekoak:
 	\item D1 - Eskuliburua egin.
 	\item D2 - Memoria egin.
 	\end{itemize}
-\item \textbf{Bukatzea:}
+\item \textbf{Defentsa:}
 	\begin{itemize}
-	\item B1 - Defentsa:
-		\begin{itemize}
-		\item B11 - Edukiak aukeratu.
-		\item B12 - Aurkezpena prestatu.
-		\item B13 - Aurkezpena egin.
-		\end{itemize}
+	\item B1 - Edukiak aukeratu.
+	\item B2 - Aurkezpena prestatu.
+	\item B3 - Aurkezpena egin.
 	\end{itemize}
 \item \textbf{Formazioa:}
 	\begin{itemize}
@@ -126,15 +146,13 @@ Hauek dira egin beharrekoak:
 \hline
 \textit{Gantt diagrama} & Planifikatutako ekintzen egutegiaren adierazpide grafikoa, non ekintza bakoitzaren iraupena adierazten den & P1\\
 \hline
-\textit{Erabilpen kasuen eredua} & Programaren portaera adierazten duen diagrama & G11\\
+\textit{Egoera diagrama} & Programaren egoera desberdinak adierazten dituen diagrama & G21\\
 \hline
-\textit{Domeinuaren eredua} & Domeinuan agertzen diren objektuen atributuak eta erlazioak adierazten dituen diagrama & G12\\
+\textit{Erabilpen kasuen eredua} & Programaren portaera adierazten duen diagrama & G22\\
 \hline
-\textit{Interfazearen prototipoa} & Interfazea nolakoa izango den & G13\\
+\textit{Domeinuaren eredua} & Domeinuan agertzen diren objektuen atributuak eta erlazioak adierazten dituen diagrama & G23\\
 \hline
-\textit{Sistemako sekuentzia diagramak} & Erabilpen kasu bakoitzaren portaera adierazten duten diagramak & G21\\
-\hline
-\textit{Kontratuak} & Eragiketen espezifikazioa & G22\\
+\textit{Sistemako sekuentzia diagramak} & Erabilpen kasu bakoitzaren portaera adierazten duten diagramak & G24\\
 \hline
 \textit{Sekuentzia diagramak} & Eragiketa bakoitzaren portaera adierazten duten diagramak & G31\\
 \hline
@@ -146,7 +164,7 @@ Hauek dira egin beharrekoak:
 \hline
 \textit{Memoria} & Proiektuko lan guztia laburbiltzen duen dokumentua & D2\\
 \hline
-\textit{Aurkezpena} & Defentsan erabiliko diren gardenkiak & B12\\
+\textit{Aurkezpena} & Defentsan erabiliko diren gardenkiak & B2\\
 \end{longtable}
 
 \section{Planifikazioa}
@@ -154,7 +172,7 @@ Hauek dira egin beharrekoak:
 \subsection{Denboraren estimazioa}
 \begin{longtable}{|l|l|}
 \hline
-\grey \textbf{Ataza} & \grey \textbf{Estimazioa}\\
+\grey \textbf{Ataza} & \grey \textbf{Estimazioa} \textit{(orduak)}\\
 \hline
 \endhead
 \hline
@@ -162,72 +180,77 @@ Hauek dira egin beharrekoak:
 \endfoot
 \bblue Kudeaketa & \bblue 30 \\
 \hline
-\blue Bilerak & \blue 25 \\
+\blue \hspace{1em}Bilerak & \blue 25 \\
 \hline
-Ohiko bilerak & 20 \\
+\hspace{2em}Ohiko bilerak & 20 \\
 \hline
-Aurrerapen bilerak & 5 \\
+\hspace{2em}Aurrerapen bilerak & 5 \\
 \hline
-\blue Artxiboaren kudeaketa & \blue 5 \\
+\blue \hspace{1em}Artxiboaren kudeaketa & \blue 5 \\
 \hline
 \bblue Planifikazioa & \bblue 10 \\
 \hline
-\blue PHD egin & \blue 7 \\
+\blue \hspace{1em}PHD egin & \blue 7 \\
 \hline
-\blue Iterazio berriaren planifikazioa & \blue 3 \\
+\blue \hspace{1em}Iterazio berriaren planifikazioa & \blue 3 \\
 \hline
 \bblue Garapena & \bblue 130 \\
 \hline
-\blue Eskakizunen bilketa & \blue 10 \\
+\blue \hspace{1em}Eskakizunen bilketa & \blue 10 \\
 \hline
-\blue Analisia & \blue 15 \\
+\blue \hspace{1em}Analisia & \blue 15 \\
 \hline
-\blue Diseinua & \blue 25 \\
+\blue \hspace{1em}Diseinua & \blue 40 \\
 \hline
-\blue Inplementazioa & \blue 55 \\
+\blue \hspace{1em}Inplementazioa & \blue 40 \\
 \hline
-\blue Probak egin & \blue 25 \\
+\blue \hspace{1em}Probak egin & \blue 25 \\
 \hline
 \bblue Dokumentazioa & \bblue 60 \\
 \hline
-\blue Eskuliburua egin & \blue 15 \\
+\blue \hspace{1em}Eskuliburua egin & \blue 15 \\
 \hline
-\blue Memoria egin & \blue 45 \\
+\blue \hspace{1em}Memoria egin & \blue 45 \\
 \hline
-\bblue Bukatzea & \bblue 10 \\
-\hline
-\blue Defentsa & \blue 10 \\
+\bblue Defentsa & \bblue 10 \\
 \hline
 \bblue Formazioa & \bblue 60 \\
 \hline
-\blue Aurrekarien analisia & \blue 10 \\
+\blue \hspace{1em}Aurrekarien analisia & \blue 10 \\
 \hline
-\blue Objective-C ikasi & \blue 30 \\
+\blue \hspace{1em}Objective-C ikasi & \blue 30 \\
 \hline
-\blue Cocoa ikasi & \blue 20 \\
+\blue \hspace{1em}Cocoa ikasi & \blue 20 \\
 \hline
 \grey \textbf{Guztira} & \grey 300 ordu \\
 \end{longtable}
 
 \subsection{Denbora plangintza: GANTT diagrama}
-\ref{gantt}~Irudian agertzen da proiektuaren denbora plangintza.
+Hurrengo orrialdeko \ref{gantt.osoa}~Irudian agertzen da proiektuaren denbora plangintza.
+
+Ikusten denez, proiektuaren garapena 2009. urteko udarako dago planifikatuta, kurtsoa amaitzerakoan. Dena den, kurtsoan zehar formazioa eta beste zenbait gauza egingo dira udan garapenarekin zuzenean hasi ahal izateko.
+
+Aurreko grafikoan oso ondo ikusten ez denez, \ref{gantt.txikia}~Irudian agertzen da udan egingo denaren denbora plangintza.
+
 \begin{figure}[htp]
 \begin{center}
-%\includegraphics[width=\columnwidth, natwidth=784pt, natheight=1425pt]{Pictures/Chapter3/Gantt.png}
-\includegraphics[scale=0.46]{Pictures/Chapter3/Gantt.png}
+\includegraphics[scale=0.46]{Pictures/Chapter3/Gantt-osoa.png}
+\caption{Gantt diagrama osoa}
+\label{gantt.osoa}
+\end{center}
+\end{figure}
+
+\begin{figure}[htp]
+\begin{center}
+\includegraphics[scale=0.5]{Pictures/Chapter3/Gantt-txikia.png}
 \caption{Gantt diagrama}
-\label{gantt}
+\label{gantt.txikia}
 \end{center}
 \end{figure}
 
 \section{Arriskuak}
 Proiektu guztietan kontuan hartu beharreko arriskuan agertzen dira, batzuk beste batzuk baino larriagoak eta gertatzeko probabilitate handiago edo txikiagokoak. Hauek dira aurreikusten diren arriskuak eta gertatzekotan zer egin behar den:
 \begin{enumerate}
-\item \textit{Atzerapenak proiektuan zehar:}\\
-Proiektua garatzen den bitartean, ikaslea SIIT-eko 3. maila egiten egongo da, beraz bi ekintzak aldi berean egingo ditu. Honez gain, bere bizitza pertsonaleko beste aktibitate batzuk ere egingo ditu bitartean.\\
-\textbf{Probabilitatea:} altua.\\
-\textbf{Ondorioak:} planifikatutako emangarrien atzerapenak.\\
-\textbf{Konponbidea:} datak birplanifikatu eta lan erritmoa igo ahal den einean.
 
 \item \textit{Ikasle edo irakaslearen baja gaixotasunagatik:}\\
 Ikaslea gaixotzen bada, ezin izango du proiektuan lan egin. Irakaslea aldiz gaixotzen bada, ezin izango du ikaslea gidatu proiektuan zehar.\\
@@ -258,7 +281,11 @@ Proiektu honen garapenerako teknologia eta software hauek erabiliko ditugu:
 \item \textbf{Objective-C 2.0:} objektuei zuzendutako programazio lengoaia, C lengoaiaren gainean eratua. Mac OS X sisteman aplikazioak garatzeko programazio lengoaia erabiliena da. Konpilatzeko ez dugu ezer berezirik behar, \textbf{gcc} konpiladore famatua erabili daitekeelako.
 
 2.0 bertsioan asko lagunduko diguten funtzionalitateak aurkituko ditugu: zabor bilketa, propietateak, \textit{fast enumeration}, etab.
+
+Lengoaia ikasteko liburu bat erabili da, bibliografian aipatzen dena \cite{ko:08}.
 \item \textbf{Cocoa:} objektuei zuzendutako API\footnote{Application Programming Interface} natiboa Mac OS X sistemarako. Objective-C lengoaia erabiltzen du eta sistemarekin bikain integratzen dira API hau erabiltzen duten aplikazioak.
+
+Cocoa ikasteko liburu bat erabili da, bibliografian aipatzen dena \cite{hi:08}.
 \item \textbf{Xcode:} aplikazioa garatzeko IDE\footnote{Integrated Development Environment}-a. Beste IDE gehienetan aurkitu ditzakegun funtzionalitateak dauzka (araztailea, sintaxi koloreztailea, etab.).
 \item \textbf{Interface Builder:} Cocoa aplikazioen interfaze grafikoak eratzeko eta kodearekin \textit{lotzeko} aplikazioa. Bi aplikazio hauek eta gcc konpiladorea Apple-ek eskaintzen ditu dohain: \url{http://developer.apple.com/Tools/}.
 \end{itemize} 

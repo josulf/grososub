@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project name="Untitled Gantt Project" company="" webLink="http://" view-date="2008-09-29" view-index="0" gantt-divider-location="255" resource-divider-location="-1" version="2.0">
+<project name="Untitled Gantt Project" company="" webLink="http://" view-date="2008-12-01" view-index="0" gantt-divider-location="255" resource-divider-location="-1" version="2.0">
 <description></description>
-<view zooming-state="default:7" id="gantt-chart"/>
+<view zooming-state="default:8" id="gantt-chart"/>
 <view id="resource-table">
 <field id="0" name="Nombre" width="55" order="0"/>
 <field id="1" name="Función" width="44" order="1"/>
@@ -46,6 +46,7 @@
 </task>
 <task id="6" name="Garapena" color="#8cb6ce" meeting="false" start="2009-07-03" duration="41" complete="0" priority="1" expand="true">
 <depend id="26" type="2" difference="0" hardness="Rubber"/>
+<depend id="30" type="2" difference="0" hardness="Rubber"/>
 <task id="8" name="1. iterazioa" color="#8cb6ce" meeting="false" start="2009-07-03" duration="11" complete="0" priority="1" expand="true">
 <depend id="9" type="2" difference="0" hardness="Rubber"/>
 <task id="11" name="Eskakizunen bilketa" color="#8cb6ce" meeting="false" start="2009-07-03" duration="2" complete="0" priority="1" expand="true">
@@ -95,13 +96,11 @@
 </task>
 </task>
 <task id="26" name="Dokumentazioa" color="#8cb6ce" meeting="false" start="2009-08-31" duration="5" complete="0" priority="1" expand="true">
-<depend id="29" type="2" difference="0" hardness="Rubber"/>
+<depend id="30" type="2" difference="0" hardness="Rubber"/>
 <task id="27" name="Eskuliburua egin" color="#8cb6ce" meeting="false" start="2009-08-31" duration="2" complete="0" priority="1" expand="true"/>
 <task id="28" name="Memoria egin" color="#8cb6ce" meeting="false" start="2009-09-03" duration="2" complete="0" priority="1" expand="true"/>
 </task>
-<task id="29" name="Bukatzea" color="#8cb6ce" meeting="false" start="2009-09-08" duration="4" complete="0" priority="1" expand="true">
 <task id="30" name="Defentsa" color="#8cb6ce" meeting="false" start="2009-09-08" duration="4" complete="0" priority="1" expand="true"/>
-</task>
 <task id="31" name="Formazioa" color="#8cb6ce" meeting="false" start="2008-11-06" duration="147" complete="0" priority="1" expand="true">
 <depend id="6" type="2" difference="0" hardness="Rubber"/>
 <task id="32" name="Aurrekarien analisia" color="#8cb6ce" meeting="false" start="2008-11-06" duration="2" complete="0" priority="1" expand="true"/>

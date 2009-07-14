@@ -25,7 +25,6 @@
 	if (ht >= 100) ht /= 10;
 	out = [NSString stringWithFormat:@"%d:%.2d:%.2d.%.2d", h, m, s, ht];
 	
-	NSLog(out);
 	return out;
 }
 

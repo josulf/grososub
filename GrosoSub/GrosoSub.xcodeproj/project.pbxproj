@@ -13,6 +13,12 @@
 		8AED5267100CE4F50079F931 /* ASSTime.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AED5266100CE4F50079F931 /* ASSTime.m */; };
 		8AED5297100CE92E0079F931 /* ASSTimeTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AED5296100CE92E0079F931 /* ASSTimeTest.m */; };
 		8AED52B6100CF02D0079F931 /* ASSTime.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AED5266100CE4F50079F931 /* ASSTime.m */; };
+		8AED533D100D2F2B0079F931 /* ASSEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AED533C100D2F2B0079F931 /* ASSEvent.m */; };
+		8AED533E100D2F2B0079F931 /* ASSEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AED533C100D2F2B0079F931 /* ASSEvent.m */; };
+		8AED5346100D33720079F931 /* ASSEventTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AED5345100D33720079F931 /* ASSEventTest.m */; };
+		8AED53C9100D3AA10079F931 /* ASSEventList.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AED53C8100D3AA10079F931 /* ASSEventList.m */; };
+		8AED53EC100D41920079F931 /* ASSEventListTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AED53EB100D41920079F931 /* ASSEventListTest.m */; };
+		8AED53EF100D42FE0079F931 /* ASSEventList.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AED53C8100D3AA10079F931 /* ASSEventList.m */; };
 		8D15AC2C0486D014006FF6A4 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 2A37F4B9FDCFA73011CA2CEA /* Credits.rtf */; };
 		8D15AC2F0486D014006FF6A4 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C165FFE840EACC02AAC07 /* InfoPlist.strings */; };
 		8D15AC310486D014006FF6A4 /* MyDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A37F4ACFDCFA73011CA2CEA /* MyDocument.m */; settings = {ATTRIBUTES = (); }; };
@@ -40,6 +46,14 @@
 		8AED528C100CE8770079F931 /* Test-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Test-Info.plist"; sourceTree = "<group>"; };
 		8AED5295100CE92E0079F931 /* ASSTimeTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ASSTimeTest.h; path = Test/ASSTimeTest.h; sourceTree = "<group>"; };
 		8AED5296100CE92E0079F931 /* ASSTimeTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ASSTimeTest.m; path = Test/ASSTimeTest.m; sourceTree = "<group>"; };
+		8AED533B100D2F2B0079F931 /* ASSEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ASSEvent.h; path = ASS/ASSEvent.h; sourceTree = "<group>"; };
+		8AED533C100D2F2B0079F931 /* ASSEvent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ASSEvent.m; path = ASS/ASSEvent.m; sourceTree = "<group>"; };
+		8AED5344100D33720079F931 /* ASSEventTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ASSEventTest.h; path = Test/ASSEventTest.h; sourceTree = "<group>"; };
+		8AED5345100D33720079F931 /* ASSEventTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ASSEventTest.m; path = Test/ASSEventTest.m; sourceTree = "<group>"; };
+		8AED53C7100D3AA10079F931 /* ASSEventList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ASSEventList.h; path = ASS/ASSEventList.h; sourceTree = "<group>"; };
+		8AED53C8100D3AA10079F931 /* ASSEventList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ASSEventList.m; path = ASS/ASSEventList.m; sourceTree = "<group>"; };
+		8AED53EA100D41920079F931 /* ASSEventListTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ASSEventListTest.h; path = Test/ASSEventListTest.h; sourceTree = "<group>"; };
+		8AED53EB100D41920079F931 /* ASSEventListTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ASSEventListTest.m; path = Test/ASSEventListTest.m; sourceTree = "<group>"; };
 		8D15AC360486D014006FF6A4 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8D15AC370486D014006FF6A4 /* GrosoSub.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GrosoSub.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -150,6 +164,10 @@
 			children = (
 				8AED5265100CE4F50079F931 /* ASSTime.h */,
 				8AED5266100CE4F50079F931 /* ASSTime.m */,
+				8AED533B100D2F2B0079F931 /* ASSEvent.h */,
+				8AED533C100D2F2B0079F931 /* ASSEvent.m */,
+				8AED53C7100D3AA10079F931 /* ASSEventList.h */,
+				8AED53C8100D3AA10079F931 /* ASSEventList.m */,
 			);
 			name = ASS;
 			sourceTree = "<group>";
@@ -159,6 +177,10 @@
 			children = (
 				8AED5295100CE92E0079F931 /* ASSTimeTest.h */,
 				8AED5296100CE92E0079F931 /* ASSTimeTest.m */,
+				8AED5344100D33720079F931 /* ASSEventTest.h */,
+				8AED5345100D33720079F931 /* ASSEventTest.m */,
+				8AED53EA100D41920079F931 /* ASSEventListTest.h */,
+				8AED53EB100D41920079F931 /* ASSEventListTest.m */,
 			);
 			name = "Test Cases";
 			sourceTree = "<group>";
@@ -265,6 +287,10 @@
 			files = (
 				8AED5297100CE92E0079F931 /* ASSTimeTest.m in Sources */,
 				8AED52B6100CF02D0079F931 /* ASSTime.m in Sources */,
+				8AED533D100D2F2B0079F931 /* ASSEvent.m in Sources */,
+				8AED5346100D33720079F931 /* ASSEventTest.m in Sources */,
+				8AED53EC100D41920079F931 /* ASSEventListTest.m in Sources */,
+				8AED53EF100D42FE0079F931 /* ASSEventList.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -275,6 +301,8 @@
 				8D15AC310486D014006FF6A4 /* MyDocument.m in Sources */,
 				8D15AC320486D014006FF6A4 /* main.m in Sources */,
 				8AED5267100CE4F50079F931 /* ASSTime.m in Sources */,
+				8AED533E100D2F2B0079F931 /* ASSEvent.m in Sources */,
+				8AED53C9100D3AA10079F931 /* ASSEventList.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

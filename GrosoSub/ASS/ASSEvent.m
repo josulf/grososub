@@ -33,7 +33,8 @@
 		out = [out stringByAppendingString:@"Comment: "];
 	}
 	
-	out = [out stringByAppendingFormat:@"%d,%@,%@,%@,%@,%.4d,%.4d,%.4d,%@,%@", layer, start, end, style, name, marginL, marginR, marginV, effect, text];
+	out = [out stringByAppendingFormat:@"%d,%@,%@,%@,%@,%.4d,%.4d,%.4d,%@,%@",
+		   layer, start, end, style, name, marginL, marginR, marginV, effect, text];
 		
 	return out;
 }

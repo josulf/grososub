@@ -42,7 +42,7 @@
 		8A2CE4370ED4D01200DA892E /* COPYING */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = COPYING; sourceTree = "<group>"; };
 		8AED5265100CE4F50079F931 /* ASSTime.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ASSTime.h; path = ASS/ASSTime.h; sourceTree = "<group>"; };
 		8AED5266100CE4F50079F931 /* ASSTime.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ASSTime.m; path = ASS/ASSTime.m; sourceTree = "<group>"; };
-		8AED528B100CE8770079F931 /* Test.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = Test.octest; path = build/Debug/Test.octest; sourceTree = "<group>"; };
+		8AED528B100CE8770079F931 /* Test.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Test.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8AED528C100CE8770079F931 /* Test-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Test-Info.plist"; sourceTree = "<group>"; };
 		8AED5295100CE92E0079F931 /* ASSTimeTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ASSTimeTest.h; path = Test/ASSTimeTest.h; sourceTree = "<group>"; };
 		8AED5296100CE92E0079F931 /* ASSTimeTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ASSTimeTest.m; path = Test/ASSTimeTest.m; sourceTree = "<group>"; };
@@ -448,6 +448,7 @@
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_ENABLE_OBJC_GC = required;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				PREBINDING = NO;

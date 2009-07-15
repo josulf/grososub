@@ -23,6 +23,7 @@
 - (ASSEvent *) getEventAtIndex:(NSUInteger)index;
 
 - (NSUInteger) countEvents;
+- (void) clean;
 
 - (void) parseString:(NSString *)aString;
 

@@ -2,8 +2,8 @@
 //  MyDocument.h
 //  GrosoSub
 //
-//  Created by Josu L—pez Fern‡ndez on 19/11/08.
-//  Copyright (C) 2008 Josu L—pez Fern‡ndez <fregona@fregona.biz>.
+//  Created by Josu LÃ³pez FernÃ¡ndez on 19/11/08.
+//  Copyright (C) 2008 Josu LÃ³pez FernÃ¡ndez <fregona@fregona.biz>.
 //	All rights reserved.
 //
 //	This program is free software; you can redistribute it and/or modify
@@ -21,8 +21,21 @@
 //
 
 #import <Cocoa/Cocoa.h>
+#import "ASS/ASSHeader.h"
+#import "ASS/ASSStyleList.h"
+#import "ASS/ASSEventList.h"
 
 @interface MyDocument : NSDocument
 {
+	NSString *name;
+	ASSHeader *headers;
+	ASSStyleList *styles;
+	ASSEventList *events;
 }
+
+@property (copy) NSString *name;
+@property (retain) ASSHeader *headers;
+@property (retain) ASSStyleList *styles;
+@property (retain) ASSEventList *events;
+
 @end

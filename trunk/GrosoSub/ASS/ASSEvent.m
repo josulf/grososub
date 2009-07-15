@@ -90,6 +90,8 @@
 		end = [[ASSTime alloc] init];
 		effect = [[NSString alloc] init];
 		text = [[NSString alloc] init];
+		style = [[NSString alloc] init];
+		name = [[NSString alloc] init];
 		
 		[self parseString:aString];
 	}

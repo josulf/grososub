@@ -10,6 +10,18 @@
 		1DDD582C0DA1D0D100B32029 /* MyDocument.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1DDD58280DA1D0D100B32029 /* MyDocument.xib */; };
 		1DDD582D0DA1D0D100B32029 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1DDD582A0DA1D0D100B32029 /* MainMenu.xib */; };
 		8A2CE4380ED4D01200DA892E /* COPYING in Resources */ = {isa = PBXBuildFile; fileRef = 8A2CE4370ED4D01200DA892E /* COPYING */; };
+		8A3E1FBF100E314200BA8697 /* ASSHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A3E1FBE100E314200BA8697 /* ASSHeader.m */; };
+		8A3E1FC2100E360800BA8697 /* ASSHeaderTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A3E1FC1100E360800BA8697 /* ASSHeaderTest.m */; };
+		8A3E1FC3100E366000BA8697 /* ASSHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A3E1FBE100E314200BA8697 /* ASSHeader.m */; };
+		8A3E2025100E3C7D00BA8697 /* ASSStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A3E2024100E3C7D00BA8697 /* ASSStyle.m */; };
+		8A3E2028100E404000BA8697 /* ASSColour.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A3E2027100E404000BA8697 /* ASSColour.m */; };
+		8A3E2032100E457800BA8697 /* ASSColourTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A3E2031100E457800BA8697 /* ASSColourTest.m */; };
+		8A3E2033100E458A00BA8697 /* ASSColour.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A3E2027100E404000BA8697 /* ASSColour.m */; };
+		8A3E2050100E502B00BA8697 /* ASSStyleTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A3E204F100E502B00BA8697 /* ASSStyleTest.m */; };
+		8A3E2055100E50D900BA8697 /* ASSStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A3E2024100E3C7D00BA8697 /* ASSStyle.m */; };
+		8A3E20DD100E58EE00BA8697 /* ASSStyleList.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A3E20DC100E58EE00BA8697 /* ASSStyleList.m */; };
+		8A3E20DE100E58EE00BA8697 /* ASSStyleList.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A3E20DC100E58EE00BA8697 /* ASSStyleList.m */; };
+		8A3E20E2100E5B6200BA8697 /* ASSStyleListTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A3E20E1100E5B6200BA8697 /* ASSStyleListTest.m */; };
 		8AED5267100CE4F50079F931 /* ASSTime.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AED5266100CE4F50079F931 /* ASSTime.m */; };
 		8AED5297100CE92E0079F931 /* ASSTimeTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AED5296100CE92E0079F931 /* ASSTimeTest.m */; };
 		8AED52B6100CF02D0079F931 /* ASSTime.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AED5266100CE4F50079F931 /* ASSTime.m */; };
@@ -40,6 +52,22 @@
 		2A37F4C5FDCFA73011CA2CEA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
 		32DBCF750370BD2300C91783 /* GrosoSub_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GrosoSub_Prefix.pch; sourceTree = "<group>"; };
 		8A2CE4370ED4D01200DA892E /* COPYING */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = COPYING; sourceTree = "<group>"; };
+		8A3E1FBD100E314200BA8697 /* ASSHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ASSHeader.h; path = ASS/ASSHeader.h; sourceTree = "<group>"; };
+		8A3E1FBE100E314200BA8697 /* ASSHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ASSHeader.m; path = ASS/ASSHeader.m; sourceTree = "<group>"; };
+		8A3E1FC0100E360800BA8697 /* ASSHeaderTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ASSHeaderTest.h; path = Test/ASSHeaderTest.h; sourceTree = "<group>"; };
+		8A3E1FC1100E360800BA8697 /* ASSHeaderTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ASSHeaderTest.m; path = Test/ASSHeaderTest.m; sourceTree = "<group>"; };
+		8A3E2023100E3C7D00BA8697 /* ASSStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ASSStyle.h; path = ASS/ASSStyle.h; sourceTree = "<group>"; };
+		8A3E2024100E3C7D00BA8697 /* ASSStyle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ASSStyle.m; path = ASS/ASSStyle.m; sourceTree = "<group>"; };
+		8A3E2026100E404000BA8697 /* ASSColour.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ASSColour.h; path = ASS/ASSColour.h; sourceTree = "<group>"; };
+		8A3E2027100E404000BA8697 /* ASSColour.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ASSColour.m; path = ASS/ASSColour.m; sourceTree = "<group>"; };
+		8A3E2030100E457800BA8697 /* ASSColourTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ASSColourTest.h; path = Test/ASSColourTest.h; sourceTree = "<group>"; };
+		8A3E2031100E457800BA8697 /* ASSColourTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ASSColourTest.m; path = Test/ASSColourTest.m; sourceTree = "<group>"; };
+		8A3E204E100E502B00BA8697 /* ASSStyleTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ASSStyleTest.h; path = Test/ASSStyleTest.h; sourceTree = "<group>"; };
+		8A3E204F100E502B00BA8697 /* ASSStyleTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ASSStyleTest.m; path = Test/ASSStyleTest.m; sourceTree = "<group>"; };
+		8A3E20DB100E58EE00BA8697 /* ASSStyleList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ASSStyleList.h; path = ASS/ASSStyleList.h; sourceTree = "<group>"; };
+		8A3E20DC100E58EE00BA8697 /* ASSStyleList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ASSStyleList.m; path = ASS/ASSStyleList.m; sourceTree = "<group>"; };
+		8A3E20E0100E5B6200BA8697 /* ASSStyleListTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ASSStyleListTest.h; path = Test/ASSStyleListTest.h; sourceTree = "<group>"; };
+		8A3E20E1100E5B6200BA8697 /* ASSStyleListTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ASSStyleListTest.m; path = Test/ASSStyleListTest.m; sourceTree = "<group>"; };
 		8AED5265100CE4F50079F931 /* ASSTime.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ASSTime.h; path = ASS/ASSTime.h; sourceTree = "<group>"; };
 		8AED5266100CE4F50079F931 /* ASSTime.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ASSTime.m; path = ASS/ASSTime.m; sourceTree = "<group>"; };
 		8AED528B100CE8770079F931 /* Test.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Test.octest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -107,13 +135,13 @@
 		2A37F4AAFDCFA73011CA2CEA /* GrosoSub */ = {
 			isa = PBXGroup;
 			children = (
-				8AED5293100CE8D50079F931 /* Test Cases */,
 				8AED5269100CE4FB0079F931 /* ASS */,
 				2A37F4ABFDCFA73011CA2CEA /* Classes */,
 				2A37F4AFFDCFA73011CA2CEA /* Other Sources */,
 				2A37F4B8FDCFA73011CA2CEA /* Resources */,
 				2A37F4C3FDCFA73011CA2CEA /* Frameworks */,
 				19C28FB0FE9D524F11CA2CBB /* Products */,
+				8AED5293100CE8D50079F931 /* Test Cases */,
 				8AED528C100CE8770079F931 /* Test-Info.plist */,
 			);
 			name = GrosoSub;
@@ -162,12 +190,20 @@
 		8AED5269100CE4FB0079F931 /* ASS */ = {
 			isa = PBXGroup;
 			children = (
-				8AED5265100CE4F50079F931 /* ASSTime.h */,
-				8AED5266100CE4F50079F931 /* ASSTime.m */,
+				8A3E2026100E404000BA8697 /* ASSColour.h */,
+				8A3E2027100E404000BA8697 /* ASSColour.m */,
 				8AED533B100D2F2B0079F931 /* ASSEvent.h */,
 				8AED533C100D2F2B0079F931 /* ASSEvent.m */,
 				8AED53C7100D3AA10079F931 /* ASSEventList.h */,
 				8AED53C8100D3AA10079F931 /* ASSEventList.m */,
+				8A3E1FBD100E314200BA8697 /* ASSHeader.h */,
+				8A3E1FBE100E314200BA8697 /* ASSHeader.m */,
+				8A3E2023100E3C7D00BA8697 /* ASSStyle.h */,
+				8A3E2024100E3C7D00BA8697 /* ASSStyle.m */,
+				8A3E20DB100E58EE00BA8697 /* ASSStyleList.h */,
+				8A3E20DC100E58EE00BA8697 /* ASSStyleList.m */,
+				8AED5265100CE4F50079F931 /* ASSTime.h */,
+				8AED5266100CE4F50079F931 /* ASSTime.m */,
 			);
 			name = ASS;
 			sourceTree = "<group>";
@@ -181,6 +217,14 @@
 				8AED5345100D33720079F931 /* ASSEventTest.m */,
 				8AED53EA100D41920079F931 /* ASSEventListTest.h */,
 				8AED53EB100D41920079F931 /* ASSEventListTest.m */,
+				8A3E1FC0100E360800BA8697 /* ASSHeaderTest.h */,
+				8A3E1FC1100E360800BA8697 /* ASSHeaderTest.m */,
+				8A3E2030100E457800BA8697 /* ASSColourTest.h */,
+				8A3E2031100E457800BA8697 /* ASSColourTest.m */,
+				8A3E204E100E502B00BA8697 /* ASSStyleTest.h */,
+				8A3E204F100E502B00BA8697 /* ASSStyleTest.m */,
+				8A3E20E0100E5B6200BA8697 /* ASSStyleListTest.h */,
+				8A3E20E1100E5B6200BA8697 /* ASSStyleListTest.m */,
 			);
 			name = "Test Cases";
 			sourceTree = "<group>";
@@ -291,6 +335,14 @@
 				8AED5346100D33720079F931 /* ASSEventTest.m in Sources */,
 				8AED53EC100D41920079F931 /* ASSEventListTest.m in Sources */,
 				8AED53EF100D42FE0079F931 /* ASSEventList.m in Sources */,
+				8A3E1FC2100E360800BA8697 /* ASSHeaderTest.m in Sources */,
+				8A3E1FC3100E366000BA8697 /* ASSHeader.m in Sources */,
+				8A3E2032100E457800BA8697 /* ASSColourTest.m in Sources */,
+				8A3E2033100E458A00BA8697 /* ASSColour.m in Sources */,
+				8A3E2050100E502B00BA8697 /* ASSStyleTest.m in Sources */,
+				8A3E2055100E50D900BA8697 /* ASSStyle.m in Sources */,
+				8A3E20DE100E58EE00BA8697 /* ASSStyleList.m in Sources */,
+				8A3E20E2100E5B6200BA8697 /* ASSStyleListTest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -303,6 +355,10 @@
 				8AED5267100CE4F50079F931 /* ASSTime.m in Sources */,
 				8AED533E100D2F2B0079F931 /* ASSEvent.m in Sources */,
 				8AED53C9100D3AA10079F931 /* ASSEventList.m in Sources */,
+				8A3E1FBF100E314200BA8697 /* ASSHeader.m in Sources */,
+				8A3E2025100E3C7D00BA8697 /* ASSStyle.m in Sources */,
+				8A3E2028100E404000BA8697 /* ASSColour.m in Sources */,
+				8A3E20DD100E58EE00BA8697 /* ASSStyleList.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -434,6 +490,7 @@
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_ENABLE_OBJC_GC = required;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;

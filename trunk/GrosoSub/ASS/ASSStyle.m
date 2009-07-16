@@ -37,10 +37,11 @@
 
 - (NSString *) description
 {
-	return [NSString stringWithFormat:@"Style: %@,%@,%d,%@,%@,%@,%@,%d,%d,%d,%d,%.2f,%.2f,%.2f,%.2f,%d,%.2f,%.2f,%d,%d,%d,%d,%d",
+	return [NSString stringWithFormat:@"Style: %@,%@,%d,%@,%@,%@,%@,%d,%d,%d,%d,%@,%@,%@,%@,%d,%@,%@,%d,%d,%d,%d,%d",
 									  name, fontName, fontSize, primaryColour, secondaryColour, outlineColour, backColour,
 									  (bold? -1 : 0), (italic? -1 : 0), (underline? -1 : 0), (strikeOut? -1 : 0),
-									  scaleX, scaleY, spacing, angle, borderStyle, outline, shadow,
+									  [ASSStyle beautyfulFloat:scaleX], [ASSStyle beautyfulFloat:scaleY], [ASSStyle beautyfulFloat:spacing],
+									  [ASSStyle beautyfulFloat:angle], borderStyle, [ASSStyle beautyfulFloat:outline], [ASSStyle beautyfulFloat:shadow],
 									  alignment, marginL, marginR, marginV, encoding];
 }
 
@@ -100,5 +101,24 @@
 {
 	return [self initWithString:@"Style: Default,Arial,20,&H00FFFFFF,&H0000FFFF,&H00000000,&H00000000,0,0,0,0,100.00,100.00,0.00,0.00,1,2.00,2.00,2,10,10,10,0"];
 }
+
++ (NSString *) beautyfulFloat:(CGFloat)aFloat
+{
+	NSInteger decimals;
+	NSString *out = [NSString stringWithFormat:@"%.2f", aFloat]; // "10.00" string
+	NSScanner *scanner = [NSScanner scannerWithString:out]; // a scanner with the "10.00" string
+	[scanner scanUpToString:@"." intoString:NULL];
+	NSUInteger p = [scanner scanLocation]; // save location of point
+	[scanner scanString:@"." intoString:NULL];
+	[scanner scanInteger:&decimals]; // read decimal part of the string
+	if (decimals == 0) { // 10.00 -> 10
+		return [out substringToIndex:p];
+	} else if ((decimals % 10) == 0) { //10.30 -> 10.3
+		return [out substringToIndex:p+2];
+	}
+	// The other cases: 10.03 and 10.33
+	return out;
+}
+
 
 @end

@@ -11,9 +11,11 @@
 
 @interface ASSHeader : NSObject {
 	NSMutableDictionary *headerList;
+	NSMutableArray *order;
 }
 
 @property (retain) NSMutableDictionary *headerList;
+@property (retain) NSMutableArray *order;
 
 - (id) init;
 - (NSString *) description;
@@ -21,6 +23,7 @@
 - (void) setValue:(NSString *)aValue forKey:(NSString *)aKey;
 - (NSString *) getValueForKey:(NSString *)aKey;
 - (NSUInteger) count;
+- (void) delKey:(NSString *)aKey;
 - (void) clean;
 
 - (id) initWithString:(NSString *)aString;

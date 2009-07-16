@@ -19,6 +19,7 @@
 	STAssertTrue([[h getValueForKey:@"PlayResX"] isEqualToString:@"640"], @"PlayResX is not equal!");
 	STAssertTrue([[h getValueForKey:@"PlayResY"] isEqualToString:@"480"], @"PlayResY is not equal!");
 	STAssertTrue([[h getValueForKey:@"ScriptType"] isEqualToString:@"v4.00+"], @"ScriptType is not equal!");
+	STAssertEquals([[h headerList] count], [[h order] count], @"order has %d elements and headerList %d, they should have the same!", [[h headerList] count], [[h order] count]);
 	
 	[h release];
 }
@@ -43,6 +44,25 @@
 	STAssertTrue([[h getValueForKey:@"PerrySubVersion"] isEqualToString:@"PerrySub 0.8.12.1"], @"PerrySubVersion is not equal!");
 	STAssertTrue([h count] == (NSUInteger) 14, @"This should have 14 headers, but has %d instead!", [h count]);
 	
+	[h release];
+}
+
+- (void) testHeaderAddDel
+{
+	ASSHeader *h = [[ASSHeader alloc] init];
+	
+	STAssertTrue([[h getValueForKey:@"Title"] isEqualToString:@"Default GrosoSub script"], @"Title is not equal!");
+	STAssertTrue([[h getValueForKey:@"PlayResX"] isEqualToString:@"640"], @"PlayResX is not equal!");
+	STAssertTrue([[h getValueForKey:@"PlayResY"] isEqualToString:@"480"], @"PlayResY is not equal!");
+	STAssertTrue([[h getValueForKey:@"ScriptType"] isEqualToString:@"v4.00+"], @"ScriptType is not equal!");
+	STAssertEquals([[h headerList] count], [[h order] count], @"headerList has %d elements and order %d, they should have the same!", [[h headerList] count], [[h order] count]);
+	[h setValue:@"Perry" forKey:@"Mason"];
+	STAssertEquals([[h headerList] count], [[h order] count], @"headerList has %d elements and order %d, they should have the same!", [[h headerList] count], [[h order] count]);
+	[h setValue:@"Tolín" forKey:@"Mason"];
+	STAssertEquals([[h headerList] count], [[h order] count], @"headerList has %d elements and order %d, they should have the same!", [[h headerList] count], [[h order] count]);
+	[h delKey:@"Title"];
+	STAssertEquals([[h headerList] count], [[h order] count], @"headerList has %d elements and order %d, they should have the same!", [[h headerList] count], [[h order] count]);
+
 	[h release];
 }
 

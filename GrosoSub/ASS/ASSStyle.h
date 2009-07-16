@@ -49,4 +49,6 @@
 - (id) initWithString:(NSString *)aString; // Designated initializer
 - (id) init;
 
++ (NSString *) beautyfulFloat:(CGFloat)aFloat;
+
 @end

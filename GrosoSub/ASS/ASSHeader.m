@@ -12,15 +12,17 @@
 @implementation ASSHeader
 
 @synthesize headerList;
+@synthesize order;
 
 - (id) init
 {
 	if (self = [super init]) {
 		headerList = [[NSMutableDictionary alloc] init];
-		[headerList setValue:@"Default GrosoSub script" forKey:@"Title"];
-		[headerList setValue:@"v4.00+" forKey:@"ScriptType"];
-		[headerList setValue:@"640" forKey:@"PlayResX"];
-		[headerList setValue:@"480" forKey:@"PlayResY"];
+		order = [[NSMutableArray alloc] init];
+		[self setValue:@"Default GrosoSub script" forKey:@"Title"];
+		[self setValue:@"v4.00+" forKey:@"ScriptType"];
+		[self setValue:@"640" forKey:@"PlayResX"];
+		[self setValue:@"480" forKey:@"PlayResY"];
 	}
 	return self;
 
@@ -29,9 +31,8 @@
 - (NSString *) description
 {
 	NSString *out = @"";
-	NSArray *keys = [headerList allKeys];
 	
-	for (NSString *key in keys) {
+	for (NSString *key in order) {
 		out = [out stringByAppendingFormat:@"%@: %@\n", key, [headerList valueForKey:key]];
 	}
 	
@@ -41,7 +42,12 @@
 
 - (void) setValue:(NSString *)aValue forKey:(NSString *)aKey
 {
-	[headerList setValue:aValue forKey:aKey];
+	// The key isn't on the dictionary, we add it to the array
+	if (![[headerList allKeys] containsObject:aKey]) {
+		[order addObject:aKey];
+	}
+	// Now we add or modify the value for key
+	[headerList setValue:aValue	forKey:aKey];
 }
 
 - (NSString *) getValueForKey:(NSString *)aKey
@@ -54,9 +60,18 @@
 	return [headerList count];
 }
 
+- (void) delKey:(NSString *)aKey
+{
+	if ([order containsObject:aKey]) {
+		[order removeObject:aKey];
+		[headerList removeObjectForKey:aKey];
+	}
+}
+
 - (void) clean
 {
 	[headerList removeAllObjects];
+	[order removeAllObjects];
 }
 
 - (id) initWithString:(NSString *)aString
@@ -79,7 +94,7 @@
 		[scanner scanString:@": " intoString:NULL]; //skip : 
 		[scanner scanUpToCharactersFromSet:[NSCharacterSet characterSetWithCharactersInString:@"\r\n"] intoString:&v]; //scan value
 		
-		[headerList setValue:v forKey:k]; //add to the headerList
+		[self setValue:v forKey:k]; //add to the headerList and order
 	}
 }
 

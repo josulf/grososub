@@ -22,6 +22,8 @@
 		8A3E20DD100E58EE00BA8697 /* ASSStyleList.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A3E20DC100E58EE00BA8697 /* ASSStyleList.m */; };
 		8A3E20DE100E58EE00BA8697 /* ASSStyleList.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A3E20DC100E58EE00BA8697 /* ASSStyleList.m */; };
 		8A3E20E2100E5B6200BA8697 /* ASSStyleListTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A3E20E1100E5B6200BA8697 /* ASSStyleListTest.m */; };
+		8AADE4AF1010CB1B00D711B2 /* ASSScript.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AADE4AE1010CB1B00D711B2 /* ASSScript.m */; };
+		8AADE4FB1010D7E600D711B2 /* ASSEventTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AADE4FA1010D7E600D711B2 /* ASSEventTableView.m */; };
 		8AED5267100CE4F50079F931 /* ASSTime.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AED5266100CE4F50079F931 /* ASSTime.m */; };
 		8AED5297100CE92E0079F931 /* ASSTimeTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AED5296100CE92E0079F931 /* ASSTimeTest.m */; };
 		8AED52B6100CF02D0079F931 /* ASSTime.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AED5266100CE4F50079F931 /* ASSTime.m */; };
@@ -33,7 +35,6 @@
 		8AED53EF100D42FE0079F931 /* ASSEventList.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AED53C8100D3AA10079F931 /* ASSEventList.m */; };
 		8D15AC2C0486D014006FF6A4 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 2A37F4B9FDCFA73011CA2CEA /* Credits.rtf */; };
 		8D15AC2F0486D014006FF6A4 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C165FFE840EACC02AAC07 /* InfoPlist.strings */; };
-		8D15AC310486D014006FF6A4 /* ASSScript.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A37F4ACFDCFA73011CA2CEA /* ASSScript.m */; settings = {ATTRIBUTES = (); }; };
 		8D15AC320486D014006FF6A4 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A37F4B0FDCFA73011CA2CEA /* main.m */; settings = {ATTRIBUTES = (); }; };
 		8D15AC340486D014006FF6A4 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A7FEA54F5311CA2CBB /* Cocoa.framework */; };
 /* End PBXBuildFile section */
@@ -44,7 +45,6 @@
 		13E42FBA07B3F13500E4EEF1 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = /System/Library/Frameworks/CoreData.framework; sourceTree = "<absolute>"; };
 		1DDD58290DA1D0D100B32029 /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = English.lproj/ASSScript.xib; sourceTree = "<group>"; };
 		1DDD582B0DA1D0D100B32029 /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = English.lproj/MainMenu.xib; sourceTree = "<group>"; };
-		2A37F4ACFDCFA73011CA2CEA /* ASSScript.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ASSScript.m; path = ../ASSScript.m; sourceTree = "<group>"; };
 		2A37F4AEFDCFA73011CA2CEA /* ASSScript.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASSScript.h; sourceTree = "<group>"; };
 		2A37F4B0FDCFA73011CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		2A37F4BAFDCFA73011CA2CEA /* English */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = English; path = English.lproj/Credits.rtf; sourceTree = "<group>"; };
@@ -68,6 +68,9 @@
 		8A3E20DC100E58EE00BA8697 /* ASSStyleList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ASSStyleList.m; path = ASS/ASSStyleList.m; sourceTree = "<group>"; };
 		8A3E20E0100E5B6200BA8697 /* ASSStyleListTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ASSStyleListTest.h; path = Test/ASSStyleListTest.h; sourceTree = "<group>"; };
 		8A3E20E1100E5B6200BA8697 /* ASSStyleListTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ASSStyleListTest.m; path = Test/ASSStyleListTest.m; sourceTree = "<group>"; };
+		8AADE4AE1010CB1B00D711B2 /* ASSScript.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASSScript.m; sourceTree = "<group>"; };
+		8AADE4F91010D7E600D711B2 /* ASSEventTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASSEventTableView.h; sourceTree = "<group>"; };
+		8AADE4FA1010D7E600D711B2 /* ASSEventTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASSEventTableView.m; sourceTree = "<group>"; };
 		8AED5265100CE4F50079F931 /* ASSTime.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ASSTime.h; path = ASS/ASSTime.h; sourceTree = "<group>"; };
 		8AED5266100CE4F50079F931 /* ASSTime.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ASSTime.m; path = ASS/ASSTime.m; sourceTree = "<group>"; };
 		8AED528B100CE8770079F931 /* Test.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Test.octest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -151,7 +154,9 @@
 			isa = PBXGroup;
 			children = (
 				2A37F4AEFDCFA73011CA2CEA /* ASSScript.h */,
-				2A37F4ACFDCFA73011CA2CEA /* ASSScript.m */,
+				8AADE4AE1010CB1B00D711B2 /* ASSScript.m */,
+				8AADE4F91010D7E600D711B2 /* ASSEventTableView.h */,
+				8AADE4FA1010D7E600D711B2 /* ASSEventTableView.m */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -350,7 +355,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8D15AC310486D014006FF6A4 /* ASSScript.m in Sources */,
 				8D15AC320486D014006FF6A4 /* main.m in Sources */,
 				8AED5267100CE4F50079F931 /* ASSTime.m in Sources */,
 				8AED533E100D2F2B0079F931 /* ASSEvent.m in Sources */,
@@ -359,6 +363,8 @@
 				8A3E2025100E3C7D00BA8697 /* ASSStyle.m in Sources */,
 				8A3E2028100E404000BA8697 /* ASSColour.m in Sources */,
 				8A3E20DD100E58EE00BA8697 /* ASSStyleList.m in Sources */,
+				8AADE4AF1010CB1B00D711B2 /* ASSScript.m in Sources */,
+				8AADE4FB1010D7E600D711B2 /* ASSEventTableView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -9,10 +9,10 @@
 #import <Cocoa/Cocoa.h>
 #import "ASSTime.h"
 
-@interface ASSEvent : NSObject {
+@interface ASSEvent : NSObject <NSCopying> {
 	Boolean dialogue;
 	NSInteger layer;
-	ASSTime *start, *end;
+	ASSTime *start, *end, *duration;;
 	NSString *style, *name;
 	NSInteger marginL, marginR, marginV;
 	NSString *effect, *text;
@@ -22,6 +22,7 @@
 @property (assign) NSInteger layer;
 @property (retain) ASSTime *start;
 @property (retain) ASSTime *end;
+@property (retain) ASSTime *duration;
 @property (copy) NSString *style;
 @property (copy) NSString *name;
 @property (assign) NSInteger marginL;
@@ -34,5 +35,7 @@
 - (void) parseString:(NSString *)aString;
 - (id) initWithString:(NSString *)aString; // Designated initializer
 - (id) init;
+
+- (void) joinWithEvent:(ASSEvent *)aEvent;
 
 @end

@@ -19,4 +19,6 @@
 - (void) parseString:(NSString *)aString;
 - (id) initWithString:(NSString *)aString; // Designated initializer
 
+- (NSComparisonResult)compare:(ASSTime *)aTime;
+
 @end

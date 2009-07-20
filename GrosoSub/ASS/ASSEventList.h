@@ -11,15 +11,21 @@
 
 @interface ASSEventList : NSObject {
 	NSMutableArray *events;
+	NSMutableArray *actorNames;
 }
 
 @property (retain) NSMutableArray *events;
+@property (retain) NSMutableArray *actorNames;
 
 - (void) addEventFromString:(NSString *)aString;
 - (void) addEventFromString:(NSString *)aString atIndex:(NSUInteger)index;
+- (void) addEvent:(ASSEvent *)aEvent atIndex:(NSUInteger)index;
 - (void) changeEventFromString:(NSString *)aString atIndex:(NSUInteger)index;
 - (void) delEventAtIndex:(NSUInteger)index;
-
+- (void) addDefaultEventAtIndex:(NSUInteger)index;
+- (void) dupplicateEventAtIndex:(NSUInteger)index;
+- (void) joinEventAtIndex:(NSUInteger)aIndex withEventAtIndex:(NSUInteger)bIndex;
+														 
 - (ASSEvent *) getEventAtIndex:(NSUInteger)index;
 
 - (NSUInteger) countEvents;

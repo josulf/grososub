@@ -52,4 +52,14 @@
 	return self;
 }
 
+- (NSComparisonResult)compare:(ASSTime *)aTime
+{
+	if ([self time] > [aTime time]) {
+		return NSOrderedDescending;
+	} else if ([self time] < [aTime time]) {
+		return NSOrderedAscending;
+	}
+	return NSOrderedSame;
+}
+
 @end

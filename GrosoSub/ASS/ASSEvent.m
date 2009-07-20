@@ -15,6 +15,7 @@
 @synthesize layer;
 @synthesize start;
 @synthesize end;
+@synthesize duration;
 @synthesize style;
 @synthesize name;
 @synthesize marginL;
@@ -81,6 +82,9 @@
 	[scanner scanString:@"," intoString:NULL]; //skip comma
 	
 	[scanner scanUpToString:@"\n" intoString:&text];
+	
+	// Calculate duration (end - start)
+	[duration setTime:([end time] - [start time])];
 }
 
 - (id) initWithString:(NSString *)aString
@@ -88,6 +92,7 @@
 	if (self = [super init]) {
 		start = [[ASSTime alloc] init];
 		end = [[ASSTime alloc] init];
+		duration = [[ASSTime alloc] init];
 		effect = [[NSString alloc] init];
 		text = [[NSString alloc] init];
 		style = [[NSString alloc] init];
@@ -102,6 +107,32 @@
 {
 	[self initWithString:@"Dialogue: 0,0:00:00.00,0:00:00.00,Default,Default,0000,0000,0000,,"];
 	return self;
+}
+
+- (void) joinWithEvent:(ASSEvent *)aEvent
+{
+	ASSTime *sStart = [self start];
+	ASSTime *sEnd = [self end];
+	ASSTime *aStart = [aEvent start];
+	ASSTime *aEnd = [aEvent end];
+	
+	NSComparisonResult cStart = [sStart compare:aStart];
+	NSComparisonResult cEnd = [sEnd compare:aEnd];
+	
+	if (cStart == NSOrderedDescending) { //aStart < sStart
+		[self setStart:aStart];
+	}
+	if (cEnd == NSOrderedAscending) { //aEnd > sEnd
+		[self setEnd:aEnd];
+	}
+	
+	text = [text stringByAppendingFormat:@"\\N%@", [aEvent text]];
+}
+
+#pragma mark NSCopying protocol
+- (id) copyWithZone:(NSZone *)zone
+{
+	return [[ASSEvent alloc] initWithString:[self description]];
 }
 
 @end

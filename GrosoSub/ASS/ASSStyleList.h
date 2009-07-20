@@ -11,9 +11,11 @@
 
 @interface ASSStyleList : NSObject {
 	NSMutableArray *styles;
+	NSMutableArray *styleNames;
 }
 
 @property (retain) NSMutableArray *styles;
+@property (retain) NSMutableArray *styleNames;
 
 - (void) addStyleFromString:(NSString *)aString;
 - (void) addStyleFromString:(NSString *)aString atIndex:(NSUInteger)index;

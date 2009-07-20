@@ -12,24 +12,30 @@
 @implementation ASSStyleList
 
 @synthesize styles;
+@synthesize styleNames;
 
 - (void) addStyleFromString:(NSString *)aString
 {
 	[styles addObject:[[ASSStyle alloc] initWithString:aString]];
+	[styleNames addObject:[[styles lastObject] name]];
 }
 
 - (void) addStyleFromString:(NSString *)aString atIndex:(NSUInteger)index
 {
 	[styles insertObject:[[ASSStyle alloc] initWithString:aString] atIndex:index];
+	[styleNames addObject:[[styles objectAtIndex:index] name]];
 }
 
 - (void) changeStyleFromString:(NSString *)aString atIndex:(NSUInteger)index
 {
+	[styleNames removeObject:[[styles objectAtIndex:index] name]];
 	[styles replaceObjectAtIndex:index withObject:[[ASSStyle alloc] initWithString:aString]];
+	[styleNames addObject:[[styles objectAtIndex:index] name]];
 }
 
 - (void) delStyleAtIndex:(NSUInteger)index
 {
+	[styleNames removeObject:[[styles objectAtIndex:index] name]];
 	[styles removeObjectAtIndex:index];
 }
 
@@ -46,6 +52,7 @@
 - (void) clean
 {
 	[styles removeAllObjects];
+	[styleNames removeAllObjects];
 }
 
 - (void) parseString:(NSString *)aString
@@ -65,6 +72,7 @@
 {
 	if (self = [super init]) {
 		styles = [[NSMutableArray alloc] init];
+		styleNames = [[NSMutableArray alloc] init];
 		
 		[self parseString:aString];
 	}

@@ -53,4 +53,15 @@
 	
 }
 
+- (void) testCompare
+{
+	ASSTime *t1 = [[ASSTime alloc] initWithString:@"1:44:03.88"];
+	ASSTime *t2 = [[ASSTime alloc] initWithString:@"1:44:03.88"];
+	ASSTime *t3 = [[ASSTime alloc] initWithString:@"1:44:06.88"];
+	
+	STAssertTrue([t1 compare:t2] == NSOrderedSame, @"This should be the same");
+	STAssertTrue([t1 compare:t3] == NSOrderedAscending, @"t1 should be less than t3");
+	STAssertTrue([t3 compare:t2] == NSOrderedDescending, @"t3 should be greater than t2");
+}
+
 @end

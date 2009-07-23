@@ -48,7 +48,8 @@
 	[newEvent setMarginR:[rTF intValue]];
 	[newEvent setMarginV:[vTF intValue]];
 	[newEvent setEffect:[effectTF stringValue]];
-	[newEvent setText:[textTF stringValue]];
+	[newEvent setText:[textTV string]];
+	NSLog([textTV string]);
 	
 	[self replaceEventAtIndex:[eTable selectedRow] withEvent:newEvent];
 
@@ -295,7 +296,7 @@
 			[lTF setEnabled:YES];
 			[rTF setEnabled:YES];
 			[vTF setEnabled:YES];
-			[textTF setEnabled:YES];
+			[textTV setEnabled:YES];
 			[commitB setEnabled:YES];
 			[textSC setEnabled:YES];
 			[colourSC setEnabled:YES];
@@ -323,7 +324,7 @@
 			[lTF setIntValue:[event marginL]];
 			[rTF setIntValue:[event marginR]];
 			[vTF setIntValue:[event marginV]];
-			[textTF setStringValue:[event text]];
+			[textTV setString:[event text]];
 		} else {
 			[commentB setEnabled:NO];
 			[styleCB setEnabled:NO];
@@ -338,11 +339,28 @@
 			[lTF setEnabled:NO];
 			[rTF setEnabled:NO];
 			[vTF setEnabled:NO];
-			[textTF setEnabled:NO];
+			[textTV setEnabled:NO];
 			[commitB setEnabled:NO];
 			[textSC setEnabled:NO];
 			[colourSC setEnabled:NO];
 		}
+	}
+}
+
+#pragma mark Syntax Highlighting
+- (void)highlight:(NSNotification *)aNotification
+{
+	NSTextStorage *storage = [aNotification object];
+	
+	if (storage == [textTV textStorage]) {
+		NSString *string = [[aNotification object] string];
+		NSRange area;
+		area.location = 0;
+		area.length = [string length];
+		
+		[storage removeAttribute:NSForegroundColorAttributeName range:area];
+		
+		[storage setFont:[NSFont fontWithName:@"Lucida Grande" size:13]];
 	}
 }
 
@@ -355,6 +373,9 @@
 		styles = [[ASSStyleList alloc] init];
 		events = [[ASSEventList alloc] init];
 	}
+	
+	// Syntax highlighting
+	//[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(highlight:) name:NSTextStorageDidProcessEditingNotification object:nil];
     return self;
 }
 

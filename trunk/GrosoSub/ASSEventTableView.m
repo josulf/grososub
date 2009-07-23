@@ -32,7 +32,6 @@
 	[super selectRow:rowIndex byExtendingSelection:flag];
 	
 	NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
-	NSLog(@"Sending notification");
 	[nc postNotificationName:NSTableViewSelectionDidChangeNotification object:self];
 }
 

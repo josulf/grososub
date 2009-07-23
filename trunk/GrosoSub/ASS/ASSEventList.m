@@ -22,6 +22,7 @@
 	
 	if (![actorNames containsObject:actor]) {
 		[actorNames addObject:actor];
+		[actorNames sortUsingSelector:@selector(compare:)];
 	}
 }
 
@@ -33,6 +34,7 @@
 	
 	if (![actorNames containsObject:actor]) {
 		[actorNames addObject:actor];
+		[actorNames sortUsingSelector:@selector(compare:)];
 	}
 }
 
@@ -53,6 +55,7 @@
 	[events replaceObjectAtIndex:index withObject:new];
 	if (![actorNames containsObject:actor]) {
 		[actorNames addObject:actor];
+		[actorNames sortUsingSelector:@selector(compare:)];
 	}
 }
 

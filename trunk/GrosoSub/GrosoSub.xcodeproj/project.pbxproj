@@ -22,6 +22,7 @@
 		8A3E20DD100E58EE00BA8697 /* ASSStyleList.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A3E20DC100E58EE00BA8697 /* ASSStyleList.m */; };
 		8A3E20DE100E58EE00BA8697 /* ASSStyleList.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A3E20DC100E58EE00BA8697 /* ASSStyleList.m */; };
 		8A3E20E2100E5B6200BA8697 /* ASSStyleListTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A3E20E1100E5B6200BA8697 /* ASSStyleListTest.m */; };
+		8AA440501016446200CDC3A5 /* ASSEventTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AA4404F1016446200CDC3A5 /* ASSEventTextView.m */; };
 		8AADE4AF1010CB1B00D711B2 /* ASSScript.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AADE4AE1010CB1B00D711B2 /* ASSScript.m */; };
 		8AADE4FB1010D7E600D711B2 /* ASSEventTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AADE4FA1010D7E600D711B2 /* ASSEventTableView.m */; };
 		8AED5267100CE4F50079F931 /* ASSTime.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AED5266100CE4F50079F931 /* ASSTime.m */; };
@@ -68,9 +69,12 @@
 		8A3E20DC100E58EE00BA8697 /* ASSStyleList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ASSStyleList.m; path = ASS/ASSStyleList.m; sourceTree = "<group>"; };
 		8A3E20E0100E5B6200BA8697 /* ASSStyleListTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ASSStyleListTest.h; path = Test/ASSStyleListTest.h; sourceTree = "<group>"; };
 		8A3E20E1100E5B6200BA8697 /* ASSStyleListTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ASSStyleListTest.m; path = Test/ASSStyleListTest.m; sourceTree = "<group>"; };
+		8AA4404E1016446200CDC3A5 /* ASSEventTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASSEventTextView.h; sourceTree = "<group>"; };
+		8AA4404F1016446200CDC3A5 /* ASSEventTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASSEventTextView.m; sourceTree = "<group>"; };
 		8AADE4AE1010CB1B00D711B2 /* ASSScript.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASSScript.m; sourceTree = "<group>"; };
 		8AADE4F91010D7E600D711B2 /* ASSEventTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASSEventTableView.h; sourceTree = "<group>"; };
 		8AADE4FA1010D7E600D711B2 /* ASSEventTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASSEventTableView.m; sourceTree = "<group>"; };
+		8ACB68FC101442DE00ADD1F3 /* Euskara */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Euskara; path = Euskara.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		8AED5265100CE4F50079F931 /* ASSTime.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ASSTime.h; path = ASS/ASSTime.h; sourceTree = "<group>"; };
 		8AED5266100CE4F50079F931 /* ASSTime.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ASSTime.m; path = ASS/ASSTime.m; sourceTree = "<group>"; };
 		8AED528B100CE8770079F931 /* Test.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Test.octest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -157,6 +161,8 @@
 				8AADE4AE1010CB1B00D711B2 /* ASSScript.m */,
 				8AADE4F91010D7E600D711B2 /* ASSEventTableView.h */,
 				8AADE4FA1010D7E600D711B2 /* ASSEventTableView.m */,
+				8AA4404E1016446200CDC3A5 /* ASSEventTextView.h */,
+				8AA4404F1016446200CDC3A5 /* ASSEventTextView.m */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -281,6 +287,13 @@
 			buildConfigurationList = C05733CB08A9546B00998B17 /* Build configuration list for PBXProject "GrosoSub" */;
 			compatibilityVersion = "Xcode 3.1";
 			hasScannedForEncodings = 1;
+			knownRegions = (
+				English,
+				Japanese,
+				French,
+				German,
+				Euskara,
+			);
 			mainGroup = 2A37F4AAFDCFA73011CA2CEA /* GrosoSub */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -365,6 +378,7 @@
 				8A3E20DD100E58EE00BA8697 /* ASSStyleList.m in Sources */,
 				8AADE4AF1010CB1B00D711B2 /* ASSScript.m in Sources */,
 				8AADE4FB1010D7E600D711B2 /* ASSEventTableView.m in Sources */,
+				8AA440501016446200CDC3A5 /* ASSEventTextView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -391,6 +405,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				1DDD582B0DA1D0D100B32029 /* English */,
+				8ACB68FC101442DE00ADD1F3 /* Euskara */,
 			);
 			name = MainMenu.xib;
 			sourceTree = "<group>";

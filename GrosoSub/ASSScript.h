@@ -25,6 +25,7 @@
 #import "ASS/ASSStyleList.h"
 #import "ASS/ASSEventList.h"
 #import "ASSEventTableView.h"
+#import "ASSEventTextView.h"
 
 @interface ASSScript : NSDocument
 {
@@ -36,10 +37,12 @@
 	IBOutlet ASSEventTableView *eTable;
 	IBOutlet NSButton *commentB;
 	IBOutlet NSComboBox *styleCB, *actorCB;
-	IBOutlet NSTextField *effectTF, *layerTF, *startTF, *endTF, *durationTF, *lTF, *rTF, *vTF, *textTF;
+	IBOutlet NSTextField *effectTF, *layerTF, *startTF, *endTF, *durationTF, *lTF, *rTF, *vTF;
 	IBOutlet NSStepper *layerS;
 	IBOutlet NSButton *commitB;
 	IBOutlet NSSegmentedControl *textSC, *colourSC;
+	
+	IBOutlet ASSEventTextView *textTV;
 }
 
 - (IBAction)commitEvent:(void *)sender;

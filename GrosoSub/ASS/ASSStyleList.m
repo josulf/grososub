@@ -18,12 +18,14 @@
 {
 	[styles addObject:[[ASSStyle alloc] initWithString:aString]];
 	[styleNames addObject:[[styles lastObject] name]];
+	[styleNames sortUsingSelector:@selector(compare:)];
 }
 
 - (void) addStyleFromString:(NSString *)aString atIndex:(NSUInteger)index
 {
 	[styles insertObject:[[ASSStyle alloc] initWithString:aString] atIndex:index];
 	[styleNames addObject:[[styles objectAtIndex:index] name]];
+	[styleNames sortUsingSelector:@selector(compare:)];
 }
 
 - (void) changeStyleFromString:(NSString *)aString atIndex:(NSUInteger)index
@@ -31,6 +33,7 @@
 	[styleNames removeObject:[[styles objectAtIndex:index] name]];
 	[styles replaceObjectAtIndex:index withObject:[[ASSStyle alloc] initWithString:aString]];
 	[styleNames addObject:[[styles objectAtIndex:index] name]];
+	[styleNames sortUsingSelector:@selector(compare:)];
 }
 
 - (void) delStyleAtIndex:(NSUInteger)index

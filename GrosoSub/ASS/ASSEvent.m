@@ -40,6 +40,24 @@
 	return out;
 }
 
+- (NSString *) descriptionSRT
+{
+	NSString *out = @"";
+	if (dialogue == YES) {
+		out = [out stringByAppendingFormat:@"%@ --> %@\n", [[self start] descriptionSRT], [[self end] descriptionSRT]];
+		NSArray *lines = [[self text] componentsSeparatedByString:@"\\N"];
+		for (NSString *line in lines) {
+			line = [line stringByReplacingOccurrencesOfString:@"{\\i1}" withString:@"<i>"];
+			line = [line stringByReplacingOccurrencesOfString:@"{\\i0}" withString:@"</i>"];
+			
+			out = [out stringByAppendingFormat:@"%@\n", line];
+		}
+		out = [out stringByAppendingString:@"\n"];
+	}
+	
+	return out;
+}
+
 - (void) parseString:(NSString *)aString
 {
 	NSString *type, *st, *ed;
@@ -132,7 +150,20 @@
 #pragma mark NSCopying protocol
 - (id) copyWithZone:(NSZone *)zone
 {
-	return [[ASSEvent alloc] initWithString:[self description]];
+	ASSEvent *new = [[ASSEvent alloc] init];
+	[new setDialogue:[self dialogue]];
+	[new setLayer:[self layer]];
+	[new setStart:[[self start] copy]];
+	[new setEnd:[[self end] copy]];
+	[new setDuration:[[self duration] copy]];
+	[new setStyle:[self style]];
+	[new setName:[self name]];
+	[new setMarginL:[self marginL]];
+	[new setMarginR:[self marginR]];
+	[new setMarginV:[self marginV]];
+	[new setEffect:[self effect]];
+	[new setText:[self text]];
+	return new;
 }
 
 @end

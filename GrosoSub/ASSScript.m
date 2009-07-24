@@ -453,7 +453,13 @@
 		megaString = [megaString stringByAppendingString:@"\n[Events]\nFormat: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text\n"];
 		megaString = [megaString stringByAppendingString:[events description]];
 	} else if ([typeName isEqualToString:@"SubRip"]) {
-		megaString = @"TODO";
+		int i = 1;
+		
+		for (ASSEvent *event in events) {
+			megaString = [megaString stringByAppendingFormat:@"%d\n%@", i, [event descriptionSRT]];
+			i++;
+		}
+	
 	} else if ([typeName isEqualToString:@"MicroDVD"]) {
 		megaString = @"TODO";
 	}
@@ -464,6 +470,7 @@
 - (BOOL)readFromData:(NSData *)data ofType:(NSString *)typeName error:(NSError **)outError
 {
 	NSString *megaString = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+	NSLog(typeName);
 	
 	if ([typeName isEqualToString:@"Advanced SubStation Alpha"]) {
 		NSString *hString, *sString, *eString;
@@ -506,10 +513,66 @@
 		[scanner scanUpToString:@"\n" intoString:NULL];
 		eString = [megaString substringFromIndex:[scanner scanLocation]];
 		[events parseString:eString];
+	} else if ([typeName isEqualToString:@"SubRip"]) {
+		/*
+		 0: 1
+		 1: 00:00:20,000 --> 00:00:24,400
+		 2: In connection with a dramatic increase
+		 3: in crime in certain neighbourhoods,
+		 4: 
+		 */
+		// We should delete the data of the new script
+		[headers clean];
+		[styles clean];
+		[events clean];
 		
-		// Now we reload the data of the table
-		[eTable reloadData];
+		// We add the default style
+		[styles addStyleFromString:@"Style: Default,Arial,20,&H00FFFFFF,&H0000FFFF,&H00000000,&H00000000,0,0,0,0,100.00,100.00,0.00,0.00,1,2.00,2.00,2,10,10,10,0"];
+		
+		NSArray *lines = [megaString componentsSeparatedByString:@"\n"];
+			
+		int i = 0;
+		ASSTime *start, *end, *duration;
+		NSArray *times;
+		NSString *text = @"";
+		
+		for (NSString *line in lines) {
+			line = [line stringByReplacingOccurrencesOfString:@"\r" withString:@""];
+			line = [line stringByReplacingOccurrencesOfString:@"<i>" withString:@"{\\i1}"];
+			line = [line stringByReplacingOccurrencesOfString:@"</i>" withString:@"{\\i0}"];
+			
+			if (i == 1) { //start and end times
+				times = [line componentsSeparatedByString:@" --> "];
+				start = [[ASSTime alloc] initWithString:[[times objectAtIndex:0] stringByReplacingOccurrencesOfString:@"," withString:@"."]];
+				end = [[ASSTime alloc] initWithString:[[times objectAtIndex:1] stringByReplacingOccurrencesOfString:@"," withString:@"."]];
+				duration = [[ASSTime alloc] init];
+				[duration setTime:([end time] - [start time])];
+			} else if (i == 2) {
+				text = [line copy];
+			} else if (i > 2 && ![line isEqualToString:@""]) { //text lines
+				text = [text stringByAppendingFormat:@"\\N%@", line];
+			} else if ([line isEqualToString:@""]) { //empty line
+				ASSEvent *newEvent = [[ASSEvent alloc] init];
+				[newEvent setText:text];
+				[newEvent setStart:start];
+				[newEvent setEnd:end];
+				[newEvent setDuration:duration];
+				
+				NSLog([newEvent descriptionSRT]);
+				[events addEvent:newEvent];
+			}
+			
+			if ([line isEqualToString:@""]) {
+				i = 0;
+				text = @"";
+			} else {
+				i++;
+			}
+		}
 	}
+	
+	// Now we reload the data of the table
+	[eTable reloadData];
 	
 	return YES;
 }

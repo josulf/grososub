@@ -9,7 +9,7 @@
 #import <Cocoa/Cocoa.h>
 #import "ASSEvent.h"
 
-@interface ASSEventList : NSObject {
+@interface ASSEventList : NSObject <NSFastEnumeration> {
 	NSMutableArray *events;
 	NSMutableArray *actorNames;
 }
@@ -19,6 +19,7 @@
 
 - (void) addEventFromString:(NSString *)aString;
 - (void) addEventFromString:(NSString *)aString atIndex:(NSUInteger)index;
+- (void) addEvent:(ASSEvent *)aEvent;
 - (void) addEvent:(ASSEvent *)aEvent atIndex:(NSUInteger)index;
 - (void) changeEventFromString:(NSString *)aString atIndex:(NSUInteger)index;
 - (void) delEventAtIndex:(NSUInteger)index;

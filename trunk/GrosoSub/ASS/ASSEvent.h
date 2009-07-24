@@ -32,6 +32,8 @@
 @property (copy) NSString *text;
 
 - (NSString *) description;
+- (NSString *) descriptionSRT;
+
 - (void) parseString:(NSString *)aString;
 - (id) initWithString:(NSString *)aString; // Designated initializer
 - (id) init;

@@ -28,6 +28,22 @@
 	return out;
 }
 
+- (NSString *) descriptionSRT
+{
+	NSString *out;
+	NSInteger h, m, s, ht;
+	
+	h = time / 3600000;
+	m = (time - (3600000 * h)) / 60000;
+	s = (time - (3600000 * h) - (60000 * m)) / 1000;
+	ht = time - (3600000 * h) - (60000 * m) - (1000 * s);
+	
+	//ht *= 10; //FIX LOL
+	out = [NSString stringWithFormat:@"%.2d:%.2d:%.2d,%.3d", h, m, s, ht];
+	
+	return out;
+}
+
 - (void) parseString:(NSString *)aString
 {
 	NSInteger h, m, s, ht;
@@ -62,4 +78,13 @@
 	return NSOrderedSame;
 }
 
+#pragma mark NSCopying protocol
+- (id) copyWithZone:(NSZone *)zone
+{
+	ASSTime *new = [[ASSTime alloc] init];
+	
+	[new setTime:[self time]];
+	
+	return new;
+}
 @end

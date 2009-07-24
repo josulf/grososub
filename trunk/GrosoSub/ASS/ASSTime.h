@@ -9,13 +9,15 @@
 #import <Cocoa/Cocoa.h>
 
 
-@interface ASSTime : NSObject {
+@interface ASSTime : NSObject <NSCopying> {
 	CGFloat time;
 }
 
 @property (assign) CGFloat time;
 
 - (NSString *) description;
+- (NSString *) descriptionSRT;
+
 - (void) parseString:(NSString *)aString;
 - (id) initWithString:(NSString *)aString; // Designated initializer
 

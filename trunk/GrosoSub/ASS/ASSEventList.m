@@ -38,9 +38,28 @@
 	}
 }
 
+- (void) addEvent:(ASSEvent *)aEvent
+{
+	[events addObject:[aEvent copy]];
+	
+	NSString *actor = [aEvent name];
+	
+	if (![actorNames containsObject:actor]) {
+		[actorNames addObject:actor];
+		[actorNames sortUsingSelector:@selector(compare:)];
+	}
+}
+
 - (void) addEvent:(ASSEvent *)aEvent atIndex:(NSUInteger)index
 {
-	[self addEventFromString:[aEvent description] atIndex:index];
+	[events insertObject:[aEvent copy] atIndex:index];
+	
+	NSString *actor = [aEvent name];
+	
+	if (![actorNames containsObject:actor]) {
+		[actorNames addObject:actor];
+		[actorNames sortUsingSelector:@selector(compare:)];
+	}
 }
 
 - (void) delEventAtIndex:(NSUInteger)index
@@ -134,6 +153,12 @@
 	}
 	
 	return out;
+}
+
+#pragma mark NSFastEnumeration
+- (NSUInteger)countByEnumeratingWithState:(NSFastEnumerationState *)state objects:(id *)stackbuf count:(NSUInteger)len
+{
+	return [events countByEnumeratingWithState:state objects:stackbuf count:len];
 }
 
 @end

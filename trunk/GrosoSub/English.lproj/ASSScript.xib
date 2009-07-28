@@ -8,7 +8,7 @@
 		<string key="IBDocument.HIToolboxVersion">353.00</string>
 		<object class="NSMutableArray" key="IBDocument.EditedObjectIDs">
 			<bool key="EncodedWithXMLCoder">YES</bool>
-			<integer value="5"/>
+			<integer value="6"/>
 		</object>
 		<object class="NSArray" key="IBDocument.PluginDependencies">
 			<bool key="EncodedWithXMLCoder">YES</bool>
@@ -26,7 +26,7 @@
 		<object class="NSMutableArray" key="IBDocument.RootObjects" id="580458321">
 			<bool key="EncodedWithXMLCoder">YES</bool>
 			<object class="NSCustomObject" id="512844837">
-				<string key="NSClassName">ASSScript</string>
+				<string key="NSClassName">ASSScriptController</string>
 			</object>
 			<object class="NSCustomObject" id="613418571">
 				<string key="NSClassName">FirstResponder</string>
@@ -913,6 +913,7 @@
 									</object>
 									<string key="NSFrame">{{1, 17}, {843, 492}}</string>
 									<reference key="NSSuperview" ref="933123766"/>
+									<reference key="NSNextKeyView" ref="220043392"/>
 									<reference key="NSDocView" ref="220043392"/>
 									<reference key="NSBGColor" ref="214629809"/>
 									<int key="NScvFlags">4</int>
@@ -945,6 +946,7 @@
 									</object>
 									<string key="NSFrame">{{1, 0}, {843, 17}}</string>
 									<reference key="NSSuperview" ref="933123766"/>
+									<reference key="NSNextKeyView" ref="702917630"/>
 									<reference key="NSDocView" ref="702917630"/>
 									<reference key="NSBGColor" ref="214629809"/>
 									<int key="NScvFlags">4</int>
@@ -953,6 +955,7 @@
 							</object>
 							<string key="NSFrame">{{20, 20}, {860, 525}}</string>
 							<reference key="NSSuperview" ref="568628114"/>
+							<reference key="NSNextKeyView" ref="461207191"/>
 							<int key="NSsFlags">50</int>
 							<reference key="NSVScroller" ref="576630799"/>
 							<reference key="NSHScroller" ref="497460892"/>
@@ -1043,12 +1046,13 @@
 											</object>
 											<int key="NSTVFlags">6</int>
 											<string key="NSMaxSize">{1703, 1e+07}</string>
-											<string key="NSMinize">{223, 9}</string>
+											<string key="NSMinize">{223, 0}</string>
 											<nil key="NSDelegate"/>
 										</object>
 									</object>
 									<string key="NSFrame">{{1, 1}, {843, 71}}</string>
 									<reference key="NSSuperview" ref="3329340"/>
+									<reference key="NSNextKeyView" ref="41221730"/>
 									<reference key="NSDocView" ref="41221730"/>
 									<reference key="NSBGColor" ref="871106157"/>
 									<object class="NSCursor" key="NSCursor">
@@ -1080,6 +1084,7 @@
 							</object>
 							<string key="NSFrame">{{20, 553}, {860, 73}}</string>
 							<reference key="NSSuperview" ref="568628114"/>
+							<reference key="NSNextKeyView" ref="408339168"/>
 							<int key="NSsFlags">18</int>
 							<reference key="NSVScroller" ref="121955754"/>
 							<reference key="NSHScroller" ref="295979183"/>
@@ -2179,13 +2184,13 @@
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<string>{{40, 753}, {128, 103}}</string>
+					<string>{{414, 634}, {128, 103}}</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<string>{{168, 783}, {188, 73}}</string>
+					<string>{{542, 664}, {188, 73}}</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
@@ -2228,8 +2233,8 @@
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>ASSEventTextView</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<string>{{326, 39}, {900, 700}}</string>
-					<string>{{326, 39}, {900, 700}}</string>
+					<string>{{333, 96}, {900, 700}}</string>
+					<string>{{333, 96}, {900, 700}}</string>
 					<reference ref="9"/>
 					<string>{{201, 387}, {507, 413}}</string>
 					<reference ref="9"/>
@@ -2280,8 +2285,8 @@
 					</object>
 				</object>
 				<object class="IBPartialClassDescription">
-					<string key="className">ASSScript</string>
-					<string key="superclassName">NSDocument</string>
+					<string key="className">ASSScriptController</string>
+					<string key="superclassName">NSWindowController</string>
 					<object class="NSMutableDictionary" key="actions">
 						<bool key="EncodedWithXMLCoder">YES</bool>
 						<object class="NSMutableArray" key="dict.sortedKeys">
@@ -2352,15 +2357,7 @@
 					</object>
 					<object class="IBClassDescriptionSource" key="sourceIdentifier">
 						<string key="majorKey">IBProjectSource</string>
-						<string key="minorKey">ASSScript.h</string>
-					</object>
-				</object>
-				<object class="IBPartialClassDescription">
-					<string key="className">ASSScript</string>
-					<string key="superclassName">NSDocument</string>
-					<object class="IBClassDescriptionSource" key="sourceIdentifier">
-						<string key="majorKey">IBUserSource</string>
-						<string key="minorKey"/>
+						<string key="minorKey">ASSScriptController.h</string>
 					</object>
 				</object>
 			</object>

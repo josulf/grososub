@@ -43,8 +43,8 @@
 	
 	[events addDefaultEventAtIndex:aIndex];
 	
-	[[sC eTable] reloadData];
-	[[sC eTable] selectRow:aIndex byExtendingSelection:NO];
+	[[scC eTable] reloadData];
+	[[scC eTable] selectRow:aIndex byExtendingSelection:NO];
 }
 
 - (void)delEventAtIndex:(NSUInteger)aIndex
@@ -61,8 +61,8 @@
 	
 	[events delEventAtIndex:aIndex];
 	
-	[[sC eTable] reloadData];
-	[[sC eTable] selectRow:aIndex byExtendingSelection:NO];
+	[[scC eTable] reloadData];
+	[[scC eTable] selectRow:aIndex byExtendingSelection:NO];
 }
 
 - (void)addEvent:(ASSEvent *)aEvent atIndex:(NSUInteger)aIndex
@@ -78,8 +78,8 @@
 	
 	[events addEvent:aEvent atIndex:aIndex];
 	
-	[[sC eTable] reloadData];
-	[[sC eTable] selectRow:aIndex byExtendingSelection:NO];
+	[[scC eTable] reloadData];
+	[[scC eTable] selectRow:aIndex byExtendingSelection:NO];
 }
 
 - (void)dupplicateEventAtIndex:(NSUInteger)aIndex
@@ -93,7 +93,7 @@
 	
 	[events dupplicateEventAtIndex:aIndex];
 	
-	[[sC eTable] reloadData];
+	[[scC eTable] reloadData];
 }
 
 - (void)joinEventAtIndex:(NSUInteger)aIndex withEventAtIndex:(NSUInteger)bIndex
@@ -114,8 +114,8 @@
 	[events joinEventAtIndex:aIndex withEventAtIndex:bIndex];
 	[events delEventAtIndex:bIndex];
 	
-	[[sC eTable] reloadData];
-	[[sC eTable] deselectRow:bIndex];
+	[[scC eTable] reloadData];
+	[[scC eTable] deselectRow:bIndex];
 }
 
 - (void)splitEventAtIndex:(NSUInteger)aIndex withEvent:(ASSEvent *)aEvent and:(ASSEvent *)bEvent
@@ -133,9 +133,9 @@
 	[events addEvent:aEvent atIndex:aIndex];
 	[events addEvent:bEvent atIndex:aIndex+1];
 	
-	[[sC eTable] reloadData];
-	[[sC eTable] selectRow:aIndex byExtendingSelection:NO];
-	[[sC eTable] selectRow:aIndex+1 byExtendingSelection:YES];
+	[[scC eTable] reloadData];
+	[[scC eTable] selectRow:aIndex byExtendingSelection:NO];
+	[[scC eTable] selectRow:aIndex+1 byExtendingSelection:YES];
 }
 
 - (void)replaceEventAtIndex:(NSUInteger)aIndex withEvent:(ASSEvent *)aEvent
@@ -152,8 +152,8 @@
 	
 	[events changeEventFromString:[aEvent description] atIndex:aIndex];
 	
-	[[sC eTable] reloadData];
-	[[sC eTable] selectRow:aIndex byExtendingSelection:NO];
+	[[scC eTable] reloadData];
+	[[scC eTable] selectRow:aIndex byExtendingSelection:NO];
 }
 
 - (ASSEvent *)getEventAtIndex:(NSUInteger)aIndex
@@ -189,13 +189,20 @@
     return self;
 }
 
+- (IBAction)showStylesManager:(void *)sender
+{
+	stC = [[ASSStylesController alloc] init];
+	[self addWindowController:stC];
+	[stC showWindow:nil];
+}	
+
 #pragma mark NSDocument
 - (void)makeWindowControllers
 {
-	sC = [[ASSScriptController alloc] init];
-	
-	[self addWindowController:sC];
-	NSLog(@"PATXIIIIIIIIIIIII");
+	scC = [[ASSScriptController alloc] init];
+	[self addWindowController:scC];
+	//stC = [[ASSStylesController alloc] init];
+	//[self addWindowController:stC];
 }
 
 - (void)windowControllerDidLoadNib:(NSWindowController *) aController
@@ -366,7 +373,7 @@
 	}
 	
 	// Now we reload the data of the table
-	[[sC eTable] reloadData];
+	[[scC eTable] reloadData];
 	
 	return YES;
 }

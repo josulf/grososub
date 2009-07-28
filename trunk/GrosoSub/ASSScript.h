@@ -21,11 +21,15 @@
 //
 
 #import <Cocoa/Cocoa.h>
+
 #import "ASS/ASSHeader.h"
 #import "ASS/ASSStyleList.h"
 #import "ASS/ASSEventList.h"
-#import "ASSScriptController.h"
+
 #import "ASSEventTableView.h"
+
+#import "ASSScriptController.h"
+#import "ASSStylesController.h"
 
 @interface ASSScript : NSDocument
 {
@@ -33,7 +37,8 @@
 	ASSHeader *headers;
 	ASSStyleList *styles;
 	ASSEventList *events;
-	ASSScriptController *sC;
+	ASSScriptController *scC;
+	ASSStylesController *stC;
 }
 
 - (void)addDefaultEventAtIndex:(NSUInteger)aIndex;
@@ -49,6 +54,8 @@
 - (NSUInteger)countEvents;
 - (NSMutableArray *)actorNames;
 - (NSMutableArray *)styleNames;
+
+- (IBAction)showStylesManager:(void *)sender;
 
 @property (copy) NSString *name;
 @property (retain) ASSHeader *headers;

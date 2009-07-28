@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		1DDD582C0DA1D0D100B32029 /* ASSScript.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1DDD58280DA1D0D100B32029 /* ASSScript.xib */; };
-		1DDD582D0DA1D0D100B32029 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1DDD582A0DA1D0D100B32029 /* MainMenu.xib */; };
 		8A2CE4380ED4D01200DA892E /* COPYING in Resources */ = {isa = PBXBuildFile; fileRef = 8A2CE4370ED4D01200DA892E /* COPYING */; };
 		8A3E1FBF100E314200BA8697 /* ASSHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A3E1FBE100E314200BA8697 /* ASSHeader.m */; };
 		8A3E1FC2100E360800BA8697 /* ASSHeaderTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A3E1FC1100E360800BA8697 /* ASSHeaderTest.m */; };
@@ -31,6 +30,9 @@
 		8AADE4AF1010CB1B00D711B2 /* ASSScript.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AADE4AE1010CB1B00D711B2 /* ASSScript.m */; };
 		8AADE4FB1010D7E600D711B2 /* ASSEventTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AADE4FA1010D7E600D711B2 /* ASSEventTableView.m */; };
 		8ABA2A41101F7C8900126D4A /* ASSScriptController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8ABA2A40101F7C8900126D4A /* ASSScriptController.m */; };
+		8AEA70F7101FAC790053B489 /* ASSStyles.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8AEA70F6101FAC790053B489 /* ASSStyles.xib */; };
+		8AEA70FB101FAC8D0053B489 /* ASSStylesController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AEA70FA101FAC8D0053B489 /* ASSStylesController.m */; };
+		8AEA718F101FB6160053B489 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1DDD582B0DA1D0D100B32029 /* MainMenu.xib */; };
 		8AED5267100CE4F50079F931 /* ASSTime.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AED5266100CE4F50079F931 /* ASSTime.m */; };
 		8AED5297100CE92E0079F931 /* ASSTimeTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AED5296100CE92E0079F931 /* ASSTimeTest.m */; };
 		8AED52B6100CF02D0079F931 /* ASSTime.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AED5266100CE4F50079F931 /* ASSTime.m */; };
@@ -50,7 +52,7 @@
 		1058C7A7FEA54F5311CA2CBB /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
 		13E42FBA07B3F13500E4EEF1 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = /System/Library/Frameworks/CoreData.framework; sourceTree = "<absolute>"; };
 		1DDD58290DA1D0D100B32029 /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = English.lproj/ASSScript.xib; sourceTree = "<group>"; };
-		1DDD582B0DA1D0D100B32029 /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = English.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		1DDD582B0DA1D0D100B32029 /* MainMenu.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainMenu.xib; sourceTree = "<group>"; };
 		2A37F4AEFDCFA73011CA2CEA /* ASSScript.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASSScript.h; sourceTree = "<group>"; };
 		2A37F4B0FDCFA73011CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		2A37F4BAFDCFA73011CA2CEA /* English */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = English; path = English.lproj/Credits.rtf; sourceTree = "<group>"; };
@@ -86,7 +88,9 @@
 		8AADE4FA1010D7E600D711B2 /* ASSEventTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASSEventTableView.m; sourceTree = "<group>"; };
 		8ABA2A3F101F7C8900126D4A /* ASSScriptController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASSScriptController.h; sourceTree = "<group>"; };
 		8ABA2A40101F7C8900126D4A /* ASSScriptController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASSScriptController.m; sourceTree = "<group>"; };
-		8ACB68FC101442DE00ADD1F3 /* Euskara */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Euskara; path = Euskara.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		8AEA70F6101FAC790053B489 /* ASSStyles.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ASSStyles.xib; sourceTree = "<group>"; };
+		8AEA70F9101FAC8D0053B489 /* ASSStylesController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASSStylesController.h; sourceTree = "<group>"; };
+		8AEA70FA101FAC8D0053B489 /* ASSStylesController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASSStylesController.m; sourceTree = "<group>"; };
 		8AED5265100CE4F50079F931 /* ASSTime.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ASSTime.h; path = ASS/ASSTime.h; sourceTree = "<group>"; };
 		8AED5266100CE4F50079F931 /* ASSTime.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ASSTime.m; path = ASS/ASSTime.m; sourceTree = "<group>"; };
 		8AED528B100CE8770079F931 /* Test.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Test.octest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -156,12 +160,14 @@
 			children = (
 				8AED5269100CE4FB0079F931 /* ASS */,
 				2A37F4ABFDCFA73011CA2CEA /* Classes */,
-				2A37F4AFFDCFA73011CA2CEA /* Other Sources */,
-				2A37F4B8FDCFA73011CA2CEA /* Resources */,
+				8AEA7179101FB4C40053B489 /* Controllers */,
 				2A37F4C3FDCFA73011CA2CEA /* Frameworks */,
+				8AEA718E101FB5900053B489 /* Icons */,
+				2A37F4AFFDCFA73011CA2CEA /* Other Sources */,
 				19C28FB0FE9D524F11CA2CBB /* Products */,
+				2A37F4B8FDCFA73011CA2CEA /* Resources */,
 				8AED5293100CE8D50079F931 /* Test Cases */,
-				8AED528C100CE8770079F931 /* Test-Info.plist */,
+				8AEA718D101FB57B0053B489 /* Views */,
 			);
 			name = GrosoSub;
 			sourceTree = "<group>";
@@ -171,12 +177,6 @@
 			children = (
 				2A37F4AEFDCFA73011CA2CEA /* ASSScript.h */,
 				8AADE4AE1010CB1B00D711B2 /* ASSScript.m */,
-				8AADE4F91010D7E600D711B2 /* ASSEventTableView.h */,
-				8AADE4FA1010D7E600D711B2 /* ASSEventTableView.m */,
-				8AA4404E1016446200CDC3A5 /* ASSEventTextView.h */,
-				8AA4404F1016446200CDC3A5 /* ASSEventTextView.m */,
-				8ABA2A3F101F7C8900126D4A /* ASSScriptController.h */,
-				8ABA2A40101F7C8900126D4A /* ASSScriptController.m */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -193,16 +193,14 @@
 		2A37F4B8FDCFA73011CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				8A668B8E10195CB00053F77F /* grososrt.icns */,
-				8A668B8F10195CB00053F77F /* grosoass.icns */,
-				8A668B9010195CB00053F77F /* groso.icns */,
-				8A668B9110195CB00053F77F /* grososub.icns */,
+				8AED528C100CE8770079F931 /* Test-Info.plist */,
 				8A2CE4370ED4D01200DA892E /* COPYING */,
 				8A448EE11019DA9000A658AF /* Credits.rtf */,
 				8D15AC360486D014006FF6A4 /* Info.plist */,
 				089C165FFE840EACC02AAC07 /* InfoPlist.strings */,
 				1DDD58280DA1D0D100B32029 /* ASSScript.xib */,
-				1DDD582A0DA1D0D100B32029 /* MainMenu.xib */,
+				1DDD582B0DA1D0D100B32029 /* MainMenu.xib */,
+				8AEA70F6101FAC790053B489 /* ASSStyles.xib */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -214,6 +212,39 @@
 				1058C7A8FEA54F5311CA2CBB /* Other Frameworks */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		8AEA7179101FB4C40053B489 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				8ABA2A3F101F7C8900126D4A /* ASSScriptController.h */,
+				8ABA2A40101F7C8900126D4A /* ASSScriptController.m */,
+				8AEA70F9101FAC8D0053B489 /* ASSStylesController.h */,
+				8AEA70FA101FAC8D0053B489 /* ASSStylesController.m */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		8AEA718D101FB57B0053B489 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				8AADE4F91010D7E600D711B2 /* ASSEventTableView.h */,
+				8AADE4FA1010D7E600D711B2 /* ASSEventTableView.m */,
+				8AA4404E1016446200CDC3A5 /* ASSEventTextView.h */,
+				8AA4404F1016446200CDC3A5 /* ASSEventTextView.m */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		8AEA718E101FB5900053B489 /* Icons */ = {
+			isa = PBXGroup;
+			children = (
+				8A668B8E10195CB00053F77F /* grososrt.icns */,
+				8A668B8F10195CB00053F77F /* grosoass.icns */,
+				8A668B9010195CB00053F77F /* groso.icns */,
+				8A668B9110195CB00053F77F /* grososub.icns */,
+			);
+			name = Icons;
 			sourceTree = "<group>";
 		};
 		8AED5269100CE4FB0079F931 /* ASS */ = {
@@ -338,12 +369,13 @@
 				8A448EE21019DA9000A658AF /* Credits.rtf in Resources */,
 				8D15AC2F0486D014006FF6A4 /* InfoPlist.strings in Resources */,
 				1DDD582C0DA1D0D100B32029 /* ASSScript.xib in Resources */,
-				1DDD582D0DA1D0D100B32029 /* MainMenu.xib in Resources */,
+				8AEA718F101FB6160053B489 /* MainMenu.xib in Resources */,
 				8A2CE4380ED4D01200DA892E /* COPYING in Resources */,
 				8A668B9210195CB00053F77F /* grososrt.icns in Resources */,
 				8A668B9310195CB00053F77F /* grosoass.icns in Resources */,
 				8A668B9410195CB00053F77F /* groso.icns in Resources */,
 				8A668B9510195CB00053F77F /* grososub.icns in Resources */,
+				8AEA70F7101FAC790053B489 /* ASSStyles.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -403,6 +435,7 @@
 				8AADE4FB1010D7E600D711B2 /* ASSEventTableView.m in Sources */,
 				8AA440501016446200CDC3A5 /* ASSEventTextView.m in Sources */,
 				8ABA2A41101F7C8900126D4A /* ASSScriptController.m in Sources */,
+				8AEA70FB101FAC8D0053B489 /* ASSStylesController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -423,15 +456,6 @@
 				1DDD58290DA1D0D100B32029 /* English */,
 			);
 			name = ASSScript.xib;
-			sourceTree = "<group>";
-		};
-		1DDD582A0DA1D0D100B32029 /* MainMenu.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				1DDD582B0DA1D0D100B32029 /* English */,
-				8ACB68FC101442DE00ADD1F3 /* Euskara */,
-			);
-			name = MainMenu.xib;
 			sourceTree = "<group>";
 		};
 		8A448EE11019DA9000A658AF /* Credits.rtf */ = {
@@ -521,6 +545,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				CURRENT_PROJECT_VERSION = 0.0;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				GCC_MODEL_TUNING = G5;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -528,6 +554,7 @@
 				INFOPLIST_FILE = Info.plist;
 				INSTALL_PATH = "$(HOME)/Applications";
 				PRODUCT_NAME = GrosoSub;
+				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Release;
 		};

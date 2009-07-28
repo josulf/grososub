@@ -9,24 +9,6 @@
 		<dict>
 			<key>CFBundleTypeExtensions</key>
 			<array>
-				<string>sub</string>
-			</array>
-			<key>CFBundleTypeIconFile</key>
-			<string>grososub</string>
-			<key>CFBundleTypeName</key>
-			<string>MicroDVD</string>
-			<key>CFBundleTypeRole</key>
-			<string>Editor</string>
-			<key>LSTypeIsPackage</key>
-			<false/>
-			<key>NSDocumentClass</key>
-			<string>ASSScript</string>
-			<key>NSPersistentStoreTypeKey</key>
-			<string>Binary</string>
-		</dict>
-		<dict>
-			<key>CFBundleTypeExtensions</key>
-			<array>
 				<string>ass</string>
 			</array>
 			<key>CFBundleTypeIconFile</key>
@@ -49,6 +31,24 @@
 			<string>grososrt</string>
 			<key>CFBundleTypeName</key>
 			<string>SubRip</string>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>LSTypeIsPackage</key>
+			<false/>
+			<key>NSDocumentClass</key>
+			<string>ASSScript</string>
+			<key>NSPersistentStoreTypeKey</key>
+			<string>Binary</string>
+		</dict>
+		<dict>
+			<key>CFBundleTypeExtensions</key>
+			<array>
+				<string>sub</string>
+			</array>
+			<key>CFBundleTypeIconFile</key>
+			<string>grososub</string>
+			<key>CFBundleTypeName</key>
+			<string>MicroDVD</string>
 			<key>CFBundleTypeRole</key>
 			<string>Editor</string>
 			<key>LSTypeIsPackage</key>

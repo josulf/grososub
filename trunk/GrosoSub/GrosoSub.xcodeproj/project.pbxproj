@@ -22,6 +22,7 @@
 		8A3E20DD100E58EE00BA8697 /* ASSStyleList.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A3E20DC100E58EE00BA8697 /* ASSStyleList.m */; };
 		8A3E20DE100E58EE00BA8697 /* ASSStyleList.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A3E20DC100E58EE00BA8697 /* ASSStyleList.m */; };
 		8A3E20E2100E5B6200BA8697 /* ASSStyleListTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A3E20E1100E5B6200BA8697 /* ASSStyleListTest.m */; };
+		8A448EE21019DA9000A658AF /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 8A448EE11019DA9000A658AF /* Credits.rtf */; };
 		8A668B9210195CB00053F77F /* grososrt.icns in Resources */ = {isa = PBXBuildFile; fileRef = 8A668B8E10195CB00053F77F /* grososrt.icns */; };
 		8A668B9310195CB00053F77F /* grosoass.icns in Resources */ = {isa = PBXBuildFile; fileRef = 8A668B8F10195CB00053F77F /* grosoass.icns */; };
 		8A668B9410195CB00053F77F /* groso.icns in Resources */ = {isa = PBXBuildFile; fileRef = 8A668B9010195CB00053F77F /* groso.icns */; };
@@ -38,7 +39,6 @@
 		8AED53C9100D3AA10079F931 /* ASSEventList.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AED53C8100D3AA10079F931 /* ASSEventList.m */; };
 		8AED53EC100D41920079F931 /* ASSEventListTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AED53EB100D41920079F931 /* ASSEventListTest.m */; };
 		8AED53EF100D42FE0079F931 /* ASSEventList.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AED53C8100D3AA10079F931 /* ASSEventList.m */; };
-		8D15AC2C0486D014006FF6A4 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 2A37F4B9FDCFA73011CA2CEA /* Credits.rtf */; };
 		8D15AC2F0486D014006FF6A4 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C165FFE840EACC02AAC07 /* InfoPlist.strings */; };
 		8D15AC320486D014006FF6A4 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A37F4B0FDCFA73011CA2CEA /* main.m */; settings = {ATTRIBUTES = (); }; };
 		8D15AC340486D014006FF6A4 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A7FEA54F5311CA2CBB /* Cocoa.framework */; };
@@ -73,13 +73,11 @@
 		8A3E20DC100E58EE00BA8697 /* ASSStyleList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ASSStyleList.m; path = ASS/ASSStyleList.m; sourceTree = "<group>"; };
 		8A3E20E0100E5B6200BA8697 /* ASSStyleListTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ASSStyleListTest.h; path = Test/ASSStyleListTest.h; sourceTree = "<group>"; };
 		8A3E20E1100E5B6200BA8697 /* ASSStyleListTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ASSStyleListTest.m; path = Test/ASSStyleListTest.m; sourceTree = "<group>"; };
+		8A448EE31019DA9600A658AF /* eu */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = eu; path = eu.lproj/Credits.rtf; sourceTree = "<group>"; };
 		8A668B8E10195CB00053F77F /* grososrt.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = grososrt.icns; sourceTree = "<group>"; };
 		8A668B8F10195CB00053F77F /* grosoass.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = grosoass.icns; sourceTree = "<group>"; };
 		8A668B9010195CB00053F77F /* groso.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = groso.icns; sourceTree = "<group>"; };
 		8A668B9110195CB00053F77F /* grososub.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = grososub.icns; sourceTree = "<group>"; };
-		8A668B9A10195D480053F77F /* Euskara */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = Euskara; path = Euskara.lproj/Credits.rtf; sourceTree = "<group>"; };
-		8A668BA410195E2A0053F77F /* Euskara */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Euskara; path = Euskara.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		8A668BA510195E380053F77F /* Euskara */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Euskara; path = Euskara.lproj/ASSScript.xib; sourceTree = "<group>"; };
 		8AA4404E1016446200CDC3A5 /* ASSEventTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASSEventTextView.h; sourceTree = "<group>"; };
 		8AA4404F1016446200CDC3A5 /* ASSEventTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASSEventTextView.m; sourceTree = "<group>"; };
 		8AADE4AE1010CB1B00D711B2 /* ASSScript.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASSScript.m; sourceTree = "<group>"; };
@@ -195,7 +193,7 @@
 				8A668B9010195CB00053F77F /* groso.icns */,
 				8A668B9110195CB00053F77F /* grososub.icns */,
 				8A2CE4370ED4D01200DA892E /* COPYING */,
-				2A37F4B9FDCFA73011CA2CEA /* Credits.rtf */,
+				8A448EE11019DA9000A658AF /* Credits.rtf */,
 				8D15AC360486D014006FF6A4 /* Info.plist */,
 				089C165FFE840EACC02AAC07 /* InfoPlist.strings */,
 				1DDD58280DA1D0D100B32029 /* ASSScript.xib */,
@@ -308,6 +306,7 @@
 				French,
 				German,
 				Euskara,
+				eu,
 			);
 			mainGroup = 2A37F4AAFDCFA73011CA2CEA /* GrosoSub */;
 			projectDirPath = "";
@@ -331,7 +330,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8D15AC2C0486D014006FF6A4 /* Credits.rtf in Resources */,
+				8A448EE21019DA9000A658AF /* Credits.rtf in Resources */,
 				8D15AC2F0486D014006FF6A4 /* InfoPlist.strings in Resources */,
 				1DDD582C0DA1D0D100B32029 /* ASSScript.xib in Resources */,
 				1DDD582D0DA1D0D100B32029 /* MainMenu.xib in Resources */,
@@ -408,7 +407,6 @@
 			isa = PBXVariantGroup;
 			children = (
 				089C1660FE840EACC02AAC07 /* English */,
-				8A668BA410195E2A0053F77F /* Euskara */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
@@ -417,7 +415,6 @@
 			isa = PBXVariantGroup;
 			children = (
 				1DDD58290DA1D0D100B32029 /* English */,
-				8A668BA510195E380053F77F /* Euskara */,
 			);
 			name = ASSScript.xib;
 			sourceTree = "<group>";
@@ -431,11 +428,11 @@
 			name = MainMenu.xib;
 			sourceTree = "<group>";
 		};
-		2A37F4B9FDCFA73011CA2CEA /* Credits.rtf */ = {
+		8A448EE11019DA9000A658AF /* Credits.rtf */ = {
 			isa = PBXVariantGroup;
 			children = (
 				2A37F4BAFDCFA73011CA2CEA /* English */,
-				8A668B9A10195D480053F77F /* Euskara */,
+				8A448EE31019DA9600A658AF /* eu */,
 			);
 			name = Credits.rtf;
 			sourceTree = "<group>";

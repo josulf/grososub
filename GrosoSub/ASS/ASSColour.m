@@ -24,7 +24,7 @@
 - (void) parseString:(NSString *)aString
 {
 	NSScanner *scanner = [NSScanner scannerWithString:aString];
-	NSUInteger p;
+	unsigned p;
 	
 	[scanner scanString:@"&H" intoString:NULL];
 	[scanner scanHexInt:&p];

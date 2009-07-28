@@ -20,6 +20,6 @@
 
 - (NSString *)windowTitleForDocumentDisplayName:(NSString *)displayName
 {
-	return [displayName stringByAppendingString:@" - Style Manager"];
+	return [displayName stringByAppendingString:@" - Styles Manager"];
 }
 @end

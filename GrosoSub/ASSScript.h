@@ -24,8 +24,8 @@
 #import "ASS/ASSHeader.h"
 #import "ASS/ASSStyleList.h"
 #import "ASS/ASSEventList.h"
+#import "ASSScriptController.h"
 #import "ASSEventTableView.h"
-#import "ASSEventTextView.h"
 
 @interface ASSScript : NSDocument
 {
@@ -33,27 +33,8 @@
 	ASSHeader *headers;
 	ASSStyleList *styles;
 	ASSEventList *events;
-	
-	IBOutlet ASSEventTableView *eTable;
-	IBOutlet NSButton *commentB;
-	IBOutlet NSComboBox *styleCB, *actorCB;
-	IBOutlet NSTextField *effectTF, *layerTF, *startTF, *endTF, *durationTF, *lTF, *rTF, *vTF;
-	IBOutlet NSStepper *layerS;
-	IBOutlet NSButton *commitB;
-	IBOutlet NSSegmentedControl *textSC, *colourSC;
-	
-	IBOutlet ASSEventTextView *textTV;
+	ASSScriptController *sC;
 }
-
-- (IBAction)commitEvent:(void *)sender;
-- (IBAction)textActions:(void *)sender;
-
-- (IBAction)addEventBefore:(void *)sender;
-- (IBAction)addEventAfter:(void *)sender;
-- (IBAction)addEvent:(void *)sender;
-- (IBAction)removeEvent:(void *)sender;
-- (IBAction)dupplicateEvent:(void *)sender;
-- (IBAction)joinEvents:(void *)sender;
 
 - (void)addDefaultEventAtIndex:(NSUInteger)aIndex;
 - (void)delEventAtIndex:(NSUInteger)aIndex;
@@ -62,6 +43,12 @@
 - (void)joinEventAtIndex:(NSUInteger)aIndex withEventAtIndex:(NSUInteger)bIndex;
 - (void)splitEventAtIndex:(NSUInteger)aIndex withEvent:(ASSEvent *)aEvent and:(ASSEvent *)bEvent;
 - (void)replaceEventAtIndex:(NSUInteger)aIndex withEvent:(ASSEvent *)aEvent;
+
+- (ASSEvent *)getEventAtIndex:(NSUInteger)aIndex;
+
+- (NSUInteger)countEvents;
+- (NSMutableArray *)actorNames;
+- (NSMutableArray *)styleNames;
 
 @property (copy) NSString *name;
 @property (retain) ASSHeader *headers;

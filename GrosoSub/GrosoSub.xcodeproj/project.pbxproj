@@ -30,6 +30,7 @@
 		8AA440501016446200CDC3A5 /* ASSEventTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AA4404F1016446200CDC3A5 /* ASSEventTextView.m */; };
 		8AADE4AF1010CB1B00D711B2 /* ASSScript.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AADE4AE1010CB1B00D711B2 /* ASSScript.m */; };
 		8AADE4FB1010D7E600D711B2 /* ASSEventTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AADE4FA1010D7E600D711B2 /* ASSEventTableView.m */; };
+		8ABA2A41101F7C8900126D4A /* ASSScriptController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8ABA2A40101F7C8900126D4A /* ASSScriptController.m */; };
 		8AED5267100CE4F50079F931 /* ASSTime.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AED5266100CE4F50079F931 /* ASSTime.m */; };
 		8AED5297100CE92E0079F931 /* ASSTimeTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AED5296100CE92E0079F931 /* ASSTimeTest.m */; };
 		8AED52B6100CF02D0079F931 /* ASSTime.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AED5266100CE4F50079F931 /* ASSTime.m */; };
@@ -83,6 +84,8 @@
 		8AADE4AE1010CB1B00D711B2 /* ASSScript.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASSScript.m; sourceTree = "<group>"; };
 		8AADE4F91010D7E600D711B2 /* ASSEventTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASSEventTableView.h; sourceTree = "<group>"; };
 		8AADE4FA1010D7E600D711B2 /* ASSEventTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASSEventTableView.m; sourceTree = "<group>"; };
+		8ABA2A3F101F7C8900126D4A /* ASSScriptController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASSScriptController.h; sourceTree = "<group>"; };
+		8ABA2A40101F7C8900126D4A /* ASSScriptController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASSScriptController.m; sourceTree = "<group>"; };
 		8ACB68FC101442DE00ADD1F3 /* Euskara */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Euskara; path = Euskara.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		8AED5265100CE4F50079F931 /* ASSTime.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ASSTime.h; path = ASS/ASSTime.h; sourceTree = "<group>"; };
 		8AED5266100CE4F50079F931 /* ASSTime.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ASSTime.m; path = ASS/ASSTime.m; sourceTree = "<group>"; };
@@ -172,6 +175,8 @@
 				8AADE4FA1010D7E600D711B2 /* ASSEventTableView.m */,
 				8AA4404E1016446200CDC3A5 /* ASSEventTextView.h */,
 				8AA4404F1016446200CDC3A5 /* ASSEventTextView.m */,
+				8ABA2A3F101F7C8900126D4A /* ASSScriptController.h */,
+				8ABA2A40101F7C8900126D4A /* ASSScriptController.m */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -397,6 +402,7 @@
 				8AADE4AF1010CB1B00D711B2 /* ASSScript.m in Sources */,
 				8AADE4FB1010D7E600D711B2 /* ASSEventTableView.m in Sources */,
 				8AA440501016446200CDC3A5 /* ASSEventTextView.m in Sources */,
+				8ABA2A41101F7C8900126D4A /* ASSScriptController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

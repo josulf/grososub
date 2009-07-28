@@ -569,6 +569,34 @@
 				i++;
 			}
 		}
+	} else if ([typeName isEqualToString:@"Text File"]) {
+		NSArray *lines = [megaString componentsSeparatedByString:@"\n"];
+		NSRange actor;
+		ASSEvent *newEvent = [[ASSEvent alloc] init];
+		
+		[headers clean];
+		[styles clean];
+		[events clean];
+		
+		[styles addStyleFromString:@"Style: Default,Arial,20,&H00FFFFFF,&H0000FFFF,&H00000000,&H00000000,0,0,0,0,100.00,100.00,0.00,0.00,1,2.00,2.00,2,10,10,10,0"];
+		
+		for (NSString *line in lines) {
+			line = [line stringByReplacingOccurrencesOfString:@"\r" withString:@""];
+			actor = [line rangeOfString:@":"];
+			
+			if (actor.location == NSNotFound) {
+				[newEvent setText:line];
+			} else {
+				[newEvent setName:[line substringToIndex:actor.location]];
+				if ([line characterAtIndex:(actor.location+1)] == ' ') {
+					[newEvent setText:[line substringFromIndex:actor.location+2]];
+				} else {
+					[newEvent setText:[line substringFromIndex:actor.location+1]];
+				}
+			}
+		
+			[events addEvent:newEvent];
+		}
 	}
 	
 	// Now we reload the data of the table

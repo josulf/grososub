@@ -15,6 +15,8 @@
 	IBOutlet NSTableView *headersTV;
 }
 
+@property (retain) NSTableView *headersTV;
+
 - (void)awakeFromNib;
 
 - (IBAction)applyChanges:(void *)sender;

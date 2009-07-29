@@ -12,6 +12,9 @@
 
 
 @implementation ASSHeadersController
+
+@synthesize headersTV;
+
 - (void)awakeFromNib
 {
 	ASSScript *script = [self document];
@@ -47,40 +50,51 @@
 {
 	ASSScript *script = [self document];
 	
-	[script setValue:[titleTF stringValue] forHeader:@"Title"];
-	[script setValue:[scriptTF stringValue] forHeader:@"Original Script"];
-	[script setValue:[typeTF stringValue] forHeader:@"ScriptType"];
-	[script setValue:[translationTF stringValue] forHeader:@"Original Translation"];
-	[script setValue:[editingTF stringValue] forHeader:@"Original Editing"];
-	[script setValue:[timingTF stringValue] forHeader:@"Original Timing"];
-	[script setValue:[checkingTF stringValue] forHeader:@"Original Script Checking"];
-	[script setValue:[playResXTF stringValue] forHeader:@"PlayResX"];
-	[script setValue:[playResYTF stringValue] forHeader:@"PlayResY"];
-	[script setValue:[playDepthTF stringValue] forHeader:@"PlayDepth"];
-	if ([collisionsCB indexOfSelectedItem] != -1) {
-		[script setValue:[collisionsCB stringValue] forHeader:@"Collisions"];
+	NSString *title = [titleTF stringValue];
+	NSString *scriptN = [scriptTF stringValue];
+	NSString *type = [typeTF stringValue];
+	NSString *translation = [translationTF stringValue];
+	NSString *editing = [editingTF stringValue];
+	NSString *timing = [timingTF stringValue];
+	NSString *checking = [checkingTF stringValue];
+	NSString *playResX = [playResXTF stringValue];
+	NSString *playResY = [playResYTF stringValue];
+	NSString *playDepth = [playDepthTF stringValue];
+	NSUInteger collisionsS = [collisionsCB indexOfSelectedItem];
+	NSString *collisions = [collisionsCB stringValue];
+	NSUInteger wrap = [wrapCB indexOfSelectedItem];
+	
+	//[undo beginUndoGrouping];
+	[script setValue:title forHeader:@"Title"];
+	[script setValue:scriptN forHeader:@"Original Script"];
+	[script setValue:type forHeader:@"ScriptType"];
+	[script setValue:translation forHeader:@"Original Translation"];
+	[script setValue:editing forHeader:@"Original Editing"];
+	[script setValue:timing forHeader:@"Original Timing"];
+	[script setValue:checking forHeader:@"Original Script Checking"];
+	[script setValue:playResX forHeader:@"PlayResX"];
+	[script setValue:playResY forHeader:@"PlayResY"];
+	[script setValue:playDepth forHeader:@"PlayDepth"];
+	if (collisionsS != -1) {
+		[script setValue:collisions forHeader:@"Collisions"];
 	}
-	if ([wrapCB indexOfSelectedItem] != -1) {
-		NSString *value = [NSString stringWithFormat:@"%d", [wrapCB indexOfSelectedItem]];
+	if (wrap != -1) {
+		NSString *value = [NSString stringWithFormat:@"%d", wrap];
 		[script setValue:value forHeader:@"WrapStyle"];
 	}
-	
-	[headersTV reloadData];
+	//[undo endUndoGrouping];
 }
 
 - (IBAction)addHeader:(void *)sender
 {
-	[[[self document] headers] setValue:@"New Value" forKey:@"New Key"];
-	[headersTV reloadData];
-	[self awakeFromNib];
+	[[self document] setValue:@"New Value" forHeader:@"New Key"];
 }
+
 - (IBAction)delHeader:(void *)sender
 {
 	NSUInteger selected = [headersTV selectedRow];
 	if (selected != -1) {
-		[[[self document] headers] delKey:[[[[self document] headers] order] objectAtIndex:selected]];
-		[headersTV reloadData];
-		[self awakeFromNib];
+		[[self document] delKey:[[[[self document] headers] order] objectAtIndex:selected]];
 	}
 }
 
@@ -105,20 +119,20 @@
 
 - (void)tableView:(NSTableView *)aTableView setObjectValue:(id)anObject forTableColumn:(NSTableColumn *)aTableColumn row:(NSInteger)rowIndex
 {
-	ASSHeader *headers = [[self document] headers];
+	ASSScript *script = [self document];
 	
 	if ([[aTableColumn identifier] isEqualToString:@"Key"]) {
 		// first we get the value for the key that has been modified
-		NSString *value = [headers getValueForKey:[[headers order] objectAtIndex:rowIndex]];
+		NSString *value = [script getHeader:[[[script headers] order] objectAtIndex:rowIndex]];
 		NSLog(value);
 		
 		// second we delete the old key-value pair
-		[headers delKey:[[headers order] objectAtIndex:rowIndex]];
+		[script delKey:[[[script headers] order] objectAtIndex:rowIndex]];
 		
 		// now we add the new pair
-		[headers setValue:value forKey:[anObject description]];
+		[script setValue:value forHeader:[anObject description]];
 	} else if ([[aTableColumn identifier] isEqualToString:@"Value"]) {
-		[headers setValue:anObject forKey:[[headers order] objectAtIndex:rowIndex]];
+		[script setValue:anObject forHeader:[[[script headers] order] objectAtIndex:rowIndex]];
 	}
 	
 	[self awakeFromNib];

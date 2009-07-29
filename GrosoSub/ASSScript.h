@@ -55,6 +55,7 @@
 
 - (NSString *)getHeader:(NSString *)key;
 - (void)setValue:(NSString *)value forHeader:(NSString *)key;
+- (void)delKey:(NSString *)key;
 
 - (NSUInteger)countEvents;
 - (NSUInteger)countHeaders;

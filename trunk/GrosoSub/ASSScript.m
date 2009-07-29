@@ -1,5 +1,5 @@
 //
-//  MyDocument.m
+//  ASSScript.m
 //  GrosoSub
 //
 //  Created by Josu López Fernández on 19/11/08.

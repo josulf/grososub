@@ -8,7 +8,6 @@
 
 #import "ASSHeader.h"
 
-
 @implementation ASSHeader
 
 @synthesize headerList;

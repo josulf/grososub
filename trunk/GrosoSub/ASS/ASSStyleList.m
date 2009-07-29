@@ -7,7 +7,7 @@
 //
 
 #import "ASSStyleList.h"
-
+#import "ASSStyle.h"
 
 @implementation ASSStyleList
 

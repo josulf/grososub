@@ -21,16 +21,13 @@
 //
 
 #import <Cocoa/Cocoa.h>
-
-#import "ASS/ASSHeader.h"
-#import "ASS/ASSStyleList.h"
-#import "ASS/ASSEventList.h"
-
-#import "ASSEventTableView.h"
-
-#import "ASSScriptController.h"
-#import "ASSStylesController.h"
-#import "ASSHeadersController.h"
+@class ASSHeader;
+@class ASSEvent;
+@class ASSStyleList;
+@class ASSEventList;
+@class ASSScriptController;
+@class ASSStylesController;
+@class ASSHeadersController;
 
 @interface ASSScript : NSDocument
 {

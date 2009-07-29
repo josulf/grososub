@@ -7,7 +7,8 @@
 //
 
 #import <Cocoa/Cocoa.h>
-#import "ASSTime.h"
+
+@class ASSTime;
 
 @interface ASSEvent : NSObject <NSCopying> {
 	Boolean dialogue;

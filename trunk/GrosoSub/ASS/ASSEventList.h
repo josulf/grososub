@@ -7,7 +7,7 @@
 //
 
 #import <Cocoa/Cocoa.h>
-#import "ASSEvent.h"
+@class ASSEvent;
 
 @interface ASSEventList : NSObject <NSFastEnumeration> {
 	NSMutableArray *events;

@@ -8,7 +8,6 @@
 
 #import "ASSColour.h"
 
-
 @implementation ASSColour
 
 @synthesize alpha;

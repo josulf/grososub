@@ -30,6 +30,7 @@
 
 #import "ASSScriptController.h"
 #import "ASSStylesController.h"
+#import "ASSHeadersController.h"
 
 @interface ASSScript : NSDocument
 {
@@ -39,6 +40,7 @@
 	ASSEventList *events;
 	ASSScriptController *scC;
 	ASSStylesController *stC;
+	ASSHeadersController *heC;
 }
 
 - (void)addDefaultEventAtIndex:(NSUInteger)aIndex;
@@ -51,11 +53,16 @@
 
 - (ASSEvent *)getEventAtIndex:(NSUInteger)aIndex;
 
+- (NSString *)getHeader:(NSString *)key;
+- (void)setValue:(NSString *)value forHeader:(NSString *)key;
+
 - (NSUInteger)countEvents;
+- (NSUInteger)countHeaders;
 - (NSMutableArray *)actorNames;
 - (NSMutableArray *)styleNames;
 
 - (IBAction)showStylesManager:(void *)sender;
+- (IBAction)showHeadersManager:(void *)sender;
 
 @property (copy) NSString *name;
 @property (retain) ASSHeader *headers;

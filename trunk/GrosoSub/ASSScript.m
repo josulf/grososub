@@ -174,8 +174,54 @@
 - (void)setValue:(NSString *)value forHeader:(NSString *)key
 {
 	if (![value isEqualToString:@""]) {
+		NSUndoManager *undo = [self undoManager];
+		if ([[headers order] containsObject:key]) {
+			//the key is already, we replace the value
+			NSString *oldValue = [headers getValueForKey:key];
+			
+			[[undo prepareWithInvocationTarget:self] setValue:oldValue forHeader:key];
+			if (![undo isUndoing]) {
+				[undo setActionName:@"Set Header"];
+				[self updateChangeCount:NSChangeDone];
+			} else {
+				[self updateChangeCount:NSChangeUndone];
+			}
+		} else {
+			// it is a new key-value pair
+			[[undo prepareWithInvocationTarget:self] delKey:key];
+			if (![undo isUndoing]) {
+				[undo setActionName:@"Add Header"];
+				[self updateChangeCount:NSChangeDone];
+			} else {
+				[self updateChangeCount:NSChangeUndone];
+			}
+		}
+		
 		[headers setValue:value forKey:key];
+		
+		NSLog(@"%d", [undo groupingLevel]);
+		[[heC headersTV] reloadData];
+		[heC awakeFromNib];
 	}
+}
+
+- (void)delKey:(NSString *)key
+{
+	NSUndoManager *undo = [self undoManager];
+	
+	NSString *oldValue = [headers getValueForKey:key];
+	[[undo prepareWithInvocationTarget:self] setValue:oldValue forHeader:key];
+	if (![undo isUndoing]) {
+		[undo setActionName:@"Delete Header"];
+		[self updateChangeCount:NSChangeDone];
+	} else {
+		[self updateChangeCount:NSChangeUndone];
+	}
+	
+	[headers delKey:key];
+	
+	[[heC headersTV] reloadData];
+	[heC awakeFromNib];
 }
 
 - (NSUInteger)countEvents

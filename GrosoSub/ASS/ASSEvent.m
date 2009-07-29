@@ -7,7 +7,7 @@
 //
 
 #import "ASSEvent.h"
-
+#import "ASSTime.h"
 
 @implementation ASSEvent
 

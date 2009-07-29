@@ -8,7 +8,6 @@
 
 #import <Cocoa/Cocoa.h>
 
-
 @interface ASSHeader : NSObject {
 	NSMutableDictionary *headerList;
 	NSMutableArray *order;

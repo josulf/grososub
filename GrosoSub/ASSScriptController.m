@@ -7,7 +7,13 @@
 //
 
 #import "ASSScriptController.h"
-
+#import "ASSEventTableView.h"
+#import "ASSEventTextView.h"
+#import "ASS/ASSEventList.h"
+#import "ASS/ASSStyleList.h"
+#import "ASS/ASSTime.h"
+#import "ASS/ASSEvent.h"
+#import "ASSScript.h"
 
 @implementation ASSScriptController
 

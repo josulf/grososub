@@ -7,7 +7,7 @@
 //
 
 #import <Cocoa/Cocoa.h>
-#import "ASSColour.h"
+@class ASSColour;
 
 @interface ASSStyle : NSObject {
 	NSString *name, *fontName;

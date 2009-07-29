@@ -8,7 +8,6 @@
 
 #import <Cocoa/Cocoa.h>
 
-
 @interface ASSTime : NSObject <NSCopying> {
 	CGFloat time;
 }

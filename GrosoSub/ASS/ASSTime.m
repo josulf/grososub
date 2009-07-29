@@ -8,7 +8,6 @@
 
 #import "ASSTime.h"
 
-
 @implementation ASSTime
 
 @synthesize	time;

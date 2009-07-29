@@ -7,7 +7,7 @@
 //
 
 #import "ASSEventList.h"
-
+#import "ASSEvent.h"
 
 @implementation ASSEventList
 

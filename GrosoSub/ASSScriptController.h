@@ -7,12 +7,8 @@
 //
 
 #import <Cocoa/Cocoa.h>
-#import "ASSEventTableView.h"
-#import "ASSEventTextView.h"
-#import "ASS/ASSEventList.h"
-#import "ASS/ASSStyleList.h"
-
-@class ASSScript;
+@class ASSEventTableView;
+@class ASSEventTextView;
 
 @interface ASSScriptController : NSWindowController {
 	IBOutlet ASSEventTableView *eTable;

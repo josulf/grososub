@@ -8,7 +8,6 @@
 
 #import <Cocoa/Cocoa.h>
 
-
 @interface ASSColour : NSObject {
 	NSUInteger alpha, red, green, blue;
 }
@@ -22,4 +21,5 @@
 - (void) parseString:(NSString *)aString;
 - (id) initWithString:(NSString *)aString;
 - (id) init;
+
 @end

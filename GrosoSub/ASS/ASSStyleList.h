@@ -7,7 +7,7 @@
 //
 
 #import <Cocoa/Cocoa.h>
-#import "ASSStyle.h"
+@class ASSStyle;
 
 @interface ASSStyleList : NSObject {
 	NSMutableArray *styles;

@@ -42,6 +42,8 @@
 		8AED53C9100D3AA10079F931 /* ASSEventList.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AED53C8100D3AA10079F931 /* ASSEventList.m */; };
 		8AED53EC100D41920079F931 /* ASSEventListTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AED53EB100D41920079F931 /* ASSEventListTest.m */; };
 		8AED53EF100D42FE0079F931 /* ASSEventList.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AED53C8100D3AA10079F931 /* ASSEventList.m */; };
+		8AF8B60910209BD4000159F9 /* ASSHeadersController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AF8B60810209BD4000159F9 /* ASSHeadersController.m */; };
+		8AF8B60C10209CA5000159F9 /* ASSHeaders.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8AF8B60B10209CA5000159F9 /* ASSHeaders.xib */; };
 		8D15AC2F0486D014006FF6A4 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C165FFE840EACC02AAC07 /* InfoPlist.strings */; };
 		8D15AC320486D014006FF6A4 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A37F4B0FDCFA73011CA2CEA /* main.m */; settings = {ATTRIBUTES = (); }; };
 		8D15AC340486D014006FF6A4 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A7FEA54F5311CA2CBB /* Cocoa.framework */; };
@@ -105,6 +107,9 @@
 		8AED53C8100D3AA10079F931 /* ASSEventList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ASSEventList.m; path = ASS/ASSEventList.m; sourceTree = "<group>"; };
 		8AED53EA100D41920079F931 /* ASSEventListTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ASSEventListTest.h; path = Test/ASSEventListTest.h; sourceTree = "<group>"; };
 		8AED53EB100D41920079F931 /* ASSEventListTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ASSEventListTest.m; path = Test/ASSEventListTest.m; sourceTree = "<group>"; };
+		8AF8B60710209BD4000159F9 /* ASSHeadersController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASSHeadersController.h; sourceTree = "<group>"; };
+		8AF8B60810209BD4000159F9 /* ASSHeadersController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASSHeadersController.m; sourceTree = "<group>"; };
+		8AF8B60B10209CA5000159F9 /* ASSHeaders.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ASSHeaders.xib; sourceTree = "<group>"; };
 		8D15AC360486D014006FF6A4 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8D15AC370486D014006FF6A4 /* GrosoSub.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GrosoSub.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -201,6 +206,7 @@
 				1DDD58280DA1D0D100B32029 /* ASSScript.xib */,
 				1DDD582B0DA1D0D100B32029 /* MainMenu.xib */,
 				8AEA70F6101FAC790053B489 /* ASSStyles.xib */,
+				8AF8B60B10209CA5000159F9 /* ASSHeaders.xib */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -221,6 +227,8 @@
 				8ABA2A40101F7C8900126D4A /* ASSScriptController.m */,
 				8AEA70F9101FAC8D0053B489 /* ASSStylesController.h */,
 				8AEA70FA101FAC8D0053B489 /* ASSStylesController.m */,
+				8AF8B60710209BD4000159F9 /* ASSHeadersController.h */,
+				8AF8B60810209BD4000159F9 /* ASSHeadersController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -377,6 +385,7 @@
 				8A668B9410195CB00053F77F /* groso.icns in Resources */,
 				8A668B9510195CB00053F77F /* grososub.icns in Resources */,
 				8AEA70F7101FAC790053B489 /* ASSStyles.xib in Resources */,
+				8AF8B60C10209CA5000159F9 /* ASSHeaders.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -450,6 +459,7 @@
 				8AA440501016446200CDC3A5 /* ASSEventTextView.m in Sources */,
 				8ABA2A41101F7C8900126D4A /* ASSScriptController.m in Sources */,
 				8AEA70FB101FAC8D0053B489 /* ASSStylesController.m in Sources */,
+				8AF8B60910209BD4000159F9 /* ASSHeadersController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -559,7 +569,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CURRENT_PROJECT_VERSION = "";
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				GCC_MODEL_TUNING = G5;

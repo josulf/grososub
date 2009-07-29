@@ -161,9 +161,31 @@
 	return [events getEventAtIndex:aIndex];
 }
 
+- (NSString *)getHeader:(NSString *)key
+{
+	NSString *out = [headers getValueForKey:key];
+	if (out == nil) {
+		return @"";
+	} else {
+		return out;
+	}
+}
+
+- (void)setValue:(NSString *)value forHeader:(NSString *)key
+{
+	if (![value isEqualToString:@""]) {
+		[headers setValue:value forKey:key];
+	}
+}
+
 - (NSUInteger)countEvents
 {
 	return [events countEvents];
+}
+
+- (NSUInteger)countHeaders
+{
+	return [headers count];
 }
 
 - (NSMutableArray *)actorNames
@@ -194,7 +216,14 @@
 	stC = [[ASSStylesController alloc] init];
 	[self addWindowController:stC];
 	[stC showWindow:nil];
-}	
+}
+
+- (IBAction)showHeadersManager:(void *)sender
+{
+	heC = [[ASSHeadersController alloc] init];
+	[self addWindowController:heC];
+	[heC showWindow:nil];
+}
 
 #pragma mark NSDocument
 - (void)makeWindowControllers

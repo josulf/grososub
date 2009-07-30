@@ -21,7 +21,6 @@
 //
 
 #import <Cocoa/Cocoa.h>
-
 @class ASSTime;
 
 @interface ASSEvent : NSObject <NSCopying> {

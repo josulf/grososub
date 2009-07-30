@@ -22,7 +22,6 @@
 
 #import "ASSStylesController.h"
 
-
 @implementation ASSStylesController
 #pragma mark NSWindowController
 - (id)init

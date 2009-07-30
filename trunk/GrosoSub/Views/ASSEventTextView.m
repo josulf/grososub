@@ -22,7 +22,6 @@
 
 #import "ASSEventTextView.h"
 
-
 @implementation ASSEventTextView
 - (void)setEnabled:(Boolean)flag
 {

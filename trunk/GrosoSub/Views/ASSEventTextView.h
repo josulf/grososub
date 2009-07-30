@@ -22,7 +22,6 @@
 
 #import <Cocoa/Cocoa.h>
 
-
 @interface ASSEventTextView : NSTextView {
 
 }

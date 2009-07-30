@@ -22,7 +22,6 @@
 
 #import <SenTestingKit/SenTestingKit.h>
 
-
 @interface ASSEventListTest : SenTestCase {
 
 }

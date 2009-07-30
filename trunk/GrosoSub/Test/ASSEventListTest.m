@@ -21,7 +21,7 @@
 //
 
 #import "ASSEventListTest.h"
-#import "../ASS/ASSEventList.h"
+#import "ASSEventList.h"
 
 @implementation ASSEventListTest
 

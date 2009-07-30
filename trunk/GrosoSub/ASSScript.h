@@ -25,7 +25,6 @@
 @class ASSEvent;
 @class ASSStyleList;
 @class ASSEventList;
-//@class ASSScriptController;
 @class ASSStylesController;
 @class ASSHeadersController;
 
@@ -35,7 +34,6 @@
 	ASSHeader *headers;
 	ASSStyleList *styles;
 	ASSEventList *events;
-	//ASSScriptController *scC;
 	ASSStylesController *stC;
 	ASSHeadersController *heC;
 }

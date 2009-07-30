@@ -42,6 +42,7 @@
 		8AED53C9100D3AA10079F931 /* ASSEventList.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AED53C8100D3AA10079F931 /* ASSEventList.m */; };
 		8AED53EC100D41920079F931 /* ASSEventListTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AED53EB100D41920079F931 /* ASSEventListTest.m */; };
 		8AED53EF100D42FE0079F931 /* ASSEventList.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AED53C8100D3AA10079F931 /* ASSEventList.m */; };
+		8AF6C1F110225C09000A04FB /* ASSRange.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AF6C1F010225C09000A04FB /* ASSRange.m */; };
 		8AF8B60910209BD4000159F9 /* ASSHeadersController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AF8B60810209BD4000159F9 /* ASSHeadersController.m */; };
 		8AF8B60C10209CA5000159F9 /* ASSHeaders.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8AF8B60B10209CA5000159F9 /* ASSHeaders.xib */; };
 		8D15AC2F0486D014006FF6A4 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C165FFE840EACC02AAC07 /* InfoPlist.strings */; };
@@ -79,20 +80,20 @@
 		8A3E20E0100E5B6200BA8697 /* ASSStyleListTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ASSStyleListTest.h; path = Test/ASSStyleListTest.h; sourceTree = "<group>"; };
 		8A3E20E1100E5B6200BA8697 /* ASSStyleListTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ASSStyleListTest.m; path = Test/ASSStyleListTest.m; sourceTree = "<group>"; };
 		8A448EE31019DA9600A658AF /* eu */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = eu; path = eu.lproj/Credits.rtf; sourceTree = "<group>"; };
-		8A668B8E10195CB00053F77F /* grososrt.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = grososrt.icns; sourceTree = "<group>"; };
-		8A668B8F10195CB00053F77F /* grosoass.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = grosoass.icns; sourceTree = "<group>"; };
-		8A668B9010195CB00053F77F /* groso.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = groso.icns; sourceTree = "<group>"; };
-		8A668B9110195CB00053F77F /* grososub.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = grososub.icns; sourceTree = "<group>"; };
-		8AA4404E1016446200CDC3A5 /* ASSEventTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASSEventTextView.h; sourceTree = "<group>"; };
-		8AA4404F1016446200CDC3A5 /* ASSEventTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASSEventTextView.m; sourceTree = "<group>"; };
+		8A668B8E10195CB00053F77F /* grososrt.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = grososrt.icns; path = Icons/grososrt.icns; sourceTree = "<group>"; };
+		8A668B8F10195CB00053F77F /* grosoass.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = grosoass.icns; path = Icons/grosoass.icns; sourceTree = "<group>"; };
+		8A668B9010195CB00053F77F /* groso.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = groso.icns; path = Icons/groso.icns; sourceTree = "<group>"; };
+		8A668B9110195CB00053F77F /* grososub.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = grososub.icns; path = Icons/grososub.icns; sourceTree = "<group>"; };
+		8AA4404E1016446200CDC3A5 /* ASSEventTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ASSEventTextView.h; path = Views/ASSEventTextView.h; sourceTree = "<group>"; };
+		8AA4404F1016446200CDC3A5 /* ASSEventTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ASSEventTextView.m; path = Views/ASSEventTextView.m; sourceTree = "<group>"; };
 		8AADE4AE1010CB1B00D711B2 /* ASSScript.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASSScript.m; sourceTree = "<group>"; };
-		8AADE4F91010D7E600D711B2 /* ASSEventTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASSEventTableView.h; sourceTree = "<group>"; };
-		8AADE4FA1010D7E600D711B2 /* ASSEventTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASSEventTableView.m; sourceTree = "<group>"; };
-		8ABA2A3F101F7C8900126D4A /* ASSScriptController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASSScriptController.h; sourceTree = "<group>"; };
-		8ABA2A40101F7C8900126D4A /* ASSScriptController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASSScriptController.m; sourceTree = "<group>"; };
+		8AADE4F91010D7E600D711B2 /* ASSEventTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ASSEventTableView.h; path = Views/ASSEventTableView.h; sourceTree = "<group>"; };
+		8AADE4FA1010D7E600D711B2 /* ASSEventTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ASSEventTableView.m; path = Views/ASSEventTableView.m; sourceTree = "<group>"; };
+		8ABA2A3F101F7C8900126D4A /* ASSScriptController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ASSScriptController.h; path = Controllers/ASSScriptController.h; sourceTree = "<group>"; };
+		8ABA2A40101F7C8900126D4A /* ASSScriptController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ASSScriptController.m; path = Controllers/ASSScriptController.m; sourceTree = "<group>"; };
 		8AEA70F6101FAC790053B489 /* ASSStyles.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ASSStyles.xib; sourceTree = "<group>"; };
-		8AEA70F9101FAC8D0053B489 /* ASSStylesController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASSStylesController.h; sourceTree = "<group>"; };
-		8AEA70FA101FAC8D0053B489 /* ASSStylesController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASSStylesController.m; sourceTree = "<group>"; };
+		8AEA70F9101FAC8D0053B489 /* ASSStylesController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ASSStylesController.h; path = Controllers/ASSStylesController.h; sourceTree = "<group>"; };
+		8AEA70FA101FAC8D0053B489 /* ASSStylesController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ASSStylesController.m; path = Controllers/ASSStylesController.m; sourceTree = "<group>"; };
 		8AED5265100CE4F50079F931 /* ASSTime.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ASSTime.h; path = ASS/ASSTime.h; sourceTree = "<group>"; };
 		8AED5266100CE4F50079F931 /* ASSTime.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ASSTime.m; path = ASS/ASSTime.m; sourceTree = "<group>"; };
 		8AED528B100CE8770079F931 /* Test.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Test.octest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -107,8 +108,10 @@
 		8AED53C8100D3AA10079F931 /* ASSEventList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ASSEventList.m; path = ASS/ASSEventList.m; sourceTree = "<group>"; };
 		8AED53EA100D41920079F931 /* ASSEventListTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ASSEventListTest.h; path = Test/ASSEventListTest.h; sourceTree = "<group>"; };
 		8AED53EB100D41920079F931 /* ASSEventListTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ASSEventListTest.m; path = Test/ASSEventListTest.m; sourceTree = "<group>"; };
-		8AF8B60710209BD4000159F9 /* ASSHeadersController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASSHeadersController.h; sourceTree = "<group>"; };
-		8AF8B60810209BD4000159F9 /* ASSHeadersController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASSHeadersController.m; sourceTree = "<group>"; };
+		8AF6C1F010225C09000A04FB /* ASSRange.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ASSRange.m; path = ASS/ASSRange.m; sourceTree = "<group>"; };
+		8AF6C263102262E7000A04FB /* ASSRange.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ASSRange.h; path = ASS/ASSRange.h; sourceTree = "<group>"; };
+		8AF8B60710209BD4000159F9 /* ASSHeadersController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ASSHeadersController.h; path = Controllers/ASSHeadersController.h; sourceTree = "<group>"; };
+		8AF8B60810209BD4000159F9 /* ASSHeadersController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ASSHeadersController.m; path = Controllers/ASSHeadersController.m; sourceTree = "<group>"; };
 		8AF8B60B10209CA5000159F9 /* ASSHeaders.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ASSHeaders.xib; sourceTree = "<group>"; };
 		8D15AC360486D014006FF6A4 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8D15AC370486D014006FF6A4 /* GrosoSub.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GrosoSub.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -266,6 +269,8 @@
 				8AED53C8100D3AA10079F931 /* ASSEventList.m */,
 				8A3E1FBD100E314200BA8697 /* ASSHeader.h */,
 				8A3E1FBE100E314200BA8697 /* ASSHeader.m */,
+				8AF6C263102262E7000A04FB /* ASSRange.h */,
+				8AF6C1F010225C09000A04FB /* ASSRange.m */,
 				8A3E2023100E3C7D00BA8697 /* ASSStyle.h */,
 				8A3E2024100E3C7D00BA8697 /* ASSStyle.m */,
 				8A3E20DB100E58EE00BA8697 /* ASSStyleList.h */,
@@ -460,6 +465,7 @@
 				8ABA2A41101F7C8900126D4A /* ASSScriptController.m in Sources */,
 				8AEA70FB101FAC8D0053B489 /* ASSStylesController.m in Sources */,
 				8AF8B60910209BD4000159F9 /* ASSHeadersController.m in Sources */,
+				8AF6C1F110225C09000A04FB /* ASSRange.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

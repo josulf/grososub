@@ -30,6 +30,7 @@
 #import "ASSScriptController.h"
 #import "ASSStylesController.h"
 #import "ASSHeadersController.h"
+#import "ASSRange.h"
 
 @implementation ASSScript
 
@@ -53,8 +54,10 @@
 	
 	[events addDefaultEventAtIndex:aIndex];
 	
-	[[scC eTable] reloadData];
-	[[scC eTable] selectRow:aIndex byExtendingSelection:NO];
+	ASSRange *r = [[ASSRange alloc] init];
+	[r setRange:NSMakeRange(aIndex, 1)];
+	
+	[[NSNotificationCenter defaultCenter] postNotificationName:@"ASSEventsUpdated" object:r];
 }
 
 - (void)delEventAtIndex:(NSUInteger)aIndex
@@ -71,8 +74,10 @@
 	
 	[events delEventAtIndex:aIndex];
 	
-	[[scC eTable] reloadData];
-	[[scC eTable] selectRow:aIndex byExtendingSelection:NO];
+	ASSRange *r = [[ASSRange alloc] init];
+	[r setRange:NSMakeRange(aIndex, 1)];
+	
+	[[NSNotificationCenter defaultCenter] postNotificationName:@"ASSEventsUpdated" object:r];
 }
 
 - (void)addEvent:(ASSEvent *)aEvent atIndex:(NSUInteger)aIndex
@@ -88,8 +93,10 @@
 	
 	[events addEvent:aEvent atIndex:aIndex];
 	
-	[[scC eTable] reloadData];
-	[[scC eTable] selectRow:aIndex byExtendingSelection:NO];
+	ASSRange *r = [[ASSRange alloc] init];
+	[r setRange:NSMakeRange(aIndex, 1)];
+	
+	[[NSNotificationCenter defaultCenter] postNotificationName:@"ASSEventsUpdated" object:r];
 }
 
 - (void)dupplicateEventAtIndex:(NSUInteger)aIndex
@@ -103,7 +110,10 @@
 	
 	[events dupplicateEventAtIndex:aIndex];
 	
-	[[scC eTable] reloadData];
+	ASSRange *r = [[ASSRange alloc] init];
+	[r setRange:NSMakeRange(NSNotFound, 0)];
+	
+	[[NSNotificationCenter defaultCenter] postNotificationName:@"ASSEventsUpdated" object:r];
 }
 
 - (void)joinEventAtIndex:(NSUInteger)aIndex withEventAtIndex:(NSUInteger)bIndex
@@ -111,7 +121,6 @@
 	NSUndoManager *undo = [self undoManager];
 	ASSEvent *a = [[events getEventAtIndex:aIndex] copy];
 	ASSEvent *b = [[events getEventAtIndex:bIndex] copy];
-	NSLog(@"%@ - %@", a, b);
 
 	[[undo prepareWithInvocationTarget:self] splitEventAtIndex:aIndex withEvent:a and:b];
 	if (![undo isUndoing]) {
@@ -124,8 +133,10 @@
 	[events joinEventAtIndex:aIndex withEventAtIndex:bIndex];
 	[events delEventAtIndex:bIndex];
 	
-	[[scC eTable] reloadData];
-	[[scC eTable] deselectRow:bIndex];
+	ASSRange *r = [[ASSRange alloc] init];
+	[r setRange:NSMakeRange(aIndex, 1)];
+	
+	[[NSNotificationCenter defaultCenter] postNotificationName:@"ASSEventsUpdated" object:r];
 }
 
 - (void)splitEventAtIndex:(NSUInteger)aIndex withEvent:(ASSEvent *)aEvent and:(ASSEvent *)bEvent
@@ -143,9 +154,10 @@
 	[events addEvent:aEvent atIndex:aIndex];
 	[events addEvent:bEvent atIndex:aIndex+1];
 	
-	[[scC eTable] reloadData];
-	[[scC eTable] selectRow:aIndex byExtendingSelection:NO];
-	[[scC eTable] selectRow:aIndex+1 byExtendingSelection:YES];
+	ASSRange *r = [[ASSRange alloc] init];
+	[r setRange:NSMakeRange(aIndex, 2)];
+	
+	[[NSNotificationCenter defaultCenter] postNotificationName:@"ASSEventsUpdated" object:r];
 }
 
 - (void)replaceEventAtIndex:(NSUInteger)aIndex withEvent:(ASSEvent *)aEvent
@@ -162,8 +174,10 @@
 	
 	[events changeEventFromString:[aEvent description] atIndex:aIndex];
 	
-	[[scC eTable] reloadData];
-	[[scC eTable] selectRow:aIndex byExtendingSelection:NO];
+	ASSRange *r = [[ASSRange alloc] init];
+	[r setRange:NSMakeRange(aIndex, 1)];
+	
+	[[NSNotificationCenter defaultCenter] postNotificationName:@"ASSEventsUpdated" object:r];
 }
 
 - (ASSEvent *)getEventAtIndex:(NSUInteger)aIndex
@@ -287,8 +301,8 @@
 #pragma mark NSDocument
 - (void)makeWindowControllers
 {
-	scC = [[ASSScriptController alloc] init];
-	[self addWindowController:scC];
+	ASSScriptController *scriptController = [[ASSScriptController alloc] init];
+	[self addWindowController:scriptController];
 }
 
 - (void)windowControllerDidLoadNib:(NSWindowController *) aController
@@ -329,7 +343,6 @@
 - (BOOL)readFromData:(NSData *)data ofType:(NSString *)typeName error:(NSError **)outError
 {
 	NSString *megaString = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-	NSLog(typeName);
 	
 	if ([typeName isEqualToString:@"Advanced SubStation Alpha"]) {
 		NSString *hString, *sString, *eString;
@@ -417,7 +430,6 @@
 				[newEvent setEnd:end];
 				[newEvent setDuration:duration];
 				
-				NSLog([newEvent descriptionSRT]);
 				[events addEvent:newEvent];
 			}
 			
@@ -459,7 +471,10 @@
 	}
 	
 	// Now we reload the data of the table
-	[[scC eTable] reloadData];
+	ASSRange *r = [[ASSRange alloc] init];
+	[r setRange:NSMakeRange(NSNotFound, 0)];
+	
+	[[NSNotificationCenter defaultCenter] postNotificationName:@"ASSEventsUpdated" object:r];
 	
 	return YES;
 }

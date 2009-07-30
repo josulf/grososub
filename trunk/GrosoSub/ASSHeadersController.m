@@ -78,7 +78,6 @@
 	NSString *collisions = [collisionsCB stringValue];
 	NSUInteger wrap = [wrapCB indexOfSelectedItem];
 	
-	//[undo beginUndoGrouping];
 	[script setValue:title forHeader:@"Title"];
 	[script setValue:scriptN forHeader:@"Original Script"];
 	[script setValue:type forHeader:@"ScriptType"];
@@ -96,7 +95,6 @@
 		NSString *value = [NSString stringWithFormat:@"%d", wrap];
 		[script setValue:value forHeader:@"WrapStyle"];
 	}
-	//[undo endUndoGrouping];
 }
 
 - (IBAction)addHeader:(void *)sender
@@ -164,5 +162,11 @@
 - (NSString *)windowTitleForDocumentDisplayName:(NSString *)displayName
 {
 	return [displayName stringByAppendingString:@" - Headers"];
+}
+
+- (void)windowWillClose:(NSNotification *)notification
+{
+	NSLog(@"Hello");
+	[[self document] setHeC:nil];
 }
 @end

@@ -8,7 +8,7 @@
 		<string key="IBDocument.HIToolboxVersion">353.00</string>
 		<object class="NSMutableArray" key="IBDocument.EditedObjectIDs">
 			<bool key="EncodedWithXMLCoder">YES</bool>
-			<integer value="29"/>
+			<integer value="466"/>
 		</object>
 		<object class="NSArray" key="IBDocument.PluginDependencies">
 			<bool key="EncodedWithXMLCoder">YES</bool>
@@ -679,6 +679,7 @@
 												<int key="NSMnemonicLoc">2147483647</int>
 												<reference key="NSOnImage" ref="1033313550"/>
 												<reference key="NSMixedImage" ref="310636482"/>
+												<int key="NSTag">1</int>
 											</object>
 											<object class="NSMenuItem" id="313904258">
 												<reference key="NSMenu" ref="777747237"/>
@@ -697,6 +698,7 @@
 												<int key="NSMnemonicLoc">2147483647</int>
 												<reference key="NSOnImage" ref="1033313550"/>
 												<reference key="NSMixedImage" ref="310636482"/>
+												<int key="NSTag">4</int>
 											</object>
 										</object>
 									</object>
@@ -708,6 +710,7 @@
 									<int key="NSMnemonicLoc">2147483647</int>
 									<reference key="NSOnImage" ref="1033313550"/>
 									<reference key="NSMixedImage" ref="310636482"/>
+									<int key="NSTag">2</int>
 								</object>
 								<object class="NSMenuItem" id="1039844696">
 									<reference key="NSMenu" ref="435310194"/>
@@ -716,6 +719,7 @@
 									<int key="NSMnemonicLoc">2147483647</int>
 									<reference key="NSOnImage" ref="1033313550"/>
 									<reference key="NSMixedImage" ref="310636482"/>
+									<int key="NSTag">3</int>
 								</object>
 								<object class="NSMenuItem" id="169787015">
 									<reference key="NSMenu" ref="435310194"/>
@@ -724,6 +728,7 @@
 									<int key="NSMnemonicLoc">2147483647</int>
 									<reference key="NSOnImage" ref="1033313550"/>
 									<reference key="NSMixedImage" ref="310636482"/>
+									<int key="NSTag">10</int>
 								</object>
 							</object>
 						</object>

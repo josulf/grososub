@@ -66,5 +66,6 @@
 @property (retain) ASSHeader *headers;
 @property (retain) ASSStyleList *styles;
 @property (retain) ASSEventList *events;
+@property (retain) ASSHeadersController *heC;
 
 @end

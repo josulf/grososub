@@ -37,6 +37,7 @@
 @synthesize headers;
 @synthesize styles;
 @synthesize events;
+@synthesize heC;
 
 #pragma mark Controller
 - (void)addDefaultEventAtIndex:(NSUInteger)aIndex
@@ -208,9 +209,10 @@
 		
 		[headers setValue:value forKey:key];
 		
-		NSLog(@"%d", [undo groupingLevel]);
-		[[heC headersTV] reloadData];
-		[heC awakeFromNib];
+		if (heC != nil) {
+			[[heC headersTV] reloadData];
+			[heC awakeFromNib];
+		}
 	}
 }
 
@@ -229,8 +231,10 @@
 	
 	[headers delKey:key];
 	
-	[[heC headersTV] reloadData];
-	[heC awakeFromNib];
+	if (heC != nil) {
+		[[heC headersTV] reloadData];
+		[heC awakeFromNib];
+	}
 }
 
 - (NSUInteger)countEvents
@@ -285,8 +289,6 @@
 {
 	scC = [[ASSScriptController alloc] init];
 	[self addWindowController:scC];
-	//stC = [[ASSStylesController alloc] init];
-	//[self addWindowController:stC];
 }
 
 - (void)windowControllerDidLoadNib:(NSWindowController *) aController

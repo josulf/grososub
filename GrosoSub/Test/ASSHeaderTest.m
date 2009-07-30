@@ -21,7 +21,7 @@
 //
 
 #import "ASSHeaderTest.h"
-#import "../ASS/ASSHeader.h"
+#import "ASSHeader.h"
 
 @implementation ASSHeaderTest
 

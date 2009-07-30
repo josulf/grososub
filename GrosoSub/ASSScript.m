@@ -21,11 +21,11 @@
 //
 
 #import "ASSScript.h"
-#import "ASS/ASSEvent.h"
-#import "ASS/ASSTime.h"
-#import "ASS/ASSHeader.h"
-#import "ASS/ASSStyleList.h"
-#import "ASS/ASSEventList.h"
+#import "ASSEvent.h"
+#import "ASSTime.h"
+#import "ASSHeader.h"
+#import "ASSStyleList.h"
+#import "ASSEventList.h"
 #import "ASSEventTableView.h"
 #import "ASSScriptController.h"
 #import "ASSStylesController.h"

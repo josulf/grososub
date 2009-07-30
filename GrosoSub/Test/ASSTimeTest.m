@@ -21,7 +21,7 @@
 //
 
 #import "ASSTimeTest.h"
-#import "../ASS/ASSTime.h"
+#import "ASSTime.h"
 
 @implementation ASSTimeTest
 - (void) testNewPrintingFormat

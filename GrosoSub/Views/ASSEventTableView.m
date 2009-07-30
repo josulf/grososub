@@ -22,7 +22,6 @@
 
 #import "ASSEventTableView.h"
 
-
 @implementation ASSEventTableView
 
 - (NSMenu *)menuForEvent:(NSEvent *)theEvent

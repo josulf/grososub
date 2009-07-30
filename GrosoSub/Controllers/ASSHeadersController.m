@@ -22,8 +22,7 @@
 
 #import "ASSHeadersController.h"
 #import "ASSScript.h"
-#import "ASS/ASSHeader.h"
-
+#import "ASSHeader.h"
 
 @implementation ASSHeadersController
 

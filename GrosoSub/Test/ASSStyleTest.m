@@ -21,7 +21,7 @@
 //
 
 #import "ASSStyleTest.h"
-#import "../ASS/ASSStyle.h"
+#import "ASSStyle.h"
 
 @implementation ASSStyleTest
 

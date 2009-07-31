@@ -270,13 +270,14 @@
 - (void)tableUpdated:(NSNotification *)aNotification
 {
 	NSUInteger i;
-	NSRange r = [[aNotification object] range];
-	
+	ASSRange *p = [[aNotification userInfo] objectForKey:@"range"];
+	NSRange r = [p range];	
+
 	[eTable reloadData];
-	
+
 	if (r.length != 0) {
 		[eTable selectRow:r.location byExtendingSelection:NO];
-	
+
 		for (i = 2; i <= r.length; i++) {
 			[eTable selectRow:r.location+i-1 byExtendingSelection:YES];
 		}
@@ -287,10 +288,24 @@
 - (id)init
 {
 	self = [super initWithWindowNibName:@"ASSScript"];
-	
-	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(tableUpdated:) name:@"ASSEventsUpdated" object:nil];
-	
+
 	return self;
 }
+
+
+- (void)setDocument:(NSDocument *)document
+{
+	[super setDocument:document];
+	// This method is called when NSDocument calls makeWindowController and after the window is closed
+	// to set the value of "document" to nil.
+	// When we call makeWindowControllers we add the observer, and when we close the window (document == nil)
+	// we remove the observer
+	if (document != nil) {
+		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(headersUpdated:) name:@"ASSEventsUpdated" object:document];
+	} else {
+		[[NSNotificationCenter defaultCenter] removeObserver:self];
+	}
+}
+
 
 @end

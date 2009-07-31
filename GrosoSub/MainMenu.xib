@@ -1758,14 +1758,6 @@
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBActionConnection" key="connection">
-						<string key="label">showStylesManager:</string>
-						<reference key="source" ref="1014"/>
-						<reference key="destination" ref="156656339"/>
-					</object>
-					<int key="connectionID">487</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBActionConnection" key="connection">
 						<string key="label">addEventBefore:</string>
 						<reference key="source" ref="1014"/>
 						<reference key="destination" ref="418159988"/>
@@ -3332,7 +3324,7 @@
 					<string key="superclassName">NSTableView</string>
 					<object class="IBClassDescriptionSource" key="sourceIdentifier">
 						<string key="majorKey">IBProjectSource</string>
-						<string key="minorKey">ASSEventTableView.h</string>
+						<string key="minorKey">Views/ASSEventTableView.h</string>
 					</object>
 				</object>
 				<object class="IBPartialClassDescription">
@@ -3340,7 +3332,7 @@
 					<string key="superclassName">NSTextView</string>
 					<object class="IBClassDescriptionSource" key="sourceIdentifier">
 						<string key="majorKey">IBProjectSource</string>
-						<string key="minorKey">ASSEventTextView.h</string>
+						<string key="minorKey">Views/ASSEventTextView.h</string>
 					</object>
 				</object>
 				<object class="IBPartialClassDescription">
@@ -3437,7 +3429,7 @@
 					</object>
 					<object class="IBClassDescriptionSource" key="sourceIdentifier">
 						<string key="majorKey">IBProjectSource</string>
-						<string key="minorKey">ASSScriptController.h</string>
+						<string key="minorKey">Controllers/ASSScriptController.h</string>
 					</object>
 				</object>
 				<object class="IBPartialClassDescription">

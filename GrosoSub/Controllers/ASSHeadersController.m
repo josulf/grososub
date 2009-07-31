@@ -149,12 +149,32 @@
 	[headersTV reloadData];
 }
 
+#pragma mark Notifications
+- (void)headersUpdated:(NSNotification *)aNotification
+{
+	[headersTV reloadData];
+	[self awakeFromNib];
+}
+
 #pragma mark NSWindowController
 - (id)init
 {
 	self = [super initWithWindowNibName:@"ASSHeaders"];
-	
 	return self;
+}
+
+- (void)setDocument:(NSDocument *)document
+{
+	[super setDocument:document];
+	// This method is called when NSDocument calls makeWindowController and after the window is closed
+	// to set the value of "document" to nil.
+	// When we call makeWindowControllers we add the observer, and when we close the window (document == nil)
+	// we remove the observer
+	if (document != nil) {
+		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(headersUpdated:) name:@"ASSHeadersUpdated" object:document];
+	} else {
+		[[NSNotificationCenter defaultCenter] removeObserver:self];
+	}
 }
 
 - (NSString *)windowTitleForDocumentDisplayName:(NSString *)displayName
@@ -162,8 +182,4 @@
 	return [displayName stringByAppendingString:@" - Headers"];
 }
 
-- (void)windowWillClose:(NSNotification *)notification
-{
-	[[self document] setHeC:nil];
-}
 @end

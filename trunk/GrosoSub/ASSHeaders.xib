@@ -1887,7 +1887,7 @@ ARcABAAAAAEAAAACARwAAwAAAAEAAQAAAVIAAwAAAAEAAQAAAVMAAwAAAAIAAQABAAAAAA</bytes>
 					</object>
 					<object class="IBClassDescriptionSource" key="sourceIdentifier">
 						<string key="majorKey">IBProjectSource</string>
-						<string key="minorKey">ASSHeadersController.h</string>
+						<string key="minorKey">Controllers/ASSHeadersController.h</string>
 					</object>
 				</object>
 			</object>

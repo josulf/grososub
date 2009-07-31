@@ -27,6 +27,7 @@
 	IBOutlet NSComboBox *collisionsCB, *wrapCB;
 	
 	IBOutlet NSTableView *headersTV;
+	NSNotificationCenter *perry;
 }
 
 @property (retain) NSTableView *headersTV;

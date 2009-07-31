@@ -38,7 +38,6 @@
 @synthesize headers;
 @synthesize styles;
 @synthesize events;
-@synthesize heC;
 
 #pragma mark Controller
 - (void)addDefaultEventAtIndex:(NSUInteger)aIndex
@@ -57,7 +56,7 @@
 	ASSRange *r = [[ASSRange alloc] init];
 	[r setRange:NSMakeRange(aIndex, 1)];
 	
-	[[NSNotificationCenter defaultCenter] postNotificationName:@"ASSEventsUpdated" object:r];
+	[[NSNotificationCenter defaultCenter] postNotificationName:@"ASSEventsUpdated" object:self userInfo:[NSDictionary dictionaryWithObject:r forKey:@"range"]];
 }
 
 - (void)delEventAtIndex:(NSUInteger)aIndex
@@ -77,7 +76,7 @@
 	ASSRange *r = [[ASSRange alloc] init];
 	[r setRange:NSMakeRange(aIndex, 1)];
 	
-	[[NSNotificationCenter defaultCenter] postNotificationName:@"ASSEventsUpdated" object:r];
+	[[NSNotificationCenter defaultCenter] postNotificationName:@"ASSEventsUpdated" object:self userInfo:[NSDictionary dictionaryWithObject:r forKey:@"range"]];
 }
 
 - (void)addEvent:(ASSEvent *)aEvent atIndex:(NSUInteger)aIndex
@@ -96,7 +95,7 @@
 	ASSRange *r = [[ASSRange alloc] init];
 	[r setRange:NSMakeRange(aIndex, 1)];
 	
-	[[NSNotificationCenter defaultCenter] postNotificationName:@"ASSEventsUpdated" object:r];
+	[[NSNotificationCenter defaultCenter] postNotificationName:@"ASSEventsUpdated" object:self userInfo:[NSDictionary dictionaryWithObject:r forKey:@"range"]];
 }
 
 - (void)dupplicateEventAtIndex:(NSUInteger)aIndex
@@ -113,7 +112,7 @@
 	ASSRange *r = [[ASSRange alloc] init];
 	[r setRange:NSMakeRange(NSNotFound, 0)];
 	
-	[[NSNotificationCenter defaultCenter] postNotificationName:@"ASSEventsUpdated" object:r];
+	[[NSNotificationCenter defaultCenter] postNotificationName:@"ASSEventsUpdated" object:self userInfo:[NSDictionary dictionaryWithObject:r forKey:@"range"]];
 }
 
 - (void)joinEventAtIndex:(NSUInteger)aIndex withEventAtIndex:(NSUInteger)bIndex
@@ -136,7 +135,7 @@
 	ASSRange *r = [[ASSRange alloc] init];
 	[r setRange:NSMakeRange(aIndex, 1)];
 	
-	[[NSNotificationCenter defaultCenter] postNotificationName:@"ASSEventsUpdated" object:r];
+	[[NSNotificationCenter defaultCenter] postNotificationName:@"ASSEventsUpdated" object:self userInfo:[NSDictionary dictionaryWithObject:r forKey:@"range"]];
 }
 
 - (void)splitEventAtIndex:(NSUInteger)aIndex withEvent:(ASSEvent *)aEvent and:(ASSEvent *)bEvent
@@ -157,7 +156,7 @@
 	ASSRange *r = [[ASSRange alloc] init];
 	[r setRange:NSMakeRange(aIndex, 2)];
 	
-	[[NSNotificationCenter defaultCenter] postNotificationName:@"ASSEventsUpdated" object:r];
+	[[NSNotificationCenter defaultCenter] postNotificationName:@"ASSEventsUpdated" object:self userInfo:[NSDictionary dictionaryWithObject:r forKey:@"range"]];
 }
 
 - (void)replaceEventAtIndex:(NSUInteger)aIndex withEvent:(ASSEvent *)aEvent
@@ -177,7 +176,7 @@
 	ASSRange *r = [[ASSRange alloc] init];
 	[r setRange:NSMakeRange(aIndex, 1)];
 	
-	[[NSNotificationCenter defaultCenter] postNotificationName:@"ASSEventsUpdated" object:r];
+	[[NSNotificationCenter defaultCenter] postNotificationName:@"ASSEventsUpdated" object:self userInfo:[NSDictionary dictionaryWithObject:r forKey:@"range"]];
 }
 
 - (ASSEvent *)getEventAtIndex:(NSUInteger)aIndex
@@ -223,10 +222,7 @@
 		
 		[headers setValue:value forKey:key];
 		
-		if (heC != nil) {
-			[[heC headersTV] reloadData];
-			[heC awakeFromNib];
-		}
+		[[NSNotificationCenter defaultCenter] postNotificationName:@"ASSHeadersUpdated" object:self];
 	}
 }
 
@@ -245,10 +241,7 @@
 	
 	[headers delKey:key];
 	
-	if (heC != nil) {
-		[[heC headersTV] reloadData];
-		[heC awakeFromNib];
-	}
+	[[NSNotificationCenter defaultCenter] postNotificationName:@"ASSHeadersUpdated" object:self];
 }
 
 - (NSUInteger)countEvents
@@ -271,7 +264,21 @@
 	return [styles styleNames];
 }
 
-#pragma mark Perry
+#pragma mark Received Actions
+- (IBAction)showStylesManager:(void *)sender
+{
+	ASSStylesController *stylesController = [[ASSStylesController alloc] init];
+	[self addWindowController:stylesController];
+}
+
+- (IBAction)showHeadersManager:(void *)sender
+{
+	ASSHeadersController *headersController = [[ASSHeadersController alloc] init];
+	[self addWindowController:headersController];
+	[headersController showWindow:nil];
+}
+
+#pragma mark NSDocument
 - (id)init
 {
     self = [super init];
@@ -284,21 +291,6 @@
     return self;
 }
 
-- (IBAction)showStylesManager:(void *)sender
-{
-	stC = [[ASSStylesController alloc] init];
-	[self addWindowController:stC];
-	[stC showWindow:nil];
-}
-
-- (IBAction)showHeadersManager:(void *)sender
-{
-	heC = [[ASSHeadersController alloc] init];
-	[self addWindowController:heC];
-	[heC showWindow:nil];
-}
-
-#pragma mark NSDocument
 - (void)makeWindowControllers
 {
 	ASSScriptController *scriptController = [[ASSScriptController alloc] init];
@@ -474,7 +466,8 @@
 	ASSRange *r = [[ASSRange alloc] init];
 	[r setRange:NSMakeRange(NSNotFound, 0)];
 	
-	[[NSNotificationCenter defaultCenter] postNotificationName:@"ASSEventsUpdated" object:r];
+	[[NSNotificationCenter defaultCenter] postNotificationName:@"ASSEventsUpdated" object:self userInfo:[NSDictionary dictionaryWithObject:r forKey:@"range"]];
+	[[NSNotificationCenter defaultCenter] postNotificationName:@"ASSHeadersUpdated" object:self];
 	
 	return YES;
 }

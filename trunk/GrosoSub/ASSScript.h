@@ -25,8 +25,6 @@
 @class ASSEvent;
 @class ASSStyleList;
 @class ASSEventList;
-@class ASSStylesController;
-@class ASSHeadersController;
 
 @interface ASSScript : NSDocument
 {
@@ -34,8 +32,6 @@
 	ASSHeader *headers;
 	ASSStyleList *styles;
 	ASSEventList *events;
-	ASSStylesController *stC;
-	ASSHeadersController *heC;
 }
 
 - (void)addDefaultEventAtIndex:(NSUInteger)aIndex;
@@ -64,6 +60,5 @@
 @property (retain) ASSHeader *headers;
 @property (retain) ASSStyleList *styles;
 @property (retain) ASSEventList *events;
-@property (retain) ASSHeadersController *heC;
 
 @end

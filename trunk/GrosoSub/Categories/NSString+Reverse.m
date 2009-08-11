@@ -1,9 +1,9 @@
 //
-//  ASSHeadersController.h
+//  NSString+Reverse.m
 //  GrosoSub
 //
-//  Created by Josu López Fernández on 29/07/09.
-//  Copyright (C) 2009 Josu López Fernández <fregona@fregona.biz>.
+//  Created by Josu López Fernández on 11/08/09.
+//  Copyright (C) 2008 Josu López Fernández <fregona@fregona.biz>.
 //	All rights reserved.
 //
 //	This program is free software; you can redistribute it and/or modify
@@ -20,21 +20,23 @@
 //  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 //
 
-#import <Cocoa/Cocoa.h>
+#import "NSString+Reverse.h"
 
-@interface ASSHeadersController : NSWindowController {
-	IBOutlet NSTextField *titleTF, *scriptTF, *typeTF, *translationTF, *editingTF, *timingTF, *checkingTF, *playResXTF, *playResYTF, *playDepthTF;
-	IBOutlet NSComboBox *collisionsCB, *wrapCB;
+
+@implementation NSString (reverse)
+
+-(NSString *) reverseString
+{
+	NSMutableString *rev;
+	int len = [self length];
+	int i;
 	
-	IBOutlet NSTableView *headersTV;
+	rev = [NSMutableString stringWithCapacity:len];     
+	
+	for (i = len-1; i >= 0; i--) {
+		[rev appendFormat:@"%c", [self characterAtIndex:i]];
+	}
+	
+	return rev;
 }
-
-@property (retain) NSTableView *headersTV;
-
-- (void)awakeFromNib;
-
-- (IBAction)applyChanges:(void *)sender;
-- (IBAction)addHeader:(void *)sender;
-- (IBAction)delHeader:(void *)sender;
-
 @end

@@ -26,6 +26,11 @@
 		8A668B9310195CB00053F77F /* grosoass.icns in Resources */ = {isa = PBXBuildFile; fileRef = 8A668B8F10195CB00053F77F /* grosoass.icns */; };
 		8A668B9410195CB00053F77F /* groso.icns in Resources */ = {isa = PBXBuildFile; fileRef = 8A668B9010195CB00053F77F /* groso.icns */; };
 		8A668B9510195CB00053F77F /* grososub.icns in Resources */ = {isa = PBXBuildFile; fileRef = 8A668B9110195CB00053F77F /* grososub.icns */; };
+		8AA2FCD51031D7FA006F5F77 /* format-text-bold.png in Resources */ = {isa = PBXBuildFile; fileRef = 8AA2FCD11031D7FA006F5F77 /* format-text-bold.png */; };
+		8AA2FCD61031D7FA006F5F77 /* format-text-underline.png in Resources */ = {isa = PBXBuildFile; fileRef = 8AA2FCD21031D7FA006F5F77 /* format-text-underline.png */; };
+		8AA2FCD71031D7FA006F5F77 /* format-text-strikethrough.png in Resources */ = {isa = PBXBuildFile; fileRef = 8AA2FCD31031D7FA006F5F77 /* format-text-strikethrough.png */; };
+		8AA2FCD81031D7FA006F5F77 /* format-text-italic.png in Resources */ = {isa = PBXBuildFile; fileRef = 8AA2FCD41031D7FA006F5F77 /* format-text-italic.png */; };
+		8AA2FD711031F88F006F5F77 /* NSString+Reverse.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AA2FD701031F88F006F5F77 /* NSString+Reverse.m */; };
 		8AA440501016446200CDC3A5 /* ASSEventTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AA4404F1016446200CDC3A5 /* ASSEventTextView.m */; };
 		8AADE4AF1010CB1B00D711B2 /* ASSScript.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AADE4AE1010CB1B00D711B2 /* ASSScript.m */; };
 		8AADE4FB1010D7E600D711B2 /* ASSEventTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AADE4FA1010D7E600D711B2 /* ASSEventTableView.m */; };
@@ -84,6 +89,12 @@
 		8A668B8F10195CB00053F77F /* grosoass.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = grosoass.icns; path = Icons/grosoass.icns; sourceTree = "<group>"; };
 		8A668B9010195CB00053F77F /* groso.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = groso.icns; path = Icons/groso.icns; sourceTree = "<group>"; };
 		8A668B9110195CB00053F77F /* grososub.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = grososub.icns; path = Icons/grososub.icns; sourceTree = "<group>"; };
+		8AA2FCD11031D7FA006F5F77 /* format-text-bold.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "format-text-bold.png"; path = "Icons/Interface/format-text-bold.png"; sourceTree = "<group>"; };
+		8AA2FCD21031D7FA006F5F77 /* format-text-underline.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "format-text-underline.png"; path = "Icons/Interface/format-text-underline.png"; sourceTree = "<group>"; };
+		8AA2FCD31031D7FA006F5F77 /* format-text-strikethrough.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "format-text-strikethrough.png"; path = "Icons/Interface/format-text-strikethrough.png"; sourceTree = "<group>"; };
+		8AA2FCD41031D7FA006F5F77 /* format-text-italic.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "format-text-italic.png"; path = "Icons/Interface/format-text-italic.png"; sourceTree = "<group>"; };
+		8AA2FD6F1031F88F006F5F77 /* NSString+Reverse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSString+Reverse.h"; path = "Categories/NSString+Reverse.h"; sourceTree = "<group>"; };
+		8AA2FD701031F88F006F5F77 /* NSString+Reverse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSString+Reverse.m"; path = "Categories/NSString+Reverse.m"; sourceTree = "<group>"; };
 		8AA4404E1016446200CDC3A5 /* ASSEventTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ASSEventTextView.h; path = Views/ASSEventTextView.h; sourceTree = "<group>"; };
 		8AA4404F1016446200CDC3A5 /* ASSEventTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ASSEventTextView.m; path = Views/ASSEventTextView.m; sourceTree = "<group>"; };
 		8AADE4AE1010CB1B00D711B2 /* ASSScript.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASSScript.m; sourceTree = "<group>"; };
@@ -167,6 +178,7 @@
 			isa = PBXGroup;
 			children = (
 				8AED5269100CE4FB0079F931 /* ASS */,
+				8AA2FD6E1031F857006F5F77 /* Categories */,
 				2A37F4ABFDCFA73011CA2CEA /* Classes */,
 				8AEA7179101FB4C40053B489 /* Controllers */,
 				2A37F4C3FDCFA73011CA2CEA /* Frameworks */,
@@ -223,6 +235,15 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		8AA2FD6E1031F857006F5F77 /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				8AA2FD6F1031F88F006F5F77 /* NSString+Reverse.h */,
+				8AA2FD701031F88F006F5F77 /* NSString+Reverse.m */,
+			);
+			name = Categories;
+			sourceTree = "<group>";
+		};
 		8AEA7179101FB4C40053B489 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -250,6 +271,10 @@
 		8AEA718E101FB5900053B489 /* Icons */ = {
 			isa = PBXGroup;
 			children = (
+				8AA2FCD11031D7FA006F5F77 /* format-text-bold.png */,
+				8AA2FCD21031D7FA006F5F77 /* format-text-underline.png */,
+				8AA2FCD31031D7FA006F5F77 /* format-text-strikethrough.png */,
+				8AA2FCD41031D7FA006F5F77 /* format-text-italic.png */,
 				8A668B8E10195CB00053F77F /* grososrt.icns */,
 				8A668B8F10195CB00053F77F /* grosoass.icns */,
 				8A668B9010195CB00053F77F /* groso.icns */,
@@ -391,6 +416,10 @@
 				8A668B9510195CB00053F77F /* grososub.icns in Resources */,
 				8AEA70F7101FAC790053B489 /* ASSStyles.xib in Resources */,
 				8AF8B60C10209CA5000159F9 /* ASSHeaders.xib in Resources */,
+				8AA2FCD51031D7FA006F5F77 /* format-text-bold.png in Resources */,
+				8AA2FCD61031D7FA006F5F77 /* format-text-underline.png in Resources */,
+				8AA2FCD71031D7FA006F5F77 /* format-text-strikethrough.png in Resources */,
+				8AA2FCD81031D7FA006F5F77 /* format-text-italic.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -466,6 +495,7 @@
 				8AEA70FB101FAC8D0053B489 /* ASSStylesController.m in Sources */,
 				8AF8B60910209BD4000159F9 /* ASSHeadersController.m in Sources */,
 				8AF6C1F110225C09000A04FB /* ASSRange.m in Sources */,
+				8AA2FD711031F88F006F5F77 /* NSString+Reverse.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

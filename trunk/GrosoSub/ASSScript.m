@@ -269,6 +269,7 @@
 {
 	ASSStylesController *stylesController = [[ASSStylesController alloc] init];
 	[self addWindowController:stylesController];
+	[stylesController showWindow:nil];
 }
 
 - (IBAction)showHeadersManager:(void *)sender
@@ -276,6 +277,28 @@
 	ASSHeadersController *headersController = [[ASSHeadersController alloc] init];
 	[self addWindowController:headersController];
 	[headersController showWindow:nil];
+}
+
+- (BOOL)validateUserInterfaceItem:(id)anItem
+{
+	SEL theAction = [anItem action];
+	Boolean enable = YES;
+	
+	if (theAction == @selector(showHeadersManager:)) {
+		for (NSWindowController *wc in [self windowControllers]) {
+			if ([[wc windowNibName] isEqualToString:@"ASSHeaders"]) {
+				enable = NO;
+			}
+		}
+	} else if (theAction == @selector(showStylesManager:)) {
+		for (NSWindowController *wc in [self windowControllers]) {
+			if ([[wc windowNibName] isEqualToString:@"ASSStyles"]) {
+				enable = NO;
+			}
+		}
+	}
+	
+	return enable;
 }
 
 #pragma mark NSDocument

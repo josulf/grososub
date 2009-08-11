@@ -360,7 +360,6 @@
 				[outScanner scanUpToString:@"}" intoString:NULL];
 				if (![outScanner isAtEnd]) {
 					range.length = [outScanner scanLocation] + 1 - range.location;
-					NSLog([outText substringWithRange:range]);
 					NSValue *r = [NSValue valueWithRange:range];
 					[ranges addObject:r];
 				}

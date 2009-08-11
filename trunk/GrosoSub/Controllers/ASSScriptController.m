@@ -348,7 +348,29 @@
 	} else if ([ident isEqualToString:@"effect"]) {
 		return [e effect];
 	} else if ([ident isEqualToString:@"text"]) {
-		return [e text];
+		NSMutableString *outText = [[e text] mutableCopy];
+		NSScanner *outScanner = [NSScanner scannerWithString:outText];
+		NSMutableArray *ranges = [[NSMutableArray alloc] init];
+		
+		while (![outScanner isAtEnd]) {
+			NSRange range;
+			[outScanner scanUpToString:@"{" intoString:NULL];
+			if (![outScanner isAtEnd]) {
+				range.location = [outScanner scanLocation];
+				[outScanner scanUpToString:@"}" intoString:NULL];
+				if (![outScanner isAtEnd]) {
+					range.length = [outScanner scanLocation] + 1 - range.location;
+					NSLog([outText substringWithRange:range]);
+					NSValue *r = [NSValue valueWithRange:range];
+					[ranges addObject:r];
+				}
+			}
+		}
+		for (NSValue *r in [ranges reverseObjectEnumerator]) {
+			[outText replaceCharactersInRange:[r rangeValue] withString:@"⌘"];
+		}
+		
+		return outText;
 	}
 	
 	return @"WTF";	

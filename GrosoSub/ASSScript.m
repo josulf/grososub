@@ -334,7 +334,18 @@
 
 - (BOOL)readFromData:(NSData *)data ofType:(NSString *)typeName error:(NSError **)outError
 {
-	NSString *megaString = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+	NSString *megaString;
+	// Workaround to handle multiple fileencodings: http://cocoadev.com/forums/comments.php?DiscussionID=934&page=1#Item_0
+	megaString = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+	if (megaString == nil) {
+		megaString = [[NSString alloc] initWithData:data encoding:NSISOLatin1StringEncoding];
+	}
+	if (megaString == nil) {
+		megaString = [[NSString alloc] initWithData:data encoding:NSMacOSRomanStringEncoding];
+	}
+	if (megaString == nil) {
+		return NO;
+	}
 	
 	if ([typeName isEqualToString:@"Advanced SubStation Alpha"]) {
 		NSString *hString, *sString, *eString;

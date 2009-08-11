@@ -46,4 +46,11 @@
 	
 }
 
+- (void)keyDown:(NSEvent *)theEvent
+{
+	if ([theEvent keyCode] == 36) {
+		[[NSNotificationCenter defaultCenter] postNotificationName:@"ASSEventsEnter" object:self];
+	}
+	[super keyDown:theEvent];
+}
 @end

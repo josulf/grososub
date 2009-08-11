@@ -29,6 +29,7 @@
 #import "ASSEvent.h"
 #import "ASSScript.h"
 #import "ASSRange.h"
+#import "NSString+Reverse.h"
 
 @implementation ASSScriptController
 
@@ -60,22 +61,114 @@
 
 - (IBAction)textActions:(void *)sender
 {
+	NSArray *ranges = [textTV selectedRanges];
+	NSString *open, *openB, *close, *closeB;
+	Boolean ok = NO;
+	
 	switch ([textSC selectedSegment]) {
 		case 0:
-			NSLog(@"B");
+			open = @"\\b1";
+			openB = @"{\\b1}";
+			close = @"\\b0";
+			closeB = @"{\\b0}";
+			ok = YES;
 			break;
 		case 1:
-			NSLog(@"I");
+			open = @"\\i1";
+			openB = @"{\\i1}";
+			close = @"\\i0";
+			closeB = @"{\\i0}";
+			ok = YES;
 			break;
 		case 2:
-			NSLog(@"U");
+			open = @"\\u1";
+			openB = @"{\\u1}";
+			close = @"\\u0";
+			closeB = @"{\\u0}";
+			ok = YES;
 			break;
 		case 3:
-			NSLog(@"S");
+			open = @"\\s1";
+			openB = @"{\\s1}";
+			close = @"\\s0";
+			closeB = @"{\\s0}";
+			ok = YES;
 			break;
 		default:
 			NSLog(@"LOL");
 			break;
+	}
+	
+	if (ok) {	
+		NSMutableString *newString = [[textTV string] mutableCopy];
+		NSInteger a, b;
+		
+		for (NSValue *value in [ranges reverseObjectEnumerator]) {
+			NSRange range = [value rangeValue];
+			
+			if (!(([ranges count] == 1) && (range.length == 0))) {
+				// only continue if there is something selected on the text view
+				b = range.location+range.length;
+				a = range.location-1;
+				if ((b<[newString length]) && ([newString characterAtIndex:b] == '{')) {
+					NSRange commandR;
+					commandR.location = b;
+					NSScanner *after = [NSScanner scannerWithString:[newString substringFromIndex:b]];
+					
+					if ([after scanUpToString:@"}" intoString:NULL]) {
+						commandR.length = [after scanLocation] - commandR.location + b+1;
+						NSString *command = [newString substringWithRange:commandR];
+						NSRange found = [command rangeOfString:close];
+						if (found.location != NSNotFound) {
+							// we have \b0 inside the brackets
+							if ([command length] == 5) {
+								// we only have \b0
+								newString = [[newString stringByReplacingOccurrencesOfString:closeB withString:@"" options:NSLiteralSearch range:commandR] mutableCopy];
+							} else {
+								newString = [[newString stringByReplacingOccurrencesOfString:close withString:@"" options:NSLiteralSearch range:commandR] mutableCopy];
+							}
+						} else {
+							// we don't have \b0
+							[newString insertString:close atIndex:b+1];
+						}
+					}
+				} else {
+					// we are at the end or we don't have a command after
+					[newString insertString:closeB atIndex:b];
+				}
+				
+				if ((a >= 0) && ([newString characterAtIndex:a] == '}')) {
+					NSScanner *r = [NSScanner scannerWithString:[[newString copy] reverseString]];
+					[r setScanLocation:[newString length] - a - 1];
+					NSRange revCommandR;
+					revCommandR.location = [newString length] - a - 1;
+					if ([r scanUpToString:@"{" intoString:NULL]) {
+						revCommandR.length = [r scanLocation] - revCommandR.location + 1;
+						NSRange commandR = NSMakeRange([newString length] - revCommandR.location - revCommandR.length, revCommandR.length);
+						NSString *command = [newString substringWithRange:commandR];
+						NSRange found = [command rangeOfString:open];
+						if (found.location != NSNotFound) {
+							// we have \b1 inside the brackets
+							if ([command length] == 5) {
+								// we only have \b1
+								newString = [[newString stringByReplacingOccurrencesOfString:openB withString:@"" options:NSLiteralSearch range:commandR] mutableCopy];
+							} else {
+								newString = [[newString stringByReplacingOccurrencesOfString:open withString:@"" options:NSLiteralSearch range:commandR] mutableCopy];
+							}
+						} else {
+							// we don't have \b1
+							[newString insertString:open atIndex:a];
+						}
+					}
+					
+				} else {
+					// we are at the begin or we don't have a command before
+					[newString insertString:openB atIndex:a+1];
+				}
+			}
+		}
+		
+	[textTV setString:newString];
 	}
 }
 
@@ -284,11 +377,108 @@
 	}
 }
 
+#pragma mark Syntax Highlighting
+- (void)highlight:(NSNotification *)aNotification
+{
+	NSTextStorage *st = [aNotification object];
+	NSString *string = [st string];
+	NSRange area, area2, area3, area4;
+	area.location = 0;
+	area.length = [string length];
+	NSCharacterSet *set = [NSCharacterSet characterSetWithCharactersInString:@"\\}"];
+	NSCharacterSet *set2 = [NSCharacterSet characterSetWithCharactersInString:@"1234567890,()"];
+	NSCharacterSet *set3 = [NSCharacterSet characterSetWithCharactersInString:@",)"];
+	
+	[st removeAttribute:NSForegroundColorAttributeName range:area];
+		
+	[st setFont:[NSFont fontWithName:@"Lucida Grande" size:13]];
+	
+	NSScanner *sc = [NSScanner scannerWithString:string];
+	while (![sc isAtEnd]) {
+		area.location = 0;
+		area.length = 0;
+		[sc scanUpToString:@"{" intoString:NULL];
+		if (![sc isAtEnd]) {
+			area.location = [sc scanLocation];
+			[sc scanUpToString:@"}" intoString:NULL];
+			if (![sc isAtEnd]) {
+				// we are inside a {} section
+				area.length = [sc scanLocation] - area.location + 1;
+				NSScanner *perry = [NSScanner scannerWithString:[[sc string] substringWithRange:area]];
+				NSRange perryR = area;
+				[perry scanUpToString:@"\\" intoString:NULL];
+				if (![perry isAtEnd]) {
+					// there is 1 or more ASS commands
+					[st addAttribute:NSForegroundColorAttributeName value:[NSColor blueColor] range:area];
+					while (![perry isAtEnd]) {
+						[perry scanString:@"\\" intoString:NULL];
+						area2.location = [perry scanLocation];
+						if ([perry scanUpToCharactersFromSet:set intoString:NULL] && ![perry isAtEnd]) {
+							// we have an ASS command
+							area2.length = [perry scanLocation] - area2.location;
+							NSRange comR = [[sc string] rangeOfString:[[perry string] substringWithRange:area2] options:NSLiteralSearch range:perryR];
+							NSRange slaR = NSMakeRange(comR.location-1, 1);
+							[st addAttribute:NSForegroundColorAttributeName value:[NSColor darkGrayColor] range:comR];
+							[st addAttribute:NSFontAttributeName value:[NSFont fontWithName:@"Lucida Grande Bold" size:13] range:comR];
+							if ((NSInteger) (slaR.location) >= 0) {
+								[st addAttribute:NSForegroundColorAttributeName value:[NSColor purpleColor] range:slaR];
+							}
+							NSScanner *patxi = [NSScanner scannerWithString:[[perry string] substringWithRange:area2]];
+							NSRange patxiR = [[sc string] rangeOfString:[patxi string] options:NSLiteralSearch range:perryR];
+							[patxi scanUpToString:@"(" intoString:NULL];
+							if (![patxi isAtEnd]) {
+								// the command has parameters inside brackets
+								area3.location = [patxi scanLocation];
+								[patxi scanUpToString:@")" intoString:NULL];
+								if (![patxi isAtEnd]) {
+									area3.length = [patxi scanLocation] - area3.location +1;
+									NSRange parR = [[sc string] rangeOfString:[[patxi string] substringWithRange:area3] options:NSLiteralSearch range:patxiR];
+									[st addAttribute:NSForegroundColorAttributeName value:[NSColor purpleColor] range:parR];
+									NSScanner *joxerra = [NSScanner scannerWithString:[[sc string] substringWithRange:parR]];
+									NSRange joxerraR = [[sc string] rangeOfString:[joxerra string] options:NSLiteralSearch range:patxiR];
+									while (![joxerra isAtEnd]) {
+										[joxerra scanUpToCharactersFromSet:[NSCharacterSet decimalDigitCharacterSet] intoString:NULL];
+										area4.location = [joxerra scanLocation];
+										[joxerra scanUpToCharactersFromSet:set3 intoString:NULL];
+										if (![joxerra isAtEnd]) {
+											area4.length = [joxerra scanLocation] - area4.location;
+											NSRange paramR = [[sc string] rangeOfString:[[joxerra string] substringWithRange:area4] options:NSLiteralSearch range:joxerraR];
+											[st addAttribute:NSForegroundColorAttributeName value:[NSColor orangeColor] range:paramR];
+										}
+									}
+								}
+							} else {
+								// the command hasn't got parameters inside brackets
+								[patxi setScanLocation:0];
+								[patxi scanUpToCharactersFromSet:set2 intoString:NULL];
+								if ([[patxi string] length] > 1) {
+									area3.location = [patxi scanLocation];
+									area3.length = [[patxi string] length] - area3.location;
+									NSRange parR = [[sc string] rangeOfString:[[patxi string] substringWithRange:area3] options:NSLiteralSearch range:patxiR];
+									[st addAttribute:NSForegroundColorAttributeName value:[NSColor orangeColor] range:parR];
+								}
+							}
+						}
+						[perry setScanLocation:[perry scanLocation]+1];
+					}
+				} else {
+					// it is a comment
+					[st addAttribute:NSForegroundColorAttributeName value:[NSColor grayColor] range:area];
+				}
+			}
+		}
+	}
+}
+
 #pragma mark NSWindowController
+- (void)awakeFromNib
+{
+	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(highlight:) name:NSTextStorageDidProcessEditingNotification object:[textTV textStorage]];
+}
+
 - (id)init
 {
-	self = [super initWithWindowNibName:@"ASSScript"];
-
+	self = [super initWithWindowNibName:@"ASSScript"];	
 	return self;
 }
 
@@ -301,7 +491,8 @@
 	// When we call makeWindowControllers we add the observer, and when we close the window (document == nil)
 	// we remove the observer
 	if (document != nil) {
-		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(headersUpdated:) name:@"ASSEventsUpdated" object:document];
+		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(tableUpdated:) name:@"ASSEventsUpdated" object:document];
+		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(commitEvent:) name:@"ASSEventsEnter" object:textTV];
 	} else {
 		[[NSNotificationCenter defaultCenter] removeObserver:self];
 	}

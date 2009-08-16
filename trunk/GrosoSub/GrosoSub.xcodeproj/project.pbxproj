@@ -374,7 +374,7 @@
 			buildConfigurationList = C05733C708A9546B00998B17 /* Build configuration list for PBXNativeTarget "GrosoSub" */;
 			buildPhases = (
 				8D15AC2B0486D014006FF6A4 /* Resources */,
-				8A06CE12101FC06E00205A47 /* ShellScript */,
+				8A63AE3A103893760031B0AE /* ShellScript */,
 				8D15AC300486D014006FF6A4 /* Sources */,
 				8D15AC330486D014006FF6A4 /* Frameworks */,
 				8A63ADDB103887700031B0AE /* CopyFiles */,
@@ -449,7 +449,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		8A06CE12101FC06E00205A47 /* ShellScript */ = {
+		8A63AE3A103893760031B0AE /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -460,7 +460,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "REV=`svnversion -n`\n\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $REV\" \"${TARGET_BUILD_DIR}/${INFOPLIST_PATH}\" ";
+			shellScript = "REV=`svnversion -n`\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $REV\" \"${TARGET_BUILD_DIR}/${INFOPLIST_PATH}\" ";
 		};
 		8AED5289100CE8770079F931 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;

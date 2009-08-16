@@ -6,6 +6,21 @@
 	objectVersion = 45;
 	objects = {
 
+/* Begin PBXAggregateTarget section */
+		8AD783F61038ADFB00ED0537 /* Distribution */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = 8AD784071038AE1A00ED0537 /* Build configuration list for PBXAggregateTarget "Distribution" */;
+			buildPhases = (
+				8AD783FC1038AE0900ED0537 /* ShellScript */,
+			);
+			dependencies = (
+				8AD783FA1038AE0300ED0537 /* PBXTargetDependency */,
+			);
+			name = Distribution;
+			productName = Distribution;
+		};
+/* End PBXAggregateTarget section */
+
 /* Begin PBXBuildFile section */
 		1DDD582C0DA1D0D100B32029 /* ASSScript.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1DDD58280DA1D0D100B32029 /* ASSScript.xib */; };
 		8A2CE4380ED4D01200DA892E /* COPYING in Resources */ = {isa = PBXBuildFile; fileRef = 8A2CE4370ED4D01200DA892E /* COPYING */; };
@@ -25,6 +40,7 @@
 		8A63AD9D103881690031B0AE /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A63AD9C103881690031B0AE /* Sparkle.framework */; };
 		8A63ADA81038831C0031B0AE /* dsa_pub.pem in Resources */ = {isa = PBXBuildFile; fileRef = 8A63ADA71038831C0031B0AE /* dsa_pub.pem */; };
 		8A63ADD61038876B0031B0AE /* Sparkle.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 8A63AD9C103881690031B0AE /* Sparkle.framework */; };
+		8A63AF391038AB510031B0AE /* ASSAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A63AF381038AB510031B0AE /* ASSAppDelegate.m */; };
 		8A668B9210195CB00053F77F /* grososrt.icns in Resources */ = {isa = PBXBuildFile; fileRef = 8A668B8E10195CB00053F77F /* grososrt.icns */; };
 		8A668B9310195CB00053F77F /* grosoass.icns in Resources */ = {isa = PBXBuildFile; fileRef = 8A668B8F10195CB00053F77F /* grosoass.icns */; };
 		8A668B9410195CB00053F77F /* groso.icns in Resources */ = {isa = PBXBuildFile; fileRef = 8A668B9010195CB00053F77F /* groso.icns */; };
@@ -57,6 +73,16 @@
 		8D15AC320486D014006FF6A4 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A37F4B0FDCFA73011CA2CEA /* main.m */; settings = {ATTRIBUTES = (); }; };
 		8D15AC340486D014006FF6A4 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A7FEA54F5311CA2CBB /* Cocoa.framework */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		8AD783F91038AE0300ED0537 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2A37F4A9FDCFA73011CA2CEA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8D15AC270486D014006FF6A4 /* GrosoSub */;
+			remoteInfo = GrosoSub;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		8A63ADDB103887700031B0AE /* CopyFiles */ = {
@@ -103,6 +129,8 @@
 		8A448EE31019DA9600A658AF /* eu */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = eu; path = eu.lproj/Credits.rtf; sourceTree = "<group>"; };
 		8A63AD9C103881690031B0AE /* Sparkle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Sparkle.framework; sourceTree = "<group>"; };
 		8A63ADA71038831C0031B0AE /* dsa_pub.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = dsa_pub.pem; sourceTree = "<group>"; };
+		8A63AF371038AB510031B0AE /* ASSAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ASSAppDelegate.h; path = Controllers/ASSAppDelegate.h; sourceTree = "<group>"; };
+		8A63AF381038AB510031B0AE /* ASSAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ASSAppDelegate.m; path = Controllers/ASSAppDelegate.m; sourceTree = "<group>"; };
 		8A668B8E10195CB00053F77F /* grososrt.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = grososrt.icns; path = Icons/grososrt.icns; sourceTree = "<group>"; };
 		8A668B8F10195CB00053F77F /* grosoass.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = grosoass.icns; path = Icons/grosoass.icns; sourceTree = "<group>"; };
 		8A668B9010195CB00053F77F /* groso.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = groso.icns; path = Icons/groso.icns; sourceTree = "<group>"; };
@@ -274,6 +302,8 @@
 				8AEA70FA101FAC8D0053B489 /* ASSStylesController.m */,
 				8AF8B60710209BD4000159F9 /* ASSHeadersController.h */,
 				8AF8B60810209BD4000159F9 /* ASSHeadersController.m */,
+				8A63AF371038AB510031B0AE /* ASSAppDelegate.h */,
+				8A63AF381038AB510031B0AE /* ASSAppDelegate.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -411,6 +441,7 @@
 			targets = (
 				8D15AC270486D014006FF6A4 /* GrosoSub */,
 				8AED528A100CE8770079F931 /* Test */,
+				8AD783F61038ADFB00ED0537 /* Distribution */,
 			);
 		};
 /* End PBXProject section */
@@ -461,6 +492,19 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "REV=`svnversion -n`\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $REV\" \"${TARGET_BUILD_DIR}/${INFOPLIST_PATH}\" ";
+		};
+		8AD783FC1038AE0900ED0537 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/bash;
+			shellScript = "set -o errexit\n\n[ $BUILD_STYLE = Release ] || { echo Distribution target requires \"'Release'\" build style; false; }\n\nVERSION=$(defaults read \"$BUILT_PRODUCTS_DIR/$PROJECT_NAME.app/Contents/Info\" CFBundleVersion)\nSHORT_VERSION=$(defaults read \"$BUILT_PRODUCTS_DIR/$PROJECT_NAME.app/Contents/Info\" CFBundleShortVersionString)\nFULL_VERSION=${SHORT_VERSION}-r${VERSION}\nDOWNLOAD_BASE_URL=\"http://gs.fregona.biz/app/\"\nRELEASENOTES_URL=\"http://gs.fregona.biz/changelog/$FULL_VERSION.txt\"\n\nARCHIVE_FILENAME=\"$PROJECT_NAME-$FULL_VERSION.zip\"\nDOWNLOAD_URL=\"$DOWNLOAD_BASE_URL/$ARCHIVE_FILENAME\"\nKEYCHAIN_PRIVKEY_NAME=\"Sparkle Private Key\"\n\nWD=$PWD\ncd \"$BUILT_PRODUCTS_DIR\"\nrm -f \"$PROJECT_NAME\"*.zip\nditto -ck --keepParent \"$PROJECT_NAME.app\" \"$ARCHIVE_FILENAME\"\n\nSIZE=$(stat -f %z \"$ARCHIVE_FILENAME\")\nunset LANG\nPUBDATE=$(date +\"%a, %d %b %G %T %z\")\nSIGNATURE=$(\n\topenssl dgst -sha1 -binary < \"$ARCHIVE_FILENAME\" \\\n\t| openssl dgst -dss1 -sign <(security find-generic-password -g -s \"$KEYCHAIN_PRIVKEY_NAME\" 2>&1 1>/dev/null | perl -pe '($_) = /\"(.+)\"/; s/\\\\012/\\n/g') \\\n\t| openssl enc -base64\n)\n\n[ $SIGNATURE ] || { echo Unable to load signing private key with name \"'$KEYCHAIN_PRIVKEY_NAME'\" from keychain; false; }\n\ncat <<EOF\n\t\t<item>\n\t\t\t<title>Version $VERSION</title>\n\t\t\t<sparkle:releaseNotesLink>$RELEASENOTES_URL</sparkle:releaseNotesLink>\n\t\t\t<pubDate>$PUBDATE</pubDate>\n\t\t\t<enclosure\n\t\t\t\turl=\"$DOWNLOAD_URL\"\n\t\t\t\tsparkle:version=\"$VERSION\"\n\t\t\t\tsparkle:shortVersionString=\"$SHORT_VERSION\"\n\t\t\t\tsparkle:dsaSignature=\"$SIGNATURE\"\n\t\t\t\tlength=\"$SIZE\"\n\t\t\t\ttype=\"application/octet-stream\"\n\t\t\t/>\n\t\t</item>\nEOF\n\necho scp \"'$BUILT_PRODUCTS_DIR/$ARCHIVE_FILENAME'\" root@fregona.biz:/var/www/gs/app/\necho scp \"'$WD/appcast.xml'\" root@fregona.biz:/var/www/gs/";
 		};
 		8AED5289100CE8770079F931 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -519,10 +563,19 @@
 				8AF8B60910209BD4000159F9 /* ASSHeadersController.m in Sources */,
 				8AF6C1F110225C09000A04FB /* ASSRange.m in Sources */,
 				8AA2FD711031F88F006F5F77 /* NSString+Reverse.m in Sources */,
+				8A63AF391038AB510031B0AE /* ASSAppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		8AD783FA1038AE0300ED0537 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8D15AC270486D014006FF6A4 /* GrosoSub */;
+			targetProxy = 8AD783F91038AE0300ED0537 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		089C165FFE840EACC02AAC07 /* InfoPlist.strings */ = {
@@ -553,6 +606,27 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		8AD783F71038ADFB00ED0537 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				PRODUCT_NAME = Distribution;
+			};
+			name = Debug;
+		};
+		8AD783F81038ADFB00ED0537 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				PRODUCT_NAME = Distribution;
+				ZERO_LINK = NO;
+			};
+			name = Release;
+		};
 		8AED528E100CE8780079F931 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -680,6 +754,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		8AD784071038AE1A00ED0537 /* Build configuration list for PBXAggregateTarget "Distribution" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8AD783F71038ADFB00ED0537 /* Debug */,
+				8AD783F81038ADFB00ED0537 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		8AED5290100CE8780079F931 /* Build configuration list for PBXNativeTarget "Test" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

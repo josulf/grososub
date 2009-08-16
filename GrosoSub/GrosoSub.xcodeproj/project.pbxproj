@@ -22,6 +22,9 @@
 		8A3E20DE100E58EE00BA8697 /* ASSStyleList.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A3E20DC100E58EE00BA8697 /* ASSStyleList.m */; };
 		8A3E20E2100E5B6200BA8697 /* ASSStyleListTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A3E20E1100E5B6200BA8697 /* ASSStyleListTest.m */; };
 		8A448EE21019DA9000A658AF /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 8A448EE11019DA9000A658AF /* Credits.rtf */; };
+		8A63AD9D103881690031B0AE /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A63AD9C103881690031B0AE /* Sparkle.framework */; };
+		8A63ADA81038831C0031B0AE /* dsa_pub.pem in Resources */ = {isa = PBXBuildFile; fileRef = 8A63ADA71038831C0031B0AE /* dsa_pub.pem */; };
+		8A63ADD61038876B0031B0AE /* Sparkle.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 8A63AD9C103881690031B0AE /* Sparkle.framework */; };
 		8A668B9210195CB00053F77F /* grososrt.icns in Resources */ = {isa = PBXBuildFile; fileRef = 8A668B8E10195CB00053F77F /* grososrt.icns */; };
 		8A668B9310195CB00053F77F /* grosoass.icns in Resources */ = {isa = PBXBuildFile; fileRef = 8A668B8F10195CB00053F77F /* grosoass.icns */; };
 		8A668B9410195CB00053F77F /* groso.icns in Resources */ = {isa = PBXBuildFile; fileRef = 8A668B9010195CB00053F77F /* groso.icns */; };
@@ -55,6 +58,19 @@
 		8D15AC340486D014006FF6A4 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A7FEA54F5311CA2CBB /* Cocoa.framework */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		8A63ADDB103887700031B0AE /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				8A63ADD61038876B0031B0AE /* Sparkle.framework in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		089C1660FE840EACC02AAC07 /* English */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		1058C7A7FEA54F5311CA2CBB /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
@@ -85,6 +101,8 @@
 		8A3E20E0100E5B6200BA8697 /* ASSStyleListTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ASSStyleListTest.h; path = Test/ASSStyleListTest.h; sourceTree = "<group>"; };
 		8A3E20E1100E5B6200BA8697 /* ASSStyleListTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ASSStyleListTest.m; path = Test/ASSStyleListTest.m; sourceTree = "<group>"; };
 		8A448EE31019DA9600A658AF /* eu */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = eu; path = eu.lproj/Credits.rtf; sourceTree = "<group>"; };
+		8A63AD9C103881690031B0AE /* Sparkle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Sparkle.framework; sourceTree = "<group>"; };
+		8A63ADA71038831C0031B0AE /* dsa_pub.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = dsa_pub.pem; sourceTree = "<group>"; };
 		8A668B8E10195CB00053F77F /* grososrt.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = grososrt.icns; path = Icons/grososrt.icns; sourceTree = "<group>"; };
 		8A668B8F10195CB00053F77F /* grosoass.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = grosoass.icns; path = Icons/grosoass.icns; sourceTree = "<group>"; };
 		8A668B9010195CB00053F77F /* groso.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = groso.icns; path = Icons/groso.icns; sourceTree = "<group>"; };
@@ -141,6 +159,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8D15AC340486D014006FF6A4 /* Cocoa.framework in Frameworks */,
+				8A63AD9D103881690031B0AE /* Sparkle.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -150,6 +169,7 @@
 		1058C7A6FEA54F5311CA2CBB /* Linked Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				8A63AD9C103881690031B0AE /* Sparkle.framework */,
 				1058C7A7FEA54F5311CA2CBB /* Cocoa.framework */,
 			);
 			name = "Linked Frameworks";
@@ -213,6 +233,7 @@
 		2A37F4B8FDCFA73011CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				8A63ADA71038831C0031B0AE /* dsa_pub.pem */,
 				8AED528C100CE8770079F931 /* Test-Info.plist */,
 				8A2CE4370ED4D01200DA892E /* COPYING */,
 				8A448EE11019DA9000A658AF /* Credits.rtf */,
@@ -356,6 +377,7 @@
 				8A06CE12101FC06E00205A47 /* ShellScript */,
 				8D15AC300486D014006FF6A4 /* Sources */,
 				8D15AC330486D014006FF6A4 /* Frameworks */,
+				8A63ADDB103887700031B0AE /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -420,6 +442,7 @@
 				8AA2FCD61031D7FA006F5F77 /* format-text-underline.png in Resources */,
 				8AA2FCD71031D7FA006F5F77 /* format-text-strikethrough.png in Resources */,
 				8AA2FCD81031D7FA006F5F77 /* format-text-italic.png in Resources */,
+				8A63ADA81038831C0031B0AE /* dsa_pub.pem in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -589,6 +612,10 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				COPY_PHASE_STRIP = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+				);
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_FIX_AND_CONTINUE = YES;
 				GCC_MODEL_TUNING = G5;
@@ -608,6 +635,10 @@
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CURRENT_PROJECT_VERSION = "";
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+				);
 				GCC_MODEL_TUNING = G5;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = GrosoSub_Prefix.pch;

@@ -94,6 +94,8 @@
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleVersion</key>
+	<string>56</string>
+	<key>CFBundleShortVersionString</key>
 	<string>0.0</string>
 	<key>NSMainNibFile</key>
 	<string>MainMenu</string>

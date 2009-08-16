@@ -460,7 +460,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "REV=r`svnversion -n`\nVERSION=`/usr/libexec/PlistBuddy -c \"Print :CFBundleVersion\" \"${TARGET_BUILD_DIR}/${INFOPLIST_PATH}\"`\nDATE=`date +%Y/%m/%d`\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $VERSION ($REV - $DATE)\" \"${TARGET_BUILD_DIR}/${INFOPLIST_PATH}\" ";
+			shellScript = "REV=`svnversion -n`\n\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $REV\" \"${TARGET_BUILD_DIR}/${INFOPLIST_PATH}\" ";
 		};
 		8AED5289100CE8770079F931 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;

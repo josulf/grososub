@@ -23,6 +23,8 @@
 #import "ASSStylesController.h"
 #import "ASSStyleList.h"
 #import "ASSScript.h"
+#import "ASSStyle.h"
+#import "ASSColour.h"
 
 @implementation ASSStylesController
 
@@ -36,7 +38,139 @@
 			// Only if one row is selected
 			ASSStyle *style = [[self document] getStyleAtIndex:row];
 			NSLog([style description]);
-
+			
+			// Enable the controlls
+			[nameTF setEnabled:YES];
+			[fontTF setEnabled:YES];
+			[fontSizeTF setEnabled:YES];
+			[boldB setEnabled:YES];
+			[italicB setEnabled:YES];
+			[underlineB setEnabled:YES];
+			[strikeoutB setEnabled:YES];
+			[primaryCCW setEnabled:YES];
+			[secondaryCCW setEnabled:YES];
+			[outlineCCW setEnabled:YES];
+			[backCCW setEnabled:YES];
+			[primaryCTF setEnabled:YES];
+			[secondaryCTF setEnabled:YES];
+			[outlineCTF setEnabled:YES];
+			[backCTF setEnabled:YES];
+			[primaryCS setEnabled:YES];
+			[secondaryCS setEnabled:YES];
+			[outlineCS setEnabled:YES];
+			[backCS setEnabled:YES];
+			[alignmentM setEnabled:YES];
+			[leftTF setEnabled:YES];
+			[rightTF setEnabled:YES];
+			[vertTF setEnabled:YES];
+			[leftS setEnabled:YES];
+			[rightS setEnabled:YES];
+			[vertS setEnabled:YES];
+			[outlineTF setEnabled:YES];
+			[shadowTF setEnabled:YES];
+			[opaqueB setEnabled:YES];
+			[rotationTF setEnabled:YES];
+			[spacingTF setEnabled:YES];
+			[xTF setEnabled:YES];
+			[yTF setEnabled:YES];
+			[rotationS setEnabled:YES];
+			[spacingS setEnabled:YES];
+			[xS setEnabled:YES];
+			[yS setEnabled:YES];
+			[encodingTF setEnabled:YES];
+			[applyB setEnabled:YES];
+			[selectB setEnabled:YES];
+			
+			// load the data
+			[nameTF setObjectValue:[style name]];
+			[fontTF setObjectValue:[style fontName]];
+			[fontSizeTF setObjectValue:[NSNumber numberWithInt:[style fontSize]]];
+			[boldB setState:[style bold]];
+			[italicB setState:[style italic]];
+			[underlineB setState:[style underline]];
+			[strikeoutB setState:[style strikeOut]];
+			[primaryCCW setColor:[style primaryNSColor]];
+			[secondaryCCW setColor:[style secondaryNSColor]];
+			[outlineCCW setColor:[style outlineNSColor]];
+			[backCCW setColor:[style backNSColor]];
+			
+			// First we set the object value for the text fields
+			// The sliders are linked with the text fields and vice versa to get it's int value
+			// We are setting the value of the text field programatically, then we need to advise
+			// the slider to get the value
+			[primaryCTF setObjectValue:[NSNumber numberWithUnsignedInt:[[style primaryColour] alpha]]];
+			[primaryCS takeIntValueFrom:primaryCTF];
+			[secondaryCTF setObjectValue:[NSNumber numberWithUnsignedInt:[[style secondaryColour] alpha]]];
+			[secondaryCS takeIntValueFrom:secondaryCTF];
+			[outlineCTF setObjectValue:[NSNumber numberWithUnsignedInt:[[style outlineColour] alpha]]];
+			[outlineCS takeIntValueFrom:outlineCTF];
+			[backCTF setObjectValue:[NSNumber numberWithUnsignedInt:[[style backColour] alpha]]];
+			[backCS takeIntValueFrom:backCTF];
+			
+			[alignmentM selectCellWithTag:[style alignment]];
+			
+			[leftTF setObjectValue:[NSNumber numberWithInt:[style marginL]]];
+			[leftS takeIntValueFrom:leftTF];
+			[rightTF setObjectValue:[NSNumber numberWithInt:[style marginR]]];
+			[rightS takeIntValueFrom:rightTF];
+			[vertTF setObjectValue:[NSNumber numberWithInt:[style marginV]]];
+			[vertS takeIntValueFrom:vertTF];
+			
+			[outlineTF setObjectValue:[NSNumber numberWithFloat:[style outline]]];
+			[shadowTF setObjectValue:[NSNumber numberWithFloat:[style shadow]]];
+			[opaqueB setState:[style borderStyle]];
+			
+			[rotationTF setObjectValue:[NSNumber numberWithFloat:[style angle]]];
+			[rotationS takeFloatValueFrom:rotationTF];
+			[spacingTF setObjectValue:[NSNumber numberWithFloat:[style spacing]]];
+			[spacingS takeFloatValueFrom:spacingTF];
+			[xTF setObjectValue:[NSNumber numberWithFloat:[style scaleX]]];
+			[xS takeFloatValueFrom:xTF];
+			[yTF setObjectValue:[NSNumber numberWithFloat:[style scaleY]]];
+			[yS takeFloatValueFrom:yTF];
+			[encodingTF setObjectValue:[NSNumber numberWithInt:[style encoding]]];
+		} else {
+			// disable the controlls
+			[nameTF setEnabled:NO];
+			[fontTF setEnabled:NO];
+			[fontSizeTF setEnabled:NO];
+			[boldB setEnabled:NO];
+			[italicB setEnabled:NO];
+			[underlineB setEnabled:NO];
+			[strikeoutB setEnabled:NO];
+			[primaryCCW setEnabled:NO];
+			[secondaryCCW setEnabled:NO];
+			[outlineCCW setEnabled:NO];
+			[backCCW setEnabled:NO];
+			[primaryCTF setEnabled:NO];
+			[secondaryCTF setEnabled:NO];
+			[outlineCTF setEnabled:NO];
+			[backCTF setEnabled:NO];
+			[primaryCS setEnabled:NO];
+			[secondaryCS setEnabled:NO];
+			[outlineCS setEnabled:NO];
+			[backCS setEnabled:NO];
+			[alignmentM setEnabled:NO];
+			[leftTF setEnabled:NO];
+			[rightTF setEnabled:NO];
+			[vertTF setEnabled:NO];
+			[leftS setEnabled:NO];
+			[rightS setEnabled:NO];
+			[vertS setEnabled:NO];
+			[outlineTF setEnabled:NO];
+			[shadowTF setEnabled:NO];
+			[opaqueB setEnabled:NO];
+			[rotationTF setEnabled:NO];
+			[spacingTF setEnabled:NO];
+			[xTF setEnabled:NO];
+			[yTF setEnabled:NO];
+			[rotationS setEnabled:NO];
+			[spacingS setEnabled:NO];
+			[xS setEnabled:NO];
+			[yS setEnabled:NO];
+			[encodingTF setEnabled:NO];
+			[applyB setEnabled:NO];
+			[selectB setEnabled:NO];
 		}
 	} else if ([aNotification object] == storageTV) {
 		// Storage table view

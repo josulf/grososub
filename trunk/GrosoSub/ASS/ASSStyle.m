@@ -66,7 +66,8 @@
 									  name, fontName, fontSize, primaryColour, secondaryColour, outlineColour, backColour,
 									  (bold? -1 : 0), (italic? -1 : 0), (underline? -1 : 0), (strikeOut? -1 : 0),
 									  [ASSStyle beautyfulFloat:scaleX], [ASSStyle beautyfulFloat:scaleY], [ASSStyle beautyfulFloat:spacing],
-									  [ASSStyle beautyfulFloat:angle], borderStyle, [ASSStyle beautyfulFloat:outline], [ASSStyle beautyfulFloat:shadow],
+									  [ASSStyle beautyfulFloat:angle], (borderStyle? 3 : 1), [ASSStyle beautyfulFloat:outline],
+									  [ASSStyle beautyfulFloat:shadow],
 									  alignment, marginL, marginR, marginV, encoding];
 }
 
@@ -96,7 +97,7 @@
 	scaleY = [[elements objectAtIndex:12] floatValue];
 	spacing = [[elements objectAtIndex:13] floatValue];
 	angle = [[elements objectAtIndex:14] floatValue];
-	borderStyle = [[elements objectAtIndex:15] boolValue];
+	borderStyle = ([[elements objectAtIndex:15] integerValue] == 3 ? YES : NO);
 	outline = [[elements objectAtIndex:16] floatValue];
 	shadow = [[elements objectAtIndex:17] floatValue];
 	alignment = [[elements objectAtIndex:18] integerValue];
@@ -125,6 +126,26 @@
 - (id) init
 {
 	return [self initWithString:@"Style: Default,Arial,20,&H00FFFFFF,&H0000FFFF,&H00000000,&H00000000,0,0,0,0,100.00,100.00,0.00,0.00,1,2.00,2.00,2,10,10,10,0"];
+}
+
+- (NSColor *) primaryNSColor
+{
+	return [primaryColour nsColor];
+}
+
+- (NSColor *) secondaryNSColor
+{
+	return [secondaryColour nsColor];
+}
+
+- (NSColor *) outlineNSColor
+{
+	return [outlineColour nsColor];
+}
+
+- (NSColor *) backNSColor
+{
+	return [backColour nsColor];
 }
 
 + (NSString *) beautyfulFloat:(CGFloat)aFloat

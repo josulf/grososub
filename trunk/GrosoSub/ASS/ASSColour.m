@@ -31,7 +31,8 @@
 
 - (NSString *) description
 {
-	return [NSString stringWithFormat:@"&H%.2X%.2X%.2X%.2X", alpha, red, green, blue];
+	//AABBGGRR
+	return [NSString stringWithFormat:@"&H%.2X%.2X%.2X%.2X", alpha, blue, green, red];
 }
 
 - (void) parseString:(NSString *)aString
@@ -42,9 +43,9 @@
 	[scanner scanString:@"&H" intoString:NULL];
 	[scanner scanHexInt:&p];
 	alpha = p / 0x1000000;
-	red = (p - (alpha*0x1000000)) / 0x10000;
-	green = (p - (alpha*0x1000000) - (red*0x10000)) / 0x100;
-	blue = p - (alpha*0x1000000) - (red*0x10000) - (green*0x100);
+	blue = (p - (alpha*0x1000000)) / 0x10000;
+	green = (p - (alpha*0x1000000) - (blue*0x10000)) / 0x100;
+	red = p - (alpha*0x1000000) - (blue*0x10000) - (green*0x100);
 }
 
 - (id) initWithString:(NSString *)aString
@@ -59,6 +60,14 @@
 {
 	[self initWithString:@"&H00000000"];
 	return self;
+}
+
+- (NSColor *) nsColor
+{
+	CGFloat r = (CGFloat) red / 255.0;
+	CGFloat g = (CGFloat) green / 255.0;
+	CGFloat b = (CGFloat) blue / 255.0;
+	return [NSColor colorWithCalibratedRed:r green:g blue:b alpha:1.0];
 }
 
 @end

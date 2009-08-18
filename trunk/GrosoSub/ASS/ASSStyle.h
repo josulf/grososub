@@ -63,6 +63,11 @@
 - (id) initWithString:(NSString *)aString; // Designated initializer
 - (id) init;
 
+- (NSColor *) primaryNSColor;
+- (NSColor *) secondaryNSColor;
+- (NSColor *) outlineNSColor;
+- (NSColor *) backNSColor;
+
 + (NSString *) beautyfulFloat:(CGFloat)aFloat;
 
 @end

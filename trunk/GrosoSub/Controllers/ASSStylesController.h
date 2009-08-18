@@ -30,13 +30,18 @@
 	
 	IBOutlet NSColorWell *primaryCCW, *secondaryCCW, *outlineCCW, *backCCW;
 	IBOutlet NSTextField *primaryCTF, *secondaryCTF, *outlineCTF, *backCTF;
+	IBOutlet NSSlider *primaryCS, *secondaryCS, *outlineCS, *backCS;
 	
 	IBOutlet NSMatrix *alignmentM;
 	IBOutlet NSTextField *leftTF, *rightTF, *vertTF;
+	IBOutlet NSStepper *leftS, *rightS, *vertS;
 	IBOutlet NSTextField *outlineTF, *shadowTF;
 	IBOutlet NSButton *opaqueB;
 	
 	IBOutlet NSTextField *rotationTF, *spacingTF, *xTF, *yTF, *encodingTF;
+	IBOutlet NSStepper *rotationS, *spacingS, *xS, *yS;
+	
+	IBOutlet NSButton *applyB, *selectB;
 }
 - (IBAction)apply:(id)sender;
 - (IBAction)deleteStorage:(id)sender;

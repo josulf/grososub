@@ -36,4 +36,6 @@
 - (id) initWithString:(NSString *)aString;
 - (id) init;
 
+- (NSColor *) nsColor;
+
 @end

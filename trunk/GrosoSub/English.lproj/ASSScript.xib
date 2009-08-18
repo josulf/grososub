@@ -8,7 +8,7 @@
 		<string key="IBDocument.HIToolboxVersion">353.00</string>
 		<object class="NSMutableArray" key="IBDocument.EditedObjectIDs">
 			<bool key="EncodedWithXMLCoder">YES</bool>
-			<integer value="100148"/>
+			<integer value="6"/>
 		</object>
 		<object class="NSArray" key="IBDocument.PluginDependencies">
 			<bool key="EncodedWithXMLCoder">YES</bool>
@@ -49,7 +49,7 @@
 						<object class="NSStepper" id="1054799257">
 							<reference key="NSNextResponder" ref="568628114"/>
 							<int key="NSvFlags">268</int>
-							<string key="NSFrame">{{46, 629}, {19, 27}}</string>
+							<string key="NSFrame">{{50, 629}, {19, 27}}</string>
 							<reference key="NSSuperview" ref="568628114"/>
 							<bool key="NSEnabled">YES</bool>
 							<object class="NSStepperCell" key="NSCell" id="736805958">
@@ -65,17 +65,73 @@
 						<object class="NSTextField" id="415670342">
 							<reference key="NSNextResponder" ref="568628114"/>
 							<int key="NSvFlags">268</int>
-							<string key="NSFrame">{{20, 632}, {27, 22}}</string>
+							<string key="NSFrame">{{20, 632}, {31, 22}}</string>
 							<reference key="NSSuperview" ref="568628114"/>
 							<bool key="NSEnabled">YES</bool>
 							<object class="NSTextFieldCell" key="NSCell" id="429568525">
-								<int key="NSCellFlags">-1536033215</int>
-								<int key="NSCellFlags2">272630784</int>
+								<int key="NSCellFlags">-1267597759</int>
+								<int key="NSCellFlags2">-1874852864</int>
 								<string key="NSContents"/>
 								<object class="NSFont" key="NSSupport" id="574848396">
 									<string key="NSName">LucidaGrande</string>
 									<double key="NSSize">1.300000e+01</double>
 									<int key="NSfFlags">1044</int>
+								</object>
+								<object class="NSNumberFormatter" key="NSFormatter" id="586118937">
+									<object class="NSMutableDictionary" key="NS.attributes">
+										<bool key="EncodedWithXMLCoder">YES</bool>
+										<object class="NSMutableArray" key="dict.sortedKeys">
+											<bool key="EncodedWithXMLCoder">YES</bool>
+											<string>allowsFloats</string>
+											<string>formatterBehavior</string>
+											<string>maximum</string>
+											<string>minimum</string>
+											<string>numberStyle</string>
+										</object>
+										<object class="NSMutableArray" key="dict.values">
+											<bool key="EncodedWithXMLCoder">YES</bool>
+											<integer value="1" id="9"/>
+											<integer value="1040"/>
+											<real value="1.000000e+02" id="522846088"/>
+											<real value="0.000000e+00" id="703409693"/>
+											<integer value="0" id="8"/>
+										</object>
+									</object>
+									<string key="NS.positiveformat">#</string>
+									<string key="NS.negativeformat">#</string>
+									<nil key="NS.positiveattrs"/>
+									<nil key="NS.negativeattrs"/>
+									<object class="NSAttributedString" key="NS.zero">
+										<nil key="NSString"/>
+									</object>
+									<object class="NSAttributedString" key="NS.nil">
+										<nil key="NSString"/>
+									</object>
+									<object class="NSAttributedString" key="NS.nan">
+										<string key="NSString">NaN</string>
+										<object class="NSDictionary" key="NSAttributes">
+											<bool key="EncodedWithXMLCoder">YES</bool>
+											<object class="NSArray" key="dict.sortedKeys">
+												<bool key="EncodedWithXMLCoder">YES</bool>
+											</object>
+											<object class="NSMutableArray" key="dict.values">
+												<bool key="EncodedWithXMLCoder">YES</bool>
+											</object>
+										</object>
+									</object>
+									<reference key="NS.min" ref="703409693"/>
+									<reference key="NS.max" ref="522846088"/>
+									<object class="NSDecimalNumberHandler" key="NS.rounding">
+										<int key="NS.roundingmode">3</int>
+										<bool key="NS.raise.overflow">YES</bool>
+										<bool key="NS.raise.underflow">YES</bool>
+										<bool key="NS.raise.dividebyzero">YES</bool>
+									</object>
+									<string key="NS.decimal">,</string>
+									<string key="NS.thousand">.</string>
+									<bool key="NS.hasthousands">NO</bool>
+									<bool key="NS.localized">YES</bool>
+									<bool key="NS.allowsfloats">YES</bool>
 								</object>
 								<string key="NSPlaceholderString">L</string>
 								<reference key="NSControlView" ref="415670342"/>
@@ -389,7 +445,7 @@
 									<object class="NSMutableArray" key="NSTableColumns">
 										<bool key="EncodedWithXMLCoder">YES</bool>
 										<object class="NSTableColumn">
-											<integer value="0" key="NSIdentifier" id="8"/>
+											<reference key="NSIdentifier" ref="8"/>
 											<double key="NSWidth">1.200000e+01</double>
 											<double key="NSMinWidth">1.000000e+01</double>
 											<double key="NSMaxWidth">1.000000e+03</double>
@@ -1051,7 +1107,7 @@
 															<int key="NSColorSpace">1</int>
 															<bytes key="NSRGB">MCAwIDEAA</bytes>
 														</object>
-														<integer value="1" id="9"/>
+														<reference ref="9"/>
 													</object>
 												</object>
 												<nil key="NSDefaultParagraphStyle"/>
@@ -1475,6 +1531,14 @@
 					</object>
 					<int key="connectionID">100163</int>
 				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBActionConnection" key="connection">
+						<string key="label">takeIntValueFrom:</string>
+						<reference key="source" ref="1054799257"/>
+						<reference key="destination" ref="415670342"/>
+					</object>
+					<int key="connectionID">100164</int>
+				</object>
 			</object>
 			<object class="IBMutableOrderedSet" key="objectRecords">
 				<object class="NSArray" key="orderedObjects">
@@ -1514,8 +1578,6 @@
 						<reference key="object" ref="568628114"/>
 						<object class="NSMutableArray" key="children">
 							<bool key="EncodedWithXMLCoder">YES</bool>
-							<reference ref="1054799257"/>
-							<reference ref="415670342"/>
 							<reference ref="796022436"/>
 							<reference ref="892603376"/>
 							<reference ref="705930199"/>
@@ -1531,6 +1593,8 @@
 							<reference ref="933123766"/>
 							<reference ref="452881671"/>
 							<reference ref="656547564"/>
+							<reference ref="1054799257"/>
+							<reference ref="415670342"/>
 						</object>
 						<reference key="parent" ref="275939982"/>
 					</object>
@@ -1647,6 +1711,10 @@
 					<object class="IBObjectRecord">
 						<int key="objectID">100093</int>
 						<reference key="object" ref="429568525"/>
+						<object class="NSMutableArray" key="children">
+							<bool key="EncodedWithXMLCoder">YES</bool>
+							<reference ref="586118937"/>
+						</object>
 						<reference key="parent" ref="415670342"/>
 					</object>
 					<object class="IBObjectRecord">
@@ -2072,6 +2140,11 @@
 						<reference key="object" ref="41221730"/>
 						<reference key="parent" ref="3329340"/>
 					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">100165</int>
+						<reference key="object" ref="586118937"/>
+						<reference key="parent" ref="429568525"/>
+					</object>
 				</object>
 			</object>
 			<object class="NSMutableDictionary" key="flattenedProperties">
@@ -2160,6 +2233,7 @@
 					<string>100147.IBPluginDependency</string>
 					<string>100148.CustomClassName</string>
 					<string>100148.IBPluginDependency</string>
+					<string>100165.IBPluginDependency</string>
 					<string>5.IBEditorWindowLastContentRect</string>
 					<string>5.IBWindowTemplateEditedContentRect</string>
 					<string>5.ImportedFromIB2</string>
@@ -2253,8 +2327,9 @@
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>ASSEventTextView</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<string>{{250, 115}, {900, 700}}</string>
-					<string>{{250, 115}, {900, 700}}</string>
+					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
+					<string>{{196, 82}, {900, 700}}</string>
+					<string>{{196, 82}, {900, 700}}</string>
 					<reference ref="9"/>
 					<string>{{201, 387}, {507, 413}}</string>
 					<reference ref="9"/>
@@ -2283,7 +2358,7 @@
 				</object>
 			</object>
 			<nil key="sourceID"/>
-			<int key="maxID">100163</int>
+			<int key="maxID">100165</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<object class="NSMutableArray" key="referencedPartialClassDescriptions">

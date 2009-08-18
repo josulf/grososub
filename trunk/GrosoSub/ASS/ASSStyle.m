@@ -49,6 +49,17 @@
 @synthesize marginV;
 @synthesize encoding;
 
+- (BOOL)isEqual:(id)anObject
+{
+	// two styles are the same if the name is the same
+	if ([anObject class] == [self class]) {
+		if ([[anObject name] isEqualToString:[self name]]) {
+			return YES;
+		}
+	}
+	return NO;
+}
+
 - (NSString *) description
 {
 	return [NSString stringWithFormat:@"Style: %@,%@,%d,%@,%@,%@,%@,%d,%d,%d,%d,%@,%@,%@,%@,%d,%@,%@,%d,%d,%d,%d,%d",

@@ -25,6 +25,7 @@
 @class ASSEvent;
 @class ASSStyleList;
 @class ASSEventList;
+@class ASSStyle;
 
 @interface ASSScript : NSDocument
 {
@@ -48,8 +49,11 @@
 - (void)setValue:(NSString *)value forHeader:(NSString *)key;
 - (void)delKey:(NSString *)key;
 
+- (ASSStyle *)getStyleAtIndex:(NSUInteger)aIndex;
+
 - (NSUInteger)countEvents;
 - (NSUInteger)countHeaders;
+- (NSUInteger)countStyles;
 - (NSMutableArray *)actorNames;
 - (NSMutableArray *)styleNames;
 

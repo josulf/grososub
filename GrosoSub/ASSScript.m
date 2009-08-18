@@ -244,6 +244,11 @@
 	[[NSNotificationCenter defaultCenter] postNotificationName:@"ASSHeadersUpdated" object:self];
 }
 
+- (ASSStyle *)getStyleAtIndex:(NSUInteger)aIndex
+{
+	return [styles getStyleAtIndex:aIndex];
+}
+
 - (NSUInteger)countEvents
 {
 	return [events countEvents];
@@ -252,6 +257,11 @@
 - (NSUInteger)countHeaders
 {
 	return [headers count];
+}
+
+- (NSUInteger)countStyles
+{
+	return [styles countStyles];
 }
 
 - (NSMutableArray *)actorNames

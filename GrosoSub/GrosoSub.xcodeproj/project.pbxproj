@@ -23,6 +23,11 @@
 
 /* Begin PBXBuildFile section */
 		1DDD582C0DA1D0D100B32029 /* ASSScript.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1DDD58280DA1D0D100B32029 /* ASSScript.xib */; };
+		8A254381103B13A500797BFA /* edit-copy.png in Resources */ = {isa = PBXBuildFile; fileRef = 8A25437C103B13A500797BFA /* edit-copy.png */; };
+		8A254382103B13A500797BFA /* go-previous.png in Resources */ = {isa = PBXBuildFile; fileRef = 8A25437D103B13A500797BFA /* go-previous.png */; };
+		8A254383103B13A500797BFA /* go-next.png in Resources */ = {isa = PBXBuildFile; fileRef = 8A25437E103B13A500797BFA /* go-next.png */; };
+		8A254384103B13A500797BFA /* document-new.png in Resources */ = {isa = PBXBuildFile; fileRef = 8A25437F103B13A500797BFA /* document-new.png */; };
+		8A254385103B13A500797BFA /* edit-delete.png in Resources */ = {isa = PBXBuildFile; fileRef = 8A254380103B13A500797BFA /* edit-delete.png */; };
 		8A2CE4380ED4D01200DA892E /* COPYING in Resources */ = {isa = PBXBuildFile; fileRef = 8A2CE4370ED4D01200DA892E /* COPYING */; };
 		8A3E1FBF100E314200BA8697 /* ASSHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A3E1FBE100E314200BA8697 /* ASSHeader.m */; };
 		8A3E1FC2100E360800BA8697 /* ASSHeaderTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A3E1FC1100E360800BA8697 /* ASSHeaderTest.m */; };
@@ -79,7 +84,7 @@
 			isa = PBXContainerItemProxy;
 			containerPortal = 2A37F4A9FDCFA73011CA2CEA /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 8D15AC270486D014006FF6A4 /* GrosoSub */;
+			remoteGlobalIDString = 8D15AC270486D014006FF6A4;
 			remoteInfo = GrosoSub;
 		};
 /* End PBXContainerItemProxy section */
@@ -109,6 +114,11 @@
 		2A37F4C4FDCFA73011CA2CEA /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
 		2A37F4C5FDCFA73011CA2CEA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
 		32DBCF750370BD2300C91783 /* GrosoSub_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GrosoSub_Prefix.pch; sourceTree = "<group>"; };
+		8A25437C103B13A500797BFA /* edit-copy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "edit-copy.png"; path = "Icons/Interface/edit-copy.png"; sourceTree = "<group>"; };
+		8A25437D103B13A500797BFA /* go-previous.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "go-previous.png"; path = "Icons/Interface/go-previous.png"; sourceTree = "<group>"; };
+		8A25437E103B13A500797BFA /* go-next.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "go-next.png"; path = "Icons/Interface/go-next.png"; sourceTree = "<group>"; };
+		8A25437F103B13A500797BFA /* document-new.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "document-new.png"; path = "Icons/Interface/document-new.png"; sourceTree = "<group>"; };
+		8A254380103B13A500797BFA /* edit-delete.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "edit-delete.png"; path = "Icons/Interface/edit-delete.png"; sourceTree = "<group>"; };
 		8A2CE4370ED4D01200DA892E /* COPYING */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = COPYING; sourceTree = "<group>"; };
 		8A3E1FBD100E314200BA8697 /* ASSHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ASSHeader.h; path = ASS/ASSHeader.h; sourceTree = "<group>"; };
 		8A3E1FBE100E314200BA8697 /* ASSHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ASSHeader.m; path = ASS/ASSHeader.m; sourceTree = "<group>"; };
@@ -322,6 +332,11 @@
 		8AEA718E101FB5900053B489 /* Icons */ = {
 			isa = PBXGroup;
 			children = (
+				8A25437C103B13A500797BFA /* edit-copy.png */,
+				8A25437D103B13A500797BFA /* go-previous.png */,
+				8A25437E103B13A500797BFA /* go-next.png */,
+				8A25437F103B13A500797BFA /* document-new.png */,
+				8A254380103B13A500797BFA /* edit-delete.png */,
 				8AA2FCD11031D7FA006F5F77 /* format-text-bold.png */,
 				8AA2FCD21031D7FA006F5F77 /* format-text-underline.png */,
 				8AA2FCD31031D7FA006F5F77 /* format-text-strikethrough.png */,
@@ -474,6 +489,11 @@
 				8AA2FCD71031D7FA006F5F77 /* format-text-strikethrough.png in Resources */,
 				8AA2FCD81031D7FA006F5F77 /* format-text-italic.png in Resources */,
 				8A63ADA81038831C0031B0AE /* dsa_pub.pem in Resources */,
+				8A254381103B13A500797BFA /* edit-copy.png in Resources */,
+				8A254382103B13A500797BFA /* go-previous.png in Resources */,
+				8A254383103B13A500797BFA /* go-next.png in Resources */,
+				8A254384103B13A500797BFA /* document-new.png in Resources */,
+				8A254385103B13A500797BFA /* edit-delete.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -504,7 +524,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/bash;
-			shellScript = "set -o errexit\n\n[ $BUILD_STYLE = Release ] || { echo Distribution target requires \"'Release'\" build style; false; }\n\nVERSION=$(defaults read \"$BUILT_PRODUCTS_DIR/$PROJECT_NAME.app/Contents/Info\" CFBundleVersion)\nSHORT_VERSION=$(defaults read \"$BUILT_PRODUCTS_DIR/$PROJECT_NAME.app/Contents/Info\" CFBundleShortVersionString)\nFULL_VERSION=${SHORT_VERSION}-r${VERSION}\nDOWNLOAD_BASE_URL=\"http://gs.fregona.biz/app\"\nRELEASENOTES_URL=\"http://gs.fregona.biz/changelog/$FULL_VERSION.txt\"\n\nARCHIVE_FILENAME=\"$PROJECT_NAME-$FULL_VERSION.zip\"\nDOWNLOAD_URL=\"$DOWNLOAD_BASE_URL/$ARCHIVE_FILENAME\"\nKEYCHAIN_PRIVKEY_NAME=\"Sparkle Private Key\"\n\nWD=$PWD\ncd \"$BUILT_PRODUCTS_DIR\"\nrm -f \"$PROJECT_NAME\"*.zip\nditto -ck --keepParent \"$PROJECT_NAME.app\" \"$ARCHIVE_FILENAME\"\n\nSIZE=$(stat -f %z \"$ARCHIVE_FILENAME\")\nunset LANG\nPUBDATE=$(date +\"%a, %d %b %G %T %z\")\nSIGNATURE=$(\n\topenssl dgst -sha1 -binary < \"$ARCHIVE_FILENAME\" \\\n\t| openssl dgst -dss1 -sign <(security find-generic-password -g -s \"$KEYCHAIN_PRIVKEY_NAME\" 2>&1 1>/dev/null | perl -pe '($_) = /\"(.+)\"/; s/\\\\012/\\n/g') \\\n\t| openssl enc -base64\n)\n\n[ $SIGNATURE ] || { echo Unable to load signing private key with name \"'$KEYCHAIN_PRIVKEY_NAME'\" from keychain; false; }\n\ncat <<EOF\n\t\t<item>\n\t\t\t<title>Version $VERSION</title>\n\t\t\t<sparkle:releaseNotesLink>$RELEASENOTES_URL</sparkle:releaseNotesLink>\n\t\t\t<pubDate>$PUBDATE</pubDate>\n\t\t\t<enclosure\n\t\t\t\turl=\"$DOWNLOAD_URL\"\n\t\t\t\tsparkle:version=\"$VERSION\"\n\t\t\t\tsparkle:shortVersionString=\"$SHORT_VERSION\"\n\t\t\t\tsparkle:dsaSignature=\"$SIGNATURE\"\n\t\t\t\tlength=\"$SIZE\"\n\t\t\t\ttype=\"application/octet-stream\"\n\t\t\t/>\n\t\t</item>\nEOF\n\nscp \"'$BUILT_PRODUCTS_DIR/$ARCHIVE_FILENAME'\" root@fregona.biz:/var/www/gs/http/app";
+			shellScript = "set -o errexit\n\n[ $BUILD_STYLE = Release ] || { echo Distribution target requires \"'Release'\" build style; false; }\n\nVERSION=$(defaults read \"$BUILT_PRODUCTS_DIR/$PROJECT_NAME.app/Contents/Info\" CFBundleVersion)\nSHORT_VERSION=$(defaults read \"$BUILT_PRODUCTS_DIR/$PROJECT_NAME.app/Contents/Info\" CFBundleShortVersionString)\nFULL_VERSION=${SHORT_VERSION}-r${VERSION}\nDOWNLOAD_BASE_URL=\"http://gs.fregona.biz/app\"\nRELEASENOTES_URL=\"http://gs.fregona.biz/changelog/$FULL_VERSION.txt\"\n\nARCHIVE_FILENAME=\"$PROJECT_NAME-$FULL_VERSION.zip\"\nDOWNLOAD_URL=\"$DOWNLOAD_BASE_URL/$ARCHIVE_FILENAME\"\nKEYCHAIN_PRIVKEY_NAME=\"Sparkle Private Key\"\n\nWD=$PWD\ncd \"$BUILT_PRODUCTS_DIR\"\nrm -f \"$PROJECT_NAME\"*.zip\nditto -ck --keepParent \"$PROJECT_NAME.app\" \"$ARCHIVE_FILENAME\"\n\nSIZE=$(stat -f %z \"$ARCHIVE_FILENAME\")\nunset LANG\nPUBDATE=$(date +\"%a, %d %b %G %T %z\")\nSIGNATURE=$(\n\topenssl dgst -sha1 -binary < \"$ARCHIVE_FILENAME\" \\\n\t| openssl dgst -dss1 -sign <(security find-generic-password -g -s \"$KEYCHAIN_PRIVKEY_NAME\" 2>&1 1>/dev/null | perl -pe '($_) = /\"(.+)\"/; s/\\\\012/\\n/g') \\\n\t| openssl enc -base64\n)\n\n[ $SIGNATURE ] || { echo Unable to load signing private key with name \"'$KEYCHAIN_PRIVKEY_NAME'\" from keychain; false; }\n\ncat <<EOF\n\t\t<item>\n\t\t\t<title>Version $SHORT_VERSION - r$VERSION</title>\n\t\t\t<sparkle:releaseNotesLink>$RELEASENOTES_URL</sparkle:releaseNotesLink>\n\t\t\t<pubDate>$PUBDATE</pubDate>\n\t\t\t<enclosure\n\t\t\t\turl=\"$DOWNLOAD_URL\"\n\t\t\t\tsparkle:version=\"$VERSION\"\n\t\t\t\tsparkle:shortVersionString=\"$SHORT_VERSION\"\n\t\t\t\tsparkle:dsaSignature=\"$SIGNATURE\"\n\t\t\t\tlength=\"$SIZE\"\n\t\t\t\ttype=\"application/octet-stream\" />\n\t\t</item>\nEOF\n\necho scp \"'$BUILT_PRODUCTS_DIR/$ARCHIVE_FILENAME'\" root@fregona.biz:/var/www/gs/http/app";
 		};
 		8AED5289100CE8770079F931 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;

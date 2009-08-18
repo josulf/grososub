@@ -58,7 +58,12 @@
 
 - (ASSStyle *) getStyleAtIndex:(NSUInteger)index
 {
-	return [styles objectAtIndex:index];
+	// create a new style with the name we want to fetch
+	ASSStyle *new = [[ASSStyle alloc] init];
+	[new setName:[styleNames objectAtIndex:index]];
+	// get the index of that name into the array
+	NSInteger id = [styles indexOfObject:new];
+	return [styles objectAtIndex:id];
 }
 
 - (NSUInteger) countStyles

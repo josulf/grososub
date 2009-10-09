@@ -109,6 +109,13 @@
 	}
 }
 
+- (IBAction)closeSheet:(void *)sender
+{
+	[NSApp endSheet:[self window]];
+	[[self window] orderOut:self];
+	[self close];
+}
+
 #pragma mark NSTableDataSource informal protocol
 - (id)tableView:(NSTableView *)aTableView objectValueForTableColumn:(NSTableColumn *)aTableColumn row:(int)rowIndex
 {

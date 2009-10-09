@@ -37,4 +37,6 @@
 - (IBAction)addHeader:(void *)sender;
 - (IBAction)delHeader:(void *)sender;
 
+- (IBAction)closeSheet:(void *)sender;
+
 @end

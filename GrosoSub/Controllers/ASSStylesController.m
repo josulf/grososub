@@ -235,6 +235,14 @@
 - (IBAction)storageActions:(id)sender {
     
 }
+
+- (IBAction)closeSheet:(id)sender
+{
+	[NSApp endSheet:[self window]];
+	[[self window] orderOut:self];
+	[self close];
+}
+
 #pragma mark Notifications
 - (void)stylesUpdated:(NSNotification *)aNotification
 {

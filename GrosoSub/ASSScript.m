@@ -279,14 +279,14 @@
 {
 	ASSStylesController *stylesController = [[ASSStylesController alloc] init];
 	[self addWindowController:stylesController];
-	[stylesController showWindow:nil];
+	[NSApp beginSheet:[stylesController window] modalForWindow:[self windowForSheet] modalDelegate:nil didEndSelector:NULL contextInfo:nil];
 }
 
 - (IBAction)showHeadersManager:(void *)sender
 {
 	ASSHeadersController *headersController = [[ASSHeadersController alloc] init];
 	[self addWindowController:headersController];
-	[headersController showWindow:nil];
+	[NSApp beginSheet:[headersController window] modalForWindow:[self windowForSheet] modalDelegate:nil didEndSelector:NULL contextInfo:nil];
 }
 
 - (BOOL)validateUserInterfaceItem:(id)anItem
@@ -357,9 +357,6 @@
 			megaString = [megaString stringByAppendingFormat:@"%d\n%@", i, [event descriptionSRT]];
 			i++;
 		}
-	
-	} else if ([typeName isEqualToString:@"MicroDVD"]) {
-		megaString = @"TODO";
 	}
 	
 	return [megaString dataUsingEncoding:NSUTF8StringEncoding];

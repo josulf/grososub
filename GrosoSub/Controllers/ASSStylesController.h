@@ -49,4 +49,5 @@
 - (IBAction)scriptActions:(id)sender;
 - (IBAction)selectFont:(id)sender;
 - (IBAction)storageActions:(id)sender;
+- (IBAction)closeSheet:(id)sender;
 @end

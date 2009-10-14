@@ -33,16 +33,17 @@
 		int row = [self rowAtPoint:mousePoint];
 		
 		if (! [selectedRowsIndexes containsIndex:row]) {
-			[self selectRow:row byExtendingSelection:NO];
+			NSIndexSet *is = [NSIndexSet indexSetWithIndex:row];
+			[self selectRowIndexes:is byExtendingSelection:NO];
 		}
 	}
 	
 	return [super menuForEvent:theEvent];
 }
 
-- (void)selectRow:(NSInteger)rowIndex byExtendingSelection:(BOOL)flag
+- (void)selectRowIndexes:(NSIndexSet *)indexes byExtendingSelection:(BOOL)extend
 {
-	[super selectRow:rowIndex byExtendingSelection:flag];
+	[super selectRowIndexes:indexes byExtendingSelection:extend];
 	
 	NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
 	[nc postNotificationName:NSTableViewSelectionDidChangeNotification object:self];

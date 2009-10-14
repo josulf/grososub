@@ -390,10 +390,10 @@
 	[eTable reloadData];
 
 	if (r.length != 0) {
-		[eTable selectRow:r.location byExtendingSelection:NO];
+		[eTable selectRowIndexes:[NSIndexSet indexSetWithIndex:r.location] byExtendingSelection:NO];
 
 		for (i = 2; i <= r.length; i++) {
-			[eTable selectRow:r.location+i-1 byExtendingSelection:YES];
+			[eTable selectRowIndexes:[NSIndexSet indexSetWithIndex:r.location+i-1] byExtendingSelection:YES];
 		}
 	}
 }

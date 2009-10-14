@@ -37,7 +37,7 @@
 		if ((row != -1) && ([[scriptTV selectedRowIndexes] count] == 1)) {
 			// Only if one row is selected
 			ASSStyle *style = [[self document] getStyleAtIndex:row];
-			NSLog([style description]);
+			//NSLog([style description]);
 			
 			// Enable the controlls
 			[nameTF setEnabled:YES];

@@ -50,6 +50,7 @@
 - (void)delKey:(NSString *)key;
 
 - (ASSStyle *)getStyleAtIndex:(NSUInteger)aIndex;
+- (void)replaceStyleAtIndex:(NSUInteger)aIndex withStyle:(ASSStyle *)aStyle;
 
 - (NSUInteger)countEvents;
 - (NSUInteger)countHeaders;

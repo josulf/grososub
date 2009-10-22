@@ -29,110 +29,112 @@
 @implementation ASSStylesController
 
 #pragma mark NSTableView delegates
+- (void) enableAndLoadScript: (NSInteger) row  {
+	ASSStyle *style = [[self document] getStyleAtIndex:row];
+			
+	// Enable the controlls
+	[nameTF setEnabled:YES];
+	[fontCB setEnabled:YES];
+	[fontSizeTF setEnabled:YES];
+	[boldB setEnabled:YES];
+	[italicB setEnabled:YES];
+	[underlineB setEnabled:YES];
+	[strikeoutB setEnabled:YES];
+	[primaryCCW setEnabled:YES];
+	[secondaryCCW setEnabled:YES];
+	[outlineCCW setEnabled:YES];
+	[backCCW setEnabled:YES];
+	[primaryCTF setEnabled:YES];
+	[secondaryCTF setEnabled:YES];
+	[outlineCTF setEnabled:YES];
+	[backCTF setEnabled:YES];
+	[primaryCS setEnabled:YES];
+	[secondaryCS setEnabled:YES];
+	[outlineCS setEnabled:YES];
+	[backCS setEnabled:YES];
+	[alignmentM setEnabled:YES];
+	[leftTF setEnabled:YES];
+	[rightTF setEnabled:YES];
+	[vertTF setEnabled:YES];
+	[leftS setEnabled:YES];
+	[rightS setEnabled:YES];
+	[vertS setEnabled:YES];
+	[outlineTF setEnabled:YES];
+	[shadowTF setEnabled:YES];
+	[opaqueB setEnabled:YES];
+	[rotationTF setEnabled:YES];
+	[spacingTF setEnabled:YES];
+	[xTF setEnabled:YES];
+	[yTF setEnabled:YES];
+	[rotationS setEnabled:YES];
+	[spacingS setEnabled:YES];
+	[xS setEnabled:YES];
+	[yS setEnabled:YES];
+	[encodingTF setEnabled:YES];
+	[applyB setEnabled:YES];
+	
+	// load the data
+	[nameTF setObjectValue:[style name]];
+	[fontCB setObjectValue:[style fontName]];
+	[fontSizeTF setObjectValue:[NSNumber numberWithInt:[style fontSize]]];
+	[boldB setState:[style bold]];
+	[italicB setState:[style italic]];
+	[underlineB setState:[style underline]];
+	[strikeoutB setState:[style strikeOut]];
+	[primaryCCW setColor:[style primaryNSColor]];
+	[secondaryCCW setColor:[style secondaryNSColor]];
+	[outlineCCW setColor:[style outlineNSColor]];
+	[backCCW setColor:[style backNSColor]];
+	
+	// First we set the object value for the text fields
+	// The sliders are linked with the text fields and vice versa to get it's int value
+	// We are setting the value of the text field programatically, then we need to advise
+	// the slider to get the value
+	[primaryCTF setObjectValue:[NSNumber numberWithUnsignedInt:[[style primaryColour] alpha]]];
+	[primaryCS takeIntValueFrom:primaryCTF];
+	[secondaryCTF setObjectValue:[NSNumber numberWithUnsignedInt:[[style secondaryColour] alpha]]];
+	[secondaryCS takeIntValueFrom:secondaryCTF];
+	[outlineCTF setObjectValue:[NSNumber numberWithUnsignedInt:[[style outlineColour] alpha]]];
+	[outlineCS takeIntValueFrom:outlineCTF];
+	[backCTF setObjectValue:[NSNumber numberWithUnsignedInt:[[style backColour] alpha]]];
+	[backCS takeIntValueFrom:backCTF];
+			
+	[alignmentM selectCellWithTag:[style alignment]];
+	
+	[leftTF setObjectValue:[NSNumber numberWithInt:[style marginL]]];
+	[leftS takeIntValueFrom:leftTF];
+	[rightTF setObjectValue:[NSNumber numberWithInt:[style marginR]]];
+	[rightS takeIntValueFrom:rightTF];
+	[vertTF setObjectValue:[NSNumber numberWithInt:[style marginV]]];
+	[vertS takeIntValueFrom:vertTF];
+		
+	[outlineTF setObjectValue:[NSNumber numberWithFloat:[style outline]]];
+	[shadowTF setObjectValue:[NSNumber numberWithFloat:[style shadow]]];
+	[opaqueB setState:[style borderStyle]];
+			
+	[rotationTF setObjectValue:[NSNumber numberWithFloat:[style angle]]];
+	[rotationS takeFloatValueFrom:rotationTF];
+	[spacingTF setObjectValue:[NSNumber numberWithFloat:[style spacing]]];
+	[spacingS takeFloatValueFrom:spacingTF];
+	[xTF setObjectValue:[NSNumber numberWithFloat:[style scaleX]]];
+	[xS takeFloatValueFrom:xTF];
+	[yTF setObjectValue:[NSNumber numberWithFloat:[style scaleY]]];
+	[yS takeFloatValueFrom:yTF];
+	[encodingTF setObjectValue:[NSNumber numberWithInt:[style encoding]]];
+
+}
+
 - (void)tableViewSelectionDidChange:(NSNotification *)aNotification
 {
 	if ([aNotification object] == scriptTV) {
 		//Script table view
 		NSInteger row = [scriptTV selectedRow];
 		if ((row != -1) && ([[scriptTV selectedRowIndexes] count] == 1)) {
-			// Only if one row is selected
-			ASSStyle *style = [[self document] getStyleAtIndex:row];
-			//NSLog([style description]);
-			
-			// Enable the controlls
-			[nameTF setEnabled:YES];
-			[fontTF setEnabled:YES];
-			[fontSizeTF setEnabled:YES];
-			[boldB setEnabled:YES];
-			[italicB setEnabled:YES];
-			[underlineB setEnabled:YES];
-			[strikeoutB setEnabled:YES];
-			[primaryCCW setEnabled:YES];
-			[secondaryCCW setEnabled:YES];
-			[outlineCCW setEnabled:YES];
-			[backCCW setEnabled:YES];
-			[primaryCTF setEnabled:YES];
-			[secondaryCTF setEnabled:YES];
-			[outlineCTF setEnabled:YES];
-			[backCTF setEnabled:YES];
-			[primaryCS setEnabled:YES];
-			[secondaryCS setEnabled:YES];
-			[outlineCS setEnabled:YES];
-			[backCS setEnabled:YES];
-			[alignmentM setEnabled:YES];
-			[leftTF setEnabled:YES];
-			[rightTF setEnabled:YES];
-			[vertTF setEnabled:YES];
-			[leftS setEnabled:YES];
-			[rightS setEnabled:YES];
-			[vertS setEnabled:YES];
-			[outlineTF setEnabled:YES];
-			[shadowTF setEnabled:YES];
-			[opaqueB setEnabled:YES];
-			[rotationTF setEnabled:YES];
-			[spacingTF setEnabled:YES];
-			[xTF setEnabled:YES];
-			[yTF setEnabled:YES];
-			[rotationS setEnabled:YES];
-			[spacingS setEnabled:YES];
-			[xS setEnabled:YES];
-			[yS setEnabled:YES];
-			[encodingTF setEnabled:YES];
-			[applyB setEnabled:YES];
-			[selectB setEnabled:YES];
-			
-			// load the data
-			[nameTF setObjectValue:[style name]];
-			[fontTF setObjectValue:[style fontName]];
-			[fontSizeTF setObjectValue:[NSNumber numberWithInt:[style fontSize]]];
-			[boldB setState:[style bold]];
-			[italicB setState:[style italic]];
-			[underlineB setState:[style underline]];
-			[strikeoutB setState:[style strikeOut]];
-			[primaryCCW setColor:[style primaryNSColor]];
-			[secondaryCCW setColor:[style secondaryNSColor]];
-			[outlineCCW setColor:[style outlineNSColor]];
-			[backCCW setColor:[style backNSColor]];
-			
-			// First we set the object value for the text fields
-			// The sliders are linked with the text fields and vice versa to get it's int value
-			// We are setting the value of the text field programatically, then we need to advise
-			// the slider to get the value
-			[primaryCTF setObjectValue:[NSNumber numberWithUnsignedInt:[[style primaryColour] alpha]]];
-			[primaryCS takeIntValueFrom:primaryCTF];
-			[secondaryCTF setObjectValue:[NSNumber numberWithUnsignedInt:[[style secondaryColour] alpha]]];
-			[secondaryCS takeIntValueFrom:secondaryCTF];
-			[outlineCTF setObjectValue:[NSNumber numberWithUnsignedInt:[[style outlineColour] alpha]]];
-			[outlineCS takeIntValueFrom:outlineCTF];
-			[backCTF setObjectValue:[NSNumber numberWithUnsignedInt:[[style backColour] alpha]]];
-			[backCS takeIntValueFrom:backCTF];
-			
-			[alignmentM selectCellWithTag:[style alignment]];
-			
-			[leftTF setObjectValue:[NSNumber numberWithInt:[style marginL]]];
-			[leftS takeIntValueFrom:leftTF];
-			[rightTF setObjectValue:[NSNumber numberWithInt:[style marginR]]];
-			[rightS takeIntValueFrom:rightTF];
-			[vertTF setObjectValue:[NSNumber numberWithInt:[style marginV]]];
-			[vertS takeIntValueFrom:vertTF];
-			
-			[outlineTF setObjectValue:[NSNumber numberWithFloat:[style outline]]];
-			[shadowTF setObjectValue:[NSNumber numberWithFloat:[style shadow]]];
-			[opaqueB setState:[style borderStyle]];
-			
-			[rotationTF setObjectValue:[NSNumber numberWithFloat:[style angle]]];
-			[rotationS takeFloatValueFrom:rotationTF];
-			[spacingTF setObjectValue:[NSNumber numberWithFloat:[style spacing]]];
-			[spacingS takeFloatValueFrom:spacingTF];
-			[xTF setObjectValue:[NSNumber numberWithFloat:[style scaleX]]];
-			[xS takeFloatValueFrom:xTF];
-			[yTF setObjectValue:[NSNumber numberWithFloat:[style scaleY]]];
-			[yS takeFloatValueFrom:yTF];
-			[encodingTF setObjectValue:[NSNumber numberWithInt:[style encoding]]];
+			[self enableAndLoadScript: row];
 		} else {
 			// disable the controlls
 			[nameTF setEnabled:NO];
-			[fontTF setEnabled:NO];
+			[fontCB setEnabled:NO];
 			[fontSizeTF setEnabled:NO];
 			[boldB setEnabled:NO];
 			[italicB setEnabled:NO];
@@ -170,7 +172,6 @@
 			[yS setEnabled:NO];
 			[encodingTF setEnabled:NO];
 			[applyB setEnabled:NO];
-			[selectB setEnabled:NO];
 		}
 	} else if ([aNotification object] == storageTV) {
 		// Storage table view
@@ -213,7 +214,47 @@
 
 #pragma mark Actions
 - (IBAction)apply:(id)sender {
-    
+    ASSStyle *style = [[ASSStyle alloc] init];
+	
+	[style setName:[nameTF stringValue]];
+	[style setFontName:[fontCB stringValue]];
+	[style setFontSize:[fontSizeTF intValue]];
+	
+	[style setBold:[boldB state]];
+	[style setItalic:[italicB state]];
+	[style setUnderline:[underlineB state]];
+	[style setStrikeOut:[strikeoutB state]];
+	
+	ASSColour *p = [[ASSColour alloc] initWithColor:[primaryCCW color]];
+	[p setAlpha:[primaryCTF intValue]];
+	[style setPrimaryColour:p];
+	ASSColour *s = [[ASSColour alloc] initWithColor:[secondaryCCW color]];
+	[s setAlpha:[secondaryCTF intValue]];
+	[style setSecondaryColour:s];
+	ASSColour *o = [[ASSColour alloc] initWithColor:[outlineCCW color]];
+	[o setAlpha:[outlineCTF intValue]];
+	[style setOutlineColour:o];
+	ASSColour *b = [[ASSColour alloc] initWithColor:[backCCW color]];
+	[b setAlpha:[backCTF intValue]];
+	[style setBackColour:b];
+	
+	[style setAlignment:[alignmentM selectedTag]];
+	
+	[style setMarginL:[leftTF intValue]];
+	[style setMarginR:[rightTF intValue]];
+	[style setMarginV:[vertTF intValue]];
+	
+	[style setOutline:[outlineTF floatValue]];
+	[style setShadow:[shadowTF floatValue]];
+	[style setBorderStyle:[opaqueB state]];
+	
+	[style setAngle:[rotationTF floatValue]];
+	[style setSpacing:[spacingTF floatValue]];
+	[style setScaleX:[xTF floatValue]];
+	[style setScaleY:[yTF floatValue]];
+	[style setEncoding:[encodingTF intValue]];
+	
+	[[self document] replaceStyleAtIndex:[scriptTV selectedRow] withStyle:style];
 }
 
 - (IBAction)deleteStorage:(id)sender {
@@ -246,16 +287,23 @@
 #pragma mark Notifications
 - (void)stylesUpdated:(NSNotification *)aNotification
 {
-	//[scriptTV reloadData];
-	//[self awakeFromNib];
+	[scriptTV reloadData];
+	if ([scriptTV selectedRow] != -1) {
+		[self enableAndLoadScript:[scriptTV selectedRow]];
+	}
 }
 
 #pragma mark NSWindowController
 - (id)init
 {
 	self = [super initWithWindowNibName:@"ASSStyles"];
-	
 	return self;
+}
+
+- (void)awakeFromNib
+{
+	NSArray *fonts = [[NSFontManager sharedFontManager] availableFontFamilies];
+	[fontCB addItemsWithObjectValues:fonts];
 }
 
 - (void)setDocument:(NSDocument *)document

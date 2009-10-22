@@ -38,6 +38,9 @@
 
 - (ASSStyle *) getStyleAtIndex:(NSUInteger)index;
 
+- (NSUInteger) indexOfStyle:(NSString *) name;
+- (NSUInteger) indexOfStyleName:(NSString *)name;
+
 - (NSUInteger) countStyles;
 - (void) clean;
 

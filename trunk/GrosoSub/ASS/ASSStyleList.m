@@ -44,14 +44,20 @@
 
 - (void) changeStyleFromString:(NSString *)aString atIndex:(NSUInteger)index
 {
-	[styleNames removeObject:[[styles objectAtIndex:index] name]];
-	[styles replaceObjectAtIndex:index withObject:[[ASSStyle alloc] initWithString:aString]];
-	[styleNames addObject:[[styles objectAtIndex:index] name]];
+	// Index of the name
+	NSUInteger aIndex = index;
+	// Index of the style
+	NSUInteger rIndex = [self indexOfStyle:[styleNames objectAtIndex:aIndex]];
+	
+	[styleNames removeObjectAtIndex:aIndex];
+	[styles replaceObjectAtIndex:rIndex withObject:[[ASSStyle alloc] initWithString:aString]];
+	[styleNames addObject:[[styles objectAtIndex:rIndex] name]];
 	[styleNames sortUsingSelector:@selector(compare:)];
 }
 
 - (void) delStyleAtIndex:(NSUInteger)index
 {
+	//FIXME: styleNames indexing
 	[styleNames removeObject:[[styles objectAtIndex:index] name]];
 	[styles removeObjectAtIndex:index];
 }
@@ -64,6 +70,18 @@
 	// get the index of that name into the array
 	NSInteger id = [styles indexOfObject:new];
 	return [styles objectAtIndex:id];
+}
+
+- (NSUInteger) indexOfStyle:(NSString *)name
+{
+	ASSStyle *new = [[ASSStyle alloc] init];
+	[new setName:name];
+	return [styles indexOfObject:new];
+}
+
+- (NSUInteger) indexOfStyleName:(NSString *)name
+{
+	return [styleNames indexOfObject:name];
 }
 
 - (NSUInteger) countStyles

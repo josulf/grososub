@@ -23,9 +23,9 @@
 #import <Cocoa/Cocoa.h>
 
 @interface ASSStylesController : NSWindowController {
-	IBOutlet NSComboBox *storageCB;
+	IBOutlet NSComboBox *storageCB, *fontCB;
 	IBOutlet NSTableView *storageTV, *scriptTV;
-	IBOutlet NSTextField *nameTF, *fontTF, *fontSizeTF;
+	IBOutlet NSTextField *nameTF, *fontSizeTF;
 	IBOutlet NSButton *boldB, *italicB, *underlineB, *strikeoutB;
 	
 	IBOutlet NSColorWell *primaryCCW, *secondaryCCW, *outlineCCW, *backCCW;
@@ -41,13 +41,12 @@
 	IBOutlet NSTextField *rotationTF, *spacingTF, *xTF, *yTF, *encodingTF;
 	IBOutlet NSStepper *rotationS, *spacingS, *xS, *yS;
 	
-	IBOutlet NSButton *applyB, *selectB;
+	IBOutlet NSButton *applyB;
 }
 - (IBAction)apply:(id)sender;
 - (IBAction)deleteStorage:(id)sender;
 - (IBAction)newStorage:(id)sender;
 - (IBAction)scriptActions:(id)sender;
-- (IBAction)selectFont:(id)sender;
 - (IBAction)storageActions:(id)sender;
 - (IBAction)closeSheet:(id)sender;
 @end

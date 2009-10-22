@@ -56,6 +56,18 @@
 	return self;
 }
 
+- (id) initWithColor:(NSColor *)color
+{
+	if (self = [super init]) {
+		CGFloat r,g,b,a;
+		[color getRed:&r green:&g blue:&b alpha:&a];
+		[self setRed:r*255.0];
+		[self setGreen:g*255.0];
+		[self setBlue:b*255.0];
+	}
+	return self;
+}
+
 - (id) init
 {
 	[self initWithString:@"&H00000000"];

@@ -411,8 +411,9 @@
 	NSCharacterSet *set3 = [NSCharacterSet characterSetWithCharactersInString:@",)"];
 	
 	[st removeAttribute:NSForegroundColorAttributeName range:area];
-		
-	[st setFont:[NSFont fontWithName:@"Lucida Grande" size:13]];
+	
+	//FIXME: if we set the font for all the text we can't see japanese or arabic characters.
+	//[st setFont:[NSFont fontWithName:@"Lucida Grande" size:13]];
 	
 	NSScanner *sc = [NSScanner scannerWithString:string];
 	while (![sc isAtEnd]) {

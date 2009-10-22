@@ -249,6 +249,26 @@
 	return [styles getStyleAtIndex:aIndex];
 }
 
+- (void)replaceStyleAtIndex:(NSUInteger)aIndex withStyle:(ASSStyle *)aStyle;
+{
+	NSUndoManager *undo = [self undoManager];
+	
+	ASSStyle *oldStyle = [styles getStyleAtIndex:aIndex];
+	[styles changeStyleFromString:[aStyle description] atIndex:aIndex];
+	
+	NSUInteger newIndex = [styles indexOfStyleName:[aStyle name]];
+	
+	[[undo prepareWithInvocationTarget:self] replaceStyleAtIndex:newIndex withStyle:oldStyle];
+	if (![undo isUndoing]) {
+		[undo setActionName:@"Replace Style"];
+		[self updateChangeCount:NSChangeDone];
+	} else {
+		[self updateChangeCount:NSChangeUndone];
+	}
+	
+	[[NSNotificationCenter defaultCenter] postNotificationName:@"ASSStylesUpdated" object:self];
+}
+
 - (NSUInteger)countEvents
 {
 	return [events countEvents];

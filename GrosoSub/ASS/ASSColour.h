@@ -34,6 +34,7 @@
 - (NSString *) description;
 - (void) parseString:(NSString *)aString;
 - (id) initWithString:(NSString *)aString;
+- (id) initWithColor:(NSColor *)color;
 - (id) init;
 
 - (NSColor *) nsColor;

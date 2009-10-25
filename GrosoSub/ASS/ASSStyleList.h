@@ -31,6 +31,7 @@
 @property (retain) NSMutableArray *styles;
 @property (retain) NSMutableArray *styleNames;
 
+- (void) addStyleWithName:(NSString *)name;
 - (void) addStyleFromString:(NSString *)aString;
 - (void) addStyleFromString:(NSString *)aString atIndex:(NSUInteger)index;
 - (void) changeStyleFromString:(NSString *)aString atIndex:(NSUInteger)index;

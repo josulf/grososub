@@ -28,6 +28,15 @@
 @synthesize styles;
 @synthesize styleNames;
 
+- (void) addStyleWithName:(NSString *)name
+{
+	NSString *style = [NSString stringWithFormat:
+					   @"Style: %@,Arial,20,&H00FFFFFF,&H0000FFFF,&H00000000,&H00000000,0,0,0,0,100.00,100.00,0.00,0.00,1,2.00,2.00,2,10,10,10,0",
+					   name];
+	[self addStyleFromString:style];
+	
+}
+
 - (void) addStyleFromString:(NSString *)aString
 {
 	[styles addObject:[[ASSStyle alloc] initWithString:aString]];
@@ -57,9 +66,13 @@
 
 - (void) delStyleAtIndex:(NSUInteger)index
 {
-	//FIXME: styleNames indexing
-	[styleNames removeObject:[[styles objectAtIndex:index] name]];
-	[styles removeObjectAtIndex:index];
+	// Index of the name
+	NSUInteger aIndex = index;
+	// Index of the style
+	NSUInteger rIndex = [self indexOfStyle:[styleNames objectAtIndex:aIndex]];
+	
+	[styleNames removeObjectAtIndex:aIndex];
+	[styles removeObjectAtIndex:rIndex];
 }
 
 - (ASSStyle *) getStyleAtIndex:(NSUInteger)index

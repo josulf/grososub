@@ -23,6 +23,7 @@
 #import "ASSScript.h"
 #import "ASSEvent.h"
 #import "ASSTime.h"
+#import "ASSStyle.h"
 #import "ASSHeader.h"
 #import "ASSStyleList.h"
 #import "ASSEventList.h"
@@ -261,6 +262,96 @@
 	[[undo prepareWithInvocationTarget:self] replaceStyleAtIndex:newIndex withStyle:oldStyle];
 	if (![undo isUndoing]) {
 		[undo setActionName:@"Replace Style"];
+		[self updateChangeCount:NSChangeDone];
+	} else {
+		[self updateChangeCount:NSChangeUndone];
+	}
+	
+	[[NSNotificationCenter defaultCenter] postNotificationName:@"ASSStylesUpdated" object:self];
+}
+
+- (void)createStyle
+{
+	NSUndoManager *undo = [self undoManager];
+	
+	// First we have to check if a style with the same name exists
+	NSString *newName = @"New Style";
+	NSString *styleName = @"New Style";
+	NSInteger copy = 1;
+	
+	while ([styles indexOfStyle:styleName] != NSNotFound) {
+		styleName = [NSString stringWithFormat:@"%@ (%d)", newName, copy++];
+	}
+	
+	[styles addStyleWithName:styleName];
+	
+	[[undo prepareWithInvocationTarget:self] deleteStyleAtIndex:[styles indexOfStyleName:styleName]];
+	if (![undo isUndoing]) {
+		[undo setActionName:@"Create Style"];
+		[self updateChangeCount:NSChangeDone];
+	} else {
+		[self updateChangeCount:NSChangeUndone];
+	}
+	
+	[[NSNotificationCenter defaultCenter] postNotificationName:@"ASSStylesUpdated" object:self];
+}
+
+- (void)deleteStyleAtIndex:(NSUInteger)aIndex
+{
+	NSUndoManager *undo = [self undoManager];
+	
+	ASSStyle *oldStyle = [styles getStyleAtIndex:aIndex];
+	
+	[styles delStyleAtIndex:aIndex];
+	
+	[[undo prepareWithInvocationTarget:self] addStyle:oldStyle];
+	if (![undo isUndoing]) {
+		[undo setActionName:@"Delete Style"];
+		[self updateChangeCount:NSChangeDone];
+	} else {
+		[self updateChangeCount:NSChangeUndone];
+	}
+	
+	[[NSNotificationCenter defaultCenter] postNotificationName:@"ASSStylesUpdated" object:self];
+}
+
+- (void)addStyle:(ASSStyle *)aStyle
+{
+	NSUndoManager *undo = [self undoManager];
+	
+	[styles addStyleFromString:[aStyle description]];
+	
+	[[undo prepareWithInvocationTarget:self] deleteStyleAtIndex:[styles indexOfStyleName:[aStyle name]]];
+	if (![undo isUndoing]) {
+		[undo setActionName:@"Add Style"];
+		[self updateChangeCount:NSChangeDone];
+	} else {
+		[self updateChangeCount:NSChangeUndone];
+	}
+	
+	[[NSNotificationCenter defaultCenter] postNotificationName:@"ASSStylesUpdated" object:self];
+}
+
+- (void)dupplicateStyleAtIndex:(NSUInteger)aIndex
+{
+	NSUndoManager *undo = [self undoManager];
+	
+	ASSStyle *origStyle = [self getStyleAtIndex:aIndex];
+	ASSStyle *newStyle = [[ASSStyle alloc] initWithString:[origStyle description]];
+	
+	NSString *styleName = [newStyle name];
+	
+	while ([styles indexOfStyle:styleName] != NSNotFound) {
+		styleName = [NSString stringWithFormat:@"%@ %@", @"Copy of", styleName];
+	}
+	
+	[newStyle setName:styleName];
+	
+	[styles addStyleFromString:[newStyle description]];
+	
+	[[undo prepareWithInvocationTarget:self] deleteStyleAtIndex:[styles indexOfStyleName:styleName]];
+	if (![undo isUndoing]) {
+		[undo setActionName:@"Dupplicate Style"];
 		[self updateChangeCount:NSChangeDone];
 	} else {
 		[self updateChangeCount:NSChangeUndone];

@@ -266,7 +266,26 @@
 }
 
 - (IBAction)scriptActions:(id)sender {
-    
+	NSInteger row = [scriptTV selectedRow];
+	
+    switch ([scriptSC selectedSegment]) {
+		case 0: // Copy to storage
+			NSLog(@"a");
+			break;
+		case 1: // New
+			[[self document] createStyle];
+			break;
+		case 2: // Dupplicate
+			if (row != -1) {
+				[[self document] dupplicateStyleAtIndex:row];
+			}
+			break;
+		case 3: // Delete
+			if (row != -1) {
+				[[self document] deleteStyleAtIndex:row];
+			}
+			break;
+	}
 }
 
 - (IBAction)selectFont:(id)sender {

@@ -23,6 +23,8 @@
 #import <Cocoa/Cocoa.h>
 
 @interface ASSStylesController : NSWindowController {
+	IBOutlet NSSegmentedControl *scriptSC, *storageSC;
+	
 	IBOutlet NSComboBox *storageCB, *fontCB;
 	IBOutlet NSTableView *storageTV, *scriptTV;
 	IBOutlet NSTextField *nameTF, *fontSizeTF;

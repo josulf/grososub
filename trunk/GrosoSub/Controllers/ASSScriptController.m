@@ -175,7 +175,11 @@
 #pragma mark Events Menu
 - (IBAction)addEventBefore:(void *)sender
 {
-	[[self document] addDefaultEventAtIndex:[eTable selectedRow]];
+	if ([eTable selectedRow] == -1) {
+		[[self document] addDefaultEventAtIndex:0];
+	} else {
+		[[self document] addDefaultEventAtIndex:[eTable selectedRow]];
+	}
 }
 
 - (IBAction)addEventAfter:(void *)sender
@@ -214,7 +218,6 @@
 	 * 1: Add after
 	 * 2: Remove
 	 * 3: Dupplicate
-	 * 4: Add to empty file
 	 * ------------------------------
 	 * 10: Join
 	 */
@@ -222,21 +225,27 @@
 	NSInteger t = [menuItem tag];
 	NSInteger c = [[eTable selectedRowIndexes] count];
 	NSInteger e = [[self document] countEvents];
-	if (t == 4) {
-		if (e == 0) {
-			return YES;
-		}
-	} else if (t < 10) {
-		if (c == 1) {
-			return YES;
-		}
-	} else if (t < 20) {
-		if (c == 2) {
-			NSIndexSet *selected = [eTable selectedRowIndexes];
-			if ([selected firstIndex]+1 == [selected lastIndex]) {
-				return YES;
+		
+	switch (t) {
+		case 0:
+		case 1:
+			if ((c == 1) || (e == 0)) return YES;
+			break;
+		case 2:
+		case 3:
+			if (c == 1) return YES;
+			break;
+		case 10:
+			if (c == 2) {
+				NSIndexSet *selected = [eTable selectedRowIndexes];
+				if ([selected firstIndex]+1 == [selected lastIndex]) {
+					return YES;
+				}
 			}
-		}
+			break;
+		default:
+			return NO;
+			break;
 	}
 	
 	return NO;		

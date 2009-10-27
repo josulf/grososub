@@ -44,10 +44,16 @@
 	IBOutlet NSStepper *rotationS, *spacingS, *xS, *yS;
 	
 	IBOutlet NSButton *applyB;
+	
+	IBOutlet NSButton *loadB, *saveB, *newB, *delB;
 }
+- (void)loadStorageCB;
+
 - (IBAction)apply:(id)sender;
 - (IBAction)deleteStorage:(id)sender;
 - (IBAction)newStorage:(id)sender;
+- (IBAction)loadStorage:(id)sender;
+- (IBAction)saveStorage:(id)sender;
 - (IBAction)scriptActions:(id)sender;
 - (IBAction)storageActions:(id)sender;
 - (IBAction)closeSheet:(id)sender;

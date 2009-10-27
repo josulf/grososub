@@ -179,6 +179,30 @@
 	}
 }
 
+#pragma mark NSComboBox delegates
+- (void)comboBoxSelectionDidChange:(NSNotification *)aNotification
+{
+	if ([aNotification object] == storageCB) {
+		[loadB setEnabled:YES];
+		[saveB setEnabled:YES];
+		[delB setEnabled:YES];
+	}
+}
+
+- (void)controlTextDidEndEditing:(NSNotification *)aNotification
+{
+	if ([aNotification object] == storageCB) {
+		if (([storageCB indexOfSelectedItem] == -1) && ![[storageCB stringValue] isEqualToString:@""]) {
+			[newB setEnabled:YES];
+			[loadB setEnabled:NO];
+			[saveB setEnabled:NO];
+			[delB setEnabled:NO];
+		} else if ([storageCB indexOfSelectedItem] != -1) {
+			
+		}
+	}
+}
+
 #pragma mark NSTableDataSource informal protocol
 - (NSInteger)numberOfRowsInTableView:(NSTableView *)aTableView
 {
@@ -257,12 +281,38 @@
 	[[self document] replaceStyleAtIndex:[scriptTV selectedRow] withStyle:style];
 }
 
-- (IBAction)deleteStorage:(id)sender {
+- (IBAction)deleteStorage:(id)sender
+{
     
 }
 
-- (IBAction)newStorage:(id)sender {
-    
+- (IBAction)newStorage:(id)sender
+{
+	if (([storageCB indexOfSelectedItem] == -1) && ![[storageCB stringValue] isEqualToString:@""]) {
+		NSFileManager *fileManager = [NSFileManager defaultManager];
+		NSString *folder = @"~/Library/Application Support/GrosoSub/Styles/";
+		folder = [folder stringByAppendingString:[storageCB stringValue]];
+		folder = [folder stringByExpandingTildeInPath];
+		
+		[fileManager createFileAtPath:folder contents:[NSData data] attributes:nil];
+		
+		[self loadStorageCB];
+		
+		[newB setEnabled:NO];
+		[loadB setEnabled:YES];
+		[delB setEnabled:YES];
+		[saveB setEnabled:YES];
+	}
+}
+
+- (IBAction)loadStorage:(id)sender
+{
+	
+}
+
+- (IBAction)saveStorage:(id)sender
+{
+	
 }
 
 - (IBAction)scriptActions:(id)sender {
@@ -286,10 +336,6 @@
 			}
 			break;
 	}
-}
-
-- (IBAction)selectFont:(id)sender {
-    
 }
 
 - (IBAction)storageActions:(id)sender {
@@ -321,8 +367,32 @@
 
 - (void)awakeFromNib
 {
+	// Load system fonts into the combo box
 	NSArray *fonts = [[NSFontManager sharedFontManager] availableFontFamilies];
 	[fontCB addItemsWithObjectValues:fonts];
+	
+	[self loadStorageCB];
+}
+
+- (void)loadStorageCB
+{
+	// Load the style storages
+	NSFileManager *fileManager = [NSFileManager defaultManager];
+	NSString *folder = @"~/Library/Application Support/GrosoSub/Styles/";
+	folder = [folder stringByExpandingTildeInPath];
+	
+	if ([fileManager fileExistsAtPath:folder] == NO) {
+		[fileManager createDirectoryAtPath:folder withIntermediateDirectories:YES attributes:nil error:NULL];
+	}
+	
+	NSArray *files = [fileManager contentsOfDirectoryAtPath:folder error:NULL];
+	
+	[storageCB removeAllItems];
+	for (NSString *file in files) {
+		if ([file characterAtIndex:0] != '.') {
+			[storageCB addItemWithObjectValue:file];
+		}
+	}
 }
 
 - (void)setDocument:(NSDocument *)document

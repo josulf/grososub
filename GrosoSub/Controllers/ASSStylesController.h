@@ -20,10 +20,12 @@
 //  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 //
 
+@class ASSStyleList;
+
 #import <Cocoa/Cocoa.h>
 
 @interface ASSStylesController : NSWindowController {
-	IBOutlet NSSegmentedControl *scriptSC, *storageSC;
+	IBOutlet NSSegmentedControl *scriptSC, *storageSC, *modeSC;
 	
 	IBOutlet NSComboBox *storageCB, *fontCB;
 	IBOutlet NSTableView *storageTV, *scriptTV;
@@ -46,7 +48,12 @@
 	IBOutlet NSButton *applyB;
 	
 	IBOutlet NSButton *loadB, *saveB, *newB, *delB;
+	
+	ASSStyleList *storage;
 }
+
+@property (retain) ASSStyleList *storage;
+
 - (void)loadStorageCB;
 
 - (IBAction)apply:(id)sender;

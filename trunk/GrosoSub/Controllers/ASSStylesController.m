@@ -28,10 +28,11 @@
 
 @implementation ASSStylesController
 
+@synthesize storage;
+
 #pragma mark NSTableView delegates
-- (void) enableAndLoadScript: (NSInteger) row  {
-	ASSStyle *style = [[self document] getStyleAtIndex:row];
-			
+- (void) enableAndLoadScript: (ASSStyle *) style
+{			
 	// Enable the controlls
 	[nameTF setEnabled:YES];
 	[fontCB setEnabled:YES];
@@ -124,14 +125,7 @@
 
 }
 
-- (void)tableViewSelectionDidChange:(NSNotification *)aNotification
-{
-	if ([aNotification object] == scriptTV) {
-		//Script table view
-		NSInteger row = [scriptTV selectedRow];
-		if ((row != -1) && ([[scriptTV selectedRowIndexes] count] == 1)) {
-			[self enableAndLoadScript: row];
-		} else {
+- (void) disableControls {
 			// disable the controlls
 			[nameTF setEnabled:NO];
 			[fontCB setEnabled:NO];
@@ -172,10 +166,38 @@
 			[yS setEnabled:NO];
 			[encodingTF setEnabled:NO];
 			[applyB setEnabled:NO];
+
+}
+
+- (void)tableViewSelectionDidChange:(NSNotification *)aNotification
+{
+	if ([aNotification object] == scriptTV) {
+		//Script table view
+		NSInteger row = [scriptTV selectedRow];
+		if ((row != -1) && ([[scriptTV selectedRowIndexes] count] == 1)) {
+			ASSStyle *style = [[self document] getStyleAtIndex:row];
+			[modeSC setSelected:YES forSegment:1];
+			[self enableAndLoadScript:style];
+		} else {
+			[self disableControls];
 		}
+		// Always unselect what is selected in the other tableview
+		[storageTV deselectAll:nil];
+		[scriptTV selectRowIndexes:[NSIndexSet indexSetWithIndex:row] byExtendingSelection:NO];
 	} else if ([aNotification object] == storageTV) {
 		// Storage table view
-		// TODO: Implement the storage of styles
+		NSInteger row = [storageTV selectedRow];
+		if ((row != -1) && ([[storageTV selectedRowIndexes] count] == 1)) {
+			ASSStyle *style = [storage getStyleAtIndex:row];
+			[modeSC setSelected:YES forSegment:0];
+			[self enableAndLoadScript:style];
+		} else {
+			[self disableControls];
+		}
+		[scriptTV deselectAll:nil];
+		[storageTV selectRowIndexes:[NSIndexSet indexSetWithIndex:row] byExtendingSelection:NO];
+		//////////////////// MEGAHACK
+		//[saveB setEnabled:YES]; 
 	}
 }
 
@@ -184,8 +206,18 @@
 {
 	if ([aNotification object] == storageCB) {
 		[loadB setEnabled:YES];
-		[saveB setEnabled:YES];
+		[saveB setEnabled:NO];
 		[delB setEnabled:YES];
+		[newB setEnabled:NO];
+	}
+}
+- (void)controlTextDidBeginEditing:(NSNotification *)aNotification
+{
+	if ([aNotification object] == storageCB) {
+		[loadB setEnabled:NO];
+		[saveB setEnabled:NO];
+		[delB setEnabled:NO];
+		[newB setEnabled:NO];
 	}
 }
 
@@ -198,7 +230,9 @@
 			[saveB setEnabled:NO];
 			[delB setEnabled:NO];
 		} else if ([storageCB indexOfSelectedItem] != -1) {
-			
+			[newB setEnabled:NO];
+			[loadB setEnabled:YES];
+			[delB setEnabled:YES];
 		}
 	}
 }
@@ -209,12 +243,10 @@
 	if (aTableView == scriptTV) {
 		// Script table view
 		ASSScript *perry = [self document];
-		
 		return [perry countStyles];
 	} else if (aTableView == storageTV) {
 		// Storage table view
-		// TODO: Implement the storage of styles
-		return 0;
+		return [storage countStyles];
 	} else {
 		return 0;
 	}
@@ -229,9 +261,10 @@
 		return [styleNames objectAtIndex:rowIndex];
 	} else if (aTableView == storageTV) {
 		// Storage table view
-		// TODO: Implement the storage of styles
-		return 0;
+		NSArray *styleNames = [storage styleNames];
+		return [styleNames objectAtIndex:rowIndex];
 	} else {
+		NSLog(@"buh");
 		return 0;
 	}
 }
@@ -277,8 +310,12 @@
 	[style setScaleX:[xTF floatValue]];
 	[style setScaleY:[yTF floatValue]];
 	[style setEncoding:[encodingTF intValue]];
-	
-	[[self document] replaceStyleAtIndex:[scriptTV selectedRow] withStyle:style];
+	if ([modeSC selectedSegment] == 1) {
+		[[self document] replaceStyleAtIndex:[scriptTV selectedRow] withStyle:style];
+	} else if ([modeSC selectedSegment] == 0) {
+		[storage changeStyleFromString:[style description] atIndex:[storageTV selectedRow]];
+		[storageTV reloadData];
+	}
 }
 
 - (IBAction)deleteStorage:(id)sender
@@ -307,12 +344,39 @@
 
 - (IBAction)loadStorage:(id)sender
 {
+	// Get the data of the file (utf8) and put into a string
+	NSString *path = @"~/Library/Application Support/GrosoSub/Styles/";
+	path = [path stringByAppendingString:[storageCB stringValue]];
+	path = [path stringByExpandingTildeInPath];
 	
+	NSData *data = [NSData dataWithContentsOfFile:path];
+	
+	NSString *string = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+	
+	// Delete the content of storage
+	[storage clean];
+	// Add the styles from the string
+	[storage parseString:string];
+	
+	// Load the data into the table
+	[storageTV reloadData];
+	
+	// Set buttons state
+	[newB setEnabled:NO];
+	[loadB setEnabled:YES];
+	[delB setEnabled:YES];
+	[saveB setEnabled:YES];
 }
 
 - (IBAction)saveStorage:(id)sender
 {
+	NSData *data = [[storage description] dataUsingEncoding:NSUTF8StringEncoding];
 	
+	NSString *path = @"~/Library/Application Support/GrosoSub/Styles/";
+	path = [path stringByAppendingString:[storageCB stringValue]];
+	path = [path stringByExpandingTildeInPath];
+	
+	[data writeToFile:path atomically:YES];
 }
 
 - (IBAction)scriptActions:(id)sender {
@@ -354,7 +418,8 @@
 {
 	[scriptTV reloadData];
 	if ([scriptTV selectedRow] != -1) {
-		[self enableAndLoadScript:[scriptTV selectedRow]];
+		ASSStyle *style = [[self document] getStyleAtIndex:[scriptTV selectedRow]];
+		[self enableAndLoadScript:style];
 	}
 }
 
@@ -362,6 +427,8 @@
 - (id)init
 {
 	self = [super initWithWindowNibName:@"ASSStyles"];
+	storage = [[ASSStyleList alloc] init];
+	[storage clean];
 	return self;
 }
 

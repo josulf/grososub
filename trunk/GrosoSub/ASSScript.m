@@ -270,7 +270,7 @@
 	[[NSNotificationCenter defaultCenter] postNotificationName:@"ASSStylesUpdated" object:self];
 }
 
-- (void)createStyle
+- (int)createStyle
 {
 	NSUndoManager *undo = [self undoManager];
 	
@@ -294,6 +294,7 @@
 	}
 	
 	[[NSNotificationCenter defaultCenter] postNotificationName:@"ASSStylesUpdated" object:self];
+	return [styles indexOfStyleName:styleName];
 }
 
 - (void)deleteStyleAtIndex:(NSUInteger)aIndex
@@ -332,7 +333,7 @@
 	[[NSNotificationCenter defaultCenter] postNotificationName:@"ASSStylesUpdated" object:self];
 }
 
-- (void)dupplicateStyleAtIndex:(NSUInteger)aIndex
+- (int)dupplicateStyleAtIndex:(NSUInteger)aIndex
 {
 	NSUndoManager *undo = [self undoManager];
 	
@@ -358,6 +359,8 @@
 	}
 	
 	[[NSNotificationCenter defaultCenter] postNotificationName:@"ASSStylesUpdated" object:self];
+	
+	return [styles indexOfStyleName:styleName];
 }
 
 - (NSUInteger)countEvents

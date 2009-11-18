@@ -387,11 +387,14 @@
 			NSLog(@"a");
 			break;
 		case 1: // New
-			[[self document] createStyle];
+			NSLog(@"b");
+			NSInteger a = [[self document] createStyle];
+			[scriptTV selectRowIndexes:[NSIndexSet indexSetWithIndex:a] byExtendingSelection:NO];
 			break;
 		case 2: // Dupplicate
 			if (row != -1) {
-				[[self document] dupplicateStyleAtIndex:row];
+				NSInteger a = [[self document] dupplicateStyleAtIndex:row];
+				[scriptTV selectRowIndexes:[NSIndexSet indexSetWithIndex:a] byExtendingSelection:NO];
 			}
 			break;
 		case 3: // Delete
@@ -403,7 +406,64 @@
 }
 
 - (IBAction)storageActions:(id)sender {
-    
+    NSInteger row = [storageTV selectedRow];
+	
+    switch ([storageSC selectedSegment]) {
+		case 0: // New
+			NSLog(@"bb");
+			NSString *newName = @"New Style";
+			NSString *styleName = @"New Style";
+			NSInteger copy = 1;
+			
+			while ([storage indexOfStyle:styleName] != NSNotFound) {
+				styleName = [NSString stringWithFormat:@"%@ (%d)", newName, copy++];
+			}
+			
+			[storage addStyleWithName:styleName];
+			
+			[storageTV reloadData];
+			
+			[storageTV selectRowIndexes:[NSIndexSet indexSetWithIndex:[storage indexOfStyleName:styleName]] byExtendingSelection:NO];
+			
+			break;
+		case 1: // Dupplicate
+			if (row != -1) {
+				ASSStyle *origStyle = [storage getStyleAtIndex:row];
+				ASSStyle *newStyle = [[ASSStyle alloc] initWithString:[origStyle description]];
+				
+				NSString *styleName = [newStyle name];
+				
+				while ([storage indexOfStyle:styleName] != NSNotFound) {
+					styleName = [NSString stringWithFormat:@"%@ %@", @"Copy of", styleName];
+				}
+				
+				[newStyle setName:styleName];
+				[storage addStyleFromString:[newStyle description]];
+				
+				[storageTV reloadData];
+				
+				[storageTV selectRowIndexes:[NSIndexSet indexSetWithIndex:[storage indexOfStyleName:styleName]] byExtendingSelection:NO];
+			}
+			
+			break;
+		case 2: // Delete
+			if (row != -1) {
+				[storage delStyleAtIndex:row];
+				
+				[storageTV reloadData];
+				
+				[storageTV deselectAll:self];
+				if (row <= [storage countStyles] - 1) {
+					[storageTV selectRowIndexes:[NSIndexSet indexSetWithIndex:row] byExtendingSelection:NO];
+				} else {
+					[storageTV selectRowIndexes:[NSIndexSet indexSetWithIndex:[storage countStyles]-1] byExtendingSelection:NO];
+				}
+			}
+			break;
+		case 3: // Copy to script
+			
+			break;
+	}
 }
 
 - (IBAction)closeSheet:(id)sender

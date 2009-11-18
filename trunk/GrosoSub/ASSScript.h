@@ -51,10 +51,10 @@
 
 - (ASSStyle *)getStyleAtIndex:(NSUInteger)aIndex;
 - (void)replaceStyleAtIndex:(NSUInteger)aIndex withStyle:(ASSStyle *)aStyle;
-- (void)createStyle;
+- (int)createStyle;
 - (void)deleteStyleAtIndex:(NSUInteger)aIndex;
 - (void)addStyle:(ASSStyle *)aStyle;
-- (void)dupplicateStyleAtIndex:(NSUInteger)aIndex;
+- (int)dupplicateStyleAtIndex:(NSUInteger)aIndex;
 
 - (NSUInteger)countEvents;
 - (NSUInteger)countHeaders;

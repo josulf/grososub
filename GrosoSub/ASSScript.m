@@ -316,13 +316,24 @@
 	[[NSNotificationCenter defaultCenter] postNotificationName:@"ASSStylesUpdated" object:self];
 }
 
-- (void)addStyle:(ASSStyle *)aStyle
+- (int)addStyle:(ASSStyle *)aStyle
 {
+	ASSStyle *newStyle = [[ASSStyle alloc] initWithString:[aStyle description]];
 	NSUndoManager *undo = [self undoManager];
 	
-	[styles addStyleFromString:[aStyle description]];
+	NSString *styleName = [newStyle name];
+	NSString *newName = [newStyle name];
+	NSInteger copy = 1;
 	
-	[[undo prepareWithInvocationTarget:self] deleteStyleAtIndex:[styles indexOfStyleName:[aStyle name]]];
+	while ([styles indexOfStyle:newName] != NSNotFound) {
+		newName = [NSString stringWithFormat:@"%@ (%d)", styleName, copy++];
+	}
+	
+	[newStyle setName:newName];
+	
+	[styles addStyleFromString:[newStyle description]];
+	
+	[[undo prepareWithInvocationTarget:self] deleteStyleAtIndex:[styles indexOfStyleName:[newStyle name]]];
 	if (![undo isUndoing]) {
 		[undo setActionName:@"Add Style"];
 		[self updateChangeCount:NSChangeDone];
@@ -331,6 +342,8 @@
 	}
 	
 	[[NSNotificationCenter defaultCenter] postNotificationName:@"ASSStylesUpdated" object:self];
+	
+	return [styles indexOfStyleName:[newStyle name]];
 }
 
 - (int)dupplicateStyleAtIndex:(NSUInteger)aIndex

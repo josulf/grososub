@@ -209,6 +209,8 @@
 		[saveB setEnabled:NO];
 		[delB setEnabled:YES];
 		[newB setEnabled:NO];
+		[storageTV setEnabled:NO];
+		[storageSC setEnabled:NO];
 	}
 }
 - (void)controlTextDidBeginEditing:(NSNotification *)aNotification
@@ -218,6 +220,8 @@
 		[saveB setEnabled:NO];
 		[delB setEnabled:NO];
 		[newB setEnabled:NO];
+		[storageTV setEnabled:NO];
+		[storageSC setEnabled:NO];
 	}
 }
 
@@ -320,7 +324,23 @@
 
 - (IBAction)deleteStorage:(id)sender
 {
-    
+    if (([storageCB indexOfSelectedItem] != -1) && ![[storageCB stringValue] isEqualToString:@""]) {
+		NSFileManager *fileManager = [NSFileManager defaultManager];
+		NSString *folder = @"~/Library/Application Support/GrosoSub/Styles/";
+		folder = [folder stringByAppendingString:[storageCB stringValue]];
+		folder = [folder stringByExpandingTildeInPath];
+		
+		Boolean a = [fileManager removeItemAtPath:folder error:NULL];
+		
+		NSLog(@"%d, %@", a, folder);
+		[self loadStorageCB];
+		
+		[newB setEnabled:YES];
+		[loadB setEnabled:NO];
+		[delB setEnabled:NO];
+		[storageTV setEnabled:NO];
+		[storageSC setEnabled:NO];		
+	}
 }
 
 - (IBAction)newStorage:(id)sender
@@ -333,12 +353,17 @@
 		
 		[fileManager createFileAtPath:folder contents:[NSData data] attributes:nil];
 		
+		[storage clean];
+		[storageTV reloadData];
+		
 		[self loadStorageCB];
 		
 		[newB setEnabled:NO];
 		[loadB setEnabled:YES];
 		[delB setEnabled:YES];
 		[saveB setEnabled:YES];
+		[storageTV setEnabled:YES];
+		[storageSC setEnabled:YES];
 	}
 }
 
@@ -366,6 +391,8 @@
 	[loadB setEnabled:YES];
 	[delB setEnabled:YES];
 	[saveB setEnabled:YES];
+	[storageTV setEnabled:YES];
+	[storageSC setEnabled:YES];
 }
 
 - (IBAction)saveStorage:(id)sender
@@ -384,7 +411,24 @@
 	
     switch ([scriptSC selectedSegment]) {
 		case 0: // Copy to storage
-			NSLog(@"a");
+			if (row != -1) {
+				ASSStyle *aStyle = [[self document] getStyleAtIndex:row];
+				ASSStyle *newStyle = [[ASSStyle alloc] initWithString:[aStyle description]];
+				
+				NSString *styleName = [newStyle name];
+				NSString *newName = [newStyle name];
+				NSInteger copy = 1;
+				
+				while ([storage indexOfStyle:newName] != NSNotFound) {
+					newName = [NSString stringWithFormat:@"%@ (%d)", styleName, copy++];
+				}
+				
+				[newStyle setName:newName];
+				
+				[storage addStyleFromString:[newStyle description]];
+				[storageTV reloadData];
+				[storageTV selectRowIndexes:[NSIndexSet indexSetWithIndex:[storage indexOfStyleName:[newStyle name]]] byExtendingSelection:NO];
+			}
 			break;
 		case 1: // New
 			NSLog(@"b");
@@ -461,7 +505,12 @@
 			}
 			break;
 		case 3: // Copy to script
-			
+			if (row != -1) {
+				// Get the style from the storage
+				ASSStyle *st = [storage getStyleAtIndex:row];
+				NSInteger r = [[self document] addStyle:st];
+				[scriptTV selectRowIndexes:[NSIndexSet indexSetWithIndex:r] byExtendingSelection:NO];
+			}
 			break;
 	}
 }

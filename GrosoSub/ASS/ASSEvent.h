@@ -47,6 +47,8 @@
 
 - (NSString *) description;
 - (NSString *) descriptionSRT;
+- (void) addStartTime:(NSInteger)time;
+- (void) addEndTime:(NSInteger)time;
 
 - (void) parseString:(NSString *)aString;
 - (id) initWithString:(NSString *)aString; // Designated initializer

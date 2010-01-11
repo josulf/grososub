@@ -72,6 +72,17 @@
 	return out;
 }
 
+- (void) addStartTime:(NSInteger)time
+{
+	[start setTime:[start time] + time];
+	[duration setTime:([end time] - [start time])];
+}
+- (void) addEndTime:(NSInteger)time
+{
+	[end setTime:[end time] + time];
+	[duration setTime:([end time] - [start time])];
+}
+
 - (void) parseString:(NSString *)aString
 {
 	NSString *type, *st, *ed;

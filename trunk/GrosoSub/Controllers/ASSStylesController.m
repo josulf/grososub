@@ -330,7 +330,7 @@
 		folder = [folder stringByAppendingString:[storageCB stringValue]];
 		folder = [folder stringByExpandingTildeInPath];
 		
-		Boolean a = [fileManager removeItemAtPath:folder error:NULL];
+		[fileManager removeItemAtPath:folder error:NULL];
 		
 		[self loadStorageCB];
 		

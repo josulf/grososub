@@ -34,6 +34,9 @@
 @implementation ASSScriptController
 
 @synthesize eTable;
+@synthesize translationW;
+@synthesize stylerW;
+@synthesize shiftW;
 
 #pragma mark Actions
 - (IBAction) commitEvent:(void *)sender
@@ -249,6 +252,25 @@
 	}
 	
 	return NO;		
+}
+
+#pragma mark Translation Assistant
+- (IBAction)closeTranslationAssistant:(id) sender
+{
+	[[self translationW] orderOut:nil];
+	[NSApp endSheet:[self translationW]];
+}
+
+- (IBAction)closeStylingAssistant:(id)sender
+{
+    [[self stylerW] orderOut:nil];
+	[NSApp endSheet:[self stylerW]];
+}
+
+- (IBAction)closeShiftTimes:(id)sender
+{
+    [[self shiftW] orderOut:nil];
+	[NSApp endSheet:[self shiftW]];
 }
 
 #pragma mark ASSEventTableView delegates

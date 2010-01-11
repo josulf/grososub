@@ -416,6 +416,33 @@
 	[NSApp beginSheet:[headersController window] modalForWindow:[self windowForSheet] modalDelegate:nil didEndSelector:NULL contextInfo:nil];
 }
 
+- (IBAction)showTranslationAssistant:(void *) sender
+{
+	for (ASSScriptController *wc in [self windowControllers]) {
+		if ([[wc windowNibName] isEqualToString:@"ASSScript"]) {
+			[NSApp beginSheet:[wc translationW] modalForWindow:[self windowForSheet] modalDelegate:nil didEndSelector:NULL contextInfo:nil];
+		}
+	}	
+}
+
+- (IBAction)showStylingAssistant:(void *) sender
+{
+	for (ASSScriptController *wc in [self windowControllers]) {
+		if ([[wc windowNibName] isEqualToString:@"ASSScript"]) {
+			[NSApp beginSheet:[wc stylerW] modalForWindow:[self windowForSheet] modalDelegate:nil didEndSelector:NULL contextInfo:nil];
+		}
+	}	
+}
+
+- (IBAction)showShiftTimes:(void *) sender
+{
+	for (ASSScriptController *wc in [self windowControllers]) {
+		if ([[wc windowNibName] isEqualToString:@"ASSScript"]) {
+			[NSApp beginSheet:[wc shiftW] modalForWindow:[self windowForSheet] modalDelegate:nil didEndSelector:NULL contextInfo:nil];
+		}
+	}	
+}
+
 - (BOOL)validateUserInterfaceItem:(id)anItem
 {
 	SEL theAction = [anItem action];

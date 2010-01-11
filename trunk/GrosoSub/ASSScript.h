@@ -64,6 +64,10 @@
 
 - (IBAction)showStylesManager:(void *)sender;
 - (IBAction)showHeadersManager:(void *)sender;
+- (IBAction)showTranslationAssistant:(void *) sender;
+- (IBAction)showStylingAssistant:(void *) sender;
+- (IBAction)showShiftTimes:(void *) sender;
+
 
 @property (copy) NSString *name;
 @property (retain) ASSHeader *headers;

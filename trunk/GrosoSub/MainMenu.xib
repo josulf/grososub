@@ -2,13 +2,13 @@
 <archive type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="7.10">
 	<data>
 		<int key="IBDocument.SystemTarget">1050</int>
-		<string key="IBDocument.SystemVersion">10B504</string>
-		<string key="IBDocument.InterfaceBuilderVersion">732</string>
-		<string key="IBDocument.AppKitVersion">1038.2</string>
-		<string key="IBDocument.HIToolboxVersion">437.00</string>
+		<string key="IBDocument.SystemVersion">10C540</string>
+		<string key="IBDocument.InterfaceBuilderVersion">740</string>
+		<string key="IBDocument.AppKitVersion">1038.25</string>
+		<string key="IBDocument.HIToolboxVersion">458.00</string>
 		<object class="NSMutableDictionary" key="IBDocument.PluginVersions">
 			<string key="NS.key.0">com.apple.InterfaceBuilder.CocoaPlugin</string>
-			<string key="NS.object.0">732</string>
+			<string key="NS.object.0">740</string>
 		</object>
 		<object class="NSMutableArray" key="IBDocument.EditedObjectIDs">
 			<bool key="EncodedWithXMLCoder">YES</bool>
@@ -1805,6 +1805,30 @@
 					</object>
 					<int key="connectionID">503</int>
 				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBActionConnection" key="connection">
+						<string key="label">showTranslationAssistant:</string>
+						<reference key="source" ref="1014"/>
+						<reference key="destination" ref="273214321"/>
+					</object>
+					<int key="connectionID">504</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBActionConnection" key="connection">
+						<string key="label">showShiftTimes:</string>
+						<reference key="source" ref="1014"/>
+						<reference key="destination" ref="34572527"/>
+					</object>
+					<int key="connectionID">505</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBActionConnection" key="connection">
+						<string key="label">showStylingAssistant:</string>
+						<reference key="source" ref="1014"/>
+						<reference key="destination" ref="203505701"/>
+					</object>
+					<int key="connectionID">506</int>
+				</object>
 			</object>
 			<object class="IBMutableOrderedSet" key="objectRecords">
 				<object class="NSArray" key="orderedObjects">
@@ -3144,7 +3168,7 @@
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<integer value="1"/>
 					<string>{{525, 802}, {197, 73}}</string>
-					<string>{{429, 355}, {585, 20}}</string>
+					<string>{{352, 751}, {585, 20}}</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<integer value="1"/>
 					<string>{74, 862}</string>
@@ -3213,7 +3237,7 @@
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<string>{{615, 182}, {235, 173}}</string>
+					<string>{{538, 578}, {235, 173}}</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
@@ -3223,7 +3247,7 @@
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<string>{{439, 799}, {131, 23}}</string>
+					<string>{{615, 728}, {128, 23}}</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
@@ -3281,7 +3305,7 @@
 				</object>
 			</object>
 			<nil key="sourceID"/>
-			<int key="maxID">503</int>
+			<int key="maxID">506</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<object class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -3318,10 +3342,16 @@
 						<object class="NSArray" key="dict.sortedKeys">
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<string>showHeadersManager:</string>
+							<string>showShiftTimes:</string>
 							<string>showStylesManager:</string>
+							<string>showStylingAssistant:</string>
+							<string>showTranslationAssistant:</string>
 						</object>
 						<object class="NSMutableArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>void</string>
+							<string>void</string>
+							<string>void</string>
 							<string>void</string>
 							<string>void</string>
 						</object>
@@ -3341,6 +3371,9 @@
 							<string>addEvent:</string>
 							<string>addEventAfter:</string>
 							<string>addEventBefore:</string>
+							<string>closeShiftTimes:</string>
+							<string>closeStylingAssistant:</string>
+							<string>closeTranslationAssistant:</string>
 							<string>commitEvent:</string>
 							<string>dupplicateEvent:</string>
 							<string>joinEvents:</string>
@@ -3352,6 +3385,9 @@
 							<string>void</string>
 							<string>void</string>
 							<string>void</string>
+							<string>id</string>
+							<string>id</string>
+							<string>id</string>
 							<string>void</string>
 							<string>void</string>
 							<string>void</string>
@@ -3375,10 +3411,13 @@
 							<string>layerS</string>
 							<string>layerTF</string>
 							<string>rTF</string>
+							<string>shiftW</string>
 							<string>startTF</string>
 							<string>styleCB</string>
+							<string>stylerW</string>
 							<string>textSC</string>
 							<string>textTV</string>
+							<string>translationW</string>
 							<string>vTF</string>
 						</object>
 						<object class="NSMutableArray" key="dict.values">
@@ -3395,10 +3434,13 @@
 							<string>NSStepper</string>
 							<string>NSTextField</string>
 							<string>NSTextField</string>
+							<string>NSWindow</string>
 							<string>NSTextField</string>
 							<string>NSComboBox</string>
+							<string>NSWindow</string>
 							<string>NSSegmentedControl</string>
 							<string>ASSEventTextView</string>
+							<string>NSWindow</string>
 							<string>NSTextField</string>
 						</object>
 					</object>

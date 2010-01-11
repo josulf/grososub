@@ -254,23 +254,61 @@
 	return NO;		
 }
 
-#pragma mark Translation Assistant
+#pragma mark Sheets
 - (IBAction)closeTranslationAssistant:(id) sender
 {
-	[[self translationW] orderOut:nil];
-	[NSApp endSheet:[self translationW]];
+	[translationW orderOut:nil];
+	[NSApp endSheet:translationW];
 }
 
 - (IBAction)closeStylingAssistant:(id)sender
 {
-    [[self stylerW] orderOut:nil];
-	[NSApp endSheet:[self stylerW]];
+    [stylerW orderOut:nil];
+	[NSApp endSheet:stylerW];
 }
 
 - (IBAction)closeShiftTimes:(id)sender
 {
-    [[self shiftW] orderOut:nil];
-	[NSApp endSheet:[self shiftW]];
+    [shiftW orderOut:nil];
+	[NSApp endSheet:shiftW];
+}
+
+#pragma mark Shift Times
+- (IBAction)shiftTimes:(id)sender
+{
+	NSIndexSet *selectedRows = [eTable selectedRowIndexes];
+	NSIndexSet *totalRows = [NSIndexSet indexSetWithIndexesInRange:NSMakeRange(0, [eTable numberOfRows])];
+	
+	NSUInteger r = [rowsM selectedTag];
+	NSUInteger d = [directionM selectedTag];
+	NSUInteger t = [timesM selectedTag];
+	NSUInteger time = [hundrethsTF intValue] + [secondsTF intValue] * 1000 + [minutesTF intValue] * 60000 + [hoursTF intValue] * 3600000;
+	
+	switch (r) {
+		case ASSAllRows:
+			if ([totalRows count] > 0) {
+				[[self document] shiftTimes:d affectedRows:totalRows affectedTimes:t time:time];
+			}
+			break;
+		case ASSSelectedRows:
+			if ([selectedRows count] > 0) {
+				[[self document] shiftTimes:d affectedRows:selectedRows affectedTimes:t time:time];
+			}
+			break;
+		case ASSOnwardRows:
+			if ([selectedRows count] == 1) {
+				NSUInteger len = [eTable numberOfRows] - [selectedRows firstIndex];
+				NSIndexSet *rows = [NSIndexSet indexSetWithIndexesInRange:NSMakeRange([selectedRows firstIndex], len)];
+				[[self document] shiftTimes:d affectedRows:rows affectedTimes:t time:time];
+			}
+			break;
+		default:
+			break;
+	}
+	
+	[eTable reloadData];
+	
+	[self closeShiftTimes:nil];
 }
 
 #pragma mark ASSEventTableView delegates

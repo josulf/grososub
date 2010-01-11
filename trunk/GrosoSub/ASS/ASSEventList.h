@@ -42,6 +42,7 @@
 - (void) joinEventAtIndex:(NSUInteger)aIndex withEventAtIndex:(NSUInteger)bIndex;
 														 
 - (ASSEvent *) getEventAtIndex:(NSUInteger)index;
+- (NSArray *)eventsAtIndexes:(NSIndexSet *)indexes;
 
 - (NSUInteger) countEvents;
 - (void) clean;

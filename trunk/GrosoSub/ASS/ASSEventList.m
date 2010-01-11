@@ -116,6 +116,11 @@
 	return [events objectAtIndex:index];
 }
 
+- (NSArray *)eventsAtIndexes:(NSIndexSet *)indexes
+{
+	return [events objectsAtIndexes:indexes];
+}
+
 - (NSUInteger) countEvents
 {
 	return [events count];

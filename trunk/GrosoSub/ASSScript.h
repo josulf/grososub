@@ -68,6 +68,24 @@
 - (IBAction)showStylingAssistant:(void *) sender;
 - (IBAction)showShiftTimes:(void *) sender;
 
+- (void)shiftTimes:(NSUInteger)direction affectedRows:(NSIndexSet *)rows affectedTimes:(NSUInteger)times time:(NSUInteger)time;
+
+enum ASSDirection {
+	ASSBackward = 0,
+	ASSForward = 1
+};
+
+enum ASSRows {
+	ASSAllRows = 0,
+	ASSSelectedRows = 1,
+	ASSOnwardRows = 2
+};
+
+enum ASSTimes {
+	ASSAllTimes = 0,
+	ASSStartTimes = 1,
+	ASSEndTimes = 2
+};
 
 @property (copy) NSString *name;
 @property (retain) ASSHeader *headers;

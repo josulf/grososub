@@ -401,6 +401,56 @@
 	return [styles styleNames];
 }
 
+- (void)shiftTimes:(NSUInteger)direction affectedRows:(NSIndexSet *)rows affectedTimes:(NSUInteger)times time:(NSUInteger)time
+{
+	NSUndoManager *undo = [self undoManager];
+	NSInteger secs;
+
+	if (direction == ASSBackward) {
+		secs = 0 - time;
+	} else {
+		secs = time;
+	}
+	
+	switch (times) {
+		case ASSAllTimes:
+			for (ASSEvent *ev in [events eventsAtIndexes:rows]) {
+				[ev addEndTime:secs];
+				[ev addStartTime:secs];
+			}
+			break;
+		case ASSStartTimes:
+			for (ASSEvent *ev in [events eventsAtIndexes:rows]) {
+				[ev addStartTime:secs];
+			}
+			break;
+		case ASSEndTimes:
+			for (ASSEvent *ev in [events eventsAtIndexes:rows]) {
+				[ev addEndTime:secs];
+			}
+			break;
+		default:
+			break;
+	}
+	
+	if (direction == ASSBackward) {
+		[[undo prepareWithInvocationTarget:self] shiftTimes:ASSForward affectedRows:rows affectedTimes:times time:time];
+	} else {
+		[[undo prepareWithInvocationTarget:self] shiftTimes:ASSBackward affectedRows:rows affectedTimes:times time:time];
+	}
+	if (![undo isUndoing]) {
+		[undo setActionName:@"Shift times"];
+		[self  updateChangeCount:NSChangeDone];
+	} else {
+		[self updateChangeCount:NSChangeUndone];
+	}
+	
+	ASSRange *r = [[ASSRange alloc] init];
+	[r setRange:NSMakeRange(0, 0)];
+	
+	[[NSNotificationCenter defaultCenter] postNotificationName:@"ASSEventsUpdated" object:self userInfo:[NSDictionary dictionaryWithObject:r forKey:@"range"]];
+}
+
 #pragma mark Received Actions
 - (IBAction)showStylesManager:(void *)sender
 {

@@ -26,6 +26,15 @@
 
 @synthesize	time;
 
+- (void) setTime:(CGFloat)newTime
+{
+	CGFloat t = newTime;
+	if (t < 0) {
+		t = 0;
+	}
+	time = t;
+}
+
 - (NSString *) description {
 	NSString *out;
 	NSInteger h, m, s, ht;

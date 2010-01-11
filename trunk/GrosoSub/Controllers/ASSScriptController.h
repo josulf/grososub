@@ -34,7 +34,12 @@
 	IBOutlet NSSegmentedControl *textSC, *colourSC;
 	IBOutlet ASSEventTextView *textTV;
 	
+	//Sheets
 	IBOutlet NSWindow *translationW, *stylerW, *shiftW;
+	
+	//Shift Times
+	IBOutlet NSTextField *hoursTF, *minutesTF, *secondsTF, *hundrethsTF;
+	IBOutlet NSMatrix *directionM, *rowsM, *timesM;
 }
 
 @property (retain) ASSEventTableView *eTable;
@@ -57,5 +62,6 @@
 - (IBAction)closeStylingAssistant:(id)sender;
 - (IBAction)closeShiftTimes:(id)sender;
 - (IBAction)closeTranslationAssistant:(id)sender;
+- (IBAction)shiftTimes:(id)sender;
 
 @end

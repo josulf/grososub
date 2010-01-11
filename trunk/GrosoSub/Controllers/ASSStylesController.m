@@ -332,7 +332,6 @@
 		
 		Boolean a = [fileManager removeItemAtPath:folder error:NULL];
 		
-		NSLog(@"%d, %@", a, folder);
 		[self loadStorageCB];
 		
 		[newB setEnabled:YES];

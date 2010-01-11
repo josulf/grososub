@@ -33,9 +33,14 @@
 	IBOutlet NSButton *commitB;
 	IBOutlet NSSegmentedControl *textSC, *colourSC;
 	IBOutlet ASSEventTextView *textTV;
+	
+	IBOutlet NSWindow *translationW, *stylerW, *shiftW;
 }
 
 @property (retain) ASSEventTableView *eTable;
+@property (retain) NSWindow *translationW;
+@property (retain) NSWindow *stylerW;
+@property (retain) NSWindow *shiftW;
 
 #pragma mark Actions
 - (IBAction)commitEvent:(void *)sender;
@@ -48,5 +53,9 @@
 - (IBAction)removeEvent:(void *)sender;
 - (IBAction)dupplicateEvent:(void *)sender;
 - (IBAction)joinEvents:(void *)sender;
+- (IBAction)closeTranslationAssistant:(id)sender;
+- (IBAction)closeStylingAssistant:(id)sender;
+- (IBAction)closeShiftTimes:(id)sender;
+- (IBAction)closeTranslationAssistant:(id)sender;
 
 @end

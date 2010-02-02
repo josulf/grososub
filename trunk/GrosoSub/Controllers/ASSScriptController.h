@@ -32,7 +32,7 @@
 	IBOutlet NSTextField *effectTF, *layerTF, *startTF, *endTF, *durationTF, *lTF, *rTF, *vTF;
 	IBOutlet NSStepper *layerS;
 	IBOutlet NSButton *commitB;
-	IBOutlet NSSegmentedControl *textSC, *colourSC;
+	IBOutlet NSSegmentedControl *textSC;
 	IBOutlet ASSEventTextView *textTV;
 	
 	//Sheets

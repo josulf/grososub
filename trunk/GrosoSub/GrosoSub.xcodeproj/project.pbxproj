@@ -41,7 +41,6 @@
 		8A3E20DD100E58EE00BA8697 /* ASSStyleList.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A3E20DC100E58EE00BA8697 /* ASSStyleList.m */; };
 		8A3E20DE100E58EE00BA8697 /* ASSStyleList.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A3E20DC100E58EE00BA8697 /* ASSStyleList.m */; };
 		8A3E20E2100E5B6200BA8697 /* ASSStyleListTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A3E20E1100E5B6200BA8697 /* ASSStyleListTest.m */; };
-		8A448EE21019DA9000A658AF /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 8A448EE11019DA9000A658AF /* Credits.rtf */; };
 		8A63AD9D103881690031B0AE /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A63AD9C103881690031B0AE /* Sparkle.framework */; };
 		8A63ADA81038831C0031B0AE /* dsa_pub.pem in Resources */ = {isa = PBXBuildFile; fileRef = 8A63ADA71038831C0031B0AE /* dsa_pub.pem */; };
 		8A63ADD61038876B0031B0AE /* Sparkle.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 8A63AD9C103881690031B0AE /* Sparkle.framework */; };
@@ -56,6 +55,7 @@
 		8AA2FCD81031D7FA006F5F77 /* format-text-italic.png in Resources */ = {isa = PBXBuildFile; fileRef = 8AA2FCD41031D7FA006F5F77 /* format-text-italic.png */; };
 		8AA2FD711031F88F006F5F77 /* NSString+Reverse.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AA2FD701031F88F006F5F77 /* NSString+Reverse.m */; };
 		8AA440501016446200CDC3A5 /* ASSEventTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AA4404F1016446200CDC3A5 /* ASSEventTextView.m */; };
+		8AA512DF1118C725006F5CC9 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 2A37F4BAFDCFA73011CA2CEA /* Credits.rtf */; };
 		8AADE4AF1010CB1B00D711B2 /* ASSScript.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AADE4AE1010CB1B00D711B2 /* ASSScript.m */; };
 		8AADE4FB1010D7E600D711B2 /* ASSEventTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AADE4FA1010D7E600D711B2 /* ASSEventTableView.m */; };
 		8ABA2A41101F7C8900126D4A /* ASSScriptController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8ABA2A40101F7C8900126D4A /* ASSScriptController.m */; };
@@ -111,7 +111,7 @@
 		1DDD582B0DA1D0D100B32029 /* MainMenu.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainMenu.xib; sourceTree = "<group>"; };
 		2A37F4AEFDCFA73011CA2CEA /* ASSScript.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASSScript.h; sourceTree = "<group>"; };
 		2A37F4B0FDCFA73011CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		2A37F4BAFDCFA73011CA2CEA /* English */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = English; path = English.lproj/Credits.rtf; sourceTree = "<group>"; };
+		2A37F4BAFDCFA73011CA2CEA /* Credits.rtf */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; path = Credits.rtf; sourceTree = "<group>"; };
 		2A37F4C4FDCFA73011CA2CEA /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
 		2A37F4C5FDCFA73011CA2CEA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
 		32DBCF750370BD2300C91783 /* GrosoSub_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GrosoSub_Prefix.pch; sourceTree = "<group>"; };
@@ -137,7 +137,6 @@
 		8A3E20DC100E58EE00BA8697 /* ASSStyleList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ASSStyleList.m; path = ASS/ASSStyleList.m; sourceTree = "<group>"; };
 		8A3E20E0100E5B6200BA8697 /* ASSStyleListTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ASSStyleListTest.h; path = Test/ASSStyleListTest.h; sourceTree = "<group>"; };
 		8A3E20E1100E5B6200BA8697 /* ASSStyleListTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ASSStyleListTest.m; path = Test/ASSStyleListTest.m; sourceTree = "<group>"; };
-		8A448EE31019DA9600A658AF /* eu */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = eu; path = eu.lproj/Credits.rtf; sourceTree = "<group>"; };
 		8A63AD9C103881690031B0AE /* Sparkle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Sparkle.framework; sourceTree = "<group>"; };
 		8A63ADA71038831C0031B0AE /* dsa_pub.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = dsa_pub.pem; sourceTree = "<group>"; };
 		8A63AF371038AB510031B0AE /* ASSAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ASSAppDelegate.h; path = Controllers/ASSAppDelegate.h; sourceTree = "<group>"; };
@@ -277,7 +276,7 @@
 				8A63ADA71038831C0031B0AE /* dsa_pub.pem */,
 				8AED528C100CE8770079F931 /* Test-Info.plist */,
 				8A2CE4370ED4D01200DA892E /* COPYING */,
-				8A448EE11019DA9000A658AF /* Credits.rtf */,
+				2A37F4BAFDCFA73011CA2CEA /* Credits.rtf */,
 				8D15AC360486D014006FF6A4 /* Info.plist */,
 				089C165FFE840EACC02AAC07 /* InfoPlist.strings */,
 				1DDD58280DA1D0D100B32029 /* ASSScript.xib */,
@@ -478,7 +477,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8A448EE21019DA9000A658AF /* Credits.rtf in Resources */,
+				8AA512DF1118C725006F5CC9 /* Credits.rtf in Resources */,
 				8D15AC2F0486D014006FF6A4 /* InfoPlist.strings in Resources */,
 				1DDD582C0DA1D0D100B32029 /* ASSScript.xib in Resources */,
 				8AEA718F101FB6160053B489 /* MainMenu.xib in Resources */,
@@ -618,15 +617,6 @@
 				1DDD58290DA1D0D100B32029 /* English */,
 			);
 			name = ASSScript.xib;
-			sourceTree = "<group>";
-		};
-		8A448EE11019DA9000A658AF /* Credits.rtf */ = {
-			isa = PBXVariantGroup;
-			children = (
-				2A37F4BAFDCFA73011CA2CEA /* English */,
-				8A448EE31019DA9600A658AF /* eu */,
-			);
-			name = Credits.rtf;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

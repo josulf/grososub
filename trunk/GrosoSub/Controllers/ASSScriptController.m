@@ -402,7 +402,6 @@
 			[textTV setEnabled:YES];
 			[commitB setEnabled:YES];
 			[textSC setEnabled:YES];
-			[colourSC setEnabled:YES];
 			
 			[commentB setState:![event dialogue]];
 			
@@ -445,7 +444,6 @@
 			[textTV setEnabled:NO];
 			[commitB setEnabled:NO];
 			[textSC setEnabled:NO];
-			[colourSC setEnabled:NO];
 		}
 	}
 }

@@ -23,6 +23,7 @@
 #import <Cocoa/Cocoa.h>
 @class ASSEventTableView;
 @class ASSEventTextView;
+@class ASSTranslationTextView;
 
 @interface ASSScriptController : NSWindowController {
 	IBOutlet ASSEventTableView *eTable;
@@ -40,6 +41,12 @@
 	//Shift Times
 	IBOutlet NSTextField *hoursTF, *minutesTF, *secondsTF, *hundrethsTF;
 	IBOutlet NSMatrix *directionM, *rowsM, *timesM;
+
+	//Translation
+	IBOutlet NSTextView *originalTV;
+	IBOutlet ASSTranslationTextView *translationTV;
+	IBOutlet NSTextField *currentTF;
+	NSUInteger currentEvent, finalEvent;
 }
 
 @property (retain) ASSEventTableView *eTable;
@@ -58,10 +65,12 @@
 - (IBAction)removeEvent:(void *)sender;
 - (IBAction)dupplicateEvent:(void *)sender;
 - (IBAction)joinEvents:(void *)sender;
+
 - (IBAction)closeTranslationAssistant:(id)sender;
 - (IBAction)closeStylingAssistant:(id)sender;
 - (IBAction)closeShiftTimes:(id)sender;
-- (IBAction)closeTranslationAssistant:(id)sender;
+
 - (IBAction)shiftTimes:(id)sender;
 
+- (void)startTranslation;
 @end

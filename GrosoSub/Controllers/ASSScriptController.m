@@ -257,6 +257,12 @@
 #pragma mark Sheets
 - (IBAction)closeTranslationAssistant:(id) sender
 {
+	// Stop receiving notifications
+	[[NSNotificationCenter defaultCenter] removeObserver:self name:@"ASSTranslationPrevious" object:nil];
+	[[NSNotificationCenter defaultCenter] removeObserver:self name:@"ASSTranslationNext" object:nil];
+	[[NSNotificationCenter defaultCenter] removeObserver:self name:@"ASSTranslationInsert" object:nil];
+	[[NSNotificationCenter defaultCenter] removeObserver:self name:@"ASSTranslationCommit" object:nil];
+	
 	[translationW orderOut:nil];
 	[NSApp endSheet:translationW];
 }
@@ -309,6 +315,66 @@
 	[eTable reloadData];
 	
 	[self closeShiftTimes:nil];
+}
+
+#pragma mark Translation Assistant
+- (void)updateTranslationFields
+{
+	[currentTF setStringValue:[NSString stringWithFormat:@"%d/%d", currentEvent, finalEvent]];
+	ASSEvent *event = [[self document] getEventAtIndex:currentEvent-1];
+	[originalTV setString:[event text]];
+}
+
+- (void)startTranslation
+{
+	NSIndexSet *selected = [eTable selectedRowIndexes];
+	
+	if ([selected count] == 0) {
+		currentEvent = 1;
+	} else {
+		currentEvent = [selected firstIndex] + 1;
+	}
+	finalEvent = [eTable numberOfRows];
+	
+	[self updateTranslationFields];
+	
+	// Register to receive notifications
+	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(translationPrevious:) name:@"ASSTranslationPrevious" object:nil];
+	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(translationNext:) name:@"ASSTranslationNext" object:nil];
+	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(translationInsert:) name:@"ASSTranslationInsert" object:nil];
+	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(translationCommit:) name:@"ASSTranslationCommit" object:nil];
+}
+
+- (void)translationPrevious:(NSNotification *)aNotification
+{
+	if (currentEvent > 1) {
+		currentEvent--;
+		[self updateTranslationFields];
+	}
+}
+
+- (void)translationNext:(NSNotification *)aNotification
+{
+	if (currentEvent < finalEvent) {
+		currentEvent++;
+		[self updateTranslationFields];
+	}
+}
+
+- (void)translationInsert:(NSNotification *)aNotification
+{
+	NSString *newString = [NSString stringWithFormat:@"%@%@", [translationTV string], [originalTV string]];
+	[translationTV setString:newString];
+}
+
+- (void)translationCommit:(NSNotification *)aNotification
+{
+	ASSEvent *newEvent = [[ASSEvent alloc] initWithString:[[[self document] getEventAtIndex:currentEvent-1] description]];
+	[newEvent setText:[translationTV string]];
+	[[self document] replaceEventAtIndex:currentEvent-1 withEvent:newEvent];
+	if (currentEvent < finalEvent) currentEvent++;
+	[self updateTranslationFields];
+	[translationTV setString:@""];
 }
 
 #pragma mark ASSEventTableView delegates

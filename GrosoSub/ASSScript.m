@@ -471,6 +471,7 @@
 	for (ASSScriptController *wc in [self windowControllers]) {
 		if ([[wc windowNibName] isEqualToString:@"ASSScript"]) {
 			[NSApp beginSheet:[wc translationW] modalForWindow:[self windowForSheet] modalDelegate:nil didEndSelector:NULL contextInfo:nil];
+			[wc startTranslation];
 		}
 	}	
 }

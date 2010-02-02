@@ -59,6 +59,7 @@
 		8AADE4AF1010CB1B00D711B2 /* ASSScript.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AADE4AE1010CB1B00D711B2 /* ASSScript.m */; };
 		8AADE4FB1010D7E600D711B2 /* ASSEventTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AADE4FA1010D7E600D711B2 /* ASSEventTableView.m */; };
 		8ABA2A41101F7C8900126D4A /* ASSScriptController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8ABA2A40101F7C8900126D4A /* ASSScriptController.m */; };
+		8AE9D58110FCD86F00D94505 /* ASSTranslationTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AE9D58010FCD86F00D94505 /* ASSTranslationTextView.m */; };
 		8AEA70F7101FAC790053B489 /* ASSStyles.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8AEA70F6101FAC790053B489 /* ASSStyles.xib */; };
 		8AEA70FB101FAC8D0053B489 /* ASSStylesController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AEA70FA101FAC8D0053B489 /* ASSStylesController.m */; };
 		8AEA718F101FB6160053B489 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1DDD582B0DA1D0D100B32029 /* MainMenu.xib */; };
@@ -158,6 +159,8 @@
 		8AADE4FA1010D7E600D711B2 /* ASSEventTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ASSEventTableView.m; path = Views/ASSEventTableView.m; sourceTree = "<group>"; };
 		8ABA2A3F101F7C8900126D4A /* ASSScriptController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ASSScriptController.h; path = Controllers/ASSScriptController.h; sourceTree = "<group>"; };
 		8ABA2A40101F7C8900126D4A /* ASSScriptController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ASSScriptController.m; path = Controllers/ASSScriptController.m; sourceTree = "<group>"; };
+		8AE9D57F10FCD86F00D94505 /* ASSTranslationTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ASSTranslationTextView.h; path = Views/ASSTranslationTextView.h; sourceTree = "<group>"; };
+		8AE9D58010FCD86F00D94505 /* ASSTranslationTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ASSTranslationTextView.m; path = Views/ASSTranslationTextView.m; sourceTree = "<group>"; };
 		8AEA70F6101FAC790053B489 /* ASSStyles.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ASSStyles.xib; sourceTree = "<group>"; };
 		8AEA70F9101FAC8D0053B489 /* ASSStylesController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ASSStylesController.h; path = Controllers/ASSStylesController.h; sourceTree = "<group>"; };
 		8AEA70FA101FAC8D0053B489 /* ASSStylesController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ASSStylesController.m; path = Controllers/ASSStylesController.m; sourceTree = "<group>"; };
@@ -325,6 +328,8 @@
 				8AADE4FA1010D7E600D711B2 /* ASSEventTableView.m */,
 				8AA4404E1016446200CDC3A5 /* ASSEventTextView.h */,
 				8AA4404F1016446200CDC3A5 /* ASSEventTextView.m */,
+				8AE9D57F10FCD86F00D94505 /* ASSTranslationTextView.h */,
+				8AE9D58010FCD86F00D94505 /* ASSTranslationTextView.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -584,6 +589,7 @@
 				8AF6C1F110225C09000A04FB /* ASSRange.m in Sources */,
 				8AA2FD711031F88F006F5F77 /* NSString+Reverse.m in Sources */,
 				8A63AF391038AB510031B0AE /* ASSAppDelegate.m in Sources */,
+				8AE9D58110FCD86F00D94505 /* ASSTranslationTextView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

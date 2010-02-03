@@ -269,6 +269,12 @@
 
 - (IBAction)closeStylingAssistant:(id)sender
 {
+	// Stop receiving notifications
+	[[NSNotificationCenter defaultCenter] removeObserver:self name:@"ASSStylingAssistantPrevious" object:nil];
+	[[NSNotificationCenter defaultCenter] removeObserver:self name:@"ASSStylingAssistantNext" object:nil];
+	[[NSNotificationCenter defaultCenter] removeObserver:self name:@"ASSStylingAssistantCommit" object:nil];
+	[[NSNotificationCenter defaultCenter] removeObserver:self name:@"ASSStylingAssistantSelected" object:nil];
+
     [stylerW orderOut:nil];
 	[NSApp endSheet:stylerW];
 }
@@ -375,6 +381,54 @@
 	if (currentEvent < finalEvent) currentEvent++;
 	[self updateTranslationFields];
 	[translationTV setString:@""];
+}
+
+#pragma mark Styling Assistant
+- (void)updateStylingAssistantFields
+{
+	[currentSATF setStringValue:[NSString stringWithFormat:@"%d/%d", currentEvent, finalEvent]];
+	ASSEvent *event = [[self document] getEventAtIndex:currentEvent-1];
+	[currentSATV setString:[event text]];
+}
+
+- (void)startStylingAssistant
+{
+	NSIndexSet *selected = [eTable selectedRowIndexes];
+	
+	if ([selected count] == 0) {
+		currentEvent = 1;
+	} else {
+		currentEvent = [selected firstIndex] + 1;
+	}
+	finalEvent = [eTable numberOfRows];
+	
+	[self updateStylingAssistantFields];
+	
+	// Register to receive notifications
+	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(stylingPrevious:) name:@"ASSStylingAssistantPrevious" object:nil];
+	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(stylingNext:) name:@"ASSStylingAssistantNext" object:nil];
+	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(stylingCommit:) name:@"ASSStylingAssistantCommit" object:nil];
+	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(stylingSelected:) name:@"ASSStylingAssistantSelected" object:nil];
+}
+
+- (void)stylingPrevious:(NSNotification *)aNotification
+{
+	NSLog(@"Prev");
+}
+
+- (void)stylingNext:(NSNotification *)aNotification
+{
+	NSLog(@"Next");
+}
+
+- (void)stylingCommit:(NSNotification *)aNotification
+{
+	NSLog(@"Ci");
+}
+
+- (void)stylingSelected:(NSNotification *)aNotification
+{
+	NSLog(@"Sel");
 }
 
 #pragma mark ASSEventTableView delegates

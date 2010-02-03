@@ -481,6 +481,7 @@
 	for (ASSScriptController *wc in [self windowControllers]) {
 		if ([[wc windowNibName] isEqualToString:@"ASSScript"]) {
 			[NSApp beginSheet:[wc stylerW] modalForWindow:[self windowForSheet] modalDelegate:nil didEndSelector:NULL contextInfo:nil];
+			[wc startStylingAssistant];
 		}
 	}	
 }

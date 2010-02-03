@@ -24,6 +24,8 @@
 @class ASSEventTableView;
 @class ASSEventTextView;
 @class ASSTranslationTextView;
+@class ASSSATableView;
+@class ASSSATextView;
 
 @interface ASSScriptController : NSWindowController {
 	IBOutlet ASSEventTableView *eTable;
@@ -46,6 +48,15 @@
 	IBOutlet NSTextView *originalTV;
 	IBOutlet ASSTranslationTextView *translationTV;
 	IBOutlet NSTextField *currentTF;
+	
+	//Styling Assistant
+	IBOutlet NSTextView *currentSATV;
+	IBOutlet NSTextField *actorSATF;
+	IBOutlet ASSSATextView *styleSATV;
+	IBOutlet ASSSATableView *stylesSATV;
+	IBOutlet NSTextField *currentSATF;
+	
+	//SA&T
 	NSUInteger currentEvent, finalEvent;
 }
 
@@ -73,4 +84,6 @@
 - (IBAction)shiftTimes:(id)sender;
 
 - (void)startTranslation;
+
+- (void)startStylingAssistant;
 @end

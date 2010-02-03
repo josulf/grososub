@@ -58,6 +58,8 @@
 		8AA512DF1118C725006F5CC9 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 2A37F4BAFDCFA73011CA2CEA /* Credits.rtf */; };
 		8AADE4AF1010CB1B00D711B2 /* ASSScript.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AADE4AE1010CB1B00D711B2 /* ASSScript.m */; };
 		8AADE4FB1010D7E600D711B2 /* ASSEventTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AADE4FA1010D7E600D711B2 /* ASSEventTableView.m */; };
+		8AB36AD21119FD2A002E7ED9 /* ASSSATableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AB36AD11119FD2A002E7ED9 /* ASSSATableView.m */; };
+		8AB36B04111A007E002E7ED9 /* ASSSATextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AB36B03111A007E002E7ED9 /* ASSSATextView.m */; };
 		8ABA2A41101F7C8900126D4A /* ASSScriptController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8ABA2A40101F7C8900126D4A /* ASSScriptController.m */; };
 		8AE9D58110FCD86F00D94505 /* ASSTranslationTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AE9D58010FCD86F00D94505 /* ASSTranslationTextView.m */; };
 		8AEA70F7101FAC790053B489 /* ASSStyles.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8AEA70F6101FAC790053B489 /* ASSStyles.xib */; };
@@ -156,6 +158,10 @@
 		8AADE4AE1010CB1B00D711B2 /* ASSScript.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASSScript.m; sourceTree = "<group>"; };
 		8AADE4F91010D7E600D711B2 /* ASSEventTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ASSEventTableView.h; path = Views/ASSEventTableView.h; sourceTree = "<group>"; };
 		8AADE4FA1010D7E600D711B2 /* ASSEventTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ASSEventTableView.m; path = Views/ASSEventTableView.m; sourceTree = "<group>"; };
+		8AB36AD01119FD2A002E7ED9 /* ASSSATableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ASSSATableView.h; path = Views/ASSSATableView.h; sourceTree = "<group>"; };
+		8AB36AD11119FD2A002E7ED9 /* ASSSATableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ASSSATableView.m; path = Views/ASSSATableView.m; sourceTree = "<group>"; };
+		8AB36B02111A007E002E7ED9 /* ASSSATextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ASSSATextView.h; path = Views/ASSSATextView.h; sourceTree = "<group>"; };
+		8AB36B03111A007E002E7ED9 /* ASSSATextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ASSSATextView.m; path = Views/ASSSATextView.m; sourceTree = "<group>"; };
 		8ABA2A3F101F7C8900126D4A /* ASSScriptController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ASSScriptController.h; path = Controllers/ASSScriptController.h; sourceTree = "<group>"; };
 		8ABA2A40101F7C8900126D4A /* ASSScriptController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ASSScriptController.m; path = Controllers/ASSScriptController.m; sourceTree = "<group>"; };
 		8AE9D57F10FCD86F00D94505 /* ASSTranslationTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ASSTranslationTextView.h; path = Views/ASSTranslationTextView.h; sourceTree = "<group>"; };
@@ -329,6 +335,10 @@
 				8AA4404F1016446200CDC3A5 /* ASSEventTextView.m */,
 				8AE9D57F10FCD86F00D94505 /* ASSTranslationTextView.h */,
 				8AE9D58010FCD86F00D94505 /* ASSTranslationTextView.m */,
+				8AB36AD01119FD2A002E7ED9 /* ASSSATableView.h */,
+				8AB36AD11119FD2A002E7ED9 /* ASSSATableView.m */,
+				8AB36B02111A007E002E7ED9 /* ASSSATextView.h */,
+				8AB36B03111A007E002E7ED9 /* ASSSATextView.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -589,6 +599,8 @@
 				8AA2FD711031F88F006F5F77 /* NSString+Reverse.m in Sources */,
 				8A63AF391038AB510031B0AE /* ASSAppDelegate.m in Sources */,
 				8AE9D58110FCD86F00D94505 /* ASSTranslationTextView.m in Sources */,
+				8AB36AD21119FD2A002E7ED9 /* ASSSATableView.m in Sources */,
+				8AB36B04111A007E002E7ED9 /* ASSSATextView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

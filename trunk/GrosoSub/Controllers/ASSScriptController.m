@@ -60,6 +60,16 @@
 	[newEvent setText:[textTV string]];
 	
 	[[self document] replaceEventAtIndex:[eTable selectedRow] withEvent:newEvent];
+	
+	if ([eTable selectedRow] == [[self document] countEvents]-1) {
+		// Add a event and go to it
+		[[self document] addEvent:[[ASSEvent alloc] init] atIndex:[[self document] countEvents]];
+		[eTable reloadData];
+		[eTable selectRowIndexes:[NSIndexSet indexSetWithIndex:[eTable selectedRow]+1] byExtendingSelection:NO];
+	} else {
+		// Go to next event
+		[eTable selectRowIndexes:[NSIndexSet indexSetWithIndex:[eTable selectedRow]+1] byExtendingSelection:NO];
+	}
 }
 
 - (IBAction)textActions:(void *)sender

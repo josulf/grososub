@@ -273,7 +273,6 @@
 	[[NSNotificationCenter defaultCenter] removeObserver:self name:@"ASSStylingAssistantPrevious" object:nil];
 	[[NSNotificationCenter defaultCenter] removeObserver:self name:@"ASSStylingAssistantNext" object:nil];
 	[[NSNotificationCenter defaultCenter] removeObserver:self name:@"ASSStylingAssistantCommit" object:nil];
-	[[NSNotificationCenter defaultCenter] removeObserver:self name:@"ASSStylingAssistantSelected" object:nil];
 
     [stylerW orderOut:nil];
 	[NSApp endSheet:stylerW];
@@ -389,6 +388,7 @@
 	[currentSATF setStringValue:[NSString stringWithFormat:@"%d/%d", currentEvent, finalEvent]];
 	ASSEvent *event = [[self document] getEventAtIndex:currentEvent-1];
 	[currentSATV setString:[event text]];
+	[actorSATF setStringValue:[event name]];
 }
 
 - (void)startStylingAssistant
@@ -403,32 +403,42 @@
 	finalEvent = [eTable numberOfRows];
 	
 	[self updateStylingAssistantFields];
+	[stylesSATV reloadData];
 	
 	// Register to receive notifications
 	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(stylingPrevious:) name:@"ASSStylingAssistantPrevious" object:nil];
 	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(stylingNext:) name:@"ASSStylingAssistantNext" object:nil];
 	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(stylingCommit:) name:@"ASSStylingAssistantCommit" object:nil];
-	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(stylingSelected:) name:@"ASSStylingAssistantSelected" object:nil];
 }
 
 - (void)stylingPrevious:(NSNotification *)aNotification
 {
-	NSLog(@"Prev");
+	if (currentEvent > 1) {
+		currentEvent--;
+		[self updateStylingAssistantFields];
+	}
 }
 
 - (void)stylingNext:(NSNotification *)aNotification
 {
-	NSLog(@"Next");
+	if (currentEvent < finalEvent) {
+		currentEvent++;
+		[self updateStylingAssistantFields];
+	}
 }
 
 - (void)stylingCommit:(NSNotification *)aNotification
 {
-	NSLog(@"Ci");
-}
-
-- (void)stylingSelected:(NSNotification *)aNotification
-{
-	NSLog(@"Sel");
+	ASSEvent *oldEvent = [[self document] getEventAtIndex:currentEvent-1];
+	ASSEvent *newEvent = [[ASSEvent alloc] initWithString:[oldEvent description]];
+	ASSStyle *style = [[self document] getStyleAtIndex:[stylesSATV selectedRow]];
+	
+	[newEvent setStyle:[style name]];
+		
+	[[self document] replaceEventAtIndex:currentEvent-1 withEvent:newEvent];
+	
+	if (currentEvent < finalEvent) currentEvent++;
+	[self updateStylingAssistantFields];
 }
 
 #pragma mark ASSEventTableView delegates
@@ -505,66 +515,74 @@
 #pragma mark NSDataSource informal protocol
 - (id)tableView:(NSTableView *)aTableView objectValueForTableColumn:(NSTableColumn *)aTableColumn row:(int)rowIndex
 {
-	ASSEvent *e = [[self document] getEventAtIndex:rowIndex];
-	NSString *ident = [aTableColumn identifier];
+	if (aTableView == eTable) {
+		ASSEvent *e = [[self document] getEventAtIndex:rowIndex];
+		NSString *ident = [aTableColumn identifier];
 	
-	if ([ident isEqualToString:@"number"]) {
-		return [NSString stringWithFormat:@"%d", rowIndex+1];
-	} else if ([ident isEqualToString:@"type"]) {
-		if ([e dialogue] == YES) {
-			return @"D";
-		} else {
-			return @"C";
-		}
-	} else if ([ident isEqualToString:@"layer"]) {
-		return [NSString stringWithFormat:@"%d", [e layer]];
-	} else if ([ident isEqualToString:@"start"]) {
-		return [[e start] description];
-	} else if ([ident isEqualToString:@"end"]) {
-		return [[e end] description];
-	} else if ([ident isEqualToString:@"style"]) {
-		return [e style];
-	} else if ([ident isEqualToString:@"name"]) {
-		return [e name];
-	} else if ([ident isEqualToString:@"marginL"]) {
-		return [NSString stringWithFormat:@"%.4d", [e marginL]];
-	} else if ([ident isEqualToString:@"marginR"]) {
-		return [NSString stringWithFormat:@"%.4d", [e marginR]];
-	} else if ([ident isEqualToString:@"marginV"]) {
-		return [NSString stringWithFormat:@"%.4d", [e marginV]];
-	} else if ([ident isEqualToString:@"effect"]) {
-		return [e effect];
-	} else if ([ident isEqualToString:@"text"]) {
-		NSMutableString *outText = [[e text] mutableCopy];
-		NSScanner *outScanner = [NSScanner scannerWithString:outText];
-		NSMutableArray *ranges = [[NSMutableArray alloc] init];
+		if ([ident isEqualToString:@"number"]) {
+			return [NSString stringWithFormat:@"%d", rowIndex+1];
+		} else if ([ident isEqualToString:@"type"]) {
+			if ([e dialogue] == YES) {
+				return @"D";
+			} else {
+				return @"C";
+			}
+		} else if ([ident isEqualToString:@"layer"]) {
+			return [NSString stringWithFormat:@"%d", [e layer]];
+		} else if ([ident isEqualToString:@"start"]) {
+			return [[e start] description];
+		} else if ([ident isEqualToString:@"end"]) {
+			return [[e end] description];
+		} else if ([ident isEqualToString:@"style"]) {
+			return [e style];
+		} else if ([ident isEqualToString:@"name"]) {
+			return [e name];
+		} else if ([ident isEqualToString:@"marginL"]) {
+			return [NSString stringWithFormat:@"%.4d", [e marginL]];
+		} else if ([ident isEqualToString:@"marginR"]) {
+			return [NSString stringWithFormat:@"%.4d", [e marginR]];
+		} else if ([ident isEqualToString:@"marginV"]) {
+			return [NSString stringWithFormat:@"%.4d", [e marginV]];
+		} else if ([ident isEqualToString:@"effect"]) {
+			return [e effect];
+		} else if ([ident isEqualToString:@"text"]) {
+			NSMutableString *outText = [[e text] mutableCopy];
+			NSScanner *outScanner = [NSScanner scannerWithString:outText];
+			NSMutableArray *ranges = [[NSMutableArray alloc] init];
 		
-		while (![outScanner isAtEnd]) {
-			NSRange range;
-			[outScanner scanUpToString:@"{" intoString:NULL];
-			if (![outScanner isAtEnd]) {
-				range.location = [outScanner scanLocation];
-				[outScanner scanUpToString:@"}" intoString:NULL];
+			while (![outScanner isAtEnd]) {
+				NSRange range;
+				[outScanner scanUpToString:@"{" intoString:NULL];
 				if (![outScanner isAtEnd]) {
-					range.length = [outScanner scanLocation] + 1 - range.location;
-					NSValue *r = [NSValue valueWithRange:range];
-					[ranges addObject:r];
+					range.location = [outScanner scanLocation];
+					[outScanner scanUpToString:@"}" intoString:NULL];
+					if (![outScanner isAtEnd]) {
+						range.length = [outScanner scanLocation] + 1 - range.location;
+						NSValue *r = [NSValue valueWithRange:range];
+						[ranges addObject:r];
+					}
 				}
 			}
-		}
-		for (NSValue *r in [ranges reverseObjectEnumerator]) {
-			[outText replaceCharactersInRange:[r rangeValue] withString:@"⌘"];
-		}
+			for (NSValue *r in [ranges reverseObjectEnumerator]) {
+				[outText replaceCharactersInRange:[r rangeValue] withString:@"⌘"];
+			}
 		
-		return outText;
+			return outText;
+		}
+	} else if (aTableView == (NSTableView *)stylesSATV) {
+		return [[[self document] getStyleAtIndex:rowIndex] name];
 	}
-	
-	return @"WTF";	
+	return @"WTF!!!!!111!!!";
 }
 
 - (int)numberOfRowsInTableView:(NSTableView *)aTableView
 {
-	return [[self document] countEvents];
+	if (aTableView == eTable) {
+		return [[self document] countEvents];
+	} else if (aTableView == (NSTableView *)stylesSATV) {
+		return [[self document] countStyles];
+	}
+	return 0;
 }
 
 #pragma mark Notifications

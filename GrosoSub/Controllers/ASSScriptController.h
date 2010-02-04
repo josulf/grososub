@@ -52,7 +52,6 @@
 	//Styling Assistant
 	IBOutlet NSTextView *currentSATV;
 	IBOutlet NSTextField *actorSATF;
-	IBOutlet ASSSATextView *styleSATV;
 	IBOutlet ASSSATableView *stylesSATV;
 	IBOutlet NSTextField *currentSATF;
 	

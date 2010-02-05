@@ -524,7 +524,7 @@
 }
 
 #pragma mark NSDataSource informal protocol
-- (id)tableView:(NSTableView *)aTableView objectValueForTableColumn:(NSTableColumn *)aTableColumn row:(int)rowIndex
+- (id)tableView:(NSTableView *)aTableView objectValueForTableColumn:(NSTableColumn *)aTableColumn row:(NSInteger)rowIndex
 {
 	if (aTableView == eTable) {
 		ASSEvent *e = [[self document] getEventAtIndex:rowIndex];
@@ -590,7 +590,7 @@
 	return @"WTF!!!!!111!!!";
 }
 
-- (int)numberOfRowsInTableView:(NSTableView *)aTableView
+- (NSInteger)numberOfRowsInTableView:(NSTableView *)aTableView
 {
 	if (aTableView == eTable) {
 		return [[self document] countEvents];

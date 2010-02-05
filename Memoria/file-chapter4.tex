@@ -701,6 +701,45 @@ Programaren izaera dela eta, egoera desberdinekin aurkituko gara. Definituko dir
 \end{enumerate}
 
 \section{Diseinua}
+\subsection{Dokumentuetan oinarritutako aplikazioak}
+Gure aplikazioak oso komunak diren funtzionalitate batzuk izan behar ditu: fitxategiak ireki, berriak sortu, itxi, etab. Aplikazio hauek dokumentuetan oinarritutakoak dira, eta oso komunak direnez, Cocoa API-ak hauek garatzeko erreztasun asko ematen ditu. \textbf{MVC}\footnote{Model View Controller} patroia jarraituko da diseinua egiterako orduan, nahiz eta klase batzuk mota bat baino gehiagokoak izango diren aurrerago ikusiko dugunez.
+\subsubsection{Dokumentu arkitektura}
+Horrelako aplikazioak gauzatzeko hiru klase eskaintzen ditu Cocoa-k. Lehenik eta behin \texttt{NSDocument} klasea daukagu. Honen azpiklase bat sortuko dugu dokumentuaren (ASS fitxategia gure kasuan) egitura gordetzeko. Nahiz eta zenbait dokumentu formatu onartuko dituen programak (ASS, SRT eta TXT), ASS-rekin lan egingo du barrutik, beraz azpiklase bakarra sortuko dugu. Klase hau \textit{Model} eta \textit{Controller} motakoa izango da.
+
+Ondoren \texttt{NSWindowController} klasea daukagu. Sortuko dugun aplikazioak lehio bakarra edukiko badu, honen azpiklasea egitea ez da beharrezkoa izango. Gure kasuan lehio bat baino gehiago edukiko dugu dokumentu bakar batentzako, beraz lehio mota bakoitzeko azpiklase bat sortuko dugu. Klaseak interfazearen ekintzak jasoko ditu eta \textit{Model} klasea eguneratuko du. Gainera, azpiklase bakoitza \textbf{NIB} fitxategi konkretu batera lotuta egongo da, non interfazea gordeko den (modu grafikoan editatzen dira fitxategi hauek interfaze grafikoa osatzeko). Hau \textit{Controller} motako klasea da.
+
+Azkenik \texttt{NSDocumentController} klasearekin aurkituko gara, baina honen azpiklaserik ez dugu beharko. Honen eginkizuna dokumentuak maneiatzea da: berriak sortzea, ixtea, etab.
+
+\subsubsection{Ohiko atazak}
+Lehen esan bezala, badaude programa hauetan oso ohikoak diren funtzionalitate batzuk, eta dokumentu arkitekturak lana asko errazten digu hauek inplementatzeko. \texttt{NSDocument}-en azpiklasean bi metodo inplementatu beharko dira:
+\begin{itemize}
+\item \texttt{-dataOfType:error:}:
+
+\texttt{NSData} motako objektu bat (\texttt{NSString} bat kodifikazioa espezifiko batekin, \textbf{UTF8} gure kasuan) itzuli behar du dokumentuaren edukiarekin fitxategi batean gordetzeko. \texttt{typeName} parametroarekin jakingo dugu zein den fitxategiaren formatua.
+
+\item \texttt{-readFromData:ofType:error:}:
+
+\texttt{NSData} motako objektu bat eta fitxategiaren formatua jasotzen du. Bere eginkizuna zera da: edukia irakurtzea eta dokumentuko datu egiturak betetzea.
+\end{itemize}
+
+Erabilpen kasu hauen sekuentzia diagramak ez dira egingo: G01 - Fitxategia ireki, G02 - Script berria sortu eta G03 - Fitxategia gorde, Apple-en dokumentazioan\footnote{Apple-en dokumentazioko\cite{ap:dba} 29. orrialdean} aurkitu daitezkeelako, nahiz eta apur bat zahartuta egon (goian aipatutako metodoak ez dira erabiltzen, hauen ordez apur bat zaharragoak baina eginkizun berdina dutenak erabiltzen dira).
+
+Sekuentzia diagramak ikusita, guk oso gutxi programatu beharko dugu (bi funtzio) fitxategiak ireki, itxi eta gordetzeko, kode asko aurreztuz (adibidez ez dugu fitxategia aukeratzeko panela maneiatu beharko edo dokumentuaren instantzia berria sortu beharko).
+
+\subsubsection{Desegin/Berregin}
+Aukera hauek inplementatzeko dokumentu arkitekturak ere lana asko erreztuko digu. \texttt{NSDocument}-ek \texttt{NSUndoManager} en instantzia bat dauka. Adibidez, aplikazioan lerro berri bat gehitzen dugunean, \texttt{NSUndoManager}-ean kontrako ekintza erregistratuko dugu, kasu honetan lerroa kentzea. Azken finean bi pila dauzka \texttt{NSUndoManager}-ek, bat desegiteko ekintzekin eta beste bat berregiteko ekintzekin. Desegitea aukeratzen dugunean, berregiteko pilan txertatuko da kontrako ekintza eta alderantziz. Menuko aukerak ere automatikoki kudeatuko dira guk ezer egin gabe.
+
+\subsubsection{Dokumentuaren egoera}
+Dokumentuan aldaketaren bat egin badugu, dokumentuaren aldaketa kontagailua inkrementatuko dugu. Kontagailu hau 0 ez bada, dokumentua zikin dagoela esango dugu, hau da, fitxategi sisteman dagoen fitxategia eta aplikazioan kargatuta dagoen dokumentua ez dira berdinak. Programa ixten saiatzen bagara, mezu bat agertuko zaigu zer egin nahi dugun galdetuz (gorde, ez gorde edo ezeztatu).
+
+Aldaketaren bat desegiten badugu, kontagailua murriztuko da, eta fitxategia gordetzen badugu, kontagailuaren balioa 0 izango da berriz ere.
+
+Aurreko kasuetan bezala, esfortzu gutxirekin (kode lerrorik gabe), funtzionalitate hau inplementatuta edukiko dugu.
+
+\subsubsection{Informazio gehiago}
+Atal honetan ikusi dugunez, erraztasun asko ematen dizkigu dokumentu arkitekturak, baina askoz gauza gehiago egiteko ere gai da. Informazio gehiago aurkitu daiteke Apple-ek eskaintzen duen dokumentazioan\cite{ap:dba}.
+
+\subsection{Sekuentzia diagramak}
 
 \section{Inplementazioa}
 

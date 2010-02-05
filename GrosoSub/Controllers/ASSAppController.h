@@ -1,9 +1,9 @@
 //
-//  ASSAppDelegate.m
+//  ASSAppController.h
 //  GrosoSub
 //
-//  Created by Josu López Fernández on 16/08/09.
-//  Copyright (C) 2009 Josu López Fernández <fregona@fregona.biz>.
+//  Created by Josu López Fernández on 04/02/10.
+//  Copyright (C) 2010 Josu López Fernández <fregona@fregona.biz>.
 //	All rights reserved.
 //
 //	This program is free software; you can redistribute it and/or modify
@@ -20,12 +20,12 @@
 //  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 //
 
-#import "ASSAppDelegate.h"
+#import <Cocoa/Cocoa.h>
+@class ASSPreferenceController;
 
-
-@implementation ASSAppDelegate
-- (BOOL)applicationShouldOpenUntitledFile:(NSApplication *)sender
-{
-	return NO;
+@interface ASSAppController : NSObject {
+	ASSPreferenceController *preferenceController;
 }
+- (IBAction)showPreferencePanel:(id)sender;
+
 @end

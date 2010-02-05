@@ -30,6 +30,7 @@
 #import "ASSScript.h"
 #import "ASSRange.h"
 #import "NSString+Reverse.h"
+#import "ASSPreferenceController.h"
 
 @implementation ASSScriptController
 
@@ -556,28 +557,32 @@
 		} else if ([ident isEqualToString:@"effect"]) {
 			return [e effect];
 		} else if ([ident isEqualToString:@"text"]) {
-			NSMutableString *outText = [[e text] mutableCopy];
-			NSScanner *outScanner = [NSScanner scannerWithString:outText];
-			NSMutableArray *ranges = [[NSMutableArray alloc] init];
+			if ([[NSUserDefaults standardUserDefaults] boolForKey:ASSReplaceASSKey]) {
+				NSMutableString *outText = [[e text] mutableCopy];
+				NSScanner *outScanner = [NSScanner scannerWithString:outText];
+				NSMutableArray *ranges = [[NSMutableArray alloc] init];
 		
-			while (![outScanner isAtEnd]) {
-				NSRange range;
-				[outScanner scanUpToString:@"{" intoString:NULL];
-				if (![outScanner isAtEnd]) {
-					range.location = [outScanner scanLocation];
-					[outScanner scanUpToString:@"}" intoString:NULL];
+				while (![outScanner isAtEnd]) {
+					NSRange range;
+					[outScanner scanUpToString:@"{" intoString:NULL];
 					if (![outScanner isAtEnd]) {
-						range.length = [outScanner scanLocation] + 1 - range.location;
-						NSValue *r = [NSValue valueWithRange:range];
-						[ranges addObject:r];
+						range.location = [outScanner scanLocation];
+						[outScanner scanUpToString:@"}" intoString:NULL];
+						if (![outScanner isAtEnd]) {
+							range.length = [outScanner scanLocation] + 1 - range.location;
+							NSValue *r = [NSValue valueWithRange:range];
+							[ranges addObject:r];
+						}
 					}
 				}
-			}
-			for (NSValue *r in [ranges reverseObjectEnumerator]) {
-				[outText replaceCharactersInRange:[r rangeValue] withString:@"⌘"];
-			}
+				for (NSValue *r in [ranges reverseObjectEnumerator]) {
+					[outText replaceCharactersInRange:[r rangeValue] withString:[[NSUserDefaults standardUserDefaults] stringForKey:ASSReplaceStringKey]];
+				}
 		
-			return outText;
+				return outText;
+			} else {
+				return [e text];
+			}
 		}
 	} else if (aTableView == (NSTableView *)stylesSATV) {
 		return [[[self document] getStyleAtIndex:rowIndex] name];

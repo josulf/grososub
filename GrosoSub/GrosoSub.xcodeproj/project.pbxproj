@@ -22,7 +22,6 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
-		1DDD582C0DA1D0D100B32029 /* ASSScript.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1DDD58280DA1D0D100B32029 /* ASSScript.xib */; };
 		8A254381103B13A500797BFA /* edit-copy.png in Resources */ = {isa = PBXBuildFile; fileRef = 8A25437C103B13A500797BFA /* edit-copy.png */; };
 		8A254382103B13A500797BFA /* go-previous.png in Resources */ = {isa = PBXBuildFile; fileRef = 8A25437D103B13A500797BFA /* go-previous.png */; };
 		8A254383103B13A500797BFA /* go-next.png in Resources */ = {isa = PBXBuildFile; fileRef = 8A25437E103B13A500797BFA /* go-next.png */; };
@@ -41,10 +40,13 @@
 		8A3E20DD100E58EE00BA8697 /* ASSStyleList.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A3E20DC100E58EE00BA8697 /* ASSStyleList.m */; };
 		8A3E20DE100E58EE00BA8697 /* ASSStyleList.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A3E20DC100E58EE00BA8697 /* ASSStyleList.m */; };
 		8A3E20E2100E5B6200BA8697 /* ASSStyleListTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A3E20E1100E5B6200BA8697 /* ASSStyleListTest.m */; };
+		8A46BCAB111B799E00DFB2EB /* ASSAppController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A46BCAA111B799E00DFB2EB /* ASSAppController.m */; };
+		8A46BCAE111B7ABD00DFB2EB /* ASSPreferenceController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A46BCAD111B7ABD00DFB2EB /* ASSPreferenceController.m */; };
+		8A46BCB0111B7B2400DFB2EB /* Preferences.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8A46BCAF111B7B2400DFB2EB /* Preferences.xib */; };
+		8A46BD24111B965600DFB2EB /* ASSScript.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1DDD58290DA1D0D100B32029 /* ASSScript.xib */; };
 		8A63AD9D103881690031B0AE /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A63AD9C103881690031B0AE /* Sparkle.framework */; };
 		8A63ADA81038831C0031B0AE /* dsa_pub.pem in Resources */ = {isa = PBXBuildFile; fileRef = 8A63ADA71038831C0031B0AE /* dsa_pub.pem */; };
 		8A63ADD61038876B0031B0AE /* Sparkle.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 8A63AD9C103881690031B0AE /* Sparkle.framework */; };
-		8A63AF391038AB510031B0AE /* ASSAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A63AF381038AB510031B0AE /* ASSAppDelegate.m */; };
 		8A668B9210195CB00053F77F /* grososrt.icns in Resources */ = {isa = PBXBuildFile; fileRef = 8A668B8E10195CB00053F77F /* grososrt.icns */; };
 		8A668B9310195CB00053F77F /* grosoass.icns in Resources */ = {isa = PBXBuildFile; fileRef = 8A668B8F10195CB00053F77F /* grosoass.icns */; };
 		8A668B9410195CB00053F77F /* groso.icns in Resources */ = {isa = PBXBuildFile; fileRef = 8A668B9010195CB00053F77F /* groso.icns */; };
@@ -108,7 +110,7 @@
 		089C1660FE840EACC02AAC07 /* English */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		1058C7A7FEA54F5311CA2CBB /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
 		13E42FBA07B3F13500E4EEF1 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = /System/Library/Frameworks/CoreData.framework; sourceTree = "<absolute>"; };
-		1DDD58290DA1D0D100B32029 /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = English.lproj/ASSScript.xib; sourceTree = "<group>"; };
+		1DDD58290DA1D0D100B32029 /* ASSScript.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ASSScript.xib; sourceTree = "<group>"; };
 		1DDD582B0DA1D0D100B32029 /* MainMenu.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainMenu.xib; sourceTree = "<group>"; };
 		2A37F4AEFDCFA73011CA2CEA /* ASSScript.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASSScript.h; sourceTree = "<group>"; };
 		2A37F4B0FDCFA73011CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -138,10 +140,13 @@
 		8A3E20DC100E58EE00BA8697 /* ASSStyleList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ASSStyleList.m; path = ASS/ASSStyleList.m; sourceTree = "<group>"; };
 		8A3E20E0100E5B6200BA8697 /* ASSStyleListTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ASSStyleListTest.h; path = Test/ASSStyleListTest.h; sourceTree = "<group>"; };
 		8A3E20E1100E5B6200BA8697 /* ASSStyleListTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ASSStyleListTest.m; path = Test/ASSStyleListTest.m; sourceTree = "<group>"; };
+		8A46BCA9111B799E00DFB2EB /* ASSAppController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ASSAppController.h; path = Controllers/ASSAppController.h; sourceTree = "<group>"; };
+		8A46BCAA111B799E00DFB2EB /* ASSAppController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ASSAppController.m; path = Controllers/ASSAppController.m; sourceTree = "<group>"; };
+		8A46BCAC111B7ABD00DFB2EB /* ASSPreferenceController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ASSPreferenceController.h; path = Controllers/ASSPreferenceController.h; sourceTree = "<group>"; };
+		8A46BCAD111B7ABD00DFB2EB /* ASSPreferenceController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ASSPreferenceController.m; path = Controllers/ASSPreferenceController.m; sourceTree = "<group>"; };
+		8A46BCAF111B7B2400DFB2EB /* Preferences.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Preferences.xib; sourceTree = "<group>"; };
 		8A63AD9C103881690031B0AE /* Sparkle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Sparkle.framework; sourceTree = "<group>"; };
 		8A63ADA71038831C0031B0AE /* dsa_pub.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = dsa_pub.pem; sourceTree = "<group>"; };
-		8A63AF371038AB510031B0AE /* ASSAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ASSAppDelegate.h; path = Controllers/ASSAppDelegate.h; sourceTree = "<group>"; };
-		8A63AF381038AB510031B0AE /* ASSAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ASSAppDelegate.m; path = Controllers/ASSAppDelegate.m; sourceTree = "<group>"; };
 		8A668B8E10195CB00053F77F /* grososrt.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = grososrt.icns; path = Icons/grososrt.icns; sourceTree = "<group>"; };
 		8A668B8F10195CB00053F77F /* grosoass.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = grosoass.icns; path = Icons/grosoass.icns; sourceTree = "<group>"; };
 		8A668B9010195CB00053F77F /* groso.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = groso.icns; path = Icons/groso.icns; sourceTree = "<group>"; };
@@ -282,10 +287,11 @@
 				2A37F4BAFDCFA73011CA2CEA /* Credits.rtf */,
 				8D15AC360486D014006FF6A4 /* Info.plist */,
 				089C165FFE840EACC02AAC07 /* InfoPlist.strings */,
-				1DDD58280DA1D0D100B32029 /* ASSScript.xib */,
+				1DDD58290DA1D0D100B32029 /* ASSScript.xib */,
 				1DDD582B0DA1D0D100B32029 /* MainMenu.xib */,
 				8AEA70F6101FAC790053B489 /* ASSStyles.xib */,
 				8AF8B60B10209CA5000159F9 /* ASSHeaders.xib */,
+				8A46BCAF111B7B2400DFB2EB /* Preferences.xib */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -317,8 +323,10 @@
 				8AEA70FA101FAC8D0053B489 /* ASSStylesController.m */,
 				8AF8B60710209BD4000159F9 /* ASSHeadersController.h */,
 				8AF8B60810209BD4000159F9 /* ASSHeadersController.m */,
-				8A63AF371038AB510031B0AE /* ASSAppDelegate.h */,
-				8A63AF381038AB510031B0AE /* ASSAppDelegate.m */,
+				8A46BCA9111B799E00DFB2EB /* ASSAppController.h */,
+				8A46BCAA111B799E00DFB2EB /* ASSAppController.m */,
+				8A46BCAC111B7ABD00DFB2EB /* ASSPreferenceController.h */,
+				8A46BCAD111B7ABD00DFB2EB /* ASSPreferenceController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -484,7 +492,7 @@
 			files = (
 				8AA512DF1118C725006F5CC9 /* Credits.rtf in Resources */,
 				8D15AC2F0486D014006FF6A4 /* InfoPlist.strings in Resources */,
-				1DDD582C0DA1D0D100B32029 /* ASSScript.xib in Resources */,
+				8A46BD24111B965600DFB2EB /* ASSScript.xib in Resources */,
 				8AEA718F101FB6160053B489 /* MainMenu.xib in Resources */,
 				8A2CE4380ED4D01200DA892E /* COPYING in Resources */,
 				8A668B9210195CB00053F77F /* grososrt.icns in Resources */,
@@ -503,6 +511,7 @@
 				8A254383103B13A500797BFA /* go-next.png in Resources */,
 				8A254384103B13A500797BFA /* document-new.png in Resources */,
 				8A254385103B13A500797BFA /* edit-delete.png in Resources */,
+				8A46BCB0111B7B2400DFB2EB /* Preferences.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -592,9 +601,10 @@
 				8AF8B60910209BD4000159F9 /* ASSHeadersController.m in Sources */,
 				8AF6C1F110225C09000A04FB /* ASSRange.m in Sources */,
 				8AA2FD711031F88F006F5F77 /* NSString+Reverse.m in Sources */,
-				8A63AF391038AB510031B0AE /* ASSAppDelegate.m in Sources */,
 				8AE9D58110FCD86F00D94505 /* ASSTranslationTextView.m in Sources */,
 				8AB36AD21119FD2A002E7ED9 /* ASSSATableView.m in Sources */,
+				8A46BCAB111B799E00DFB2EB /* ASSAppController.m in Sources */,
+				8A46BCAE111B7ABD00DFB2EB /* ASSPreferenceController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -615,14 +625,6 @@
 				089C1660FE840EACC02AAC07 /* English */,
 			);
 			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		1DDD58280DA1D0D100B32029 /* ASSScript.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				1DDD58290DA1D0D100B32029 /* English */,
-			);
-			name = ASSScript.xib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

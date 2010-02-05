@@ -1,9 +1,9 @@
 //
-//  ASSAppDelegate.h
+//  ASSPreferenceController.h
 //  GrosoSub
 //
-//  Created by Josu López Fernández on 16/08/09.
-//  Copyright (C) 2009 Josu López Fernández <fregona@fregona.biz>.
+//  Created by Josu López Fernández on 04/02/10.
+//  Copyright (C) 2010 Josu López Fernández <fregona@fregona.biz>.
 //	All rights reserved.
 //
 //	This program is free software; you can redistribute it and/or modify
@@ -21,10 +21,17 @@
 //
 
 #import <Cocoa/Cocoa.h>
+extern NSString * const ASSEmptyDocKey;
+extern NSString * const ASSReplaceASSKey;
+extern NSString * const ASSReplaceStringKey;
 
-
-@interface ASSAppDelegate : NSObject {
-
+@interface ASSPreferenceController : NSWindowController {
+	IBOutlet NSButton *automaticallyB;
+	IBOutlet NSButton *replaceB;
+	IBOutlet NSTextField *replaceTF;
 }
 
+- (BOOL)emptyDoc;
+- (BOOL)replaceASS;
+- (NSString *)replaceString;
 @end

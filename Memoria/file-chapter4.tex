@@ -4,7 +4,7 @@
 Gure aplikazioak eduki behar dituen eskakizun funtzionalak zehazteko, hau da, aktoreen beharrak zerrendatzeko, balio du eskakizunen bilketak. Gure kasuan aktore bakarra izango dugu, \textbf{erabiltzailea} hain zuzen ere. Hauek dira bere eskakizunak:
 \subsection{Azpitituluen inguruko eskakizunak}
 \begin{itemize}
-\item ASS, SRT edo SUB motako azpitituluak irekitzea eta gordetzea.
+\item ASS eta SRT motako azpitituluak irekitzea eta gordetzea.
 \item Azpititulu fitxategi berriak sortzeko aukera.
 \item TXT fitxategietatik dialogoak inportatzea.
 \item Fitxategiaren goiburukoen edizioa.
@@ -17,26 +17,11 @@ Gure aplikazioak eduki behar dituen eskakizun funtzionalak zehazteko, hau da, ak
 \item Estilo editorea estilo berriak sortzeko edo daudenak aldatzeko.
 \item Estilo kudeatzailea, estiloak gorde ahal izateko edo \textit{script} batean txertatzeko.
 \end{itemize}
-\subsection{Audio sinkronizazioren inguruko eskakizunak}
-\begin{itemize}
-\item Audio formatu desberdinak irekitzea (MP3 eta WAV gutxienez).
-\item Audioaren uhin forma marraztea.
-\item Uhin formaren gainean lerro bakoitzaren hasiera eta amaiera denborak aukeratzea.
-\item Audioa erreproduzitzea honako modu hauetan:
-	\begin{itemize}
-	\item Osorik erreproduzitea.
-	\item Lehenengo 500 milisegunduak erreproduzitzea.
-	\item Azkenengo 500 milisegunduak erreproduzitzea.
-	\item Aurreko 500 milisegunduak erreproduzitzea.
-	\item Hurrengo 500 milisegunduak erroproduzitzea.
-	\end{itemize}
-\end{itemize}
 \subsection{Tresna edo laguntzaileen inguruko eskakizunak}
 \begin{itemize}
-\item Karaokeen silabak sinkronizatzeko modua.
-\item Karaokeen efektuak sortzeko tresna sinplea.
 \item Itzulpenak egiteko laguntzailea.
 \item Zuzentzaile ortografikoa.
+\item Estiloak aplikatzeko laguntzailea.
 \end{itemize}
 \subsection{Bestelako eskakizunak}
 \begin{itemize}
@@ -46,7 +31,7 @@ Gure aplikazioak eduki behar dituen eskakizun funtzionalak zehazteko, hau da, ak
 \end{itemize}
 
 \section{Analisia}
-Nahiz eta programak zenbait formaturekin lan egin ahalko duen (ASS, SRT, SUB eta TXT), formatu \textit{natiboa} ASS izango da. Honen arrazoia zera da: ASS formatuak badauka SRT, SUB eta TXT formatuek eskaintzen duten guztia, baina alderantziz ez, hau da, ASS formatua askoz aurreratuagoa da. 
+Nahiz eta programak zenbait formaturekin lan egin ahalko duen (ASS, SRT eta TXT), formatu \textit{natiboa} ASS izango da. Honen arrazoia zera da: ASS formatuak badauka SRT eta TXT formatuek eskaintzen duten guztia, baina alderantziz ez, hau da, ASS formatua askoz aurreratuagoa da. 
 
 \begin{figure}[htp]
 \begin{center}
@@ -57,9 +42,9 @@ Nahiz eta programak zenbait formaturekin lan egin ahalko duen (ASS, SRT, SUB eta
 \end{center}
 \end{figure}
 
-\ref{formatuak}~Irudian ikusten denez, SRT, SUB eta TXT formatuak ASS formatuaren azpimultzoak direla esan daiteke. SUB eta SRT berdina eskaintzen dute, dialogoak eta hauen hasiera eta bukaera denborak. TXT formatuak ordea, dialogoak eta hauen aktoreak bakarrik eskaintzen ditu.
+\ref{formatuak}~Irudian ikusten denez, SRT eta TXT formatuak ASS formatuaren azpimultzoak direla esan daiteke. SRT formatuak dialogoak eta hauen hasiera eta bukaera denborak dauzka, eta TXT formatuak ordea, dialogoak eta hauen aktoreak bakarrik eskaintzen ditu.
 \subsection{Domeinuaren eredua}
-\ref{de}~Irudian ikusten denez, domeinuko osagaien izenak ingeleraz daude, honako arrazoiengatik: alde batetik, ASS formatuaren espezifikazioan izenak ingeleraz agertzen direlako\cite{gu:ass}, eta bestetik programa askea izango denez, norbaitek kodea irakurri edo hobetu nahi badu, askoz errazagoa izango da ingelera jakitea euskera ordez.
+\ref{de}~Irudian ikusten denez, domeinuko osagaien izenak ingeleraz daude, honako arrazoiengatik: alde batetik, ASS formatuaren espezifikazioan izenak ingeleraz agertzen direlako\cite{gu:ass}, eta bestetik programa askea izango denez, norbaitek kodea irakurri edo hobetu nahi badu, askoz errazagoa izango da ingelera jakitea euskara ordez.
 \begin{figure}[htp]
 \begin{center}
 %\includegraphics[width=\columnwidth, natwidth=555pt, natheight=402pt]{Pictures/Chapter4/Analisia/DE.png}

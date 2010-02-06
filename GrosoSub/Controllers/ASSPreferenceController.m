@@ -24,38 +24,14 @@
 NSString * const ASSEmptyDocKey = @"EmptyDocumentFlag";
 NSString * const ASSReplaceASSKey = @"ReplaceASSFlag";
 NSString * const ASSReplaceStringKey = @"ReplaceASSString";
+NSString * const ASSAutosaveKey = @"Autosave";
+NSString * const ASSAutosaveDelayKey = @"AutosaveDelay";
 
 @implementation ASSPreferenceController
 - (id)init
 {
 	if (![super initWithWindowNibName:@"Preferences"]) return nil;
 	return self;
-}
-
-- (BOOL)emptyDoc
-{
-	NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-	return [defaults boolForKey:ASSEmptyDocKey];
-}
-
-- (BOOL)replaceASS
-{
-	NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-	return [defaults boolForKey:ASSReplaceASSKey];
-}
-
-- (NSString *)replaceString
-{
-	NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-	return [defaults stringForKey:ASSReplaceStringKey];
-}
-
-- (void)windowDidLoad
-{
-	[automaticallyB setState:[self emptyDoc]];
-	[replaceB setState:[self replaceASS]];
-	[replaceTF setEnabled:[self replaceASS]];
-	[replaceTF setStringValue:[self replaceString]];
 }
 
 @end

@@ -24,14 +24,11 @@
 extern NSString * const ASSEmptyDocKey;
 extern NSString * const ASSReplaceASSKey;
 extern NSString * const ASSReplaceStringKey;
+extern NSString	* const ASSAutosaveKey;
+extern NSString * const ASSAutosaveDelayKey;
 
 @interface ASSPreferenceController : NSWindowController {
-	IBOutlet NSButton *automaticallyB;
-	IBOutlet NSButton *replaceB;
-	IBOutlet NSTextField *replaceTF;
+
 }
 
-- (BOOL)emptyDoc;
-- (BOOL)replaceASS;
-- (NSString *)replaceString;
 @end

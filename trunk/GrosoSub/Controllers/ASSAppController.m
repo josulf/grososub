@@ -39,15 +39,20 @@
 
 + (void)initialize
 {
+	// Register factory defaults
 	NSMutableDictionary *defaultValues = [NSMutableDictionary dictionary];
 	
 	[defaultValues setObject:[NSNumber numberWithBool:YES] forKey:ASSEmptyDocKey];
 	[defaultValues setObject:[NSNumber numberWithBool:YES] forKey:ASSReplaceASSKey];
 	[defaultValues setObject:[NSString stringWithString:@"⌘"] forKey:ASSReplaceStringKey];
-
+	[defaultValues setObject:[NSNumber numberWithInt:1] forKey:ASSAutosaveDelayKey];
+	[defaultValues setObject:[NSNumber numberWithBool:YES] forKey:ASSAutosaveKey];
+	
 	[[NSUserDefaults standardUserDefaults] registerDefaults:defaultValues];
 	
-	NSLog(@"registered defaults: %@", defaultValues);
+	NSInteger minutes = [[NSUserDefaults standardUserDefaults] integerForKey:ASSAutosaveDelayKey];
+	
+	[[NSDocumentController sharedDocumentController] setAutosavingDelay:minutes*60.0];
 }
 
 @end

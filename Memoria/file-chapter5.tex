@@ -1,11 +1,32 @@
 \tocchapter{Hobekuntzak}
+Behin garapen prozesua amaituta, programak ondo funtzionatzen du eta egin behar zuena egiten du, baina 2. kapituluan aztertu ziren beste programekin alderatuta, azken hauek funtzionalitate gehiago eskaintzen dituzte. Proiektu honetan zehar funtzionalitate horiek baztertu behar izan dira, denbora aldetik lan asko eskatzen zutelako eta ondorioz egindako esfortzua asko handituko zelako. Hauek dira egiteko dauden hobekuntza nagusiak, seguraski etorkizunean garatuko direnak (ikasleak ez badu egiten kodea askea da eta edonork egin ditzake nahi dituen hobekuntzak, beti ere GPLv2 lizentzia errespetatuz).
 
 \section{Audioa}
+Audio fitxategiekin lan egitea ia ezinbestekoa da horrelako programetan, orduan, zergatik ez da inplementatu? Aurrerago esan den bezala, lan zama handia dakar honek, agian proiektu hau egiteko behar izan den esfortzu berdina. Hasieran eginda zegoen eta askea zen antzeko zerbait bilatu zen, baina asko begiratu ondoren ez zen ezer aurkitu, beraz ideia baztertu egin zen eta proiektuaren helburuetatik kanpo geratu zen. Hau da inplementatu behar dena:
+
+\begin{itemize}
+	\item Edozein formatuko audio fitxategiak kargatu.
+	\item Kargatutako audio fitxategiak interfazean erakutsi: anplitudea edo espektroa.
+	\item Audioaren laguntzaz lerroak sinkronizatu.
+	\item Kargatutako audioaren zatiak erreproduzitu.
+\end{itemize}
+
+Garatzeko zailena dela audio interfazean marraztea da, lehen esan dugun bezala ez dagoelako ezer garatuta. Dena den, proiektua amaitzerakoan hau da prioritate gehien duen hobekuntza.
 
 \section{Bideoa}
+Bideoak ez dauka audioak bezain garrantzi handia, baina ondo legoke bideo fitxategiak kargatu ahal izatea. Hau hasieratik baztertu zen ez zelako proiektuaren helburua, baina etorkizunean ondo legoke inplementatuta egotea.
 
-\section{Azpititulu formatuak}
+Bideo kargatzeaz gain ondo legoke bideoaren gainean azpitituluak editatzea. Ikusi dugunez ASS formatuak badauzka azpitituluak aldatzeko zenbait funtzio (mugitu, biratu, etab.), eta hau komando bidez egin ordez interfaze bidez egitea oso erosoa da.
 
 \section{Karaokeak}
+Audioarekin batera, karaokeak sinkronizatzeko aukera azpititulu editore gehienetan agertzen da. Gure kasuan audio baztertzerakoan hau ere baztertu zen, beharrezkoa delako audio inplementatuta egotea. Azken finean sinkronizatzeko modu berezi bat da, lerroz-lerro egin ordez silabaz-silaba egiten dena.
+
+ASS formatuak karaoke sinpleak eskaintzen ditu, \\k eta \\K komandoen bidezkoak (karaktereen bordea marrazten da lehenengoarekin eta karaktereen barrukaldea margotzen da bigarrenarekin), baina efektu askoz konplexuagoak sortu daitezke beste komando batzuen laguntzaz, printzipioz karaokeetarako pentsatuta ez daudenak. Karaoke horiek sortzeko ASS kode asko idatzi behar da, beraz badaude tresnak hauek modu automatikoan egiten dituztenak, eta berriro ere ondo legoke gure aplikazioan horrelako zerbait edukitzea.
+
+\section{Azpititulu formatuak}
+Programak ASS eta SRT azpititulu formatuak onartzen ditu, gaur egun gehien erabiltzen diren formatuak hain zuzen ere, baina badaude azpititulu formatu gehiago, adibidez gaur egun oraindik erabiltzen den MicroSub (.sub) formatua edo berriagoa den baina oraindik oso erabilia ez den \textit{Universal Subtitle Format}\footnote{\url{http://usf.corecodec.org/}}, XML lengoaian oinarritua.
 
 \section{Beste hizkuntzetara itzulpena}
+Programa garatzerakoan hizkuntza bezala ingelera erabiltzea erabaki zen, kodean eta programan hain zuzen. Honen arrazoia lehenago azaldu da, software librea izanda errazagoa da beste norbaitek ingelera jakitea euskara baina, horrela beraz jende gehiagok erabili edo garatu ahal izango du programa. Ikasketa prozesurako erabili den Cocoa liburuan\cite{hi:08} kapitulu bat dago non Cocoa aplikazioak lokalizatzeko guztia agertzen den. Dena den, programa osoa itzultzea ezinezkoa da, \textit{Document Based Application} bat denez guk dena ez dugulako inplementatu, adibidez fitxategia gordetzerakoan agertzen diren panelak Apple-ek ez dauzka euskerara itzulita (beste hizkuntza batzuetara bai: gaztelera, frantsesa, etab.), baina guk egindako interfazeak bai itzuli daitezkeela euskarara.
+
+Hasieran baztertu izan zen itzultzeko ideia lan gehiago suposatzen duelako eta garatzeko gauza garrantzitsuagoak zeudelako.

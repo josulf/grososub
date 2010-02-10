@@ -1,7 +1,32 @@
-\tocchapter{Lehenengo apendizea}
+\tocchapter{Azpititulu formatuak}
 
-Hau lehenengo apendizea da.
+Azpititulu formatu ugari daude gaur egun, baina erabilenak \textit{Subrip}(SRT) eta \textit{Advanced Substation Alpha}(ASS) formatuak dira. Bi formatu hauek testu fitxategiak dira, beraz, edozein testu editorerekin ireki eta eraldatu ditzakegu, baina lan handia suposatzen du. Horregatik hainbat tresna sortu dira hauek modu eroso batean manipulatzeko.
 
-\section{Lehenengo sekzioa}
+\section{SRT}
+SRT formatua oso simplea da, hona hemen adibide bat:
+\begin{verbatim}
+1
+00:00:20,000 --> 00:00:24,400
+In connection with a dramatic increase
+in crime in certain neighbourhoods,
 
-Hau lehenengo apendizearen lehenengo sekzioa da.
+2
+00:00:24,600 --> 00:00:27,800
+The government is implementing a new policy...
+\end{verbatim}
+
+Hasieran identifikadorea daukagu eta ondoren azpititulu hori pantailan noiz agertuko eta noiz desagertuko den. Azkenik, zein den erakutsi behar den testua eta amaitzeko lerro txuri bat.
+
+\section{ASS}
+ASS formatua (SSA formatuaren eboluzioa) askoz konplexuagoa da, aukera asko eskeintzen dituelako:
+
+\begin{itemize}
+\item Pertsonaia desberdinentzako \textit{estiloak} erabil ditzakegu, letra mota, tamaina, koloreak, itzala, angelua, transparentzia, etab. definituz
+\item Azpititulu bakoitzaren posizioa eta itxura alda dezakegu komando batzuen bidez.
+\item Azpititulu desberdinen arteko \textit{talkak} modu desberdinetan trata ditzakegu.
+\item Azpitituluak denboran zehar alda ditzakegu, pantailan zehar mugituz, koloreak aldatuz, etab.
+\item Karaoke sinpleak sortu ditzakegu abestietarako.
+\item \textit{Typesetting}-erako tresna ugari ditugu, irudian agertzen diren kartelak ezabatzeko eta hauen gainean idazteko adibidez.
+\end{itemize}
+
+Fitxategien formatuari buruzko informazio gehigarria \textit{Matroska}-ren web orrian\cite{ma:ass} aurkitu dezakegu, eta sintaxiari buruzko informazioa SourceForge-en dagoen \textit{guliverkli} proiektuan\cite{gu:ass}.

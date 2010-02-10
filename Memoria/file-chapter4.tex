@@ -48,19 +48,19 @@ Nahiz eta programak zenbait formaturekin lan egin ahalko duen (ASS, SRT eta TXT)
 \begin{figure}[htp]
 \begin{center}
 %\includegraphics[width=\columnwidth, natwidth=555pt, natheight=402pt]{Pictures/Chapter4/Analisia/DE.png}
-\includegraphics[scale=0.6]{Pictures/Chapter4/Analisia/DE.png}
+\includegraphics[scale=0.35]{Pictures/Chapter4/Analisia/DE.png}
 \caption{Domeinuaren eredua}
 \label{de}
 \end{center}
 \end{figure}
 
 \subsection{Egoera diagrama}
-Programaren izaera dela eta, egoera desberdinekin aurkituko gara. Definituko diren egoeratan zenbait erabilpen kasu gauzatu ahalko ditugu, batzutan beste egoera batzuetara pasaz. Honako diagrametan ikus daitezke egoerak eta hauen erabilpen kasuak:
+Programaren izaera dela eta, egoera desberdinekin aurkituko gara. Definituko diren egoeratan zenbait erabilpen kasu gauzatu ahalko ditugu, batzutan beste egoera batzuetara pasaz. Honako diagraman ikus daitezke egoerak:
 
 \begin{figure}[htp]
 \begin{center}
 %\includegraphics[width=\columnwidth, natwidth=555pt, natheight=402pt]{Pictures/Chapter4/Analisia/DE.png}
-\includegraphics[scale=0.6]{Pictures/Chapter4/Analisia/ED.png}
+\includegraphics[scale=0.4]{Pictures/Chapter4/Analisia/ED.png}
 \caption{Egoera diagrama}
 \label{ed}
 \end{center}
@@ -71,7 +71,7 @@ Programaren izaera dela eta, egoera desberdinekin aurkituko gara. Definituko dir
 \begin{figure}[htp]
 \begin{center}
 %\includegraphics[width=\columnwidth, natwidth=555pt, natheight=402pt]{Pictures/Chapter4/Analisia/DE.png}
-\includegraphics[scale=0.6]{Pictures/Chapter4/Analisia/EKE-Guztiak.png}
+\includegraphics[scale=0.4]{Pictures/Chapter4/Analisia/EKE-Guztiak.png}
 \caption{EKE - Egoera guztiak}
 \label{eke-guztiak}
 \end{center}
@@ -124,20 +124,8 @@ Programaren izaera dela eta, egoera desberdinekin aurkituko gara. Definituko dir
 	\item \textit{Erabiltzailea:} Gordetzeko izena, lekua eta formatua aukeratuko ditu.
 	\item \textit{Sistema:} Dagokion formatuan gordeko du irekita dagoen script-a.
 \end{enumerate}
-\textbf{Gertaera fluxu alternatiboa:}
-\begin{itemize}
-	\item 1. urratsa: formatua ASS ez bada:
-		\begin{enumerate}
-		\item \textit{Sistema:} Informazio galeraren berri emango dio erabiltzaileari eta baieztapena eskatuko dio.
-		\item \textit{Erabiltzailea:} Baieztatuko du.
-		\item \textit{Sistema:} Dagokion formatuan gordeko du irekita dagoen script-a
-		\end{enumerate}
-\end{itemize}
-\line(1,0){390}\\
-
-
-
-
+%\line(1,0){390}\\
+\newpage
 \noindent\\
 \textbf{ID:} G04.\\
 \textbf{Erabilpen kasua:} Goiburukoak kudeatu.\\
@@ -171,10 +159,9 @@ Programaren izaera dela eta, egoera desberdinekin aurkituko gara. Definituko dir
 \textbf{Postbaldintzak:} Goiburuko berria goiburukoen zerrendan gordeko da.\\
 \textbf{Gertaera fluxu normala:}
 \begin{enumerate}
-	\item \textit{Erabiltzailea:} Goiburuko berriaren izena eta balioa sartuko ditu.
-	\item \textit{Sistema:} Goiburuko berria goiburukoen zerrendan gordeko du.
+	\item \textit{Sistema:} Goiburuko berria sortzen du defektuzko balioekin eta goiburukoen zerrendan gordeko du.
 \end{enumerate}
-\line(1,0){390}\\
+%\line(1,0){390}\\
 \noindent\\
 \textbf{ID:} G06.\\
 \textbf{Erabilpen kasua:} Goiburukoa aukeratu.\\
@@ -211,11 +198,8 @@ Programaren izaera dela eta, egoera desberdinekin aurkituko gara. Definituko dir
 \textbf{Postbaldintzak:} Goiburukoa ezabatuko da script-etik.\\
 \textbf{Gertaera fluxu normala:}
 \begin{enumerate}
-	\item \textit{Sistema:} Ezabatzeko baieztapena eskatuko dio erabiltzaileari.
-	\item \textit{Erabiltzailea:} Baieztatuko du.
 	\item \textit{Sistema:} Goiburukoa zerrendatik ezabatuko du.
 \end{enumerate}
-\textbf{Gertaera fluxu alternatiboa:}
 \line(1,0){390}\\
 \noindent\\
 \textbf{ID:} G09.\\
@@ -289,9 +273,7 @@ Programaren izaera dela eta, egoera desberdinekin aurkituko gara. Definituko dir
 \begin{itemize}
 	\item 1. urratsa: helburuan badago izen berdineko estiloa:
 		\begin{enumerate}
-		\item \textit{Sistema:} Erabiltzaileari baieztapena eskatuko dio helburuko estiloa zapaltzeko.
-		\item \textit{Erabiltzailea:} Baieztatuko du.
-		\item \textit{Sistema:} Helburuko estilo ezabatuko du (\textit{includes G14}) eta aukeratutakoa kopiatuko du.
+		\item \textit{Sistema:} Izen berria emango dio estiloari, zenbaki bat parentesi tartean txertatuz izenaren amaieran.
 		\end{enumerate}
 \end{itemize}
 \line(1,0){390}\\
@@ -304,8 +286,6 @@ Programaren izaera dela eta, egoera desberdinekin aurkituko gara. Definituko dir
 \textbf{Postbaldintzak:} Estiloa ezabatzen da.\\
 \textbf{Gertaera fluxu normala:}
 \begin{enumerate}
-	\item \textit{Sistema:} Erabiltzaileari baieztapena eskatuko dio.
-	\item \textit{Erabiltzailea:} Baieztatuko du.
 	\item \textit{Sistema:} Estiloa ezabatuko du dagokion lekutik.
 \end{enumerate}
 \line(1,0){390}\\
@@ -314,43 +294,52 @@ Programaren izaera dela eta, egoera desberdinekin aurkituko gara. Definituko dir
 \textbf{Erabilpen kasua:} Preferentziak.\\
 \textbf{Aktoreak:} Erabiltzailea.\\
 \textbf{Deskribapena:} Programaren preferentziak aldatzen ditu.\\
-\textbf{Aurrebaldintzak:} .\\
+\textbf{Aurrebaldintzak:}\\
 \textbf{Postbaldintzak:} Programaren preferentziak aldatuta gordetzen ditu.\\
 \textbf{Gertaera fluxu normala:}
 \begin{enumerate}
-	\item
+	\item \textit{Sistema:} Preferentziak erakutsiko ditu momentu horretan dituen balioekin.
+	\item \textit{Erabiltzailea:} Nahi dituen balioak aldatuko ditu eta preferentzia lehioa itxiko du.
+	\item \textit{Sistema:} Erabiltzaileak jarri dituen balioak gorde eta aplikatuko ditu.
 \end{enumerate}
-\textbf{Gertaera fluxu alternatiboa:}
-\begin{itemize}
-	\item 
-		\begin{enumerate}
-		\item
-		\end{enumerate}
-\end{itemize}
+%\line(1,0){390}\\
 \newpage
-
-
+\noindent\\
+\textbf{ID:} G16.\\
+\textbf{Erabilpen kasua:} Aplikazioa eguneratu.\\
+\textbf{Aktoreak:} Erabiltzailea.\\
+\textbf{Deskribapena:} Aplikazioaren bertsio berriagoak bilatuko ditu eta eguneratzeko aukera emango du.\\
+\textbf{Aurrebaldintzak:} Internet-eko konexioa egon behar da.\\
+\textbf{Postbaldintzak:} Aplikazioa eguneratzen du erabiltzaileak horrela nahi badu.\\
+\textbf{Gertaera fluxu normala:}
+\begin{enumerate}
+	\item \textit{Sistema:} Aplikazioaren eguneraketak daude begiratuko du. Baldin badaude eguneraketaren informazioa erakutsiko du.
+	\item \textit{Erabiltzailea:} Aplikazioa eguneratu nahi duela baieztatuko du.
+	\item \textit{Sistema:} Eguneraketa jaitsi eta instalatuko du.
+	\item \textit{Sistema:} Aplikazioa berrabiaraziko du eguneraketa berriekin.
+\end{enumerate}
+\newpage
 \subsubsection{\textit{Script-a irekita} egoerakoak}
 \begin{figure}[htp]
 \begin{center}
 %\includegraphics[width=\columnwidth, natwidth=555pt, natheight=402pt]{Pictures/Chapter4/Analisia/DE.png}
-\includegraphics[scale=0.6]{Pictures/Chapter4/Analisia/EKE-Script.png}
+\includegraphics[scale=0.4]{Pictures/Chapter4/Analisia/EKE-Script.png}
 \caption{EKE - Script-a irekita egoera}
 \label{eke-script}
 \end{center}
 \end{figure}
 \noindent\\
 \textbf{ID:} S01.\\
-\textbf{Erabilpen kasua:} Lerroa aukeratu.\\
+\textbf{Erabilpen kasua:} Lerroak aukeratu.\\
 \textbf{Aktoreak:} Erabiltzailea.\\
-\textbf{Deskribapena:} Script-ean dagoen lerro bat aukeratzen du ondoren bere gainean zenbait eragiketa egiteko.\\
+\textbf{Deskribapena:} Script-ean dagoen lerro bat edo gehiago aukeratzen ditu ondoren bere gainean zenbait eragiketa egiteko.\\
 \textbf{Aurrebaldintzak:}  Script-a kargatuta dago eta gutxienez lerro bat dauka.\\
-\textbf{Postbaldintzak:} Lerroa aukeratuta geratzen da.\\
+\textbf{Postbaldintzak:} Lerroak aukeratuta geratzen dira.\\
 \textbf{Gertaera fluxu normala:}
 \begin{enumerate}
-	\item \textit{Erabiltzailea:} Script-ean dagoen lerro bat aukeratuko du.
-	\item \textit{Sistema:} Erabiltzaileak aukeratutako lerroa markatuko du interfazean.
-	\item \textit{Sistema:} Aukeratutako lerroaren datuak kargatuko ditu interfazean (eremuak eta denborak uhin forman audioa kargatuta badago).
+	\item \textit{Erabiltzailea:} Script-ean dagoen lerro bat edo gehiago aukeratuko ditu.
+	\item \textit{Sistema:} Erabiltzaileak aukeratutako lerroak markatuko ditu interfazean.
+	\item \textit{Sistema:} Lerro bakarra aukeratu bada, honen datuak kargatuko ditu interfazean.
 \end{enumerate}
 \line(1,0){390}\\
 \noindent\\
@@ -384,7 +373,7 @@ Programaren izaera dela eta, egoera desberdinekin aurkituko gara. Definituko dir
 \begin{itemize}
 	\item 0. urratsa: ez badago lerrorik aukeratuta script-ean:
 		\begin{enumerate}
-		\item \textit{Sistema:} Lerro berri bat gehituko du script-aren amaieran.
+		\item \textit{Sistema:} Lerro berri bat gehituko du.
 		\end{enumerate}
 \end{itemize}
 \line(1,0){390}\\
@@ -421,25 +410,13 @@ Programaren izaera dela eta, egoera desberdinekin aurkituko gara. Definituko dir
 \textbf{Postbaldintzak:} Aukeratutako lerroen denborak desplazatuta geratzen dira.\\
 \textbf{Gertaera fluxu normala:}
 \begin{enumerate}
+	\item \textit{Sistema:} Lerroak desplazatzeko aukerak erakutsiko ditu interfazean.
 	\item \textit{Erabiltzailea:} Desplazatu nahi dituen denborak (hasiera denbora, bukaera denbora edo biak) eta zenbat desplazatu nahi dituen aukeratuko du.
 	\item \textit{Sistema:} Aukeratutako lerroen denborak aldatuko ditu erabiltzaileak emandako datuekin.
 \end{enumerate}
-\line(1,0){390}\\
+%\line(1,0){390}\\
 \noindent\\
 \textbf{ID:} S07.\\
-\textbf{Erabilpen kasua:} Lerroak aukeratu.\\
-\textbf{Aktoreak:} Erabiltzailea.\\
-\textbf{Deskribapena:} Script-ean dauden 2 lerro gutxienez aukeratzen ditu ondoren hauen gainean eragiketa bat egiteko.\\
-\textbf{Aurrebaldintzak:} Script-a kargatuta dago eta gutxienez 2 lerro ditu.\\
-\textbf{Postbaldintzak:} Aukeratutako lerroak markatuta geratuko dira.\\
-\textbf{Gertaera fluxu normala:}
-\begin{enumerate}
-	\item \textit{Erabiltzailea:} Script-ean dauden zenbait lerro aukeratuko ditu.
-	\item \textit{Sistema:} Erabiltzaileak aukeratutako lerroak markatuko ditu interfazean.
-\end{enumerate}
-\line(1,0){390}\\
-\noindent\\
-\textbf{ID:} S08.\\
 \textbf{Erabilpen kasua:} Lerroak batu.\\
 \textbf{Aktoreak:} Erabiltzailea.\\
 \textbf{Deskribapena:} Aukeratuta dauden lerroak kateatzen ditu.\\
@@ -453,42 +430,7 @@ Programaren izaera dela eta, egoera desberdinekin aurkituko gara. Definituko dir
 \end{enumerate}
 \line(1,0){390}\\
 \noindent\\
-\textbf{ID:} S09.\\
-\textbf{Erabilpen kasua:} Karaoke efektuak sortu.\\
-\textbf{Aktoreak:} Erabiltzailea.\\
-\textbf{Deskribapena:} Aukeratutako karaoke lerroetan efektuak sortzen ditu.\\
-\textbf{Aurrebaldintzak:} Gutxienez lerro bat aukeratuta dago eta karaoke lerroa da.\\
-\textbf{Postbaldintzak:} Lerroa eguneratuko da efektuekin.\\
-\textbf{Gertaera fluxu normala:}
-\begin{enumerate}
-	\item \textit{Erabiltzailea:} Ezarri nahi dituen efektuak aukeratuko ditu.
-	\item \textit{Sistema:} Efektuak kalkulatuko ditu eta lerroetan gordeko ditu.
-\end{enumerate}
-\line(1,0){390}\\
-\noindent\\
-\textbf{ID:} S10.\\
-\textbf{Erabilpen kasua:} Audioa ireki.\\
-\textbf{Aktoreak:} Erabiltzailea.\\
-\textbf{Deskribapena:} Audio fitxategi bat irekitzen du.\\
-\textbf{Aurrebaldintzak:} Script-a kargatuta dago.\\
-\textbf{Postbaldintzak:} Audioa irekita geratzen da eta bere uhin forma marrazten du.\\
-\textbf{Gertaera fluxu normala:}
-\begin{enumerate}
-	\item \textit{Erabiltzailea:} Fitxategi sisteman dagoen audio fitxategia aukeratzen du.
-	\item \textit{Sistema:} Erabiltzaileak aukeratutako fitxategia kargatzen du eta uhin forma marrazten du.
-	\item \textit{Sistema:} Audioaren kontrolak aktibatzen ditu (\underline{inclues 15}).
-\end{enumerate}
-\textbf{Gertaera fluxu alternatiboa:}
-\begin{itemize}
-	\item 2. urratsa: audio fitxategia ezin da ireki:
-		\begin{enumerate}
-		\item \textit{Sistema:} Erabiltzaileari errorearen berri emango dio.
-		\item \textit{Erabiltzailea:} Audio fitxategi berria aukeratu dezake edo irten daiteke.
-		\end{enumerate}
-\end{itemize}
-\line(1,0){390}\\
-\noindent\\
-\textbf{ID:} S11.\\
+\textbf{ID:} S08.\\
 \textbf{Erabilpen kasua:} Estilo laguntzailea.\\
 \textbf{Aktoreak:} Erabiltzailea.\\
 \textbf{Deskribapena:} Estilo laguntzailea kargatuko du.\\
@@ -496,18 +438,13 @@ Programaren izaera dela eta, egoera desberdinekin aurkituko gara. Definituko dir
 \textbf{Postbaldintzak:} Estilo laguntzailea kargatuko du.\\
 \textbf{Gertaera fluxu normala:}
 \begin{enumerate}
-	\item
+	\item \textit{Sistema:} Script-ean dauden estiloak eta uneko lerroaren testua eta aktorea erakutsiko ditu interfazean.
+	\item \textit{Erabiltzailea:} Xagua edo teklatuaren bidez estilo bat aukeratuko du.
+	\item \textit{Sistema:} Uneko lerroari aukeratutako estiloa ezarriko dio eta hurrengo lerroa kargatuko du interfazean.
 \end{enumerate}
-\textbf{Gertaera fluxu alternatiboa:}
-\begin{itemize}
-	\item 
-		\begin{enumerate}
-		\item
-		\end{enumerate}
-\end{itemize}
 \line(1,0){390}\\
 \noindent\\
-\textbf{ID:} S12.\\
+\textbf{ID:} S09.\\
 \textbf{Erabilpen kasua:} Itzulpen laguntzailea.\\
 \textbf{Aktoreak:} Erabiltzailea.\\
 \textbf{Deskribapena:} Itzulpen laguntzailea kargatuko du.\\
@@ -515,176 +452,12 @@ Programaren izaera dela eta, egoera desberdinekin aurkituko gara. Definituko dir
 \textbf{Postbaldintzak:} Itzulpen laguntzailea kargatuko du.\\
 \textbf{Gertaera fluxu normala:}
 \begin{enumerate}
-	\item
+	\item \textit{Sistema:} Uneko lerroaren testua erakutsiko du interfazean.
+	\item \textit{Erabiltzailea:} Lerro horren itzulpena sartuko du.
+	\item \textit{Sistema:} Uneko lerroaren testua aldatuko du erabiltzaileak sartu duenarekin eta hurrengo lerroa erakutsiko du interfazean.
 \end{enumerate}
-\textbf{Gertaera fluxu alternatiboa:}
-\begin{itemize}
-	\item 
-		\begin{enumerate}
-		\item
-		\end{enumerate}
-\end{itemize}
+
 \newpage
-
-
-\subsubsection{\textit{Audioa irekita} egoerakoak}
-\begin{figure}[htp]
-\begin{center}
-%\includegraphics[width=\columnwidth, natwidth=555pt, natheight=402pt]{Pictures/Chapter4/Analisia/DE.png}
-\includegraphics[scale=0.6]{Pictures/Chapter4/Analisia/EKE-Audioa.png}
-\caption{EKE - Audioa irekita egoera}
-\label{eke-audioa}
-\end{center}
-\end{figure}
-\noindent\\
-\textbf{ID:} A01.\\
-\textbf{Erabilpen kasua:} Audio tartea aukeratu.\\
-\textbf{Aktoreak:} Erabiltzailea.\\
-\textbf{Deskribapena:} Kargatutako audioaren tarte bat aukeratzen du beraren gainean zenbait eragiteka egiteko.\\
-\textbf{Aurrebaldintzak:} \textit{Audioa irekita} moduan dago programa.\\
-\textbf{Postbaldintzak:} Hasiera eta bukaera denborak finkatuta geratzen dira.\\
-\textbf{Gertaera fluxu normala:}
-\begin{enumerate}
-	\item \textit{Erabiltzailea:} Uhin formaren gainean hasiera eta bukaera denborak ezartzen ditu.
-	\item \textit{Sistema:} Aukeratutako tartea baliozkoa dela begiratu ondoren tartea gordetzen du.
-\end{enumerate}
-\line(1,0){390}\\
-\noindent\\
-\textbf{ID:} A02.\\
-\textbf{Erabilpen kasua:} Audio tartea erreproduzitu.\\
-\textbf{Aktoreak:} Erabiltzailea.\\
-\textbf{Deskribapena:} Aukeratutako audio tartea erreproduzitzen du espezifikatutako moduan.\\
-\textbf{Aurrebaldintzak:} Audio tartea aukeratuta dago.\\
-\textbf{Postbaldintzak:} Audio erreproduzitzen da.\\
-\textbf{Gertaera fluxu normala:}
-\begin{enumerate}
-	\item \textit{Erabiltzailea:} Erreproduzitzeko modua aukeratzen du.
-	\item \textit{Sistema:} Erabiltzaileak aukeratutako moduan erreproduzitzen du audio tartea.
-\end{enumerate}
-\line(1,0){390}\\
-\noindent\\
-\textbf{ID:} A03.\\
-\textbf{Erabilpen kasua:} Audio tartea lerroan gorde.\\
-\textbf{Aktoreak:} Erabiltzailea.\\
-\textbf{Deskribapena:} Aukeratutako audio artea aukeratutako lerroan gordetzen du.\\
-\textbf{Aurrebaldintzak:} Audio tartea eta lerro bat aukeratuta daude.\\
-\textbf{Postbaldintzak:} Audio tartea aukeratutako lerroan gordetzen da.\\
-\textbf{Gertaera fluxu normala:}
-\begin{enumerate}
-	\item \textit{Sistema:} Uhin formaren gainean aukeratutako denbora tartea aukeratutako lerroan gordetzen du.
-\end{enumerate}
-\line(1,0){390}\\
-\noindent\\
-\textbf{ID:} A04.\\
-\textbf{Erabilpen kasua:} Audio itxi.\\
-\textbf{Aktoreak:} Erabiltzailea.\\
-\textbf{Deskribapena:} Irekita dagoen audio ixten du.\\
-\textbf{Aurrebaldintzak:} Audioa kargatuta dago.\\
-\textbf{Postbaldintzak:} Audioa itxita geratzen da eta audio moduko kontrolak ezkutatzen dira.\\
-\textbf{Gertaera fluxu normala:}
-\begin{enumerate}
-	\item \textit{Sistema:} Audio ixten du eta kontrolak ezkutatzen ditu.
-\end{enumerate}
-\line(1,0){390}\\
-\noindent\\
-\textbf{ID:} A05.\\
-\textbf{Erabilpen kasua:} Karaoke modura pasa.\\
-\textbf{Aktoreak:} Erabiltzailea.\\
-\textbf{Deskribapena:} Karaokeak sinkronizatzeko modura pasatzen da.\\
-\textbf{Aurrebaldintzak:} Audioa kargatuta dago.\\
-\textbf{Postbaldintzak:} Karaokeak sinkronizatzeko kontrolak aktibatzen dira.\\
-\textbf{Gertaera fluxu normala:}
-\begin{enumerate}
-	\item \textit{Sistema:} Audioaren kontrolak ezkutatzen ditu eta karaokeak sinkronizatzeko kontrolak aktibatzen ditu.
-	\item \textit{Sistema:} Lerroan dauden zatiak uhin formaren gainean marrazten ditu.
-\end{enumerate}
-\newpage
-
-
-\subsubsection{\textit{Karaoke modua} egoerakoak}
-\begin{figure}[htp]
-\begin{center}
-%\includegraphics[width=\columnwidth, natwidth=555pt, natheight=402pt]{Pictures/Chapter4/Analisia/DE.png}
-\includegraphics[scale=0.6]{Pictures/Chapter4/Analisia/EKE-Karaoke.png}
-\caption{EKE - Karaoke modua egoera}
-\label{eke-karaoke}
-\end{center}
-\end{figure}
-\noindent\\
-\textbf{ID:} K01.\\
-\textbf{Erabilpen kasua:} Audio modura pasa.\\
-\textbf{Aktoreak:} Erabiltzailea.\\
-\textbf{Deskribapena:} Audio modura pasatzen da, lerroen denborak ezartzeko modua.\\
-\textbf{Aurrebaldintzak:} Audioa kargatuta dago.\\
-\textbf{Postbaldintzak:} Audio moduko kontrolak aktibatzen ditu.\\
-\textbf{Gertaera fluxu normala:}
-\begin{enumerate}
-	\item \textit{Sistema:} Audio moduko kontrolak erakusten ditu.
-\end{enumerate}
-\line(1,0){390}\\
-\noindent\\
-\textbf{ID:} K02.\\
-\textbf{Erabilpen kasua:} Lerroa zatitu.\\
-\textbf{Aktoreak:} Erabiltzailea.\\
-\textbf{Deskribapena:} Aukeratutako lerroa silabaka zatitzen du.\\
-\textbf{Aurrebaldintzak:} Karaoke moduan dago programa eta lerro bat aukeratuta dago.\\
-\textbf{Postbaldintzak:} Lerroaren silabak zatituta geratzen dira.\\
-\textbf{Gertaera fluxu normala:}
-\begin{enumerate}
-	\item \textit{Erabiltzailea:} Lerroaren silabak zeintzuk diren adierazioko du.
-	\item \textit{Sistema:} Lerroa erabiltzaileak emandako silabatan zatituko du.
-\end{enumerate}
-\line(1,0){390}\\
-\noindent\\
-\textbf{ID:} K03.\\
-\textbf{Erabilpen kasua:} Zatia aukeratu.\\
-\textbf{Aktoreak:} Erabiltzailea.\\
-\textbf{Deskribapena:} Lerroaren zati bat aukeratzen du.\\
-\textbf{Aurrebaldintzak:} Karaoke moduan dago programa eta lerro bat aukeratuta dago.\\
-\textbf{Postbaldintzak:} Zatia aukeratuta geratzen da.\\
-\textbf{Gertaera fluxu normala:}
-\begin{enumerate}
-	\item \textit{Erabiltzailea:} Lerroko zati bat aukeratzen du.
-	\item \textit{Sistema:} Erabiltzaileak aukeratutako zatia markatzen du interfazean.
-\end{enumerate}
-\line(1,0){390}\\
-\noindent\\
-\textbf{ID:} K04.\\
-\textbf{Erabilpen kasua:} Zatia aldatu.\\
-\textbf{Aktoreak:} Erabiltzailea.\\
-\textbf{Deskribapena:} Aukeratutako zatiaren hasiera eta bukaera denborak aldatzen ditu.\\
-\textbf{Aurrebaldintzak:} Zati bat aukeratuta dago.\\
-\textbf{Postbaldintzak:} Zatiaren eta ondokoen denborak aldatuta geratzen dira.\\
-\textbf{Gertaera fluxu normala:}
-\begin{enumerate}
-	\item \textit{Erabiltzailea:} Uhin formaren gainean zatiaren hasiera eta bukaera denborak ezartzen ditu.
-	\item \textit{Sistema:} Zatiaren eta ondokoen denborak eguneratzen dira.
-\end{enumerate}
-\line(1,0){390}\\
-\noindent\\
-\textbf{ID:} K05.\\
-\textbf{Erabilpen kasua:} Zatia erreproduzitu.\\
-\textbf{Aktoreak:} Erabiltzailea.\\
-\textbf{Deskribapena:} Aukeratutako zatia erroproduzitzen du.\\
-\textbf{Aurrebaldintzak:} Zati bat aukeratuta dago.\\
-\textbf{Postbaldintzak:} Aukeratutako zatia erreproduzitzen du.\\
-\textbf{Gertaera fluxu normala:}
-\begin{enumerate}
-	\item \textit{Sistema:} Aukeratutako dagoen zatia erreproduzitzen du.
-\end{enumerate}
-\line(1,0){390}\\
-\noindent\\
-\textbf{ID:} K06.\\
-\textbf{Erabilpen kasua:} Silaba tarteak lerroan gorde.\\
-\textbf{Aktoreak:} Erabiltzailea.\\
-\textbf{Deskribapena:} Silaba tarteak lerroan gordetzen ditu.\\
-\textbf{Aurrebaldintzak:} Programa karaoke moduan dago eta lerro bat aukeratuta dago.\\
-\textbf{Postbaldintzak:} Silaba tarteak lerroan gordeta geratzen dira.\\
-\textbf{Gertaera fluxu normala:}
-\begin{enumerate}
-	\item \textit{Sistema:} Erabiltzaileak ezarritako silaba tarteak lerroan gordetzen ditu.
-\end{enumerate}
-
 \section{Diseinua}
 \subsection{Dokumentuetan oinarritutako aplikazioak}
 Gure aplikazioak oso komunak diren funtzionalitate batzuk izan behar ditu: fitxategiak ireki, berriak sortu, itxi, etab. Aplikazio hauek dokumentuetan oinarritutakoak dira, eta oso komunak direnez, Cocoa API-ak hauek garatzeko erreztasun asko ematen ditu. \textbf{MVC}\footnote{Model View Controller} patroia jarraituko da diseinua egiterako orduan, nahiz eta klase batzuk mota bat baino gehiagokoak izango diren aurrerago ikusiko dugunez.
@@ -724,10 +497,315 @@ Aurreko kasuetan bezala, esfortzu gutxirekin (kode lerrorik gabe), funtzionalita
 \subsubsection{Informazio gehiago}
 Atal honetan ikusi dugunez, erraztasun asko ematen dizkigu dokumentu arkitekturak, baina askoz gauza gehiago egiteko ere gai da. Informazio gehiago aurkitu daiteke Apple-ek eskaintzen duen dokumentazioan\cite{ap:dba}.
 
+\subsection{Klase diagrama}
+
+\newpage
 \subsection{Sekuentzia diagramak}
+
+\subsubsection{G04 - Goiburukoak kudeatu}
+\begin{figure}[htp]
+\begin{center}
+\includegraphics[scale=0.35]{Pictures/Chapter4/Diseinua/G04.png}
+\caption{G04 - Goiburukoak kudeatu}
+\label{g04d}
+\end{center}
+\end{figure}
+
+\subsubsection{G05 - Goiburukoa sortu}
+\begin{figure}[htp]
+\begin{center}
+\includegraphics[scale=0.35]{Pictures/Chapter4/Diseinua/G05.png}
+\caption{G05 - Goiburukoa sortu}
+\label{g05d}
+\end{center}
+\end{figure}
+
+\newpage
+\subsubsection{G06 - Goiburukoa aukeratu}
+\begin{figure}[htp]
+\begin{center}
+\includegraphics[scale=0.4]{Pictures/Chapter4/Diseinua/G06.png}
+\caption{G06 - Goiburukoa aukeratu}
+\label{g06d}
+\end{center}
+\end{figure}
+
+
+\subsubsection{G07 - Goiburukoa editatu}
+\begin{figure}[htp]
+\begin{center}
+\includegraphics[scale=0.33]{Pictures/Chapter4/Diseinua/G07.png}
+\caption{G07 - Goiburukoa editatu}
+\label{g07d}
+\end{center}
+\end{figure}
+
+\newpage
+\subsubsection{G08 - Goiburukoa ezabatu}
+\begin{figure}[htp]
+\begin{center}
+\includegraphics[scale=0.4]{Pictures/Chapter4/Diseinua/G08.png}
+\caption{G08 - Goiburukoa ezabatu}
+\label{g08d}
+\end{center}
+\end{figure}
+
+
+\subsubsection{G09 - Estiloak kudeatu}
+\begin{figure}[htp]
+\begin{center}
+\includegraphics[scale=0.35]{Pictures/Chapter4/Diseinua/G09.png}
+\caption{G09 - Estiloak kudeatu}
+\label{g09d}
+\end{center}
+\end{figure}
+
+\newpage
+\subsubsection{G10 - Estilo berria sortu}
+\begin{figure}[htp]
+\begin{center}
+\includegraphics[scale=0.35]{Pictures/Chapter4/Diseinua/G10.png}
+\caption{G10 - Estilo berria sortu}
+\label{g10d}
+\end{center}
+\end{figure}
+
+
+\subsubsection{G11 - Estiloa aukeratu}
+\begin{figure}[htp]
+\begin{center}
+\includegraphics[scale=0.35]{Pictures/Chapter4/Diseinua/G11.png}
+\caption{G11 - Estiloa aukeratu}
+\label{g11d}
+\end{center}
+\end{figure}
+
+\newpage
+\subsubsection{G12 - Estiloa editatu}
+\begin{figure}[htp]
+\begin{center}
+\includegraphics[scale=0.3]{Pictures/Chapter4/Diseinua/G12.png}
+\caption{G12 - Estiloa editatu}
+\label{g12d}
+\end{center}
+\end{figure}
+
+
+\subsubsection{G13 - Estiloa kopiatu}
+\begin{figure}[htp]
+\begin{center}
+\includegraphics[scale=0.35]{Pictures/Chapter4/Diseinua/G13.png}
+\caption{G13 - Estiloa kopiatu}
+\label{g13d}
+\end{center}
+\end{figure}
+
+\newpage
+\subsubsection{G14 - Estiloa ezabatu}
+\begin{figure}[htp]
+\begin{center}
+\includegraphics[scale=0.35]{Pictures/Chapter4/Diseinua/G14.png}
+\caption{G14 - Estiloa ezabatu}
+\label{g14d}
+\end{center}
+\end{figure}
+
+
+\subsubsection{S01 - Lerroak aukeratu}
+\begin{figure}[htp]
+\begin{center}
+\includegraphics[scale=0.3]{Pictures/Chapter4/Diseinua/S01.png}
+\caption{S01 - Lerroak aukeratu}
+\label{s01d}
+\end{center}
+\end{figure}
+
+\newpage
+\subsubsection{S02 - Lerroko eremua aldatu}
+\begin{figure}[htp]
+\begin{center}
+\includegraphics[scale=0.5]{Pictures/Chapter4/Diseinua/S02.png}
+\caption{S02 - Lerroko eremua aldatu}
+\label{s02d}
+\end{center}
+\end{figure}
+
+
+\subsubsection{S03 - Lerroa gehitu}
+\begin{figure}[htp]
+\begin{center}
+\includegraphics[scale=0.35]{Pictures/Chapter4/Diseinua/S03.png}
+\caption{S03 - Lerroa gehitu}
+\label{s03d}
+\end{center}
+\end{figure}
+
+\newpage
+\subsubsection{S04 - Lerroa kendu}
+\begin{figure}[htp]
+\begin{center}
+\includegraphics[scale=0.35]{Pictures/Chapter4/Diseinua/S04.png}
+\caption{S04 - Lerroa kendu}
+\label{s04d}
+\end{center}
+\end{figure}
+
+
+\subsubsection{S05 - Lerroa bikoiztu}
+\begin{figure}[htp]
+\begin{center}
+\includegraphics[scale=0.35]{Pictures/Chapter4/Diseinua/S05.png}
+\caption{S05 - Lerroa bikoiztu}
+\label{s05d}
+\end{center}
+\end{figure}
+
+\newpage
+\subsubsection{S06 - Lerroak desplazatu}
+\begin{figure}[htp]
+\begin{center}
+\includegraphics[scale=0.35]{Pictures/Chapter4/Diseinua/S06.png}
+\caption{S06 - Lerroak desplazatu}
+\label{s06d}
+\end{center}
+\end{figure}
+
+
+\subsubsection{S07 - Lerroak batu}
+\begin{figure}[htp]
+\begin{center}
+\includegraphics[scale=0.35]{Pictures/Chapter4/Diseinua/S07.png}
+\caption{S07 - Lerroak batu}
+\label{s07d}
+\end{center}
+\end{figure}
+
+\newpage
+\subsubsection{S08 - Estilo laguntzailea}
+\begin{figure}[htp]
+\begin{center}
+\includegraphics[scale=0.4]{Pictures/Chapter4/Diseinua/S08.png}
+\caption{S08 - Estilo laguntzailea}
+\label{s08d}
+\end{center}
+\end{figure}
+
+\newpage
+\subsubsection{S09 - Itzulpen laguntzailea}
+\begin{figure}[htp]
+\begin{center}
+\includegraphics[scale=0.4]{Pictures/Chapter4/Diseinua/S09.png}
+\caption{S09 - Itzulpen laguntzailea}
+\label{s09d}
+\end{center}
+\end{figure}
+
+
+\newpage
 
 \section{Inplementazioa}
 
+\subsection{Kodearen kudeaketa}
+Proiektuaren garapenerako bertsioen kontrolerako sistema (RCS\footnote{Revision Control System}) bat erabiltzea ezinbestekoa izan da, garapena ez delako konputagailu bakar batekin egingo, beraz kodea sinkronizatuta edukiko dugu hauetako software bat erabiliz.
+
+SVN\footnote{Subversion} izan da garapenerako aukeratu den RCS-a, batez ere bi arrazoirengandik: ikasleak lehenago erabilia zuelako, horrela ikasketa prozesurik ez egoteko, eta erabili den garapen ingurunean zuzenean erabil daitekeelako.
+
+Lehenago aipatu den moduan, \textit{Assembla.com}-eko zenbait zerbitzu erabili dira proiektuaren bizitzan zehar, eta webgune horrek SVN zerbitzaria eskaintzen duenez hori izan da erabili dena.
+
+SVN-ri esker proiektuko kodea maneiatzea erosoa izan da, zenbait konputagailuetatik lana eginez inongo arazorik izan gabe. Aipatzekoa da ere, memoria hau SVN bidez ere kudeatu dela zerbitzari berdinean, \LaTeX{} fitxategiak azken finean testu fitxategiak direlako.
+
+\subsection{Garapen ingurunea}
+Programaren garapenerako eta lehenago aipatu denez, Apple-ek doan eskaintzen duen \textit{Xcode 3 Developer Tools} software konpilazioa erabili da. Bertan tresna asko agertzen dira baina guk ez ditugu guztiak erabili. Kodea idazteko, konpilatzeko, exekutatzeko eta arazteko \textbf{Xcode} erabili da.
+\begin{figure}[htp]
+\begin{center}
+\includegraphics[scale=0.4]{Pictures/Chapter4/Inplementazioa/xcode.png}
+\caption{Xcode IDE-a}
+\label{xcode}
+\end{center}
+\end{figure}
+\begin{figure}[htp]
+\begin{center}
+\includegraphics[scale=0.4]{Pictures/Chapter4/Inplementazioa/araztailea.png}
+\caption{Xcode IDE-aren araztailea}
+\label{debug}
+\end{center}
+\end{figure}
+Barrutik UNIX inguruneetan ohikoak diren tresnak erabiltzen ditu, hala nola \textit{gcc}, \textit{gdb}, etab., baina dena interfaze grafikotik eginda, \ref{xcode} eta \ref{debug}~Irudietan ikusten denez.
+
+Erabili den beste tresna garrantzitsua \textbf{Interface Builder} izan da, izenak esaten duen bezala interfaze grafikoak eraikitzeko tresna. Mac OS X sistemarako garapenean interfazeen sorkuntza desberdinduta dago kodetik. IB-rekin interfaze bat eraikitzerakoan, lehioen barruan elementuak sartuko ditugu: label-ak, testu-kutxak, taulak, etab. Objektuen instantziak ere sar ditzakegu ondoren hauekin loturak egiteko, horrela kodetik atzigarriak izateko interfazearen elementuak eta hauek erakusten duten informazioa.
+\begin{figure}[htp]
+\begin{center}
+\includegraphics[scale=0.4]{Pictures/Chapter4/Inplementazioa/iblotura.png}
+\caption{Interface Builder-en 'Action' motako lotura}
+\label{ib1}
+\end{center}
+\end{figure}
+\ref{ib1}~Irudian ikus dezakegu interfazeak edukiko duen lehio bat (ezkerrean), eta botoi batek objektu bati bidaliko dion mezua (lotura). Lotura \textit{File's Owner} ekin egiten da, \textit{NIB} bakoitzak horrelako bat eduki behar du, eta azken finean lehioa kontrolatuko duen klase baten instantzia izango da (kasu honetan \textit{ASSScriptController} klasekoa).
+
+\begin{figure}[htp]
+\begin{center}
+\includegraphics[scale=0.4]{Pictures/Chapter4/Inplementazioa/iblotura2.png}
+\caption{Interfaze builder-en 'Outlet' motako lotura}
+\label{ib2}
+\end{center}
+\end{figure}
+
+Aipatu denez, interfazeko datuak atzitu nahiko ditugu kodetik, beraz horrelako loturak ere egin beharko ditugu \ref{ib2}~Irudian ikus dezakeguna hain zuzen ere. Kodean aldagai bat izango dugu \textit{actorSATF} izenekoa irudian ikusten den \textit{textfield}-eko datuak irakurri eta idazteko.
+
+IB-k informazioa \textit{XIB} edo \textit{NIB} formatuko fitxategietan gordetzen du, eta aplikazioa exekutatzerakoan kargatzen da hauen edukia. Gure kasuan zenbait fitxategi desberdin ditugu proiektuan: bat aplikazioaren menu barrarekin, beste bat lehio nagusia eta 'sheet' laguntzaileekin, beste bat estilo editorearen lehioarekin eta azkenik beste bat goiburuko editorearekin. \textit{XIB} eta \textit{NIB} fitxategien funtzioa berdina da baina bereizitasun bakarra dago bien artean, \textit{NIB} fitxategi bitarra da eta \textit{XIB} XML formatuan dago. Azken hau erabili dugu guk SVN-rekin lan egiteko gomendagarriagoak direlako testu fitxategiak.
+
+\subsection{Erabiltzailearen datuak}
+Programan exekuzio batetik bestera gorde behar diren datuak dauzkagu, beraz nonbait gorde behar ditugu fitxategietan. Horretarako aplikazioa exekutatzen ari den erabiltzailearen \textit{HOME} katalogoaren barruan gordeko dira datuak, konkretuki \textbf{/Users/erab/Library/} katalogoren barruan.
+
+\subsubsection{Estilo biltegiak}
+Kasu honetan, estiloak ASS formatuan bezala gordetzen dira /Users/erab/ Library/Application Support/GrosoSub/styles/ katalogo barruko fitxategi desberdinetan. \textbf{Application Support} katalogoa horretarako erabiltzen dute aplikazio guztiek, mota desberdinetako eta programak maneiatuko dituen datuak gordetzeko. Katalogoa ez bada existitzen programak sortuko du bertan zerbait gordeko duen lehenengo aldian.
+
+\subsubsection{Preferentziak}
+Aurrekoarekin alderatuta, preferentzien kontua desberdina da, aplikazio gehienetan ohikoa den funtzio bat denez beste forma batean gorde eta kudeatzen delako. XML formatuko fitxategi batean gordetzen dira preferentziak, /Users/erab/Library/Preferences/com.perryranch.grososub.plist hain zuzen ere. Preferentziak maneiatzeko oso kode gutxi idatzi behar izan da, bakar bakarrik zeintzuk diren preferentzien defektuzko balioak. Erabiltzaileak ezarri dituen balioak hasieran kargatzeko eta programa ixtean gordetzeko Inteface Builder bidez egiten da, \textit{Cocoa bindings} izeneko teknika erabiliz, lehen ikusi dugun modu berdintsuan loturak ezarriz. \ref{prefs}~Irudian ikus daiteke aplikazioaren preferentzia lehioa.
+\begin{figure}[htp]
+\begin{center}
+\includegraphics[scale=0.6]{Pictures/Chapter4/Inplementazioa/prefs.png}
+\caption{Aplikazioaren preferentzia lehioa}
+\label{prefs}
+\end{center}
+\end{figure}
+
+Erabiltzaileak ezartzen dituen balioak aplikazioaren edozein partetik atzigarriak dira.
+
+\subsection{Eguneraketa automatikoak}
+Aplikazioaren eskakizunetan eguneraketa automatikoen kontua aipatzen da, eta horretarako Mac OS sisteman oso erabilia den \textit{framework} bat erabili da: \textbf{Sparkle\footnote{\url{http://sparkle.andymatuschak.org/}}}. Honetarako ere ez dugu kode lerro bakar bat ere idatzi behar izan, beharrezkoa izan den bakarra framework-aren webgunean azaltzen dituzten loturak Interface Builder-en egitea izan da.
+
+Eguneraketen funtzionamendua erraza da: AppCast\footnote{\url{http://connectedflow.com/appcasting/}} formatua jarraitzen duen XML fitxategi bat atzigarri eduki behar dugu internet-en, baita aplikazioaren bertsio desberdinak eta hauen arteko informazioa ere (\textit{ChangeLog}). Horrela konfiguratzen badugu preferentzietan, aplikazioak noizbehinka begiratuko du ea eguneraketarik dagoen, eta horrela bada erabiltzaileari jakinaraziko dio. Honek baiztapena emango du eguneraketa gauzatzeko edo ez, geroagorako utziz edo bertsio konkretu hori ahaztuz.
+
+Bestalde, eta \ref{prefs}~Irudian ikusten den bezala, eguneraketak egiterakoan sistemaren informazioa bidali daiteke (sistemaren bertsioa, hizkuntza, prozesadorea, etab.), garatzaileak ikus dezan zein motako sistemetan exekutatzen den aplikazioa.
+
+Azkenik, erabiltzaileak nahi duenean begiratu dezake ea eguneraketarik dagoen menu-an agertzen den aukera batetik, eta prozesua aipatu dugun berdina izango litzateke.
+
+\subsection{Exekutagarriaren sorkuntza}
+Mac OS X sistema eragilea hiru arkitektura desberdinetan erabili daiteke. Alde batetik \textbf{X86} 32 eta 64 biteko makinetan, eta bestetik gero eta gutxiago erabiltzen \textbf{PPC} makinetan, 32 eta 64 bitekoak hauek ere. Sistema eragilearen azkenengo bertsioan (10.6) PPC arkitektura kendu dute, X86 bakarrik geratuz, baina guk gure aplikazioa PPC makinetarako ere eskaini nahi dugu. Horretarako Xcode-ko proiektuan, SDK-ren 10.5 bertsioa aukeratu dugu, eta exekutagarri \textit{Unibertsala} sortzeko esan dugu, hau da, PPC eta X86 arkitekturetarako kode bitarra sortuko dugu aplikazioa konpilatzerakoan. Noski, aplikazioaren tamaina handiago izango da, baina hala ere 3 MiB inguru okupatzen ditu.
+
+Eskakizunetan aipatzen zen aplikazioa instalatzeko erraza izan behar zela, erabiltzaileak konpilatu behar ez izateko. Aplikazioa konpilatzerakoan, .app fitxategi batekin aurkituko gara. Nahiz eta sistemak fitxategi bezala ikusi, benetan katalogo bat da, eta barruan beharrezkoak diren gauza guztiak ditu: exekutagarria (arkitektura desberdinetarako), framework-ak, erabiltzen diren irudiak, ikonoak, itzulpena, etab.
+
+Instalatzeko orduan programa gehienak instalatzen diren moduan egiten da, .app \textit{fitxategi} hori zuzenean \textbf{/Applications/} sistemako katalogora kopiatuz. Sisteman ohikoa den moduan, .app fitxategia \textbf{DMG}\footnote{\url{http://en.wikipedia.org/wiki/Apple_Disk_Image}} baten barruan sartu da. Aplikazioa sistematik ezabatzea ere erraza da, /Applications/ katalogotik ezabatuz nahikoa baita.
+
 \section{Probak}
 
+\subsection{Proba unitarioak}
+
+\subsubsection{OCUnit}
+
+\subsubsection{Egin diren probak}
+
+\subsection{Proba ez unitarioak}
+
 \section{Kudeaketa}
+
+\subsection{Jarraipen bilerak}
+
+\subsection{Egoera txostenak}
+
+\subsection{Proiektuan zehar egon diren arazo eta atzerapenak}
+
+\subsection{Amaierako ondorioak}
+
+\subsubsection{Benetako esfortzua}

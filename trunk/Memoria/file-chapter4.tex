@@ -497,6 +497,17 @@ Aurreko kasuetan bezala, esfortzu gutxirekin (kode lerrorik gabe), funtzionalita
 \subsubsection{Informazio gehiago}
 Atal honetan ikusi dugunez, erraztasun asko ematen dizkigu dokumentu arkitekturak, baina askoz gauza gehiago egiteko ere gai da. Informazio gehiago aurkitu daiteke Apple-ek eskaintzen duen dokumentazioan\cite{ap:dba}.
 
+\subsection{Notifikazio bidezko komunikazioa}
+Geroago sekuentzia diagrametan ikusiko denez, objektuen arteko zenbait komunikazioa notifikazio bidez egin dira. Exekutatzen ari den aplikazio orok \textit{NSNotificationCenter} klasearen instatzia bat du, aplikazioaren edozein partetik atzigarria dena. Bertan notifikazioak \textbf{bidaliko} dira alde batetik, eta notifikazioen zain \textbf{erregistratuko} dira zenbait objektu. Erregistratzeko unea instantzia sortzerakoan da, eta bertan azalduko da zein notifikazioren zain erregistratu, noren notifikazioak jaso, etab. eta instantzia suntsitzean erregistratuta zegoena ezabatu behar da. Notifikazioa iristen direnean metodo konkretu bat exekutatuko du instantzia, metodo horien parametroa bakarra izanda: \textit{NSNotification} motako objektu bat bidaltzailearen informazioarekin.
+ 
+Adibidez interfazean agertzen diren tauletan (\textit{NSTableView} klasekoak) erabiltzen da: erabiltzaileak lerro bat aukeratzen duenean notifikazioa bat bidaltzen da: NSTableViewSelectionDidChangeNotification izenekoa. \textit{ASSScriptController} klasean notifikazio horren zain geratu gara, eta iristen denean lehioaren goiko eremuetan aukeratutako lerroaren informazioa kargatuko da.
+
+Guzti hau beste modu batean inplementatu daiteke, \textbf{delegate} izeneko loturen bidez. Zenbait klaseek \textit{delegate} motako metodoak dituzte, eta hauek exekutatzeko klase horren instantziak lotuta egon behar dira beste klase baten instantziarekin, \textit{delegate} loturaren bidez Interface Builder-etik. Aurreko kasuan adibidez, \textit{NSTableView}-k badu horrelako metodo bat: tableViewSelectionDidChange, lehenago aipatu dugunaren gauza berdina egiten duena. Bien desberdintasuna hau da: Instantzia batek \textit{delegate} bidez beste instantzia batekin eduki dezake bakarrik lotura, eta notifikazio bidez instantzia batek bidali ditzake notifikazioak eta \textit{n} instantziek jaso ahal dute.
+
+Beste gauza baterako erabili dira notifikazioak aplikazioan, adibidez G08 erabilpen kasuan, goiburuko bat ezabatzerakoan \textit{ASSScript} klaseak ezabatzen du dagokion datu egituratik, eta goiburuko editorearen kontrolatzaileak (\textit{ASSHeadersController}) jakin beharko du goiburukoak aldatu direla zerrenda berriro kargatzeko. Momentu honetan pentsa daiteke: "Zergaitik ez egin zuzenean objektuen arteko mezu baten bidez, ASSScript-etik ASSHeadersController-era?", eta erantzuna sinplea da, ASSHeadersController-en instantzia bat ez da beti egongo, goiburukoen kudeaketarako lehioa ixterakoan instantzia suntsituko delako. Horrela, goiburukoak aldatzerakoan (goiburuko kudeatzailetik, edo adibidez Desegin/Berregin aukeretatik) notifikazioa bidaliko da, eta ASSHeadersController-en instantzia bat badago memorian notifikazioa jasotzerakoan zerbait egingo du. Ez badago instantziarik momentu horretan notifikazioa galduko da eta ez da ezer gertatuko.
+
+Mota honetako komunikazioak aurrerago ikusiko ditugun sekuentzia diagrametan modu sinplifikatuan adierazi dira: beste objektuen arteko metodo bat izango balitz bezala, baina geziaren lerroa marra soil bat izan ordez marra eta puntuak tartekatzen dituena erabiliz.
+
 \subsection{Klase diagrama}
 
 \newpage
@@ -789,14 +800,96 @@ Eskakizunetan aipatzen zen aplikazioa instalatzeko erraza izan behar zela, erabi
 Instalatzeko orduan programa gehienak instalatzen diren moduan egiten da, .app \textit{fitxategi} hori zuzenean \textbf{/Applications/} sistemako katalogora kopiatuz. Sisteman ohikoa den moduan, .app fitxategia \textbf{DMG}\footnote{\url{http://en.wikipedia.org/wiki/Apple_Disk_Image}} baten barruan sartu da. Aplikazioa sistematik ezabatzea ere erraza da, /Applications/ katalogotik ezabatuz nahikoa baita.
 
 \section{Probak}
+Softwarearen edozein garapen prozesutan logikoa denez, garatzen dena probatu egin behar da bere funtzionamendua egokia den jakiteko. Aplikazioaren izaera dela eta bi motako probak gauzatu dira.
 
 \subsection{Proba unitarioak}
+Aplikazioaren garapenaren hasieran, ASS formatua maneiatzeko beharrezkoa inplementatu zen. Gogoratu beharra dago aplikazioaren formatu 'natiboa' ASS dela, nahiz eta SRT formatuarekin ere lan egin daitekeen, SRT ASS-ren azpimultzo bezala ulertu daitekeelako, beraz aplikazioak barrutik ASS formatuarekin lan egingo du.
 
-\subsubsection{OCUnit}
+Inplementatu ziren klaseak eta hauen metodoak probatzeko proba unitarioak erabili dira, horrela zerbait aldatzean eta probak ondo diseinatuta badaude, probak berriro exekuta daitezke ikusteko ea zerbait apurtu dugun azken aldaketekin.
+
+\subsubsection{SenTestingKit}
+Xcode IDE-ak badauka proba unitarioentzako framework bat, SenTestintKit izenekoa. Hasieran Sen:te\footnote{\url{http://www.sente.ch/software/ocunit/}}-k garatu zuen OCUnit izenarekin, baina Xcode 2.1 bertsiotik aurrera Apple-ek eskaintzen duen software konpilazioaren barruan dago izen berriarekin.
+
+Probatu nahi izan dugun klase bakoitzeko beste klase bat sortu dugu, \textit{SenTestCase} klasearen azpliklase direnak. Bertan egin nahi dugun test unitario bakoitzeko metodo bat jarri dugu, horien barruan probatu nahi duguna exekutatuz eta horren emaitza espero genuenarekin konparatuz, SenTestintKit-ek eskaintzen dituen \textbf{Assert} motako funtzioak erabiliz. Hona hemen test baten adibidea:
+
+\begin{verbatimtab}[8]
+- (void) testCompare
+{
+	ASSTime *t1 = [[ASSTime alloc]
+			initWithString:@"1:44:03.88"];
+	ASSTime *t2 = [[ASSTime alloc]
+			initWithString:@"1:44:03.88"];
+	ASSTime *t3 = [[ASSTime alloc]
+			initWithString:@"1:44:06.88"];
+	
+	STAssertTrue([t1 compare:t2] == NSOrderedSame,
+			@"This should be the same");
+	STAssertTrue([t1 compare:t3] == NSOrderedAscending,
+			@"t1 should be less than t3");
+	STAssertTrue([t3 compare:t2] == NSOrderedDescending,
+			@"t3 should be greater than t2");
+}
+\end{verbatimtab}
+
+ASSTime klasearen hiru instantzia definitzen dira (t1, t2 eta t3), eta ondoren hiru gauza probatzen dira: t1 == t2, t1 $>$ t3 eta t3 $<$ t2. Test horietako bat ez bada betetzen, kodean jarri dugun mezua agertuko da interfazean eta errore bezala markatuko ditu lerroak, jakiteko zein izan den gaizki funtzionatzen duena.
+
+\ref{ocunit}~Irudian ikus daiteke diseinatu diren proba unitario guztiak pasatzen direla arazorik gabe.
+\begin{figure}[htp]
+\begin{center}
+\includegraphics[scale=0.6]{Pictures/Chapter4/Probak/ocunit.png}
+\caption{Proba unitarioen exekuzioa}
+\label{ocunit}
+\end{center}
+\end{figure}
+
+Oraingo honetan ere, Apple-ek eskaintzen duen dokumentazioan\cite{ap:ocu} honi buruzko informazio mordoa aurkituko dugu.
 
 \subsubsection{Egin diren probak}
+\ref{ocunit}~Irudian ikus dezakegunez 22 proba unitario egin dira guztira honako klaseen funtzionamendu egokia bermatzeko:
+\begin{itemize}
+	\item ASSColour: \begin{itemize}
+		\item Defektuzko balioa espero zena.
+		\item Balio maximoa onartzen du.
+		\item Ausazko balioa ondo jaso eta itzuli.
+	\end{itemize}
+	\item ASSEventList: \begin{itemize}
+		\item Lista sortzerakoan item bakarra listan.
+		\item Txertaketa, ezabaketa eta aldaketen eraginak zuzenak.
+		\item Karaktere kate batetik datuak ondo jasotzen dira.
+	\end{itemize}
+	\item ASSEvent: \begin{itemize}
+		\item Defektuzko balioa espero zena.
+		\item Karaktere kate batetik datuak ondo jasotzen dira.
+		\item Bi ASSEvent-en arteko 'join'-a ondo egiten da.
+	\end{itemize}
+	\item ASSHeader: \begin{itemize}
+		\item Defektuzko balioa espero zena.
+		\item Karaktere kate batetik datuak ondo jasotzen dira.
+		\item Txertaketa, ezabaketa eta aldaketen eraginak zuzenak.
+	\end{itemize}
+	\item ASSStyleList: \begin{itemize}
+		\item Lista sortzerakoan item bakarra listan.
+		\item Karaktere kate batetik datuak ondo jasotzen dira.
+	\end{itemize}
+	\item ASSStyle: \begin{itemize}
+		\item Defektuzko balioa espero zena.
+		\item Ausazko ASSStyle bat jaso eta itzuli.
+		\item Estiloetan agertzen diren balio boolearrak ondo errepresentatuta irteeran. 
+	\end{itemize}
+	\item ASSTime: \begin{itemize}
+		\item Defektuzko balioa espero zena.
+		\item Irteerako karaktere katea ondo sortzen du.
+		\item Karaktere kate batetik datuak ondo jasotzen dira.
+		\item Karaktere kate batekin zuzenean hasieratu daiteke.
+	\end{itemize}
+\end{itemize}
 
 \subsection{Proba ez unitarioak}
+Nahiz eta proba unitarioak oso ondo egon garapenean zehar behin eta berriz exekutatu ahal ditugulako programaren portaera zuzena dela ikusteko, ezin dira programa osoa probatzeko erabili, adibidez, nola probatu interfaze grafikoa proba unitarioen bidez? SenTestingKit-ek behintzat ez du horrelakorik eskaintzen.
+
+Beraz, aplikazioaren funtzionamendua egiaztatzeko modu bakarra aplikazioa erabiltzea da gauzak ondo dabiltzan edo ez ikusiz. Lana ez da makala, egoera eta ekintza konbinaketa handia delako eta seguraski arazoren bat ez dugu aurkituko. Dena den, proba prozesu hau erraztearren proiektuaren kanpoko zenbait pertsonen laguntza egon da, garapenean zehar aplikazioa erabili izan dutenak eta erroreak aurkitzerakoan komunikatu dituztenak.
+
+Arazo \textit{arraroak} aurkitu direnean Xcode-k eskaintzen duen araztailea erabili da, programaren funtzionamendua pausoz pauso aztertuz errorea aurkitu arte.
 
 \section{Kudeaketa}
 
@@ -809,3 +902,5 @@ Instalatzeko orduan programa gehienak instalatzen diren moduan egiten da, .app \
 \subsection{Amaierako ondorioak}
 
 \subsubsection{Benetako esfortzua}
+
+\subsubsection{Hasierako plangintza vs. amaierako plangintza}

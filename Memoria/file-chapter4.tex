@@ -508,7 +508,65 @@ Beste gauza baterako erabili dira notifikazioak aplikazioan, adibidez G08 erabil
 
 Mota honetako komunikazioak aurrerago ikusiko ditugun sekuentzia diagrametan modu sinplifikatuan adierazi dira: beste objektuen arteko metodo bat izango balitz bezala, baina geziaren lerroa marra soil bat izan ordez marra eta puntuak tartekatzen dituena erabiliz.
 
+\subsection{Sheet motako lehioak}
+Aplikazioak zenbait lehio desberdin edukiko ditu. Lehio horietatik bat lehio nagusia izango da eta dokumentu bat irekita dagoen bitartean lehio hau irekita egon beharko da. Beste lehioak lagungarri bezala ulertu daitezke: lehio nagusiak informazio nagusia edukiko du (azptituluen lerroak hain zuzen ere), eta beste lehioak dokumentuko beste informazioa erakusteko (goiburukoak eta estiloak) edo laguntzaileak erakusteko erabiliko dira. Momentu batean lehio asko egon daitezeke irekita, eta hau ez da oso erosoa lan egiteko, gainera ez da beharrezkoa mota honetako aplikazio batean. Soluzio \textit{sheet} motako lehioak erabiltzea da, \ref{sheet}~Irudian ikus dezakegunez, lehio nagusitik \textit{zintzilikatuta} agertuko dira beste lehioak, eta itxi arte ez zaio lehio nagusiari kontrola itzuliko. Noski, modu honetan eginda ezin da sheet moduan lehio bakar bat irekita egon daiteke, beraz arazoa konpondu dugu.
+\begin{figure}[htp]
+\begin{center}
+\includegraphics[scale=0.4]{Pictures/Chapter4/Diseinua/Sheet.png}
+\caption{Sheet motako lehioaren adibidea}
+\label{sheet}
+\end{center}
+\end{figure}
+Mota honetako lehioak sortzea oso sinplea da. Lehenbizi lehioa diseinatu behar da beste lehio bat izango balitz bezala, eta lehioa erakutsi nahi dugunean \textbf{NSApplication} klasearen metodo baten bidez egiten da (\textbf{NSApp} \textit{NSApplication} klasearen instantzia bat da, exekuzioan dagoen aplikazio bakoitzak duena):
+\texttt{[NSApp beginSheet:sheetWindow modalForWindow:mainWindow]}
+
+\newpage
 \subsection{Klase diagrama}
+
+Lehenago aipatu den moduan, aplikazioa diseinatzeko orduan \textit{Model-View-Controller} patroia erabili da, beraz geroago erabiliko diren klaseak definitzerakoan 3 multzo horietan banatu dira, nahiz eta batzutan klase bat kategoria bat baino gehiagokoa izango den. Kontrakorik esaten ez bada, klase guztiak \textbf{NSObject} klasearen azpiklase dira. Hurrengo irudietan kurtsibaz agertzen diren klaseak ez ditugu guk inplementatu, Cocoa API-aren parte dira.
+
+\subsubsection{Model klaseak}
+ASS formatua da aplikazioak maneiatuko duen formatua, baita barne errepresentaziorako erabiliko duena, beraz \ref{kd-model}~Irudian ikus daitezke zeregin horretarako egin diren klaseak eta hauen erlazioak.
+\begin{figure}[htp]
+\begin{center}
+\includegraphics[scale=0.4]{Pictures/Chapter4/Diseinua/KD-Model.png}
+\caption{Model klaseak}
+\label{kd-model}
+\end{center}
+\end{figure}
+\textit{ASSScript} da script oso bat errepresentatzen duen klasea, \ref{kd-model}~Irudian ikusten denez beste klase batzuen laguntzaz. Script baten edukia zenbait klaseetan banatu da, bertan agertzen diren elementuak identifikatuz eta hierarkia baten bidez errepresentatuz. \textit{ASSCript} \textbf{NSDocument} klasearen azpiklasea da, \textit{Document Based Applications} motako aplikazioetan agertu behar den klase bat, eta bertan datuez gain aplikazioaren kontrolerako metodoak ere badaude, adibidez fitxategia nola ireki, nola gorde, etab. Ondorioz esan dezakegu \textit{ASSScript} \textbf{Model} eta \textbf{Controller} motako klasea dela.
+
+\subsubsection{View klaseak}
+Interfazean erabiltzen diren klaseen azpiklaseak egin dira multzo honetan, \ref{kd-view}~Irudian ikus daitekeen moduan. Jatorrizko klaseek ez zuten nahi genuen funtzionamendua, beraz hauen azpiklaseetan zenbait metodo berridatzi dira. Adibidez \textit{ASSTranslationTextView} klasean \textbf{keydown:} metodoa berridatzi da, zenbait tekla zapaltzerakoan funtzionamendu espezifiko bat eduki dezan. Aipatu beharra dago \textit{Cocoa} ez dela software irekia, beraz ez dakigu zehatz mehatz zer egiten duen adibidez \textit{NSTextView} klaseak, beraz ez da oso erreza izan azpiklase hauek egitea.
+\begin{figure}[htp]
+\begin{center}
+\includegraphics[scale=0.4]{Pictures/Chapter4/Diseinua/KD-View.png}
+\caption{View klaseak}
+\label{kd-view}
+\end{center}
+\end{figure}
+
+\subsubsection{Controller klaseak}
+\ref{kd-controller}~Irudian ikus daitezke Controller motako klaseak. Alde batetik \textit{NSWindowController} klasearen azpiklaseak dauzkagu, hauek direlarik aplikazioan aurkituko ditugun \textit{Controller} motako klase puruak. Izenak dioen bezala, interfazean agertuko diren lehioen kontrolatzaileak izango dira hauek, interfazea datuekin lotuko dituztenak. Klase bakoitzak interfazeko lehio bat kontrolatuko du, ASSScript klasea ezik, lehio nagusiaz gain laguntzaileen lehio sinpleak ere kontrolatuko dituelako. Lehen aipatu den moduan, \textit{ASSScript} klasea \textit{Controller} motako ere bada, kasu honetan beste kontrolatzaileen kontrolatzailea hain zuzen. Irekita dugun dokumentu bakoitzeko \textit{ASSScript} instantzia bat edukiko dugu, eta honek gestionatuko ditu lehioak noiz eta nola ireki behar diren, etab.
+\begin{figure}[htp]
+\begin{center}
+\includegraphics[scale=0.3]{Pictures/Chapter4/Diseinua/KD-Controller.png}
+\caption{Controller klaseak}
+\label{kd-controller}
+\end{center}
+\end{figure}
+Bestalde, \textbf{AppController} klasea agertzen da \ref{kd-controller}~Irudian, daukan izenarekin pentsa dezakegu bere eginkizuna oso zabala eta konplexua dela, baina ez, kasu honetan defektuzko preferentziak ezartzea eta erabiltzaileak ezarri dituen preferentziak aktibatzea da.
+
+\subsubsection{Bestelako klaseak}
+Multzo honetan garapenerako lagungarriak izan diren klaseak dauzkagu. \ref{kd-others}~Irudian agertzen den klasea berezia da, bere izena soilik ikusita nabaritu daitekeena: \textbf{NSString+reverse}. NSString klasea Cocoa-k eskaintzen du zuzenean, eta izenak dioenez testu kateak errepesentatzen ditu. Kasu honetan, klase bat baino, Cocoa hizkeran \textbf{kategoria} bat dela esaten dan.
+\begin{figure}[htp]
+\begin{center}
+\includegraphics[scale=0.4]{Pictures/Chapter4/Diseinua/KD-Others.png}
+\caption{Bestelako klaseak}
+\label{kd-others}
+\end{center}
+\end{figure}
+Beste lengoaia batzuetan, erabil dezakegun baina eraldatu ezin digun klase bati funtzionalitate bat gehitu nahi diogunean (adibidez metodo berri bat gehitu), klase horren azpiklase bat sortzen dugu eta funtzionalitatea gehitzen diogu. Horretarako erabiltzen dira kategoriak Cocoa-n, adibidez \ref{kd-others}~Irudian NSString klaseari \textbf{reverse:} metodoa gehitu zaio, alderantzizkatutako karaktere katea itzultzen duena. Zein da honen abantaila: metodo hau erabili nahi badugu egin behar dugun bakarra \texttt{\#import "NSString+reverse.h"} erabili nahi dugun fitxategian gehitzea da, eta metodoa erabili ahal izango dugu \textit{NSString} motako objektuekin zuzenean.
 
 \newpage
 \subsection{Sekuentzia diagramak}
@@ -635,7 +693,7 @@ Mota honetako komunikazioak aurrerago ikusiko ditugun sekuentzia diagrametan mod
 \subsubsection{S02 - Lerroko eremua aldatu}
 \begin{figure}[htp]
 \begin{center}
-\includegraphics[scale=0.5]{Pictures/Chapter4/Diseinua/S02.png}
+\includegraphics[scale=0.6]{Pictures/Chapter4/Diseinua/S02.png}
 \caption{S02 - Lerroko eremua aldatu}
 \label{s02d}
 \end{center}
@@ -799,6 +857,8 @@ Eskakizunetan aipatzen zen aplikazioa instalatzeko erraza izan behar zela, erabi
 
 Instalatzeko orduan programa gehienak instalatzen diren moduan egiten da, .app \textit{fitxategi} hori zuzenean \textbf{/Applications/} sistemako katalogora kopiatuz. Sisteman ohikoa den moduan, .app fitxategia \textbf{DMG}\footnote{\url{http://en.wikipedia.org/wiki/Apple_Disk_Image}} baten barruan sartu da. Aplikazioa sistematik ezabatzea ere erraza da, /Applications/ katalogotik ezabatuz nahikoa baita.
 
+Aplikazioa probatzeko Mac OS X sistema eragilea duen konputagailu bat behar denez eta agian proiektua ebaluatuko duenak horrelako makinarik ez duenez izango, programaren funtzionamendua erakusten duen bideo bat grabatu da eta memoria honekin batera datorren CD-an sartu egin da. Honez gain CD horretan memoria hau PDF formatuan, erabili diren diagramak eta irudiak, eta programaren instalatzailea aurkitu daitezke.
+
 \section{Probak}
 Softwarearen edozein garapen prozesutan logikoa denez, garatzen dena probatu egin behar da bere funtzionamendua egokia den jakiteko. Aplikazioaren izaera dela eta bi motako probak gauzatu dira.
 
@@ -894,13 +954,148 @@ Arazo \textit{arraroak} aurkitu direnean Xcode-k eskaintzen duen araztailea erab
 \section{Kudeaketa}
 
 \subsection{Jarraipen bilerak}
+Proiektuaren garapenean zenbait bilera egin dira irakasle eta ikaslearen artean. Gehienak presentzialak izan dira, irakaslearen fakultateko bulegoan, baina ikaslea udan Donostian ez dagoenez, posta elektronikoz egin behar izan dira batzuk.
+
+Bilera hauek lana pixkanaka planifikatzeko eta ikasleak izan dituen zalantzak argitzeko izan dira gehienbat. Hauek dira egin diren bilerak eta bertan tratatu dena:
+
+\begin{enumerate}
+	\item Bilera: \textit{2008. urteko Urriak 22}\\
+		Proiektua planteatu zaio irakasleari eta honek onartu ondoren \textbf{proiekges} plataforman erregistratuko du ikasleak emandako proiektuaren deskribapenarekin.
+	\item Bilera: \textit{2008. urteko Azaroak 3}\\
+		Landu beharreko memoriaren edukien zehaztapena.
+	\item Bilera: \textit{2008. urteko Abenduak 10}\\
+		Otsaileko azterketak direla eta, proiektuaren garapena eteten da hauek amaitu arte.
+	\item Bilera: \textit{2009. urteko Otsailak 11}\\
+		Behin azterketak amaituta, proiektuarekin jarraitu behar da. Oraingoan Aurrekarien analisia egin behar da.
+	\item Bilera: \textit{2009. urteko Otsailak 25}\\
+		Aurrekarien analisia ondo egin da, beraz PHD-arekin jarraitu beharra dago.
+	\item Bilera: \textit{2009. urteko Martxoak 12}\\
+		PHD ondo dago, beraz Softwarearen garapenerako prozesu bateratuarekin hasi beharra dago. Eskakizunen bilketa egitea esleitu da oraingoan.
+	\item Bilera: \textit{2009. urteko Martxoak 19}\\
+		Lehenago pasatu den modu berdinean, proiektua momentuz geldituta geratzen da. Geldituta dagoen bitartean Ekaineko azterketak iritsi egiten dira eta hauek amaitzerakoan jarraituko da.	
+	\item Bilera: \textit{2009. urteko Uztailak 3}\\
+		Behin azterketak amaituta, lehenengo iterazioarekin hasten gara. Iterazio hau laburrena da, baina bertan zenbait gauza daude egiteko: analisia, diseinua, inplementazioa eta probak.
+	\item Bilera: \textit{2009. urteko Uztailak 17}\\
+		Lehenengo iterazioa amaituta dago, beraz 2. iterazioarekin hasiko gara. Honez gain lehengo iterazioan egin duguna dokumentatzen hasteko ordua da.
+	\item Bilera: \textit{2009. urteko Uztailak 31}\\
+		Garapenari buruzko zenbait duda argitu dira oraingoan, batez ere diseinuko sekuentzia diagramekin. Bigarren iterazioarekin jarraitu beharra dago.
+	\item Bilera: \textit{2009. urteko Abuztuak 10}\\
+		Zenbait arazo pertsonalengatik proiektuarekin jarraitzea ezinezkoa da momentuz, eta Irailean ezin izango da aurkeztu. Informatu ondoren hurrengo urtean \textit{matrikula erlaxatua} egiteko aukera hartuko da, horrela ikaslea Ingeniaritza Informatikoko bigarren zikloarekin hasi ahal izango da eta bitartean proiektua amaitu egingo du.
+	\item Bilera: \textit{2009. urteko Irailak 2}\\
+		Bigarren iterazioa amaitutzat ematen da eta hirugarren eta azkenengoarekin hasi beharra dago. Bertan egingo dena planifikatu da bilera honetan.
+	\item Bilera: \textit{2009. urteko Urriak 2}\\
+		Proiektuaren egoera egiteko bideo bat grabatu da non programaren funtzionamendua erakusten den. Bideoa ikusi egin da bileran eta konpontzeko zeuden gauzak apuntatu dira. Hurrengo asteetan hauek konponduko dira eta hirugarren iterazioarekin jarraituko da.
+	\item Bilera: \textit{2009. urteko Urriak 27}\\
+		Hirugarren iterazioarekin lanean jarraitzen du ikasleak, proiektua amaitzeko falta dena ikusteko egin da bilera hau.
+	\item Bilera: \textit{2009. urteko Abenduak 9}\\
+		Berriro ere zenbait arazo direla eta, proiektuarekin ezin da jarraitu. Honez gain Otsaileko azterketak direla eta hauek amaitu arte ezin izango da aurrera jarraitu.
+	\item Bilera: \textit{2010. urteko Urtarrilak 31}\\
+		Azkenean hirugarren iterazioarekin jarraitu ahal izan da, eta proiektuaren garapen fasea amaitu egin da. Dokumentazioa amaitu beharra dago eta dena entregatzeko prestatu behar da. Denbora oso justua da momentu honetan baina saiakera egin beharra dago.
+	\item Bilera: \textit{2009. urteko Otsailak 12}\\ Dokumentazioa entragatu zaio irakasleari honek zuzendu ahal izateko. Bestalde bideoa, CD-a  eta aurkezpena prestatu behar dira.
+\end{enumerate}
 
 \subsection{Egoera txostenak}
+Egin den iterazio bakoitza amaitzerakoan hurrengo iterazioa planifikatzeari ekin behar zaio, horretarako amaitu berri dena aztertuz eta ondorioak ateraz ondoren erabakiak hartzeko. Azkenengo iterazioa amaitzerakoan ez da egoera txostenik egin, eta horren ordez hurrengo atal batean aztertu da proiektuaren egoera globala.
+
+\subsubsection{Lehenengo iterazioa}
+Iterazio hau estimatutako denboran egin da, egun bat soberan izanda amaieran. Esan beharra dago iterazio hau sinpleena eta laburrena dela, baina momentuz badirudi dena ondo joaten ari dela, beraz ez da planifikazioan ezer aldatu behar eta bigarren iteraziorekin asteko ordua da.
+
+Nahiz eta memoriaren garapena proiektuaren amaierarako planifikatuta egon, hasiko den bigarren iterazioarekin batera egiten joango da. Zenbait atala egiten joan daitezke, eta horrela lana pixkanaka eginez eramangarriago izango da. Iterazio berria bihar bertan hasiko da, Uztailak 17 eta Abuztuak 8-rako amaituta egotea espero da.
+
+\subsubsection{Bigarren iterazioa}
+Oraingoan gauzak ez dira planifikatu diren bezala joan, zenbait arazorengandik proiektua alde batera utzi behar izan delako eta ia hilabete bat beranduago amaitu da, Iralaren 2-an hain zuzen ere. Aurrera jarraitu ezin zela ikusi zenean, proiektuaren amaiera data berriro planifikatuko da, eta denborarik ez dagoenez 2009. urteko Irailean entregatzeko, 2010. urteko Otsailerarte atzeratuko da.
+
+Nahiz eta atzerapenekin ibili, iterazio honetan egin beharreko egin da, eta aurreko iterazioan egin diren gauzak dokumentatu daude memorian. Programari begira, orain arte eginda dagoena funtzionatu egiten du eta hasieran zehaztutakoari jarraitzen dio.
+
+Lehen bait lehen hirugarren iterazioarekin hasi beharra dago, eta estimazio berriak eginez Abenduaren erdialdera amaituta egon beharko litzateke, ondoren falta diren gauzak amaitzeko (memoria, CD-a, aurkezpena, etab.), horrela Urtarrilaren erdialderako proiektua guztiz amaituta egoteko.
+
+Aurrekoan bezala, bigarren iterazio honetan egindakoa dokumentatzen hasiko gara memorian sartuz beharrezkoa dena, eta horrela poliki-poliki dokumentua osatzen joango gara.
 
 \subsection{Proiektuan zehar egon diren arazo eta atzerapenak}
+Jarraipen bileretan ikus daitekeenez, proiektuan zenbait atzerapen egon dira. Hasieran 2009. urteko Iraileko deialdirako proiektua aurkezte pentsatu zen, horrela udan egin ahal izateko, kurtsoan zehar ikasleak lan zama handia zuelako ikasketekin. Proiektua ondo zijoan, baina zenbait arazok eten egin zuten Abuztuan.
+
+Momentu horretan irtenbide bat bilatu behar izan zen, honelako kasuetarako fakultateak eskaintzen duen \textit{matrikula erlaxatua} hain zuzen ere. Ikasleak Sistemen Informatikan Ingeniari Teknikotik bakarrik proiektua du faltan, eta bere intentzioa Ingeniaritza Informatikoko bigarren zikloa egitea da, beraz hurrengo ikasturtean bigarren zikloko zenbait irakasgai izango ditu eta proiektua amaitu beharko du 2010. urteko Otsailerako.
+
+Berriro ere dena ondo joaten ari zenean, arazoak berriro ere etorri ziren eta lana berriro birplanifikatu egin behar izan zen, azkenean proiektua amaituz baina soberan denbora oso gutxi izanda.
+
+Arazo pertsonalez gain, nire ustez arazo larriena hau izan da: garrantzi gehiago eman zaie matrikulatutako irakasgaie proiektuari baino, eta denbora gehiago erabili da hauetarako, adibidez beharrezkoak (baina lagungarriak) diren zenbait azterketa partzial eginez. Orain ikusirik nola joan den proiektuaren azken fase hau ikus daiteke garrantzitsuago dela proiektua amaitzea beste irakasgaiak gaindetzea baino, proiektua ez bada gainditzen ezingo delako irakasgai horietan matrikula egin.
+
+Dena den horrelako proiektuetan gerta daiteke zenbait arazo sortzea eta proiektua behin eta berriz atzeratzea, eta horrelako kasuetan zer egin behar den ikasteko ondo etorri da esperientzia hau.
 
 \subsection{Amaierako ondorioak}
+Hasieran, \textit{Proiektuaren Helburu Dokumentuan} estimazio batzuk egin ziren, bai esfortzuarenak baita iraupenarenak ere. Aurreko ataletan ikusi dugunez zenbait atzerapen egon dira, beraz iraupena nahi genuena baino askoz gehiago luzatu da. Ikus ditzagun bietan egon diren aldaketak.
 
 \subsubsection{Benetako esfortzua}
+\ref{benetako-esfortzua}~Taulan ikus dezakegu zein izan zen bere momentua estimatutako eta proiektua amaitzerakoan egin den benetako esfortzua.
 
-\subsubsection{Hasierako plangintza vs. amaierako plangintza}
+\begin{longtable}{|l|l|l|r|}
+\hline
+\grey \textbf{Ataza} & \grey \textbf{Estimazioa} & \grey \textbf{Benetakoa} & \grey \textbf{Aldea}\\
+\hline
+\endhead
+\hline
+\caption{\label{benetako-esfortzua}Estimatuko esfortzua vs. Benetako esfortzua}
+\endfoot
+\bblue Kudeaketa & \bblue 30 & \bblue 26 & \bblue \%-13,33 \\
+\hline
+\blue \hspace{1em}Bilerak & \blue 25 & \blue 21 & \blue \%-16,00 \\
+\hline
+\hspace{2em}Ohiko bilerak & 20 & 17 & \%-15,00 \\
+\hline
+\hspace{2em}Aurrerapen bilerak & 5 & 4 & \%-20,00 \\
+\hline
+\blue \hspace{1em}Artxiboaren kudeaketa & \blue 5 & \blue 5 & \blue \%0,00 \\
+\hline
+\bblue Planifikazioa & \bblue 10 & \bblue 17 & \bblue \%+70,00 \\
+\hline
+\blue \hspace{1em}PHD egin & \blue 7 & \blue 12 & \blue \%+71,43 \\
+\hline
+\blue \hspace{1em}Iterazio berriaren planifikazioa & \blue 3 & \blue 5 & \blue \%+66,67 \\
+\hline
+\bblue Garapena & \bblue 130 & \bblue 167 & \bblue \%+28,46 \\
+\hline
+\blue \hspace{1em}Eskakizunen bilketa & \blue 10 & \blue 7 & \blue \%-30,00 \\
+\hline
+\blue \hspace{1em}Analisia & \blue 15 & \blue 20 & \blue \%+33,33 \\
+\hline
+\blue \hspace{1em}Diseinua & \blue 40 & \blue 45 & \blue \%+12,50 \\
+\hline
+\blue \hspace{1em}Inplementazioa & \blue 40 & \blue 60 & \blue \%+50,00 \\
+\hline
+\blue \hspace{1em}Probak egin & \blue 25 & \blue 35 & \blue \%+40,00 \\
+\hline
+\bblue Dokumentazioa & \bblue 60 & \bblue 60 & \bblue \%0,00 \\
+\hline
+\blue \hspace{1em}Memoria egin & \blue 60 & \blue 60 & \blue \%0,00 \\
+\hline
+\bblue Defentsa & \bblue 10 & \bblue 10 & \bblue \%0,00 \\
+\hline
+\bblue Formazioa & \bblue 60 & \bblue 80 & \bblue \%+33,33 \\
+\hline
+\blue \hspace{1em}Aurrekarien analisia & \blue 10 & \blue 10 & \blue \%0,00 \\
+\hline
+\blue \hspace{1em}Objective-C ikasi & \blue 30 & \blue 40 & \blue \%+33,33 \\
+\hline
+\blue \hspace{1em}Cocoa ikasi & \blue 20 & \blue 30 & \blue \%+50,00 \\
+\hline
+\grey \textbf{Guztira} & \grey 300 ordu & \grey 350 ordu & \grey \%+16,67 \\
+\end{longtable}
+
+\ref{esfortzua-irudia}~Irudian modu grafikoan azaltzen dira egindako estimazioen eta benetako esfortzuaren aldea.
+\begin{figure}[htp]
+\begin{center}
+\includegraphics[scale=0.55]{Pictures/Chapter4/Ondorioak/esfortzua.png}
+\caption{Estimatuko esfortzua vs. Benetako esfortzua}
+\label{esfortzua-irudia}
+\end{center}
+\end{figure}
+
+\subsubsection{Benetako iraupena}
+Lehen aipatu denez proiektuan zehar zenbait atzerapen egon dira, beraz, \ref{gantt.osoa}~Irudian agertzen den plangintza ez da bete. \ref{benetako-gantt}~Irudian ikus daiteke benetako plangintza, eta ohartu gaitezke iterazioak alde batetik luzatu direla, eta bestetik aurreratu desplazatur direla lehenago komentatu dugunagatik. Aldaketa gehiago badaude, adibidez nahiz eta hasieran Objective-C eta Cocoa ikasi, garapenean zehar bi hauetatik asko ikasi dugu, zelantzak zeudenean liburuak edo web orrialdeak kontsultatuz. Bestalde, memoria planifikatutakoa baino lehenago hasi da, amaierarako usten bada lan zama handia delako eta pixkanaka pixkanaka egin dezakegulako.
+\begin{figure}[htp]
+\begin{center}
+\includegraphics[scale=0.47]{Pictures/Chapter4/Ondorioak/iraupena.png}
+\caption{Benetako iraupena}
+\label{benetako-gantt}
+\end{center}
+\end{figure}

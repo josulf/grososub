@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="Untitled Gantt Project" company="" webLink="http://" view-date="2008-09-08" view-index="0" gantt-divider-location="231" resource-divider-location="-1" version="2.0">
+    <description/>
+    <view zooming-state="default:8" id="gantt-chart"/>
+    <view id="resource-table">
+        <field id="0" name="Nombre" width="55" order="0"/>
+        <field id="1" name="Función" width="44" order="1"/>
+    </view>
+    <!-- -->
+    <calendars>
+        <day-types>
+            <day-type id="0"/>
+            <day-type id="1"/>
+            <calendar id="1" name="default">
+                <default-week sun="1" mon="0" tue="0" wed="0" thu="0" fri="0" sat="1"/>
+                <overriden-day-types/>
+                <days/>
+            </calendar>
+        </day-types>
+    </calendars>
+    <tasks color="#8cb6ce">
+        <taskproperties>
+            <taskproperty id="tpd0" name="type" type="default" valuetype="icon"/>
+            <taskproperty id="tpd1" name="priority" type="default" valuetype="icon"/>
+            <taskproperty id="tpd2" name="info" type="default" valuetype="icon"/>
+            <taskproperty id="tpd3" name="name" type="default" valuetype="text"/>
+            <taskproperty id="tpd4" name="begindate" type="default" valuetype="date"/>
+            <taskproperty id="tpd5" name="enddate" type="default" valuetype="date"/>
+            <taskproperty id="tpd6" name="duration" type="default" valuetype="int"/>
+            <taskproperty id="tpd7" name="completion" type="default" valuetype="int"/>
+            <taskproperty id="tpd8" name="coordinator" type="default" valuetype="text"/>
+            <taskproperty id="tpd9" name="predecessorsr" type="default" valuetype="text"/>
+        </taskproperties>
+        <task id="0" name="Kudeaketa" color="#8cb6ce" meeting="false" start="2008-11-03" duration="334" complete="0" priority="1" expand="true">
+            <depend id="6" type="1" difference="0" hardness="Strong"/>
+            <task id="1" name="Bilerak" color="#8cb6ce" meeting="false" start="2008-11-03" duration="334" complete="0" priority="1" expand="true"/>
+            <task id="2" name="Artxiboaren kudeaketa" color="#8cb6ce" meeting="false" start="2008-11-03" duration="334" complete="0" priority="1" expand="true"/>
+        </task>
+        <task id="3" name="Planifikazioa" color="#8cb6ce" meeting="false" start="2008-11-03" duration="217" complete="0" priority="1" expand="true">
+            <task id="4" name="PHD egin" color="#8cb6ce" meeting="false" start="2008-11-03" duration="2" complete="0" priority="1" expand="true">
+                <depend id="5" type="2" difference="0" hardness="Rubber"/>
+                <depend id="26" type="2" difference="0" hardness="Rubber"/>
+            </task>
+            <task id="5" name="Iterazio berriaren planifikazioa" color="#8cb6ce" meeting="false" start="2009-07-03" duration="43" complete="0" priority="1" expand="true">
+                <depend id="6" type="1" difference="0" hardness="Rubber"/>
+            </task>
+        </task>
+        <task id="6" name="Garapena" color="#8cb6ce" meeting="false" start="2009-07-03" duration="151" complete="0" priority="1" expand="true">
+            <depend id="26" type="1" difference="0" hardness="Rubber"/>
+            <depend id="30" type="2" difference="0" hardness="Rubber"/>
+            <task id="8" name="1. iterazioa" color="#8cb6ce" meeting="false" start="2009-07-03" duration="10" complete="0" priority="1" expand="true">
+                <depend id="9" type="2" difference="0" hardness="Rubber"/>
+            </task>
+            <task id="9" name="2. iterazioa" color="#8cb6ce" meeting="false" start="2009-07-17" duration="33" complete="0" priority="1" expand="true">
+                <depend id="10" type="2" difference="0" hardness="Rubber"/>
+            </task>
+            <task id="10" name="3. iterazioa" color="#8cb6ce" meeting="false" start="2009-09-02" duration="108" complete="0" priority="1" expand="true"/>
+        </task>
+        <task id="26" name="Dokumentazioa" color="#8cb6ce" meeting="false" start="2009-07-17" duration="146" complete="0" priority="1" expand="true">
+            <depend id="30" type="2" difference="0" hardness="Rubber"/>
+            <task id="28" name="Memoria egin" color="#8cb6ce" meeting="false" start="2009-07-17" duration="146" complete="0" priority="1" expand="true"/>
+        </task>
+        <task id="30" name="Defentsa" color="#8cb6ce" meeting="false" start="2010-02-09" duration="9" complete="0" priority="1" expand="true"/>
+        <task id="31" name="Formazioa" color="#8cb6ce" meeting="false" start="2008-11-06" duration="322" complete="0" priority="1" expand="true">
+            <task id="32" name="Aurrekarien analisia" color="#8cb6ce" meeting="false" start="2008-11-06" duration="2" complete="0" priority="1" expand="true"/>
+            <task id="33" name="Objective-C ikasi" color="#8cb6ce" meeting="false" start="2008-11-17" duration="315" complete="0" priority="1" expand="true">
+                <depend id="34" type="1" difference="0" hardness="Rubber"/>
+            </task>
+            <task id="34" name="Cocoa ikasi" color="#8cb6ce" meeting="false" start="2009-02-02" duration="260" complete="0" priority="1" expand="true"/>
+        </task>
+    </tasks>
+    <resources/>
+    <allocations/>
+    <vacations/>
+    <taskdisplaycolumns>
+        <displaycolumn property-id="tpd3" order="0" width="198"/>
+    </taskdisplaycolumns>
+    <previous/>
+    <roles roleset-name="Default"/>
+    <roles roleset-name="SoftwareDevelopment"/>
+</project>

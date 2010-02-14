@@ -25,7 +25,6 @@
 @class ASSEventTextView;
 @class ASSTranslationTextView;
 @class ASSSATableView;
-@class ASSSATextView;
 
 @interface ASSScriptController : NSWindowController {
 	IBOutlet ASSEventTableView *eTable;

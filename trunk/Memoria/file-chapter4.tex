@@ -44,7 +44,7 @@ Nahiz eta programak zenbait formaturekin lan egin ahalko duen (ASS, SRT eta TXT)
 
 \ref{formatuak}~Irudian ikusten denez, SRT eta TXT formatuak ASS formatuaren azpimultzoak direla esan daiteke. SRT formatuak dialogoak eta hauen hasiera eta bukaera denborak dauzka, eta TXT formatuak ordea, dialogoak eta hauen aktoreak bakarrik eskaintzen ditu.
 \subsection{Domeinuaren eredua}
-\ref{de}~Irudian ikusten denez, domeinuko osagaien izenak ingeleraz daude, honako arrazoiengatik: alde batetik, ASS formatuaren espezifikazioan izenak ingeleraz agertzen direlako\cite{gu:ass}, eta bestetik programa askea izango denez, norbaitek kodea irakurri edo hobetu nahi badu, askoz errazagoa izango da ingelera jakitea euskara ordez.
+\ref{de}~Irudian ikusten denez, domeinuko osagaien izenak ingeleraz daude, honako arrazoiengatik: alde batetik, ASS formatuaren espezifikazioan izenak ingeleraz agertzen direlako\cite{gu:ass}, eta bestetik programa askea izango denez, norbaitek kodea irakurri edo hobetu nahi badu, ia ziurrena ingelera jakingo du euskara baino.
 \begin{figure}[htp]
 \begin{center}
 %\includegraphics[width=\columnwidth, natwidth=555pt, natheight=402pt]{Pictures/Chapter4/Analisia/DE.png}
@@ -54,8 +54,10 @@ Nahiz eta programak zenbait formaturekin lan egin ahalko duen (ASS, SRT eta TXT)
 \end{center}
 \end{figure}
 
+ASSScript da gure entitate nagusia eta ASS formatuko fitxategi bat errepresentatuko du. Fitxategiaren barruan goiburukoak, estiloak eta gertakizunak aurkituko ditugu, beraz hauetako bakoitza entitate desberdinetan banatuta daude (ASSEvent, ASSHeader eta ASSStyle). ASSEvent eta ASSHeader bakoitza ASSScript batekoa izango da, eta ASSScript-ak hauetako 0 edo gehiago edukiko ditu barnean. ASSScript batek 0 estilo edo gehiago edukiko ditu, eta hauek 0 ASSScript edo gehiagokoen parte izango dira, beste biekin alderatuta estilo biltegiak edukiko ditugulako. Azkenik, gure aplikazioak 0 ASSScript edo gehiago maneiatu ahal izango ditu aldi berean.
+
 \subsection{Egoera diagrama}
-Programaren izaera dela eta, egoera desberdinekin aurkituko gara. Definituko diren egoeratan zenbait erabilpen kasu gauzatu ahalko ditugu, batzutan beste egoera batzuetara pasaz. Honako diagraman ikus daitezke egoerak:
+Programaren izaera dela eta, egoera desberdinekin aurkituko gara. Definituko diren egoeratan zenbait erabilpen kasu gauzatu ahalko ditugu, batzuetan egoeraz aldatuz. Honako diagraman ikus daitezke egoerak:
 
 \begin{figure}[htp]
 \begin{center}
@@ -111,7 +113,7 @@ Programaren izaera dela eta, egoera desberdinekin aurkituko gara. Definituko dir
 	\item \textit{Sistema:} Script berria sortzen du eta defektuzko informazioarekin osatzen du.
 	\item \textit{Sistema:} Erabiltzaileari erakusten dio lehio berri batean.
 \end{enumerate}
-\line(1,0){390}\\
+%\line(1,0){390}\\
 \noindent\\
 \textbf{ID:} G03.\\
 \textbf{Erabilpen kasua:} Fitxategia gorde.\\
@@ -124,8 +126,7 @@ Programaren izaera dela eta, egoera desberdinekin aurkituko gara. Definituko dir
 	\item \textit{Erabiltzailea:} Gordetzeko izena, lekua eta formatua aukeratuko ditu.
 	\item \textit{Sistema:} Dagokion formatuan gordeko du irekita dagoen script-a.
 \end{enumerate}
-%\line(1,0){390}\\
-\newpage
+\line(1,0){390}\\
 \noindent\\
 \textbf{ID:} G04.\\
 \textbf{Erabilpen kasua:} Goiburukoak kudeatu.\\
@@ -161,7 +162,7 @@ Programaren izaera dela eta, egoera desberdinekin aurkituko gara. Definituko dir
 \begin{enumerate}
 	\item \textit{Sistema:} Goiburuko berria sortzen du defektuzko balioekin eta goiburukoen zerrendan gordeko du.
 \end{enumerate}
-%\line(1,0){390}\\
+\line(1,0){390}\\
 \noindent\\
 \textbf{ID:} G06.\\
 \textbf{Erabilpen kasua:} Goiburukoa aukeratu.\\
@@ -302,8 +303,8 @@ Programaren izaera dela eta, egoera desberdinekin aurkituko gara. Definituko dir
 	\item \textit{Erabiltzailea:} Nahi dituen balioak aldatuko ditu eta preferentzia lehioa itxiko du.
 	\item \textit{Sistema:} Erabiltzaileak jarri dituen balioak gorde eta aplikatuko ditu.
 \end{enumerate}
-%\line(1,0){390}\\
-\newpage
+\line(1,0){390}\\
+%\newpage
 \noindent\\
 \textbf{ID:} G16.\\
 \textbf{Erabilpen kasua:} Aplikazioa eguneratu.\\
@@ -433,13 +434,13 @@ Programaren izaera dela eta, egoera desberdinekin aurkituko gara. Definituko dir
 \textbf{ID:} S08.\\
 \textbf{Erabilpen kasua:} Estilo laguntzailea.\\
 \textbf{Aktoreak:} Erabiltzailea.\\
-\textbf{Deskribapena:} Estilo laguntzailea kargatuko du.\\
+\textbf{Deskribapena:} Estilo laguntzailea kargatuko du estiloak aplikatzeko.\\
 \textbf{Aurrebaldintzak:} Script-a kargatuta dago.\\
-\textbf{Postbaldintzak:} Estilo laguntzailea kargatuko du.\\
+\textbf{Postbaldintzak:} Estiloak esleituko zaizkie aukeratutako lerroei.\\
 \textbf{Gertaera fluxu normala:}
 \begin{enumerate}
 	\item \textit{Sistema:} Script-ean dauden estiloak eta uneko lerroaren testua eta aktorea erakutsiko ditu interfazean.
-	\item \textit{Erabiltzailea:} Xagua edo teklatuaren bidez estilo bat aukeratuko du.
+	\item \textit{Erabiltzailea:} Sagua edo teklatuaren bidez estilo bat aukeratuko du.
 	\item \textit{Sistema:} Uneko lerroari aukeratutako estiloa ezarriko dio eta hurrengo lerroa kargatuko du interfazean.
 \end{enumerate}
 \line(1,0){390}\\
@@ -449,7 +450,7 @@ Programaren izaera dela eta, egoera desberdinekin aurkituko gara. Definituko dir
 \textbf{Aktoreak:} Erabiltzailea.\\
 \textbf{Deskribapena:} Itzulpen laguntzailea kargatuko du.\\
 \textbf{Aurrebaldintzak:} Script-a kargatuta dago.\\
-\textbf{Postbaldintzak:} Itzulpen laguntzailea kargatuko du.\\
+\textbf{Postbaldintzak:} Erabiltzaileak egindako itzulpenak ezarriko dira.\\
 \textbf{Gertaera fluxu normala:}
 \begin{enumerate}
 	\item \textit{Sistema:} Uneko lerroaren testua erakutsiko du interfazean.
@@ -460,27 +461,37 @@ Programaren izaera dela eta, egoera desberdinekin aurkituko gara. Definituko dir
 \newpage
 \section{Diseinua}
 \subsection{Dokumentuetan oinarritutako aplikazioak}
-Gure aplikazioak oso komunak diren funtzionalitate batzuk izan behar ditu: fitxategiak ireki, berriak sortu, itxi, etab. Aplikazio hauek dokumentuetan oinarritutakoak dira, eta oso komunak direnez, Cocoa API-ak hauek garatzeko erreztasun asko ematen ditu. \textbf{MVC}\footnote{Model View Controller} patroia jarraituko da diseinua egiterako orduan, nahiz eta klase batzuk mota bat baino gehiagokoak izango diren aurrerago ikusiko dugunez.
+Gure aplikazioak oso komunak diren funtzionalitate batzuk izan behar ditu: fitxategiak ireki, berriak sortu, itxi, etab. Aplikazio hauek dokumentuetan oinarritutakoak dira, eta oso komunak direnez, Cocoa API-ak hauek garatzeko erreztasun asko ematen ditu. \textbf{MVC}\footnote{Model View Controller} patroia jarraituko da diseinua egiterako orduan, beraz sortuko ditugun klaseak hiru multzotan egongo dira banatuta: \textit{Model} (datuak), \textit{View} (interfazea) eta \textit{Controller} (bien arteko loturak). Dena den, aurrerago ikusiko dugun moduan sortuko ditugun zenbait klase multzo bat baino gehiagoren parte izango dira.
 \subsubsection{Dokumentu arkitektura}
-Horrelako aplikazioak gauzatzeko hiru klase eskaintzen ditu Cocoa-k. Lehenik eta behin \texttt{NSDocument} klasea daukagu. Honen azpiklase bat sortuko dugu dokumentuaren (ASS fitxategia gure kasuan) egitura gordetzeko. Nahiz eta zenbait dokumentu formatu onartuko dituen programak (ASS, SRT eta TXT), ASS-rekin lan egingo du barrutik, beraz azpiklase bakarra sortuko dugu. Klase hau \textit{Model} eta \textit{Controller} motakoa izango da.
+Horrelako aplikazioak gauzatzeko hiru klase eskaintzen ditu Cocoa-k. Lehenik eta behin \texttt{NSDocument} klasea daukagu. Honen azpiklase bat sortuko dugu dokumentuaren (ASS fitxategia gure kasuan) egitura gordetzeko. Nahiz eta zenbait dokumentu-formatu onartuko dituen programak (ASS, SRT eta TXT), ASS-rekin lan egingo du barrutik, beraz azpiklase bakarra sortuko dugu. Klase hau \textit{Model} eta \textit{Controller} motakoa izango da.
 
 Ondoren \texttt{NSWindowController} klasea daukagu. Sortuko dugun aplikazioak lehio bakarra edukiko badu, honen azpiklasea egitea ez da beharrezkoa izango. Gure kasuan lehio bat baino gehiago edukiko dugu dokumentu bakar batentzako, beraz lehio mota bakoitzeko azpiklase bat sortuko dugu. Klaseak interfazearen ekintzak jasoko ditu eta \textit{Model} klasea eguneratuko du. Gainera, azpiklase bakoitza \textbf{NIB} fitxategi konkretu batera lotuta egongo da, non interfazea gordeko den (modu grafikoan editatzen dira fitxategi hauek interfaze grafikoa osatzeko). Hau \textit{Controller} motako klasea da.
 
 Azkenik \texttt{NSDocumentController} klasearekin aurkituko gara, baina honen azpiklaserik ez dugu beharko. Honen eginkizuna dokumentuak maneiatzea da: berriak sortzea, ixtea, etab.
 
+Atal honetan azaldutako guztiaren adibidea ikus dezakegu \textit{Apple}-en dokumentazioan agertzen den \ref{nsdoc}~Irudian.
+
+\begin{figure}[htp]
+\begin{center}
+\includegraphics[scale=0.4]{Pictures/Chapter4/Diseinua/nsdocument.png}
+\caption{Dokumentu arkitektura}
+\label{nsdoc}
+\end{center}
+\end{figure}
+
 \subsubsection{Ohiko atazak}
 Lehen esan bezala, badaude programa hauetan oso ohikoak diren funtzionalitate batzuk, eta dokumentu arkitekturak lana asko errazten digu hauek inplementatzeko. \texttt{NSDocument}-en azpiklasean bi metodo inplementatu beharko dira:
 \begin{itemize}
-\item \texttt{-dataOfType:error:}:
+\item \texttt{-dataOfType:typeName error:aError}:
 
 \texttt{NSData} motako objektu bat (\texttt{NSString} bat kodifikazioa espezifiko batekin, \textbf{UTF8} gure kasuan) itzuli behar du dokumentuaren edukiarekin fitxategi batean gordetzeko. \texttt{typeName} parametroarekin jakingo dugu zein den fitxategiaren formatua.
 
-\item \texttt{-readFromData:ofType:error:}:
+\item \texttt{-readFromData:data ofType:typeName error:aError}:
 
-\texttt{NSData} motako objektu bat eta fitxategiaren formatua jasotzen du. Bere eginkizuna zera da: edukia irakurtzea eta dokumentuko datu egiturak betetzea.
+\texttt{NSData} motako objektu bat (data) eta fitxategiaren formatua jasotzen du. Bere eginkizuna zera da: edukia irakurtzea eta dokumentuko datu egiturak betetzea.
 \end{itemize}
 
-Erabilpen kasu hauen sekuentzia diagramak ez dira egingo: G01 - Fitxategia ireki, G02 - Script berria sortu eta G03 - Fitxategia gorde, Apple-en dokumentazioan\footnote{Apple-en dokumentazioko\cite{ap:dba} 29. orrialdean} aurkitu daitezkeelako, nahiz eta apur bat zahartuta egon (goian aipatutako metodoak ez dira erabiltzen, hauen ordez apur bat zaharragoak baina eginkizun berdina dutenak erabiltzen dira).
+Erabilpen kasu hauen sekuentzia diagramak ez dira egingo: G01 - Fitxategia ireki, G02 - Script berria sortu eta G03 - Fitxategia gorde, Apple-en dokumentazioan\footnote{Apple-en dokumentazioko\cite{ap:dba} 29. orrialdean: \url{http://developer.apple.com/documentation/Cocoa/Conceptual/Documents/Documents.pdf}} aurkitu daitezkeelako, nahiz eta apur bat zahartuta egon (goian aipatutako metodoak ez dira erabiltzen, hauen ordez apur bat zaharragoak baina eginkizun berdina dutenak erabiltzen dira).
 
 Sekuentzia diagramak ikusita, guk oso gutxi programatu beharko dugu (bi funtzio) fitxategiak ireki, itxi eta gordetzeko, kode asko aurreztuz (adibidez ez dugu fitxategia aukeratzeko panela maneiatu beharko edo dokumentuaren instantzia berria sortu beharko).
 
@@ -498,18 +509,32 @@ Aurreko kasuetan bezala, esfortzu gutxirekin (kode lerrorik gabe), funtzionalita
 Atal honetan ikusi dugunez, erraztasun asko ematen dizkigu dokumentu arkitekturak, baina askoz gauza gehiago egiteko ere gai da. Informazio gehiago aurkitu daiteke Apple-ek eskaintzen duen dokumentazioan\cite{ap:dba}.
 
 \subsection{Notifikazio bidezko komunikazioa}
-Geroago sekuentzia diagrametan ikusiko denez, objektuen arteko zenbait komunikazioa notifikazio bidez egin dira. Exekutatzen ari den aplikazio orok \textit{NSNotificationCenter} klasearen instatzia bat du, aplikazioaren edozein partetik atzigarria dena. Bertan notifikazioak \textbf{bidaliko} dira alde batetik, eta notifikazioen zain \textbf{erregistratuko} dira zenbait objektu. Erregistratzeko unea instantzia sortzerakoan da, eta bertan azalduko da zein notifikazioren zain erregistratu, noren notifikazioak jaso, etab. eta instantzia suntsitzean erregistratuta zegoena ezabatu behar da. Notifikazioa iristen direnean metodo konkretu bat exekutatuko du instantzia, metodo horien parametroa bakarra izanda: \textit{NSNotification} motako objektu bat bidaltzailearen informazioarekin.
+Geroago sekuentzia diagrametan ikusiko denez, objektuen arteko zenbait komunikazioa notifikazio bidez egin dira, \textit{Observer} patroia jarraituz. Exekutatzen ari den aplikazio orok \textit{NSNotificationCenter} klasearen instatzia bat du, aplikazioaren edozein partetik atzigarria dena. Bertan notifikazioak \textbf{bidaliko} dira alde batetik, eta notifikazioen zain \textbf{erregistratuko} dira zenbait objektu. Erregistratzeko unea instantzia sortzerakoan da, eta bertan azalduko da zein notifikazioren zain erregistratu, noren notifikazioak jaso, etab. eta instantzia suntsitzean erregistratuta zegoena ezabatu behar da. Notifikazioa iristen direnean metodo konkretu bat exekutatuko du instantziak, metodo horien parametroa bakarra izanda: \textit{NSNotification} motako objektu bat bidaltzailearen informazioarekin.
  
-Adibidez interfazean agertzen diren tauletan (\textit{NSTableView} klasekoak) erabiltzen da: erabiltzaileak lerro bat aukeratzen duenean notifikazioa bat bidaltzen da: NSTableViewSelectionDidChangeNotification izenekoa. \textit{ASSScriptController} klasean notifikazio horren zain geratu gara, eta iristen denean lehioaren goiko eremuetan aukeratutako lerroaren informazioa kargatuko da.
+Adibidez interfazean agertzen diren tauletan (\textit{NSTableView} klasekoak) erabiltzen da: erabiltzaileak lerro bat aukeratzen duenean notifikazioa bat bidaltzen da: NSTableViewSelectionDidChangeNotification izenekoa. \textit{ASSScriptController} klasean notifikazio horren zain geratu gara, eta iristen denean lehioaren goiko eremuetan aukeratutako lerroaren informazioa kargatuko da. Portaera hau \ref{notification}~Irudian azalduta agertzen da.
+\begin{figure}[htp]
+\begin{center}
+\includegraphics[scale=0.4]{Pictures/Chapter4/Diseinua/notification.png}
+\caption{Notifikazio bidezko komunikazioa}
+\label{notification}
+\end{center}
+\end{figure}
 
-Guzti hau beste modu batean inplementatu daiteke, \textbf{delegate} izeneko loturen bidez. Zenbait klaseek \textit{delegate} motako metodoak dituzte, eta hauek exekutatzeko klase horren instantziak lotuta egon behar dira beste klase baten instantziarekin, \textit{delegate} loturaren bidez Interface Builder-etik. Aurreko kasuan adibidez, \textit{NSTableView}-k badu horrelako metodo bat: tableViewSelectionDidChange, lehenago aipatu dugunaren gauza berdina egiten duena. Bien desberdintasuna hau da: Instantzia batek \textit{delegate} bidez beste instantzia batekin eduki dezake bakarrik lotura, eta notifikazio bidez instantzia batek bidali ditzake notifikazioak eta \textit{n} instantziek jaso ahal dute.
+Guzti hau beste modu batean inplementatu daiteke, \textbf{delegate} izeneko loturen bidez, \ref{delegate}~Irudian ikus dezakegunez. Zenbait klaseek \textit{delegate} motako metodoak dituzte, eta hauek exekutatzeko klase horren instantziak lotuta egon behar dira beste klase baten instantziarekin, \textit{delegate} loturaren bidez Interface Builder-etik. Aurreko kasuan adibidez, \textit{NSTableView}-k badu horrelako metodo bat: tableViewSelectionDidChange, lehenago aipatu dugunaren gauza berdina egiten duena. Bien desberdintasuna hau da: Instantzia batek \textit{delegate} bidez beste instantzia batekin eduki dezake bakarrik lotura, eta notifikazio bidez instantzia batek bidali ditzake notifikazioak eta \textit{n} instantziek jaso ahal dute.
+\begin{figure}[htp]
+\begin{center}
+\includegraphics[scale=0.4]{Pictures/Chapter4/Diseinua/delegate.png}
+\caption{Delegate bidezko komunikazioa}
+\label{delegate}
+\end{center}
+\end{figure}
 
-Beste gauza baterako erabili dira notifikazioak aplikazioan, adibidez G08 erabilpen kasuan, goiburuko bat ezabatzerakoan \textit{ASSScript} klaseak ezabatzen du dagokion datu egituratik, eta goiburuko editorearen kontrolatzaileak (\textit{ASSHeadersController}) jakin beharko du goiburukoak aldatu direla zerrenda berriro kargatzeko. Momentu honetan pentsa daiteke: "Zergaitik ez egin zuzenean objektuen arteko mezu baten bidez, ASSScript-etik ASSHeadersController-era?", eta erantzuna sinplea da, ASSHeadersController-en instantzia bat ez da beti egongo, goiburukoen kudeaketarako lehioa ixterakoan instantzia suntsituko delako. Horrela, goiburukoak aldatzerakoan (goiburuko kudeatzailetik, edo adibidez Desegin/Berregin aukeretatik) notifikazioa bidaliko da, eta ASSHeadersController-en instantzia bat badago memorian notifikazioa jasotzerakoan zerbait egingo du. Ez badago instantziarik momentu horretan notifikazioa galduko da eta ez da ezer gertatuko.
+Beste gauza baterako erabili dira notifikazioak aplikazioan, adibidez G08 erabilpen kasuan, goiburuko bat ezabatzerakoan \textit{ASSScript} klaseak ezabatzen du dagokion datu egituratik, eta goiburuko editorearen kontrolatzaileak (\textit{ASSHeadersController}) jakin beharko du goiburukoak aldatu direla zerrenda berriro kargatzeko. Momentu honetan pentsa daiteke: "Zergatik ez egin zuzenean objektuen arteko mezu baten bidez, ASSScript-etik ASSHeadersController-era?", eta erantzuna sinplea da, ASSHeadersController-en instantzia bat ez da beti egongo, goiburukoen kudeaketarako lehioa ixterakoan instantzia suntsituko delako. Horrela, goiburukoak aldatzerakoan (goiburuko kudeatzailetik, edo adibidez Desegin/Berregin aukeretatik) notifikazioa bidaliko da, eta ASSHeadersController-en instantzia bat badago memorian notifikazioa jasotzerakoan zerbait egingo du. Ez badago instantziarik momentu horretan notifikazioa galduko da eta ez da ezer gertatuko.
 
 Mota honetako komunikazioak aurrerago ikusiko ditugun sekuentzia diagrametan modu sinplifikatuan adierazi dira: beste objektuen arteko metodo bat izango balitz bezala, baina geziaren lerroa marra soil bat izan ordez marra eta puntuak tartekatzen dituena erabiliz.
 
 \subsection{Sheet motako lehioak}
-Aplikazioak zenbait lehio desberdin edukiko ditu. Lehio horietatik bat lehio nagusia izango da eta dokumentu bat irekita dagoen bitartean lehio hau irekita egon beharko da. Beste lehioak lagungarri bezala ulertu daitezke: lehio nagusiak informazio nagusia edukiko du (azptituluen lerroak hain zuzen ere), eta beste lehioak dokumentuko beste informazioa erakusteko (goiburukoak eta estiloak) edo laguntzaileak erakusteko erabiliko dira. Momentu batean lehio asko egon daitezeke irekita, eta hau ez da oso erosoa lan egiteko, gainera ez da beharrezkoa mota honetako aplikazio batean. Soluzio \textit{sheet} motako lehioak erabiltzea da, \ref{sheet}~Irudian ikus dezakegunez, lehio nagusitik \textit{zintzilikatuta} agertuko dira beste lehioak, eta itxi arte ez zaio lehio nagusiari kontrola itzuliko. Noski, modu honetan eginda ezin da sheet moduan lehio bakar bat irekita egon daiteke, beraz arazoa konpondu dugu.
+Aplikazioak zenbait lehio desberdin edukiko ditu. Lehio horietatik bat lehio nagusia izango da eta dokumentu bat irekita dagoen bitartean lehio hau irekita egon beharko da. Beste lehioak lagungarri bezala uler daitezke: lehio nagusiak informazio nagusia edukiko du (azptituluen lerroak hain zuzen ere), eta beste lehioak dokumentuko beste informazioa erakusteko (goiburukoak eta estiloak) edo laguntzaileak erakusteko erabiliko dira. Momentu batean lehio asko egon daitezeke irekita, eta hau ez da oso erosoa lan egiteko, gainera ez da beharrezkoa mota honetako aplikazio batean. Soluzio \textit{sheet} motako lehioak erabiltzea da, \ref{sheet}~Irudian ikus dezakegunez, lehio nagusitik \textit{zintzilikatuta} agertuko dira beste lehioak, eta itxi arte ez zaio lehio nagusiari kontrola itzuliko. Noski, modu honetan eginda, sheet motako lehio bakar bat irekita eduki ahal izango dugu, beraz arazoa konpondu dugu.
 \begin{figure}[htp]
 \begin{center}
 \includegraphics[scale=0.4]{Pictures/Chapter4/Diseinua/Sheet.png}
@@ -547,7 +572,7 @@ Interfazean erabiltzen diren klaseen azpiklaseak egin dira multzo honetan, \ref{
 \end{figure}
 
 \subsubsection{Controller klaseak}
-\ref{kd-controller}~Irudian ikus daitezke Controller motako klaseak. Alde batetik \textit{NSWindowController} klasearen azpiklaseak dauzkagu, hauek direlarik aplikazioan aurkituko ditugun \textit{Controller} motako klase puruak. Izenak dioen bezala, interfazean agertuko diren lehioen kontrolatzaileak izango dira hauek, interfazea datuekin lotuko dituztenak. Klase bakoitzak interfazeko lehio bat kontrolatuko du, ASSScript klasea ezik, lehio nagusiaz gain laguntzaileen lehio sinpleak ere kontrolatuko dituelako. Lehen aipatu den moduan, \textit{ASSScript} klasea \textit{Controller} motako ere bada, kasu honetan beste kontrolatzaileen kontrolatzailea hain zuzen. Irekita dugun dokumentu bakoitzeko \textit{ASSScript} instantzia bat edukiko dugu, eta honek gestionatuko ditu lehioak noiz eta nola ireki behar diren, etab.
+\ref{kd-controller}~Irudian ikus daitezke Controller motako klaseak. Alde batetik \textit{NSWindowController} klasearen azpiklaseak dauzkagu, hauek direlarik aplikazioan aurkituko ditugun \textit{Controller} motako klase \textit{puruak}. Izenak dioen bezala, interfazean agertuko diren lehioen kontrolatzaileak izango dira hauek, interfazea datuekin lotuko dituztenak. Klase bakoitzak interfazeko lehio bat kontrolatuko du, ASSScript klasea ezik, lehio nagusiaz gain laguntzaileen lehio sinpleak ere kontrolatuko dituelako. Lehen aipatu den moduan, \textit{ASSScript} klasea \textit{Controller} motako ere bada, kasu honetan beste kontrolatzaileen kontrolatzailea hain zuzen. Irekita dugun dokumentu bakoitzeko \textit{ASSScript} instantzia bat edukiko dugu, eta honek gestionatuko ditu lehioak noiz eta nola ireki behar diren, etab.
 \begin{figure}[htp]
 \begin{center}
 \includegraphics[scale=0.3]{Pictures/Chapter4/Diseinua/KD-Controller.png}
@@ -555,7 +580,7 @@ Interfazean erabiltzen diren klaseen azpiklaseak egin dira multzo honetan, \ref{
 \label{kd-controller}
 \end{center}
 \end{figure}
-Bestalde, \textbf{AppController} klasea agertzen da \ref{kd-controller}~Irudian, daukan izenarekin pentsa dezakegu bere eginkizuna oso zabala eta konplexua dela, baina ez, kasu honetan defektuzko preferentziak ezartzea eta erabiltzaileak ezarri dituen preferentziak aktibatzea da.
+Bestalde, \textbf{AppController} klasea agertzen da \ref{kd-controller}~Irudian, daukan izenarekin pentsa dezakegu bere eginkizuna oso zabala eta konplexua dela, baina ez, kasu honetan defektuzko hobespenak ezartzea eta erabiltzaileak ezarri dituenak aktibatzea da.
 
 \subsubsection{Bestelako klaseak}
 Multzo honetan garapenerako lagungarriak izan diren klaseak dauzkagu. \ref{kd-others}~Irudian agertzen den klasea berezia da, bere izena soilik ikusita nabaritu daitekeena: \textbf{NSString+reverse}. NSString klasea Cocoa-k eskaintzen du zuzenean, eta izenak dioenez testu kateak errepesentatzen ditu. Kasu honetan, klase bat baino, Cocoa hizkeran \textbf{kategoria} bat dela esaten dan.
@@ -566,12 +591,15 @@ Multzo honetan garapenerako lagungarriak izan diren klaseak dauzkagu. \ref{kd-ot
 \label{kd-others}
 \end{center}
 \end{figure}
-Beste lengoaia batzuetan, erabil dezakegun baina eraldatu ezin digun klase bati funtzionalitate bat gehitu nahi diogunean (adibidez metodo berri bat gehitu), klase horren azpiklase bat sortzen dugu eta funtzionalitatea gehitzen diogu. Horretarako erabiltzen dira kategoriak Cocoa-n, adibidez \ref{kd-others}~Irudian NSString klaseari \textbf{reverse:} metodoa gehitu zaio, alderantzizkatutako karaktere katea itzultzen duena. Zein da honen abantaila: metodo hau erabili nahi badugu egin behar dugun bakarra \texttt{\#import "NSString+reverse.h"} erabili nahi dugun fitxategian gehitzea da, eta metodoa erabili ahal izango dugu \textit{NSString} motako objektuekin zuzenean.
+Beste lengoaia batzuetan, erabil dezakegun baina eraldatu ezin dugun klase bati funtzionalitate bat gehitu nahi diogunean (adibidez metodo berri bat gehitu), klase horren azpiklase bat sortzen dugu eta funtzionalitatea gehitzen diogu. Horretarako erabiltzen dira kategoriak Cocoa-n, adibidez \ref{kd-others}~Irudian NSString klaseari \textbf{reverse:} metodoa gehitu zaio, alderantzizkatutako karaktere katea itzultzen duena. Zein da honen abantaila: metodo hau erabili nahi badugu egin behar dugun bakarra \texttt{\#import "NSString+reverse.h"} erabili nahi dugun fitxategian gehitzea da, eta metodoa erabili ahal izango dugu \textit{NSString} motako objektuekin zuzenean.
 
 \newpage
 \subsection{Sekuentzia diagramak}
+Atal honetan lehenago definitu diren erabilpen kasuen sekuentzia diagramak agertzen dira. Hauetako gutxi batzuk azalduko dira, besteen funtzionamendua ulertzea erraza delako behin batzuk azalduta egonda.
 
 \subsubsection{G04 - Goiburukoak kudeatu}
+Erabiltzaileak dagokion aukeran klik egiterakoan showHeadersManager mezua bidaliko zaio ASSScript-en instantziari. Honek lehio maneiatzailearen instantzia berri bat sortuko du, ASSHeadersController klasekoa, eta sortu berri duen instantzia hau lehio maneiatzaileen zerrendara gehituko du. ASSHeadersController-ek setDocument mezua jasoko du bere dokumentu bezala ASSScript instantzia ezartzeko. Azkenik, ASSHeadersController zenbait notifikazioren zain erregistratuko da.
+
 \begin{figure}[htp]
 \begin{center}
 \includegraphics[scale=0.35]{Pictures/Chapter4/Diseinua/G04.png}
@@ -581,6 +609,8 @@ Beste lengoaia batzuetan, erabil dezakegun baina eraldatu ezin digun klase bati 
 \end{figure}
 
 \subsubsection{G05 - Goiburukoa sortu}
+Erabiltzaileak botoian klik egiterakoan addHeader mezua bidaliko dio aurreko diagraman sortu den instantziari (Interface Builder-en bidez egin dugu lotura hau). ASSScript-i esan behar zaio goiburuko berri bat sartu behar dela (horretarako aurreko diagraman setDocument metodoaren bidez ASSScript-en instantzia gorde da). ASSScript-ek ez dauka goiburukoen zerrenda, bertan dagoen headers instantzian daude, ASSHeader klasekoa, beraz orain bai mezu baten bidez goiburuko berria zerrendan txertatuko da. Azkenik goiburuko kudeatzailean goiburukoen zerrenda eguneratu behar da, eta horretarako ASSScript-ek notifikazio bat bidaliko du, ASSHeadersController-en instantziak jasoko duena (aurreko diagraman erregistratu da).
+
 \begin{figure}[htp]
 \begin{center}
 \includegraphics[scale=0.35]{Pictures/Chapter4/Diseinua/G05.png}
@@ -589,7 +619,6 @@ Beste lengoaia batzuetan, erabil dezakegun baina eraldatu ezin digun klase bati 
 \end{center}
 \end{figure}
 
-\newpage
 \subsubsection{G06 - Goiburukoa aukeratu}
 \begin{figure}[htp]
 \begin{center}
@@ -599,17 +628,16 @@ Beste lengoaia batzuetan, erabil dezakegun baina eraldatu ezin digun klase bati 
 \end{center}
 \end{figure}
 
-
+\newpage
 \subsubsection{G07 - Goiburukoa editatu}
 \begin{figure}[htp]
 \begin{center}
-\includegraphics[scale=0.33]{Pictures/Chapter4/Diseinua/G07.png}
+\includegraphics[scale=0.30]{Pictures/Chapter4/Diseinua/G07.png}
 \caption{G07 - Goiburukoa editatu}
 \label{g07d}
 \end{center}
 \end{figure}
 
-\newpage
 \subsubsection{G08 - Goiburukoa ezabatu}
 \begin{figure}[htp]
 \begin{center}
@@ -619,7 +647,7 @@ Beste lengoaia batzuetan, erabil dezakegun baina eraldatu ezin digun klase bati 
 \end{center}
 \end{figure}
 
-
+\newpage
 \subsubsection{G09 - Estiloak kudeatu}
 \begin{figure}[htp]
 \begin{center}
@@ -629,7 +657,6 @@ Beste lengoaia batzuetan, erabil dezakegun baina eraldatu ezin digun klase bati 
 \end{center}
 \end{figure}
 
-\newpage
 \subsubsection{G10 - Estilo berria sortu}
 \begin{figure}[htp]
 \begin{center}
@@ -639,7 +666,7 @@ Beste lengoaia batzuetan, erabil dezakegun baina eraldatu ezin digun klase bati 
 \end{center}
 \end{figure}
 
-
+\newpage
 \subsubsection{G11 - Estiloa aukeratu}
 \begin{figure}[htp]
 \begin{center}
@@ -649,7 +676,6 @@ Beste lengoaia batzuetan, erabil dezakegun baina eraldatu ezin digun klase bati 
 \end{center}
 \end{figure}
 
-\newpage
 \subsubsection{G12 - Estiloa editatu}
 \begin{figure}[htp]
 \begin{center}
@@ -658,7 +684,6 @@ Beste lengoaia batzuetan, erabil dezakegun baina eraldatu ezin digun klase bati 
 \label{g12d}
 \end{center}
 \end{figure}
-
 
 \subsubsection{G13 - Estiloa kopiatu}
 \begin{figure}[htp]
@@ -669,7 +694,6 @@ Beste lengoaia batzuetan, erabil dezakegun baina eraldatu ezin digun klase bati 
 \end{center}
 \end{figure}
 
-\newpage
 \subsubsection{G14 - Estiloa ezabatu}
 \begin{figure}[htp]
 \begin{center}
@@ -679,8 +703,9 @@ Beste lengoaia batzuetan, erabil dezakegun baina eraldatu ezin digun klase bati 
 \end{center}
 \end{figure}
 
-
+\newpage
 \subsubsection{S01 - Lerroak aukeratu}
+Lerro zerrendan lerroren bat aukeratzerakoan selectRowIndexes metodoa bidaliko zaio ASSEventTableView-ren instantziari. Honek notifikazio bat bidaliko du, eta ASSScriptController egongo da honen zain. Lerro bakarra aukeratu bada, interfazean lerro horren datuak kargatu beharko dira, eta horretarako lerroa lortu beharko da getEventAtIndex metodoaren bidez. Azkenik interfazeko kontrolak aktibatu behar dira eta bertan kargatu behar dira lerroaren datuak.
 \begin{figure}[htp]
 \begin{center}
 \includegraphics[scale=0.3]{Pictures/Chapter4/Diseinua/S01.png}
@@ -689,8 +714,8 @@ Beste lengoaia batzuetan, erabil dezakegun baina eraldatu ezin digun klase bati 
 \end{center}
 \end{figure}
 
-\newpage
 \subsubsection{S02 - Lerroko eremua aldatu}
+Lerroko eremuaren bat aldatzeko, interfazean aldatzeaz gain "Commit" botoia sakatu behar du erabiltzaileak, eta honen ondorioz commitEvent mezua bidaliko zaio ASSScriptController-en instantziari. Honek ASSEvent-en instantzia berri bat sortuko du eta interfazean agertzen diren datuak sartuko ditu bertan. Ondoren aurretik zegoen ASSEvent konkretua kendu behar da eta sortu berri duguna sartu behar da, replaceEventAtIndex metodoak egiten du hau, ASSScript-ek jasoko duena. ASSEventList-en events instantzia egin behar dira aldaketak, eta azkenik notifikazio bat bidali behar da interfazea datu berriekin eguneratzeko.
 \begin{figure}[htp]
 \begin{center}
 \includegraphics[scale=0.6]{Pictures/Chapter4/Diseinua/S02.png}
@@ -698,7 +723,6 @@ Beste lengoaia batzuetan, erabil dezakegun baina eraldatu ezin digun klase bati 
 \label{s02d}
 \end{center}
 \end{figure}
-
 
 \subsubsection{S03 - Lerroa gehitu}
 \begin{figure}[htp]
@@ -719,7 +743,6 @@ Beste lengoaia batzuetan, erabil dezakegun baina eraldatu ezin digun klase bati 
 \end{center}
 \end{figure}
 
-
 \subsubsection{S05 - Lerroa bikoiztu}
 \begin{figure}[htp]
 \begin{center}
@@ -731,19 +754,19 @@ Beste lengoaia batzuetan, erabil dezakegun baina eraldatu ezin digun klase bati 
 
 \newpage
 \subsubsection{S06 - Lerroak desplazatu}
+Lehenik sheet motako lehio bat sortu behar da, horretarako NSApp instantziari beginSheet metodoa bidaliz. Erabiltzaileak agertzen diren aukeretatik batzuk ezarriko ditu eta "Shift" botoia sakatuko du aukeratu duena aplikatzeko. "Shift" sakatzerakoan ASSScriptController-i iritsiko zaio shiftTimes mezua, baina aldaketak ASSScript-en instantzian egin behar dira, beraz interfazeko behar dugun informazioa hartuko du eta ASSScript-i bidaliko dio shiftTimes:direction forRows:rows affectedTimes:at time:t mezuaren bidez. Honek egin behar dituen aldaketak egiterakoan notifikazio bat bidaliko du interfazean eguneraketak egiteko.
 \begin{figure}[htp]
 \begin{center}
-\includegraphics[scale=0.35]{Pictures/Chapter4/Diseinua/S06.png}
+\includegraphics[scale=0.25]{Pictures/Chapter4/Diseinua/S06.png}
 \caption{S06 - Lerroak desplazatu}
 \label{s06d}
 \end{center}
 \end{figure}
 
-
 \subsubsection{S07 - Lerroak batu}
 \begin{figure}[htp]
 \begin{center}
-\includegraphics[scale=0.35]{Pictures/Chapter4/Diseinua/S07.png}
+\includegraphics[scale=0.25]{Pictures/Chapter4/Diseinua/S07.png}
 \caption{S07 - Lerroak batu}
 \label{s07d}
 \end{center}
@@ -768,7 +791,6 @@ Beste lengoaia batzuetan, erabil dezakegun baina eraldatu ezin digun klase bati 
 \label{s09d}
 \end{center}
 \end{figure}
-
 
 \newpage
 
@@ -829,8 +851,8 @@ Programan exekuzio batetik bestera gorde behar diren datuak dauzkagu, beraz nonb
 \subsubsection{Estilo biltegiak}
 Kasu honetan, estiloak ASS formatuan bezala gordetzen dira /Users/erab/ Library/Application Support/GrosoSub/styles/ katalogo barruko fitxategi desberdinetan. \textbf{Application Support} katalogoa horretarako erabiltzen dute aplikazio guztiek, mota desberdinetako eta programak maneiatuko dituen datuak gordetzeko. Katalogoa ez bada existitzen programak sortuko du bertan zerbait gordeko duen lehenengo aldian.
 
-\subsubsection{Preferentziak}
-Aurrekoarekin alderatuta, preferentzien kontua desberdina da, aplikazio gehienetan ohikoa den funtzio bat denez beste forma batean gorde eta kudeatzen delako. XML formatuko fitxategi batean gordetzen dira preferentziak, /Users/erab/Library/Preferences/com.perryranch.grososub.plist hain zuzen ere. Preferentziak maneiatzeko oso kode gutxi idatzi behar izan da, bakar bakarrik zeintzuk diren preferentzien defektuzko balioak. Erabiltzaileak ezarri dituen balioak hasieran kargatzeko eta programa ixtean gordetzeko Inteface Builder bidez egiten da, \textit{Cocoa bindings} izeneko teknika erabiliz, lehen ikusi dugun modu berdintsuan loturak ezarriz. \ref{prefs}~Irudian ikus daiteke aplikazioaren preferentzia lehioa.
+\subsubsection{Hobespenak}
+Aurrekoarekin alderatuta, preferentzien kontua desberdina da, aplikazio gehienetan ohikoa den funtzio bat denez beste forma batean gorde eta kudeatzen delako. XML formatuko fitxategi batean gordetzen dira preferentziak, /Users/erab/Library/Preferences/com.perryranch.grososub.plist hain zuzen ere (\textit{perryranch} agertzen da proiektuan ezarri den asmatutako enpresaren izena delako). Hobespenak maneiatzeko oso kode gutxi idatzi behar izan da, bakar bakarrik zeintzuk diren preferentzien defektuzko balioak. Erabiltzaileak ezarri dituen balioak hasieran kargatzeko eta programa ixtean gordetzeko Inteface Builder bidez egiten da, \textit{Cocoa bindings} izeneko teknika erabiliz, lehen ikusi dugun modu berdintsuan loturak ezarriz. \ref{prefs}~Irudian ikus daiteke aplikazioaren preferentzia lehioa.
 \begin{figure}[htp]
 \begin{center}
 \includegraphics[scale=0.6]{Pictures/Chapter4/Inplementazioa/prefs.png}
@@ -844,20 +866,18 @@ Erabiltzaileak ezartzen dituen balioak aplikazioaren edozein partetik atzigarria
 \subsection{Eguneraketa automatikoak}
 Aplikazioaren eskakizunetan eguneraketa automatikoen kontua aipatzen da, eta horretarako Mac OS sisteman oso erabilia den \textit{framework} bat erabili da: \textbf{Sparkle\footnote{\url{http://sparkle.andymatuschak.org/}}}. Honetarako ere ez dugu kode lerro bakar bat ere idatzi behar izan, beharrezkoa izan den bakarra framework-aren webgunean azaltzen dituzten loturak Interface Builder-en egitea izan da.
 
-Eguneraketen funtzionamendua erraza da: AppCast\footnote{\url{http://connectedflow.com/appcasting/}} formatua jarraitzen duen XML fitxategi bat atzigarri eduki behar dugu internet-en, baita aplikazioaren bertsio desberdinak eta hauen arteko informazioa ere (\textit{ChangeLog}). Horrela konfiguratzen badugu preferentzietan, aplikazioak noizbehinka begiratuko du ea eguneraketarik dagoen, eta horrela bada erabiltzaileari jakinaraziko dio. Honek baiztapena emango du eguneraketa gauzatzeko edo ez, geroagorako utziz edo bertsio konkretu hori ahaztuz.
+Eguneraketen funtzionamendua erraza da: AppCast\footnote{\url{http://connectedflow.com/appcasting/}} formatua jarraitzen duen XML fitxategi bat atzigarri eduki behar dugu internet-en, baita aplikazioaren bertsio desberdinak eta hauen arteko informazioa ere (\textit{ChangeLog}). Horrela konfiguratzen badugu, aplikazioak noizbehinka begiratuko du ea eguneraketarik dagoen, eta horrela bada erabiltzaileari jakinaraziko dio. Honek baiztapena emango du eguneraketa gauzatzeko edo ez, geroagorako utziz edo bertsio konkretu hori ahaztuz.
 
-Bestalde, eta \ref{prefs}~Irudian ikusten den bezala, eguneraketak egiterakoan sistemaren informazioa bidali daiteke (sistemaren bertsioa, hizkuntza, prozesadorea, etab.), garatzaileak ikus dezan zein motako sistemetan exekutatzen den aplikazioa.
+Bestalde, eta \ref{prefs}~Irudian ikusten den bezala, eguneraketak egiterakoan sistemaren informazioa bidali daiteke (sistemaren bertsioa, hizkuntza, prozesadorea, etab.), garatzaileak ikus dezan zein motako sistemetan exekutatzen den aplikazioa. Bidaltzen den informazioa guztiz anonimoa da eta erabiltzailea ez dago batere behartuta informazio hau bidaltzera. Lehen eguneraketa egiterakoan honen inguruan galdetuko zaio erabiltzaileari eta bidaliko den informazioa ikusi ahal izango du.
 
 Azkenik, erabiltzaileak nahi duenean begiratu dezake ea eguneraketarik dagoen menu-an agertzen den aukera batetik, eta prozesua aipatu dugun berdina izango litzateke.
 
 \subsection{Exekutagarriaren sorkuntza}
-Mac OS X sistema eragilea hiru arkitektura desberdinetan erabili daiteke. Alde batetik \textbf{X86} 32 eta 64 biteko makinetan, eta bestetik gero eta gutxiago erabiltzen \textbf{PPC} makinetan, 32 eta 64 bitekoak hauek ere. Sistema eragilearen azkenengo bertsioan (10.6) PPC arkitektura kendu dute, X86 bakarrik geratuz, baina guk gure aplikazioa PPC makinetarako ere eskaini nahi dugu. Horretarako Xcode-ko proiektuan, SDK-ren 10.5 bertsioa aukeratu dugu, eta exekutagarri \textit{Unibertsala} sortzeko esan dugu, hau da, PPC eta X86 arkitekturetarako kode bitarra sortuko dugu aplikazioa konpilatzerakoan. Noski, aplikazioaren tamaina handiago izango da, baina hala ere 3 MiB inguru okupatzen ditu.
+Mac OS X sistema eragilea hiru arkitektura desberdinetan erabili daiteke. Alde batetik \textbf{X86} 32 eta 64 biteko makinetan, eta bestetik gero eta gutxiago erabiltzen diren \textbf{PPC} makinetan (32 eta 64 bitekoak hauek ere). Sistema eragilearen azkenengo bertsioan (10.6) PPC arkitektura kendu dute, X86 bakarrik geratuz, baina guk gure aplikazioa PPC makinetarako ere eskaini nahi dugu. Horretarako Xcode-ko proiektuan, SDK-ren 10.5 bertsioa aukeratu dugu, eta exekutagarri \textit{Unibertsala} sortzeko esan dugu, hau da, PPC eta X86 arkitekturetarako kode bitarra sortuko dugu aplikazioa konpilatzerakoan. Noski, aplikazioaren tamaina handiago izango da, baina hala ere 3 MiB inguru okupatzen ditu guztira.
 
 Eskakizunetan aipatzen zen aplikazioa instalatzeko erraza izan behar zela, erabiltzaileak konpilatu behar ez izateko. Aplikazioa konpilatzerakoan, .app fitxategi batekin aurkituko gara. Nahiz eta sistemak fitxategi bezala ikusi, benetan katalogo bat da, eta barruan beharrezkoak diren gauza guztiak ditu: exekutagarria (arkitektura desberdinetarako), framework-ak, erabiltzen diren irudiak, ikonoak, itzulpena, etab.
 
 Instalatzeko orduan programa gehienak instalatzen diren moduan egiten da, .app \textit{fitxategi} hori zuzenean \textbf{/Applications/} sistemako katalogora kopiatuz. Sisteman ohikoa den moduan, .app fitxategia \textbf{DMG}\footnote{\url{http://en.wikipedia.org/wiki/Apple_Disk_Image}} baten barruan sartu da. Aplikazioa sistematik ezabatzea ere erraza da, /Applications/ katalogotik ezabatuz nahikoa baita.
-
-Aplikazioa probatzeko Mac OS X sistema eragilea duen konputagailu bat behar denez eta agian proiektua ebaluatuko duenak horrelako makinarik ez duenez izango, programaren funtzionamendua erakusten duen bideo bat grabatu da eta memoria honekin batera datorren CD-an sartu egin da. Honez gain CD horretan memoria hau PDF formatuan, erabili diren diagramak eta irudiak, eta programaren instalatzailea aurkitu daitezke.
 
 \section{Probak}
 Softwarearen edozein garapen prozesutan logikoa denez, garatzen dena probatu egin behar da bere funtzionamendua egokia den jakiteko. Aplikazioaren izaera dela eta bi motako probak gauzatu dira.
@@ -945,7 +965,7 @@ Oraingo honetan ere, Apple-ek eskaintzen duen dokumentazioan\cite{ap:ocu} honi b
 \end{itemize}
 
 \subsection{Proba ez unitarioak}
-Nahiz eta proba unitarioak oso ondo egon garapenean zehar behin eta berriz exekutatu ahal ditugulako programaren portaera zuzena dela ikusteko, ezin dira programa osoa probatzeko erabili, adibidez, nola probatu interfaze grafikoa proba unitarioen bidez? SenTestingKit-ek behintzat ez du horrelakorik eskaintzen.
+Nahiz eta proba unitarioak oso ondo egon garapenean zehar behin eta berriz exekutatu ahal ditugulako programaren portaera zuzena dela egiaztatzeko, ezin dira programa osoa probatzeko erabili, adibidez, nola probatu interfaze grafikoa proba unitarioen bidez? SenTestingKit-ek behintzat ez du horrelakorik eskaintzen.
 
 Beraz, aplikazioaren funtzionamendua egiaztatzeko modu bakarra aplikazioa erabiltzea da gauzak ondo dabiltzan edo ez ikusiz. Lana ez da makala, egoera eta ekintza konbinaketa handia delako eta seguraski arazoren bat ez dugu aurkituko. Dena den, proba prozesu hau erraztearren proiektuaren kanpoko zenbait pertsonen laguntza egon da, garapenean zehar aplikazioa erabili izan dutenak eta erroreak aurkitzerakoan komunikatu dituztenak.
 
@@ -1012,7 +1032,7 @@ Lehen bait lehen hirugarren iterazioarekin hasi beharra dago, eta estimazio berr
 Aurrekoan bezala, bigarren iterazio honetan egindakoa dokumentatzen hasiko gara memorian sartuz beharrezkoa dena, eta horrela poliki-poliki dokumentua osatzen joango gara.
 
 \subsection{Proiektuan zehar egon diren arazo eta atzerapenak}
-Jarraipen bileretan ikus daitekeenez, proiektuan zenbait atzerapen egon dira. Hasieran 2009. urteko Iraileko deialdirako proiektua aurkezte pentsatu zen, horrela udan egin ahal izateko, kurtsoan zehar ikasleak lan zama handia zuelako ikasketekin. Proiektua ondo zijoan, baina zenbait arazok eten egin zuten Abuztuan.
+Jarraipen bileretan ikus daitekeenez, proiektuan zenbait atzerapen egon dira. Hasieran 2009. urteko Iraileko deialdirako proiektua aurkeztea pentsatu zen, horrela udan egin ahal izateko, kurtsoan zehar ikasleak lan zama handia zuelako ikasketekin. Proiektua ondo zihoan, baina zenbait arazok eten egin zuten Abuztuan.
 
 Momentu horretan irtenbide bat bilatu behar izan zen, honelako kasuetarako fakultateak eskaintzen duen \textit{matrikula erlaxatua} hain zuzen ere. Ikasleak Sistemen Informatikan Ingeniari Teknikotik bakarrik proiektua du faltan, eta bere intentzioa Ingeniaritza Informatikoko bigarren zikloa egitea da, beraz hurrengo ikasturtean bigarren zikloko zenbait irakasgai izango ditu eta proiektua amaitu beharko du 2010. urteko Otsailerako.
 
@@ -1094,7 +1114,7 @@ Hasieran, \textit{Proiektuaren Helburu Dokumentuan} estimazio batzuk egin ziren,
 Lehen aipatu denez proiektuan zehar zenbait atzerapen egon dira, beraz, \ref{gantt.osoa}~Irudian agertzen den plangintza ez da bete. \ref{benetako-gantt}~Irudian ikus daiteke benetako plangintza, eta ohartu gaitezke iterazioak alde batetik luzatu direla, eta bestetik aurreratu desplazatur direla lehenago komentatu dugunagatik. Aldaketa gehiago badaude, adibidez nahiz eta hasieran Objective-C eta Cocoa ikasi, garapenean zehar bi hauetatik asko ikasi dugu, zelantzak zeudenean liburuak edo web orrialdeak kontsultatuz. Bestalde, memoria planifikatutakoa baino lehenago hasi da, amaierarako usten bada lan zama handia delako eta pixkanaka pixkanaka egin dezakegulako.
 \begin{figure}[htp]
 \begin{center}
-\includegraphics[scale=0.47]{Pictures/Chapter4/Ondorioak/iraupena.png}
+\includegraphics[scale=0.4]{Pictures/Chapter4/Ondorioak/iraupena.png}
 \caption{Benetako iraupena}
 \label{benetako-gantt}
 \end{center}
